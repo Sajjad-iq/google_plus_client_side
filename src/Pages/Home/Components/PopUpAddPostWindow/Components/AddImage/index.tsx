@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const AddImage = (props: Props) => {
+
     return (
         <InputLabel htmlFor="post-image-upload">
             <FontAwesomeIcon className='add-post-fa-icon' icon={faImage} />

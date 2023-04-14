@@ -19,9 +19,11 @@ export const AddPost = () => {
     const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
 
     const handleImageUpload = async (e: ChangeEvent<any>) => {
-        const file = e.target.files[0];
-        const base64 = await convertToBase64(file);
-        setPhoto(base64)
+        const file = e.target.files[0] || null;
+        if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif") {
+            const base64 = await convertToBase64(file);
+            setPhoto(base64)
+        }
     }
 
     const AddPostHandler = async () => {
