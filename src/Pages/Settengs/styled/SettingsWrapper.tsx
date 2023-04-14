@@ -1,0 +1,14 @@
+import styled from "styled-components";
+import { device } from "../../../assets/breackPoints";
+
+
+export const SettingsWrapper = styled.section`
+ width: 95%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ padding: 10px;
+
+
+`

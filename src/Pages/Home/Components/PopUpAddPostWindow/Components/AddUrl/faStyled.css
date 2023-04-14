@@ -1,0 +1,9 @@
+.post-add-url-fa-icon {
+    font-size: 1.1rem;
+}
+
+@media(min-width:768px) {
+    .post-add-url-fa-icon {
+        font-size: 1.3rem;
+    }
+}
