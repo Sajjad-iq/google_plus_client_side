@@ -23,7 +23,6 @@ export const Settings = () => {
     const [IsLoading, setIsLoading] = useState(false)
     const { Save } = SaveChanges(setIsLoading)
     const Navigate = useNavigate()
-    const arr = [3, 6, 7, 0, 9, 22]
 
     const LogOut = async () => {
         const User = UserData()
@@ -33,7 +32,6 @@ export const Settings = () => {
         Navigate("/SignIn")
     }
 
-    console.log(arr.slice(arr.length - 3, arr.length))
 
     return (
         <Wrapper>

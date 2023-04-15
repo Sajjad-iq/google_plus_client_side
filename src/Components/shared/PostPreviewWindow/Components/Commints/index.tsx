@@ -1,7 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import Image from '../../../../../assets/ICONS/ProfileImg.jpg'
 import { GlobalContext } from '../../../../../Context/GlobalContext'
-import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { useObserver } from '../../../../../services/observer/useObserver'
 import { SetFindUser } from '../../../../../services/PeopleServices/SetFindUser'
 import { FetchComments } from '../../../../../services/PostsServices/FetchComments'
@@ -35,9 +33,7 @@ export const PostComments = () => {
                         onClickOnLogo={() => SetFindUserHandler(e.CommentOwnerId)}
                         CreatedAt={e.createdAt}
                         key={i}
-                        UserImage={e.CommentOwnerImage !== "" ? e.CommentOwnerImage : Image}
-                        UserName={e.CommentOwnerName}
-                        CommentBody={e.CommentBody}
+                        data={e}
                     />
                 })}
 

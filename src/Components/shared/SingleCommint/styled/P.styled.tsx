@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { device } from "../../../assets/breackPoints";
-import { Colors } from "../../../assets/Colors";
+import { device } from "../../../../assets/breackPoints";
+import { Colors } from "../../../../assets/Colors";
 
 
 

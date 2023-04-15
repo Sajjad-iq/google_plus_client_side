@@ -4,7 +4,7 @@ import UserIMG from "../../../assets/ICONS/ProfileImg.jpg"
 import { Column } from '../Column.styled'
 import { UserName } from '../UserCard/styled/UserName.styled'
 import { Wrapper } from './styled/Wrapper'
-import { P } from '../SingleCommint/P.styled'
+import { P } from '../SingleCommint/styled/P.styled'
 import { NotificationsBody } from './styled/NotificationsBody.syled'
 import { Row } from '../Row.styled'
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../assets/breackPoints";
+import { device } from "../../../../assets/breackPoints";
 
 export const CommentBody = styled.article`
  width:90%;

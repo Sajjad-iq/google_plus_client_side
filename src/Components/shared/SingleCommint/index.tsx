@@ -2,18 +2,25 @@ import { UserLogo } from '../../common/UserLogo.styled'
 import { Row } from '../Row.styled'
 import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
-import { CommentBody } from './CommentBody.styled'
-import { P } from './P.styled'
-import { MouseEventHandler } from 'react'
+import { CommentBody } from './styled/CommentBody.styled'
+import { P } from './styled/P.styled'
+import { MouseEventHandler, useState } from 'react'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '../../common/Button.styled'
+import './styled/style.css'
+import { OptionsWindow } from './components/OptionsWindow'
+import Image from '../../../assets/ICONS/ProfileImg.jpg'
+
 
 interface Props {
-    UserImage: string
-    UserName: string
-    CommentBody: string
     CreatedAt: string
     onClickOnLogo: MouseEventHandler
+    data: any
 }
 export const SingleComment = (props: Props) => {
+
+    const [IsActive, setIsActive] = useState(true)
 
     const DateCalculator = () => {
         var CreatedAt = new Date(props.CreatedAt);
@@ -30,13 +37,21 @@ export const SingleComment = (props: Props) => {
 
 
     return (
-        <Row width='100%' padding='10px' align='flex-start'>
-            <UserLogo onClick={props.onClickOnLogo} src={props.UserImage} loading={"lazy"} alt='comment image label' />
-            <Column width='75%' padding='3px' align='flex-start'>
-                <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.UserName}</UserName>
-                <CommentBody>{props.CommentBody}</CommentBody>
+        <Row width='100%' padding='10px' align='flex-start' style={{ position: "relative" }}>
+            <UserLogo onClick={props.onClickOnLogo} src={props.data.CommentOwnerImage !== "" ? props.data.CommentOwnerImage : Image} loading={"lazy"} alt='comment image label' />
+            <Column width='80%' padding='3px' align='flex-start'>
+                <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.data.CommentOwnerName}</UserName>
+                <CommentBody>{props.data.CommentBody}</CommentBody>
             </Column>
+
             <P>{DateCalculator()}</P>
+
+            <Row width='fit-content' align='flex-start' padding='0px 15px'>
+                <Button onClick={() => setIsActive(!IsActive)}>
+                    <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                </Button>
+            </Row>
+            <OptionsWindow data={props.data} IsActive={IsActive} />
         </Row>
     )
 }
