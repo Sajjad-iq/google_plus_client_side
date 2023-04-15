@@ -30,7 +30,7 @@ export const DeleteComments = () => {
                 setSpecificPostComments(newComments)
 
                 let post = SpecificPost
-                post.CommentsCounter = post.CommentsCounter - 1
+                post.CommentsCounter = post.CommentsCounter <= 0 ? 0 : post.CommentsCounter - 1
 
                 setSpecificPost(post)
             })
