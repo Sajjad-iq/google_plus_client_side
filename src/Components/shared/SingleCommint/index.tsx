@@ -4,13 +4,16 @@ import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
 import { CommentBody } from './styled/CommentBody.styled'
 import { P } from './styled/P.styled'
-import { MouseEventHandler, useState } from 'react'
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+import { MouseEventHandler, useEffect, useRef, useState } from 'react'
+import { faEllipsisVertical, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '../../common/Button.styled'
 import './styled/style.css'
 import { OptionsWindow } from './components/OptionsWindow'
 import Image from '../../../assets/ICONS/ProfileImg.jpg'
+import { DateCalculate } from '../../../services/PostsServices/DateCalculate'
+import { TextField } from '../../common/TextField.styled'
+import { EditComment } from '../../../services/PostsServices/EditComment'
 
 
 interface Props {
@@ -20,38 +23,56 @@ interface Props {
 }
 export const SingleComment = (props: Props) => {
 
-    const [IsActive, setIsActive] = useState(true)
+    const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(true)
+    const [IsEditCommentWindowActive, setIsEditCommentWindowActive] = useState(false)
+    const DateCalculator = DateCalculate(props.CreatedAt)
+    const ref = useRef<any>(null)
+    const { Textfield, TextChange, SubmitCommentHandler } = EditComment(props.data)
 
-    const DateCalculator = () => {
-        var CreatedAt = new Date(props.CreatedAt);
-        var NowDate = new Date(Date.now());
-        var Difference = NowDate.getTime() - CreatedAt.getTime();
-        var Difference_In_Days = Difference / (1000 * 3600 * 24);
-        var Difference_In_Hours = Difference / (1000 * 3600);
-        var Difference_In_Minutes = Difference / (1000 * 60);
-
-        if (Difference_In_Minutes < 60) return `${Difference_In_Minutes.toFixed()} min`
-        else if (Difference_In_Hours < 24 && Difference_In_Minutes > 60) return `${Difference_In_Hours.toFixed()} hour`
-        else return `${Difference_In_Days.toFixed()} day`
-    }
+    useEffect(() => {
+        if (ref.current) {
+            IsEditCommentWindowActive ? ref.current?.focus() : ""
+            ref.current.value = Textfield
+        }
+    }, [IsEditCommentWindowActive])
 
 
     return (
-        <Row width='100%' padding='10px' align='flex-start' style={{ position: "relative" }}>
+        <Row width='100%' padding='10px' align='space-between' style={{ position: "relative" }}>
             <UserLogo onClick={props.onClickOnLogo} src={props.data.CommentOwnerImage !== "" ? props.data.CommentOwnerImage : Image} loading={"lazy"} alt='comment image label' />
-            <Column width='80%' padding='3px' align='flex-start'>
+
+            <Column width={window.innerWidth > 1100 ? "72%" : "80%"} padding='3px' align='flex-start'>
                 <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.data.CommentOwnerName}</UserName>
-                <CommentBody>{props.data.CommentBody}</CommentBody>
+
+                {
+                    IsEditCommentWindowActive ?
+                        <TextField ref={ref} IsValidValue={true} onChange={TextChange} rows={1} style={{ margin: "10px 0 0 0", border: "none", width: "90%" }} />
+                        :
+                        <CommentBody>{Textfield}</CommentBody>
+                }
+
             </Column>
 
             <P>{DateCalculator()}</P>
 
             <Row width='fit-content' align='flex-start' padding='0px 15px'>
-                <Button onClick={() => setIsActive(!IsActive)}>
-                    <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
-                </Button>
+                {
+                    IsEditCommentWindowActive ?
+                        <Button onClick={() => {
+                            setIsEditCommentWindowActive(!IsEditCommentWindowActive)
+                            SubmitCommentHandler()
+                        }}>
+                            <FontAwesomeIcon className='post-fa-comment-options' icon={faCheck} />
+                        </Button>
+                        :
+                        <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
+                            <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                        </Button>
+                }
+
             </Row>
-            <OptionsWindow data={props.data} IsActive={IsActive} />
+
+            <OptionsWindow isEditWindowActive={IsEditCommentWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
         </Row>
     )
 }

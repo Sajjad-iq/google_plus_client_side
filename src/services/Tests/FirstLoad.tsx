@@ -8,8 +8,7 @@ export const FirstLoad = () => {
 
   const checkStorage = (key: string) => {
     let User = JSON.parse(localStorage.getItem(key) || JSON.stringify(UserDef))
-    if (User && User.Email !== "") Navigate("/")
-    else Navigate("/SignIn")
+    if (User && User.Email == "") Navigate("/SignIn")
   }
 
   return checkStorage

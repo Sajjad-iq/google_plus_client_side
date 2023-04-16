@@ -35,7 +35,9 @@ export const PostComments = () => {
                         key={i}
                         data={e}
                     />
-                })}
+                })
+            }
+
 
 
             <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
