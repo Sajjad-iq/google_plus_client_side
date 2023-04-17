@@ -14,6 +14,7 @@ import Image from '../../../assets/ICONS/ProfileImg.jpg'
 import { DateCalculate } from '../../../services/PostsServices/DateCalculate'
 import { TextField } from '../../common/TextField.styled'
 import { EditComment } from '../../../services/PostsServices/EditComment'
+import { CommentBodySection } from './styled/CommentBodySection.styled'
 
 
 interface Props {
@@ -29,6 +30,17 @@ export const SingleComment = (props: Props) => {
     const ref = useRef<any>(null)
     const { Textfield, TextChange, SubmitCommentHandler } = EditComment(props.data)
 
+    const resizeTextArea = () => {
+        if (IsEditCommentWindowActive) {
+            if (ref.current.value == "") {
+                ref.current.style.height = "50px";
+            } else if (ref.current.value !== "") {
+                ref.current.style.height = "auto";
+                ref.current.style.height = ref.current.scrollHeight + "px";
+            }
+        }
+    }
+
     useEffect(() => {
         if (ref.current) {
             IsEditCommentWindowActive ? ref.current?.focus() : ""
@@ -36,14 +48,43 @@ export const SingleComment = (props: Props) => {
         }
     }, [IsEditCommentWindowActive])
 
+    useEffect(resizeTextArea, [Textfield]);
 
     return (
-        <Row width='100%' padding='10px' align='space-between' style={{ position: "relative" }}>
-            <UserLogo onClick={props.onClickOnLogo} src={props.data.CommentOwnerImage !== "" ? props.data.CommentOwnerImage : Image} loading={"lazy"} alt='comment image label' />
+        <Column width='100%' padding=' 0 10px' align='center' >
 
-            <Column width={window.innerWidth > 1100 ? "72%" : "80%"} padding='3px' align='flex-start'>
-                <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.data.CommentOwnerName}</UserName>
+            <Row width='100%' padding='10px 0' align='space-between'>
+                <Row width='fit-content' padding='0px' align='center' >
+                    <UserLogo onClick={props.onClickOnLogo} src={props.data.CommentOwnerImage !== "" ? props.data.CommentOwnerImage : Image} loading={"lazy"} alt='comment image label' />
+                    <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.data.CommentOwnerName}</UserName>
+                </Row>
 
+                <Row width='fit-content' padding='0px' align='center'>
+                    <P>{DateCalculator()}</P>
+
+                    <Row width='fit-content' align='flex-start' padding='0px 15px' style={{ position: "relative" }}>
+                        {
+                            IsEditCommentWindowActive ?
+                                <Button onClick={() => {
+                                    setIsEditCommentWindowActive(!IsEditCommentWindowActive)
+                                    SubmitCommentHandler()
+                                }}>
+                                    <FontAwesomeIcon className='post-fa-comment-options' icon={faCheck} />
+                                </Button>
+                                :
+                                <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
+                                    <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                                </Button>
+                        }
+
+                        <OptionsWindow setIsActive={setIsOptionsWindowActive} isEditWindowActive={IsEditCommentWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
+
+                    </Row>
+                </Row>
+
+            </Row>
+
+            <CommentBodySection >
                 {
                     IsEditCommentWindowActive ?
                         <TextField ref={ref} IsValidValue={true} onChange={TextChange} rows={1} style={{ margin: "10px 0 0 0", border: "none", width: "90%" }} />
@@ -51,28 +92,8 @@ export const SingleComment = (props: Props) => {
                         <CommentBody>{Textfield}</CommentBody>
                 }
 
-            </Column>
+            </CommentBodySection>
 
-            <P>{DateCalculator()}</P>
-
-            <Row width='fit-content' align='flex-start' padding='0px 15px'>
-                {
-                    IsEditCommentWindowActive ?
-                        <Button onClick={() => {
-                            setIsEditCommentWindowActive(!IsEditCommentWindowActive)
-                            SubmitCommentHandler()
-                        }}>
-                            <FontAwesomeIcon className='post-fa-comment-options' icon={faCheck} />
-                        </Button>
-                        :
-                        <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
-                            <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
-                        </Button>
-                }
-
-            </Row>
-
-            <OptionsWindow isEditWindowActive={IsEditCommentWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
-        </Row>
+        </Column>
     )
 }

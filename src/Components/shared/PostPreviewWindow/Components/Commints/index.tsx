@@ -6,7 +6,7 @@ import { FetchComments } from '../../../../../services/PostsServices/FetchCommen
 import { LoadingAnimation } from '../../../LoadingAnimation'
 import { Row } from '../../../Row.styled'
 import { SingleComment } from '../../../SingleCommint'
-import { Column } from './Column.styled'
+import { Column } from '../../../Column.styled'
 
 
 
@@ -25,7 +25,7 @@ export const PostComments = () => {
 
 
     return (
-        <Column width='100%' align='center' padding='unset'>
+        <Column width='100%' align='center' padding='15px 0'>
 
             {
                 SpecificPostComments.map((e: any, i: number) => {

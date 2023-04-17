@@ -11,7 +11,6 @@ export const EditComment = (Data: any) => {
     const { setErrMessage, SpecificPostComments } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
-
     const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
 
 

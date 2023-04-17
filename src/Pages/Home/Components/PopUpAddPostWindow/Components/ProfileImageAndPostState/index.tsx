@@ -4,8 +4,8 @@ import { PostStateSelectors } from '../PostStateSelectors'
 import { UserLogo } from '../../../../../../Components/common/UserLogo.styled'
 import { UserName } from '../../../../../../Components/common/UserName.styled'
 import { Row } from "../../../../../../Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/Row.styled"
-import { Column } from "../../../../../../Components/shared/PostPreviewWindow/Components/Commints/Column.styled"
 import { UserData } from "../../../../../../services/LocalStorage/UserData"
+import { Column } from "../../../../../../Components/shared/Column.styled"
 
 export const ProfileImageAndPostState = () => {
     let User = UserData()

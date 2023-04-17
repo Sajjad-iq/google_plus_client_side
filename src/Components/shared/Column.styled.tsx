@@ -11,4 +11,6 @@ export const Column = styled.section<Props>`
  align-items: ${p => p.align};
  flex-direction: column;
  padding:${p => p.padding};
+  background-color: white;
+
 `

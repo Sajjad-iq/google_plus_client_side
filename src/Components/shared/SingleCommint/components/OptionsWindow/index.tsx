@@ -7,6 +7,7 @@ import { EditComment } from '../../../../../services/PostsServices/EditComment'
 
 interface Props {
     IsActive: boolean
+    setIsActive: Dispatch<SetStateAction<boolean>>
     data: any
     EditWindowStateChange: Dispatch<SetStateAction<boolean>>
     isEditWindowActive: boolean
@@ -18,16 +19,22 @@ export const OptionsWindow = (props: Props) => {
     const { DeleteCommentsHandler } = DeleteComments()
 
     return (
-        <ToggleColumn bottom={props.data.CommentOwnerId == User._id ? "-70px" : "-40px"} display={props.IsActive || props.isEditWindowActive ? "none" : "flex"}  >
+        <ToggleColumn bottom={props.data.CommentOwnerId == User._id ? "-100px" : "-70px"} display={props.IsActive ? "none" : "flex"}  >
 
             <Button style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => DeleteCommentsHandler(props.data)}
+                onClick={() => {
+                    DeleteCommentsHandler(props.data)
+                    props.setIsActive(e => e = !e)
+                }}
                 isLastOne={false}>
                 Delete
             </Button>
 
             <Button style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => { props.EditWindowStateChange(e => e = !e) }}
+                onClick={() => {
+                    props.setIsActive(e => e = !e)
+                    props.EditWindowStateChange(e => e = !e)
+                }}
                 isLastOne={false}>
                 Edit
             </Button>
