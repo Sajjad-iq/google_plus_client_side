@@ -12,26 +12,15 @@ export const TextField = styled.textarea<Props>`
  border-radius: 5px;
  font-size:1rem;
  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-   resize: none;
-
-
- ${p => p.IsValidValue ?
-    `
-    border:1px solid gray;
-      &:focus{
-      outline:2px solid ${Colors.Secoundry.Cyan};
-      border:none;
-      }
-     `
-    :
-    `border:1px solid ${Colors.Primary.red};
-      &:focus{
-      outline:none;
-      }
-     `
+ font-weight: 600;
+ resize: none;
+ border:none;
+ 
+  &:focus{
+    border:none;
+      outline: none;
   }
-
+  
     @media ${device.tablet} {
       font-size:1.4rem;
     }
@@ -44,5 +33,7 @@ export const TextField = styled.textarea<Props>`
      @media ${device.desktop} {
       font-size: 1.5rem;
     }
+
+ 
  
 `

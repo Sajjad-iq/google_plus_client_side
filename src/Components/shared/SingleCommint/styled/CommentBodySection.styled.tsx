@@ -9,5 +9,4 @@ export const CommentBodySection = styled.section`
  background-color: white;
  flex-direction: column;
 
-
 `

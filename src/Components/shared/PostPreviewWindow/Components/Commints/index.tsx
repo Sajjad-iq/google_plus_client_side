@@ -9,7 +9,6 @@ import { SingleComment } from '../../../SingleCommint'
 import { Column } from '../../../Column.styled'
 
 
-
 export const PostComments = () => {
 
     const BottomRef = useRef<any>(null)
@@ -37,8 +36,6 @@ export const PostComments = () => {
                     />
                 })
             }
-
-
 
             <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
                 <LoadingAnimation />

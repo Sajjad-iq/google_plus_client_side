@@ -4,8 +4,8 @@ import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
 import { CommentBody } from './styled/CommentBody.styled'
 import { P } from './styled/P.styled'
-import { MouseEventHandler, useEffect, useRef, useState } from 'react'
-import { faEllipsisVertical, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { MouseEventHandler, useContext, useEffect, useRef, useState } from 'react'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '../../common/Button.styled'
 import './styled/style.css'
@@ -15,8 +15,9 @@ import { DateCalculate } from '../../../services/PostsServices/DateCalculate'
 import { TextField } from '../../common/TextField.styled'
 import { EditComment } from '../../../services/PostsServices/EditComment'
 import { CommentBodySection } from './styled/CommentBodySection.styled'
-import { Colors } from '../../../assets/Colors'
 import { LoadingButton } from '../LoadingButton'
+import { ReplayTag } from './styled/ReplayTag'
+import { CommentsContext } from '../../../Context/CommentsContext'
 
 
 interface Props {
@@ -24,6 +25,7 @@ interface Props {
     onClickOnLogo: MouseEventHandler
     data: any
 }
+
 export const SingleComment = (props: Props) => {
 
     const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(true)
@@ -31,6 +33,7 @@ export const SingleComment = (props: Props) => {
     const DateCalculator = DateCalculate(props.CreatedAt)
     const ref = useRef<any>(null)
     const { Textfield, TextChange, SubmitCommentHandler, isLoading } = EditComment(props.data)
+    const { ReplayTo } = useContext(CommentsContext)
 
     const resizeTextArea = () => {
         if (IsEditCommentWindowActive) {
@@ -66,7 +69,7 @@ export const SingleComment = (props: Props) => {
                     <Row width='fit-content' padding='0px' align='center'>
                         <P>{DateCalculator()}</P>
 
-                        <Row width='fit-content' align='flex-start' padding='0px 15px' style={{ position: "relative" }}>
+                        <Row width='fit-content' align='flex-start' padding='0 0 0 10px' style={{ position: "relative" }}>
 
                             <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
                                 <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
@@ -93,7 +96,10 @@ export const SingleComment = (props: Props) => {
                                 />
                             </Row>
                             :
-                            <CommentBody>{Textfield}</CommentBody>
+                            <Column width='100%' padding='0' align='space-between'>
+                                <CommentBody>{Textfield}</CommentBody>
+                                <ReplayTag style={{ alignSelf: "flex-end", marginTop: "15px" }}>{props.data.CommentsRePlayTo || ""}</ReplayTag>
+                            </Column>
                     }
 
                 </Column>

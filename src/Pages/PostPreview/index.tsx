@@ -4,6 +4,7 @@ import { EditPost } from '../../Components/shared/EditPost';
 import { PostPreviewWindow } from '../../Components/shared/PostPreviewWindow'
 import { GlobalContext } from '../../Context/GlobalContext';
 import { Wrapper } from './styled/Wrapper';
+import CommentsContextProvider from '../../Context/CommentsContext';
 
 export const PostPreview = () => {
 
@@ -11,25 +12,27 @@ export const PostPreview = () => {
     const { SpecificPost, IsEditPostWindowActive, setIsEditPostWindowActive, setSpecificPostComments } = useContext(GlobalContext)
 
     return (
-        <Wrapper>
+        <CommentsContextProvider>
+            <Wrapper>
 
-            {
-                IsEditPostWindowActive ?
-                    <EditPost
-                        data={SpecificPost}
-                        IsActive={IsEditPostWindowActive}
-                        CloseFunction={() => setIsEditPostWindowActive(false)}
-                    />
-                    :
-                    <PostPreviewWindow
-                        Loading={SpecificPost.PostBody !== "" ? false : true}
-                        BackHandler={() => {
-                            Navigate("/")
-                            setSpecificPostComments([])
-                        }}
-                    />
-            }
-        </Wrapper>
+                {
+                    IsEditPostWindowActive ?
+                        <EditPost
+                            data={SpecificPost}
+                            IsActive={IsEditPostWindowActive}
+                            CloseFunction={() => setIsEditPostWindowActive(false)}
+                        />
+                        :
+                        <PostPreviewWindow
+                            Loading={SpecificPost.PostBody !== "" ? false : true}
+                            BackHandler={() => {
+                                Navigate("/")
+                                setSpecificPostComments([])
+                            }}
+                        />
+                }
+            </Wrapper>
+        </CommentsContextProvider>
 
     )
 }

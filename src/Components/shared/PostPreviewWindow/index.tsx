@@ -26,7 +26,6 @@ export const PostPreviewWindow = (props: Props) => {
     const { SpecificPost } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
-
     const Ref = useRef<any>(null)
     const RestTextFelidValueReload = () => Ref ? Ref.current.value = "" : ""
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading } = AddCommentServices(RestTextFelidValueReload)

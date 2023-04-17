@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { device } from "../../../../assets/breackPoints";
 
 export const CommentBody = styled.article`
- width:95%;
+ width:100%;
  color:black;
  font-size:0.9rem;
  word-wrap: break-word; 

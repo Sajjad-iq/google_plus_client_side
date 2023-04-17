@@ -6,7 +6,7 @@ interface Props {
 }
 export const UserName = styled.h3<Props>`
 ${p => p.IsCommentUserName ?
-    `font-size:0.8rem;
+    `font-size:1rem;
          @media ${device.tablet} {
            font-size:1rem; 
           }
@@ -15,12 +15,12 @@ ${p => p.IsCommentUserName ?
           }
         `
     :
-    `font-size:1rem;
+    `font-size:1.1rem;
          @media ${device.tablet} {
-           font-size:1.2rem; 
+           font-size:1.3rem; 
           }
            @media ${device.laptop} {
-           font-size:1rem; 
+           font-size:1.1rem; 
           }
         `
   }
