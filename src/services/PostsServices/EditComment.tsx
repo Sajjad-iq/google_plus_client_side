@@ -8,6 +8,7 @@ import { GlobalContext } from '../../Context/GlobalContext'
 export const EditComment = (Data: any) => {
 
     const [Textfield, setTextFelid] = useState<string>(Data.CommentBody)
+    const [isLoading, setIsLoading] = useState(false)
     const { setErrMessage, SpecificPostComments } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
@@ -17,6 +18,7 @@ export const EditComment = (Data: any) => {
     const SubmitCommentHandler = async () => {
         if (Textfield !== "") {
             try {
+                setIsLoading(true)
                 await axios({
                     method: 'post',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/EditComment",
@@ -34,11 +36,13 @@ export const EditComment = (Data: any) => {
             } catch (e: any) {
                 setErrMessage(e.response.data)
                 Navigate("/Error")
+            } finally {
+                setIsLoading(false)
             }
         }
     }
 
-    return { Textfield, TextChange, SubmitCommentHandler }
+    return { Textfield, TextChange, SubmitCommentHandler, isLoading }
 }
 
 
