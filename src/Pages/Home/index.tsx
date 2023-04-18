@@ -6,6 +6,7 @@ import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
 import { Row } from "../../Components/shared/Row.styled"
 import { useObserver } from "../../services/observer/useObserver"
 import { Wrapper } from "./styled/Wrapper"
+import { RedPenButton } from "./Components/RedPenButton"
 
 
 export const Home = () => {
@@ -23,6 +24,7 @@ export const Home = () => {
 
     return (
         <Wrapper>
+            <RedPenButton />
             <Posts
                 Loading={Loading}
                 IsForProfile={false}

@@ -4,7 +4,7 @@ import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
 import { CommentBody } from './styled/CommentBody.styled'
 import { P } from './styled/P.styled'
-import { MouseEventHandler, useContext, useEffect, useRef, useState } from 'react'
+import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '../../common/Button.styled'
@@ -17,7 +17,6 @@ import { EditComment } from '../../../services/PostsServices/EditComment'
 import { CommentBodySection } from './styled/CommentBodySection.styled'
 import { LoadingButton } from '../LoadingButton'
 import { ReplayTag } from './styled/ReplayTag'
-import { CommentsContext } from '../../../Context/CommentsContext'
 
 
 interface Props {
@@ -33,7 +32,6 @@ export const SingleComment = (props: Props) => {
     const DateCalculator = DateCalculate(props.CreatedAt)
     const ref = useRef<any>(null)
     const { Textfield, TextChange, SubmitCommentHandler, isLoading } = EditComment(props.data)
-    const { ReplayTo } = useContext(CommentsContext)
 
     const resizeTextArea = () => {
         if (IsEditCommentWindowActive) {
