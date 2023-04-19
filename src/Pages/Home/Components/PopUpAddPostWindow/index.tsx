@@ -2,7 +2,6 @@ import { PostBody } from "./styled/PostBody.styled"
 import { WindowWrapper } from "./styled/WindowWrapper"
 import { ProfileImageAndPostState } from "./Components/ProfileImageAndPostState"
 import { TextArea } from "./Components/TextArea"
-import { Exit } from "./Components/Exit"
 import { AddPost } from "../../../../services/PostsServices/AddPost"
 import { Row } from "../../../../Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/Row.styled"
 import { AddImage } from "./Components/AddImage"
@@ -12,7 +11,9 @@ import { AddUrl } from "./Components/AddUrl"
 import { AddUrlWindow } from "../../../../Components/shared/AddUrlWindow"
 import { UrlLink } from "../../../../Components/common/UrlLink.styled"
 import { LoadingButton } from "../../../../Components/shared/LoadingButton"
-import { useNavigate } from "react-router-dom"
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button } from "../../../Auth/styled/Button.styled"
 
 
 
@@ -21,7 +22,6 @@ export const PopUpAddPostWindow = () => {
     const { AddPostHandler, Photo, handleImageUpload, TextChange, Textfield, Url, setUrl, isLoading } = AddPost()
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
-    const Navigate = useNavigate()
 
     useEffect(() => {
         if (TextAreaRef.current) {
@@ -40,7 +40,7 @@ export const PopUpAddPostWindow = () => {
 
                 <Row padding="0" align="space-between" width="100%">
                     <ProfileImageAndPostState />
-                    <Exit onClick={() => Navigate("/")} />
+                    <LoadingButton onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
                 </Row>
 
 
@@ -50,13 +50,15 @@ export const PopUpAddPostWindow = () => {
 
                 <Image src={Photo !== "" ? Photo : ""} alt="image uploaded" style={{ display: Photo !== "" ? "flex" : "none" }} />
 
-                <Row padding="10px 0" align="space-between" width="100%">
+                <Row padding="10px 0" align="space-between" width="100%" style={{ alignSelf: "flex-start" }}>
                     <Row padding="0" align="center" width="fit-content">
                         <AddImage onChange={handleImageUpload} />
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 
-                    <LoadingButton onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
+                    <Button style={{ background: "none" }} onClick={() => ""}>
+                        <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                    </Button>
                 </Row>
 
             </PostBody>
@@ -64,3 +66,5 @@ export const PopUpAddPostWindow = () => {
         </WindowWrapper>
     )
 }
+{/* <Exit onClick={() => Navigate("/")} />
+ */}

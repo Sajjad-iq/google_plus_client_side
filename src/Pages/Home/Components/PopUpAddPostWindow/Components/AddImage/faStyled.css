@@ -2,8 +2,8 @@
     font-size: 1.5rem;
 }
 
-@media(min-width:768px) {
+@media(min-width:1024px) {
     .add-post-fa-icon {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 }

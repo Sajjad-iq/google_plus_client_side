@@ -12,6 +12,7 @@ import { useObserver } from "../../services/observer/useObserver"
 import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
 import { Row } from "../../Components/shared/Row.styled"
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
+import { RedPenButton } from "../Home/Components/RedPenButton"
 
 
 function Profile() {
@@ -19,7 +20,7 @@ function Profile() {
     const { onClickOnPost } = PreviewThePost()
     const Navigate = useNavigate()
     const User = UserData()
-    const [PostsCount, setPostsCount] = useState(10)
+    const [PostsCount, setPostsCount] = useState(0)
     const BottomRef = useRef<any>()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: User._id })
 
@@ -32,6 +33,7 @@ function Profile() {
 
     return (
         <Wrapper>
+            <RedPenButton />
             <CoverImages CoverImg={User.CoverPicture !== "" ? User.CoverPicture : CoverIMG} UserImg={User.ProfilePicture !== "" ? User.ProfilePicture : UserIMG} />
             <UserInfo
                 IsLoading={false}

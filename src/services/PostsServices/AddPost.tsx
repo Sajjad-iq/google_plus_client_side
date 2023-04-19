@@ -29,6 +29,7 @@ export const AddPost = () => {
     }
 
     const AddPostHandler = async () => {
+
         if (Textfield !== "") {
             try {
                 setIsLoading(true)
@@ -55,6 +56,8 @@ export const AddPost = () => {
             } finally {
                 setIsLoading(false)
             }
+        } else {
+            window.alert("you can't post empty posts")
         }
     }
 

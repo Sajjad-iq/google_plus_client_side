@@ -21,7 +21,7 @@ export const AddPostComponent = (props: Props) => {
 
             <Row padding="0" width="80%" align="flex-start">
                 <UserLogo src={User.ProfilePicture === "" ? UserIcon : User.ProfilePicture} alt="user" />
-                <WriteSomething>Write Something...</WriteSomething>
+                <WriteSomething>What's new about you...</WriteSomething>
             </Row>
 
             <ImageButton />

@@ -19,7 +19,7 @@ export const PeopleProfile = () => {
 
     const User = UserData()
     let { PeopleUser } = useContext(GlobalContext)
-    const [PostsCount, setPostsCount] = useState(10)
+    const [PostsCount, setPostsCount] = useState(0)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: PeopleUser._id })
     const BottomRef = useRef<any>()
