@@ -7,7 +7,10 @@ import { Row } from "../../../../../../Components/shared/PostPreviewWindow/Compo
 import { UserData } from "../../../../../../services/LocalStorage/UserData"
 import { Column } from "../../../../../../Components/shared/Column.styled"
 
-export const ProfileImageAndPostState = () => {
+interface Props {
+    setSelectorsValue: any
+}
+export const ProfileImageAndPostState = (props: Props) => {
     let User = UserData()
 
     return (
@@ -16,7 +19,7 @@ export const ProfileImageAndPostState = () => {
 
             <Column padding="0" align="flex-start" width="auto">
                 <UserName IsCommentUserName={false}>{`${User.UserName} ${User.FamilyName}`}</UserName>
-                <PostStateSelectors />
+                <PostStateSelectors setSelectWindow={props.setSelectorsValue} />
             </Column>
         </Row>
     )

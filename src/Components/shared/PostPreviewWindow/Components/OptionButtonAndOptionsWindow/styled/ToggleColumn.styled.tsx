@@ -15,4 +15,6 @@ export const ToggleColumn = styled.section<Props>`
  bottom: ${p => p.bottom};
  left:-80px;
  border: 1px solid gray;
+ z-index:20;
+
 `

@@ -1,10 +1,13 @@
 import React from 'react'
 import "./styles.css"
-export const PostStateSelectors = () => {
+interface Props {
+    setSelectWindow: any
+}
+export const PostStateSelectors = (props: Props) => {
     return (
-        <select id="PostOption">
+        <select id="PostOption" onChange={(e) => props.setSelectWindow(e.target.value)}>
             <option value="Public">Public</option>
-            <option value="private">private</option>
+            <option value="Private">private</option>
         </select>
     )
 }

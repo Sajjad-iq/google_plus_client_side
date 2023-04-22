@@ -3,5 +3,5 @@ import styled from "styled-components";
 export const Header = styled.header`
  width: 100%;
  position:fixed;
- top:0;
+ top:0px;
 `

@@ -12,7 +12,7 @@ align-items: center;
 border-radius: 50%;
 position: fixed;
 right: 15px;
-bottom:105px;
+bottom:90px;
 padding:10px;
 height: 55px;
 width: 55px;

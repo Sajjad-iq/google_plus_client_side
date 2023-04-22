@@ -1,25 +1,29 @@
 import styled from "styled-components";
 import { device } from "../../../assets/breackPoints";
 
-interface Props {
-   display: string
-}
-export const AsideWrapper = styled.aside<Props>`
- width: 200px;
+
+export const AsideWrapper = styled.aside`
+ width: 75%;
  height:100%;
- display: ${p => p.display};
+ display: flex;
  justify-content: flex-start;
  align-items: center;
  flex-direction: column;
  background-color: white;
+ position: fixed;
  border:1px solid gray;
- position: absolute;
  left:0;
+ top:0;
  z-index:5;
+ transition : all 0.4s ease;
+ transform : translate(-100%);
+  box-shadow: rgba(0, 0, 0, 0.35) 100px 5px 15px;
+
 
   @media ${device.tablet} {
-     width: 300px;
+     width: 65%;
     }
+    
  @media ${device.laptop} {
     position: static;
     width: 250px;

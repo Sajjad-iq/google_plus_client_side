@@ -43,7 +43,7 @@ export const PostPreviewWindow = (props: Props) => {
 
             <Wrapper>
                 <Row width='100%' align='space-between' padding='10px'>
-                    <BackButton onClick={props.BackHandler} />
+                    <BackButton color={"black"} onClick={props.BackHandler} />
                     <OptionButtonAndOptionsWindow Data={SpecificPost} />
                 </Row>
                 <Post

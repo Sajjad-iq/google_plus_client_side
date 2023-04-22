@@ -8,6 +8,7 @@ import { MenuButton } from "../../Components/shared/MenuButton"
 
 interface Props {
     MenuButtonHandler: MouseEventHandler
+    isMenuButtonActive: boolean
 }
 
 export const Nav = React.memo((props: Props) => {
@@ -17,9 +18,10 @@ export const Nav = React.memo((props: Props) => {
     return (
         <NavWrapper >
             <Section style={{ display: isActive ? "none" : "flex" }} >
-                <MenuButton onClick={props.MenuButtonHandler} />
+                <MenuButton isActive={props.isMenuButtonActive} onClick={props.MenuButtonHandler} />
                 <LogoAndPage />
             </Section>
+
             <NavigationButtons SearchButtonOnClick={Toggle} SearchButtonDisplay={isActive ? "none" : "flex"} />
 
             <SearchFiled setIsActive={setISActive} isActive={isActive} />

@@ -7,6 +7,6 @@ export const ActiveToggle = () => {
 
     return {
         IsPageActive,
-        Toggle
+        Toggle, setIsPageActive
     }
 }

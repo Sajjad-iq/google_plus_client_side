@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProfileUserDescription = styled.h4`
 width:65%;
-font-size:1.1rem;
+font-size:0.9rem;
  color:black;
  margin:10px;
  text-align: center;

@@ -13,6 +13,8 @@ import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
 import { Row } from "../../Components/shared/Row.styled"
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { RedPenButton } from "../Home/Components/RedPenButton"
+import { OptionBar } from "./components/OptionsBar"
+import { Colors } from "../../assets/Colors"
 
 
 function Profile() {
@@ -32,8 +34,12 @@ function Profile() {
 
 
     return (
-        <Wrapper>
+        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.SoftGray }}>
+
+            <OptionBar />
+
             <RedPenButton />
+
             <CoverImages CoverImg={User.CoverPicture !== "" ? User.CoverPicture : CoverIMG} UserImg={User.ProfilePicture !== "" ? User.ProfilePicture : UserIMG} />
             <UserInfo
                 IsLoading={false}

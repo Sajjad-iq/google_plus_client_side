@@ -37,7 +37,6 @@ function App() {
 
           <Route path="/" element={<SplitScreen />} >
             <Route path="/" element={<Home />} />
-            <Route path="/Profile" element={<Profile />} />
             <Route path="/Notifications" element={<Notifications />} />
             <Route path="/Error" element={<Error />} />
             <Route path="/AddPost" element={<AddPostWindow />} />
@@ -45,13 +44,14 @@ function App() {
             <Route path="/Settings" element={<Settings />} />
             <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
             <Route path="/Help" element={<h1>Still Work on it</h1>} />
+            <Route path="/Profile" element={<Profile />} />
 
             <Route path="/People" element={<People />} >
               <Route path="/People/" element={<PeopleList />} />
               <Route path="/People/Profile" element={<PeopleProfile />} />
             </Route>
-
           </Route>
+
 
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />

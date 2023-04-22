@@ -1,37 +1,48 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../../../../../Context/GlobalContext'
 import { UserData } from '../../../../../../services/LocalStorage/UserData'
 import { DeletePost } from '../../../../../../services/PostsServices/DeletePost'
-import { Button } from '../styled/Button.styled'
 import { ToggleColumn } from '../styled/ToggleColumn.styled'
+import { BorderButton } from '../../../../../common/BorderButton.styled'
 
 interface Props {
     IsActive: boolean
     data: any
+    setIsActive: any
 }
 export const OptionsWindow = (props: Props) => {
 
     let User = UserData()
     const { DeletePostHandler } = DeletePost()
-    const { IsEditPostWindowActive, setIsEditPostWindowActive } = useContext(GlobalContext)
+    const { setIsEditPostWindowActive } = useContext(GlobalContext)
+
+    useEffect(() => {
+        const closePostMenu = (e: any) => {
+            props.setIsActive(false)
+            e.stopPropagation()
+        }
+
+        document.body.addEventListener("mousedown", closePostMenu)
+        return () => document.body.removeEventListener("mousedown", closePostMenu)
+    }, [])
 
     return (
         <ToggleColumn bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "none" : "flex"}  >
 
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeletePostHandler(props.data) }}
                 isLastOne={false}>
                 Delete
-            </Button>
+            </BorderButton>
 
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => setIsEditPostWindowActive(true)}
                 isLastOne={false}>
                 Edit
-            </Button>
+            </BorderButton>
 
-            <Button isLastOne={false}>Mute</Button>
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }} isLastOne={true}>Report</Button>
+            <BorderButton isLastOne={false}>Mute</BorderButton>
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }} isLastOne={true}>Report</BorderButton>
         </ToggleColumn>
 
     )

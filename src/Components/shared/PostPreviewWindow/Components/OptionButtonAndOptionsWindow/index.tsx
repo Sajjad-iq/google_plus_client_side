@@ -17,7 +17,7 @@ export const OptionButtonAndOptionsWindow = (props: Props) => {
             <Button onClick={() => setIsActive(!IsActive)}>
                 <FontAwesomeIcon className='post-fa-icon' icon={faEllipsisVertical} />
             </Button>
-            <OptionsWindow data={props.Data} IsActive={IsActive} />
+            <OptionsWindow setIsActive={setIsActive} data={props.Data} IsActive={IsActive} />
         </Row>
     )
 }

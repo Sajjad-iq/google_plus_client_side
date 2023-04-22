@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface Props {
     isLastOne: boolean
 }
-export const Button = styled.button<Props>`
+export const BorderButton = styled.button<Props>`
 background: none;
 color: gray;
 padding:5px 10px;

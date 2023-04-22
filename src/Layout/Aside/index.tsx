@@ -2,27 +2,29 @@ import { AsideWrapper } from './styled/AsideWrapper'
 import { Section } from './styled/Section.styled'
 import { faHouse, faUser, faUsers, faGear, faTriangleExclamation, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
-import { NavButton } from '../../Components/shared/NavButton';
+import { NormalAside } from './components/NormalAside';
+import { MobileAside } from './components/MobileAside';
 
 interface Props {
     IsPageActive: boolean
+    setIsPageActive: any
 }
 export const Aside = React.memo((props: Props) => {
+
+    const OpenMenu = () => {
+        if (window.innerWidth < 768) {
+            if (props.IsPageActive) return { transform: "translate(0)" }
+            else return { transform: "", boxShadow: "unset" }
+        } else return { transform: "translate(0)", boxShadow: "unset" }
+    }
+
     return (
-        <AsideWrapper display={props.IsPageActive ? "flex" : "none"}>
-
-            <Section border='1px solid rgb(211, 210, 210)'>
-                <NavButton CLass='' Name='Home' To='/' ICON={faHouse} />
-                <NavButton CLass='' Name='Profile' To='/Profile' ICON={faUser} />
-                <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
-            </Section>
-
-            <Section border='unset'>
-                <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
-                <NavButton CLass='' Name='Send Feedback' To='/Feedback' ICON={faTriangleExclamation} />
-                <NavButton CLass='' Name='Help' To='/Help' ICON={faCircleQuestion} />
-            </Section>
-
+        <AsideWrapper style={OpenMenu()}>
+            {window.innerWidth > 768 ?
+                <NormalAside />
+                :
+                <MobileAside setIsPageActive={props.setIsPageActive} />
+            }
         </AsideWrapper>
     )
 })

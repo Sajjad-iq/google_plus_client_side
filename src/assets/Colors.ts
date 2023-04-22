@@ -5,6 +5,7 @@ export const Colors = {
         white: "#fff",
         Lightgray: "rgb(201, 201, 201)",
         Black: "black",
+        SoftGray: "rgb(237, 237, 237)"
     },
     Secoundry: {
         blue: "#1B74E4",

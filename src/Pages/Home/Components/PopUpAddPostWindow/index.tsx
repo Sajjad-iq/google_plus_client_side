@@ -14,6 +14,7 @@ import { LoadingButton } from "../../../../Components/shared/LoadingButton"
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from "../../../Auth/styled/Button.styled"
+import { SelectWindow } from "./Components/checkBoxWindow"
 
 
 
@@ -21,25 +22,21 @@ export const PopUpAddPostWindow = () => {
 
     const { AddPostHandler, Photo, handleImageUpload, TextChange, Textfield, Url, setUrl, isLoading } = AddPost()
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
+    const [OptionsValue, setOptionsValue] = useState("Public")
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
 
-    useEffect(() => {
-        if (TextAreaRef.current) {
-            TextAreaRef.current?.focus()
-        }
-    }, [])
-
-
+    useEffect(() => { if (TextAreaRef.current) TextAreaRef.current?.focus() }, [])
 
     return (
         <WindowWrapper display={"flex"}>
 
+            <SelectWindow value={OptionsValue} setValue={setOptionsValue} />
             <AddUrlWindow setUrl={setUrl} setUrlScreenActive={setUrlScreenActive} IsActive={isUrlScreenActive} />
 
             <PostBody>
 
                 <Row padding="0" align="space-between" width="100%">
-                    <ProfileImageAndPostState />
+                    <ProfileImageAndPostState setSelectorsValue={setOptionsValue} />
                     <LoadingButton onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
                 </Row>
 
@@ -66,5 +63,3 @@ export const PopUpAddPostWindow = () => {
         </WindowWrapper>
     )
 }
-{/* <Exit onClick={() => Navigate("/")} />
- */}
