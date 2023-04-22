@@ -14,7 +14,7 @@ export const OptionButtonAndOptionsWindow = () => {
                 <FontAwesomeIcon className='post-fa-icon' style={{ color: "white" }} icon={faEllipsisVertical} />
             </Button>
 
-            <OptionsWindow IsActive={IsActive} />
+            <OptionsWindow setIsActive={setIsActive} IsActive={IsActive} />
         </Wrapper>
     )
 }

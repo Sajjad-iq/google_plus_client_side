@@ -5,7 +5,6 @@ import { UserInfo } from '../../../../Components/shared/UserInfo'
 import { GlobalContext } from '../../../../Context/GlobalContext'
 import { AddOrRemoveFollow } from '../../../../services/PeopleServices/AddOrRemoveFollow'
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
-import { Wrapper } from '../../styled/Wrapper'
 import CoverIMG from "../../../../assets/ICONS/Photos/marguerite-729510__340.jpg"
 import UserIMG from "../../../../assets/ICONS/ProfileImg.jpg"
 import { UserData } from '../../../../services/LocalStorage/UserData'
@@ -13,6 +12,9 @@ import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation
 import { Row } from '../../../../Components/shared/Row.styled'
 import { useObserver } from '../../../../services/observer/useObserver'
 import { FetchPostsHandler } from '../../../../services/PostsServices/FetchPosts'
+import { OptionBar } from '../../../Profile/components/OptionsBar'
+import { Colors } from '../../../../assets/Colors'
+import { Wrapper } from '../../../../Components/shared/Wrapper'
 
 
 export const PeopleProfile = () => {
@@ -33,7 +35,8 @@ export const PeopleProfile = () => {
 
 
     return (
-        <Wrapper>
+        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.SoftGray }}>
+            <OptionBar />
             <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
             <UserInfo
                 IsLoading={IsLoading}
@@ -50,7 +53,7 @@ export const PeopleProfile = () => {
                 OnClickOnPost={onClickOnPost}
             />
 
-            <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='30px' align='center' >
                 <LoadingAnimation />
             </Row>
 

@@ -1,6 +1,6 @@
 import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { DeleteComments } from '../../../../../services/PostsServices/DeleteComments'
-import { Dispatch, SetStateAction, useContext } from 'react'
+import { Dispatch, SetStateAction, useContext, useEffect, useRef } from 'react'
 import { CommentsContext } from '../../../../../Context/CommentsContext'
 import { BorderButton } from '../../../../common/BorderButton.styled'
 import { ToggleColumn } from '../../../PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
@@ -10,7 +10,6 @@ interface Props {
     setIsActive: Dispatch<SetStateAction<boolean>>
     data: any
     EditWindowStateChange: Dispatch<SetStateAction<boolean>>
-    isEditWindowActive: boolean
 }
 
 export const OptionsWindow = (props: Props) => {
@@ -18,23 +17,28 @@ export const OptionsWindow = (props: Props) => {
     let User = UserData()
     const { DeleteCommentsHandler } = DeleteComments()
     const { setReplayTo, setReplayToId } = useContext(CommentsContext)
+    const OptionsRef = useRef<any>()
+
+    const closeCommentMenu = (e: any) => { if (!OptionsRef.current?.contains(e.target)) props.setIsActive(false) }
+
+
+    useEffect(() => {
+        document.body.addEventListener("mousedown", closeCommentMenu, true)
+        return () => document.removeEventListener("mousedown", closeCommentMenu)
+    }, [props.setIsActive])
+
+
     return (
-        <ToggleColumn bottom={props.data.CommentOwnerId == User._id ? "-100px" : "-70px"} display={props.IsActive ? "none" : "flex"}  >
+        <ToggleColumn ref={OptionsRef} bottom={props.data.CommentOwnerId == User._id ? "-100px" : "-70px"} display={props.IsActive ? "flex" : "none"}  >
 
             <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => {
-                    DeleteCommentsHandler(props.data)
-                    props.setIsActive(e => e = !e)
-                }}
+                onClick={() => { DeleteCommentsHandler(props.data) }}
                 isLastOne={false}>
                 Delete
             </BorderButton>
 
             <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => {
-                    props.setIsActive(e => e = !e)
-                    props.EditWindowStateChange(e => e = !e)
-                }}
+                onClick={() => { props.EditWindowStateChange(e => e = !e) }}
                 isLastOne={false}>
                 Edit
             </BorderButton>
@@ -43,7 +47,6 @@ export const OptionsWindow = (props: Props) => {
                 style={{ width: "75px" }}
                 isLastOne={false}
                 onClick={() => {
-                    props.setIsActive(e => e = !e)
                     setReplayTo(`+ ${props.data.CommentOwnerName} `)
                     setReplayToId(props.data.CommentOwnerId)
                 }}

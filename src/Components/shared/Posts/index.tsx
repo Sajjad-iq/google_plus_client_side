@@ -35,7 +35,7 @@ export const Posts = React.memo((props: Props) => {
                 <Masonry >
                     <AddPostComponent GoToAddPostPage={() => Navigate("/AddPost")} IsActive={!props.IsForProfile} />
 
-                    <Row style={{ display: props.Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+                    <Row style={{ display: props.Loading && props.Response.length <= 1 ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
                         <LoadingAnimation />
                     </Row>
 

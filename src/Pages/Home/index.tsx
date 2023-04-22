@@ -31,7 +31,7 @@ export const Home = () => {
                 Response={Response}
                 OnClickOnPost={onClickOnPost}
             />
-            <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='30px' align='center' >
                 <LoadingAnimation />
             </Row>
 

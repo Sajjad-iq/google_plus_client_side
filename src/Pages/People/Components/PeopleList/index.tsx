@@ -37,7 +37,7 @@ export const PeopleList = () => {
                 })
             }
 
-            <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+            <Row style={{ display: Loading ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
                 <LoadingAnimation />
             </Row>
 

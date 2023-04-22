@@ -27,7 +27,7 @@ interface Props {
 
 export const SingleComment = (props: Props) => {
 
-    const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(true)
+    const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(false)
     const [IsEditCommentWindowActive, setIsEditCommentWindowActive] = useState(false)
     const DateCalculator = DateCalculate(props.CreatedAt)
     const ref = useRef<any>(null)
@@ -44,6 +44,7 @@ export const SingleComment = (props: Props) => {
         }
     }
 
+
     useEffect(() => {
         if (ref.current) {
             IsEditCommentWindowActive ? ref.current?.focus() : ""
@@ -52,6 +53,7 @@ export const SingleComment = (props: Props) => {
     }, [IsEditCommentWindowActive])
 
     useEffect(resizeTextArea, [Textfield]);
+
 
     return (
         <Row width='100%' padding='10px' align='center' style={{ alignItems: "flex-start" }}>
@@ -73,7 +75,7 @@ export const SingleComment = (props: Props) => {
                                 <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
                             </Button>
 
-                            <OptionsWindow setIsActive={setIsOptionsWindowActive} isEditWindowActive={IsEditCommentWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
+                            <OptionsWindow setIsActive={setIsOptionsWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
 
                         </Row>
                     </Row>

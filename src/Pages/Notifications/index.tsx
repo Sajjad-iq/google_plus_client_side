@@ -19,7 +19,7 @@ export const Notifications = () => {
         <Wrapper>
             {
                 Loading || NotificationsLoading ?
-                    <Row width='100%' align='center' padding='30px'>
+                    <Row style={{ background: "none" }} width='100%' align='center' padding='20px'>
                         <LoadingAnimation />
                     </Row>
                     :

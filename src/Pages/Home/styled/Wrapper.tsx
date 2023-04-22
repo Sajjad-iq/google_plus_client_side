@@ -7,6 +7,7 @@ export const Wrapper = styled.section`
  justify-content: center;
  align-items: flex-start;
  flex-wrap: wrap;
-   position: relative;
+ position: relative;
+ background:white;
 
 `

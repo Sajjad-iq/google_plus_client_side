@@ -1,12 +1,12 @@
 import React, { MouseEventHandler } from 'react'
-import { UserLogo } from '../UserCard/styled/UserLogo.styled'
 import UserIMG from "../../../assets/ICONS/ProfileImg.jpg"
 import { Column } from '../Column.styled'
-import { UserName } from '../UserCard/styled/UserName.styled'
-import { Wrapper } from './styled/Wrapper'
 import { P } from '../SingleCommint/styled/P.styled'
 import { NotificationsBody } from './styled/NotificationsBody.syled'
 import { Row } from '../Row.styled'
+import { UserLogo } from '../../common/UserLogo.styled'
+import { UserName } from '../../common/UserName.styled'
+import { BorderWrapper } from '../../common/BorderWrapper'
 
 interface Props {
     UserImg: string
@@ -33,21 +33,20 @@ export const NotificationsCard = (props: Props) => {
     }
 
     return (
-        <Wrapper onClick={props.onClick}>
-            <Row width={window.innerWidth >= 720 ? "95%" : "85%"} align='flex-start' padding='0'>
+        <BorderWrapper onClick={props.onClick}>
+            <Row width={window.innerWidth >= 720 ? "95%" : "85%"} align='flex-start' padding='0' style={{ background: "none" }}>
                 <UserLogo
                     src={props.UserImg !== "" ? props.UserImg : UserIMG}
-                    IsForSearch={false} alt="user card"
                 />
 
-                <Column width='75%' align='flex-start' padding='0'>
-                    <UserName IsForSearch={false}>{props.UserName}</UserName>
+                <Column width='75%' align='flex-start' padding='0' style={{ background: "none" }}>
+                    <UserName IsCommentUserName={false}>{props.UserName}</UserName>
 
                     <NotificationsBody>{props.NotificationMessage}</NotificationsBody>
                 </Column>
             </Row>
 
             <P>{DateCalculator()}</P>
-        </Wrapper>
+        </BorderWrapper>
     )
 }

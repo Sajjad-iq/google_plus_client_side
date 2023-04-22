@@ -7,6 +7,10 @@ export const CoverImg = styled.img`
   object-fit:cover;
 
    @media ${device.mobileL} {
-     height: 375px
+     height: 375px;
  }
+
+ @media ${device.laptop} {
+     height: 250px
+  }
 `

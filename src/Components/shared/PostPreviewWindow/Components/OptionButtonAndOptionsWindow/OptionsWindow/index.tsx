@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { GlobalContext } from '../../../../../../Context/GlobalContext'
 import { UserData } from '../../../../../../services/LocalStorage/UserData'
 import { DeletePost } from '../../../../../../services/PostsServices/DeletePost'
@@ -12,22 +12,20 @@ interface Props {
 }
 export const OptionsWindow = (props: Props) => {
 
+
     let User = UserData()
+    const OptionsRef = useRef<any>()
     const { DeletePostHandler } = DeletePost()
     const { setIsEditPostWindowActive } = useContext(GlobalContext)
+    const closePostMenu = (e: any) => { if (!OptionsRef.current?.contains(e.target)) props.setIsActive(false) }
 
     useEffect(() => {
-        const closePostMenu = (e: any) => {
-            props.setIsActive(false)
-            e.stopPropagation()
-        }
-
-        document.body.addEventListener("mousedown", closePostMenu)
-        return () => document.body.removeEventListener("mousedown", closePostMenu)
-    }, [])
+        document.body.addEventListener("mousedown", closePostMenu, true)
+        return () => document.removeEventListener("mousedown", closePostMenu)
+    }, [props.setIsActive])
 
     return (
-        <ToggleColumn bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "none" : "flex"}  >
+        <ToggleColumn ref={OptionsRef} bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "flex" : "none"}  >
 
             <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeletePostHandler(props.data) }}
