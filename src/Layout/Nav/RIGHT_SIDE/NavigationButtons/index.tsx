@@ -18,27 +18,13 @@ export const NavigationButtons = (props: Props) => {
 
     const User = UserData()
     const Location = useLocation()
-
+    /*     Location.pathname !== "/Notifications" ?
+     */
     return (
-        window.innerWidth >= 1024 || Location.pathname !== "/Notifications" ?
 
-            <Wrapper>
-                <Link
-                    to={"/Notifications"}
-                    className='notification-button'
-                >
-                    <FontAwesomeIcon className='fa-notification-button' icon={faBell} />
-                </Link>
-
-                <Link to={"/Profile"}>
-                    <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
-                </Link>
-            </Wrapper>
-
+        Location.pathname === "/Notifications" ? <NotificationsButtons />
             :
-
-            window.innerWidth <= 1024 || Location.pathname !== "/Notifications" ?
-
+            window.innerWidth >= 1024 ?
                 <Wrapper>
                     <Link
                         to={"/Notifications"}
@@ -51,9 +37,10 @@ export const NavigationButtons = (props: Props) => {
                         <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
                     </Link>
                 </Wrapper>
-
                 :
+                window.innerWidth <= 1024 ? null
+                    :
 
-                <NotificationsButtons />
+                    null
     )
 }
