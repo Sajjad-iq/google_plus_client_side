@@ -1,4 +1,4 @@
-import { SearchBtn } from '../../styled/SearchBtn.styled'
+import { SearchBtn } from '../../../styled/SearchBtn.styled'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MouseEventHandler } from 'react';

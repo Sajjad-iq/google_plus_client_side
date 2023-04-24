@@ -6,7 +6,8 @@ import './style.css'
 import { NavUserImg } from "../styled/NavUserImg.styled";
 import { UserData } from "../../../../services/LocalStorage/UserData";
 import ProfileImage from '../../../../assets/ICONS/ProfileImg.jpg'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { NotificationsButtons } from "./Components/NotificationsButtons";
 
 interface Props {
     SearchButtonDisplay: string
@@ -16,21 +17,43 @@ interface Props {
 export const NavigationButtons = (props: Props) => {
 
     const User = UserData()
+    const Location = useLocation()
 
     return (
-        <Wrapper>
-            <div style={{ display: window.innerWidth >= 1024 ? "flex" : "none" }}>
+        window.innerWidth >= 1024 || Location.pathname !== "/Notifications" ?
+
+            <Wrapper>
                 <Link
                     to={"/Notifications"}
                     className='notification-button'
                 >
                     <FontAwesomeIcon className='fa-notification-button' icon={faBell} />
                 </Link>
-            </div>
 
-            <Link to={"/Profile"}>
-                <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
-            </Link>
-        </Wrapper>
+                <Link to={"/Profile"}>
+                    <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
+                </Link>
+            </Wrapper>
+
+            :
+
+            window.innerWidth <= 1024 || Location.pathname !== "/Notifications" ?
+
+                <Wrapper>
+                    <Link
+                        to={"/Notifications"}
+                        className='notification-button'
+                    >
+                        <FontAwesomeIcon className='fa-notification-button' icon={faBell} />
+                    </Link>
+
+                    <Link to={"/Profile"}>
+                        <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
+                    </Link>
+                </Wrapper>
+
+                :
+
+                <NotificationsButtons />
     )
 }

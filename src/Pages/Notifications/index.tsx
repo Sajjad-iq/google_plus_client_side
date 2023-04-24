@@ -15,8 +15,10 @@ export const Notifications = () => {
 
     }, [])
 
+
     return (
-        <Wrapper>
+        <Wrapper style={{ padding: "0" }}>
+
             {
                 Loading || NotificationsLoading ?
                     <Row style={{ background: "none" }} width='100%' align='center' padding='20px'>
@@ -24,9 +26,11 @@ export const Notifications = () => {
                     </Row>
                     :
                     Response.map((e: any, i: number) => {
-                        return <NotificationsCard onClick={() => ClickOnNotificationCardHandler(e)} CreatedAt={e.createdAt} key={i} UserImg={e.NotificationOwnerImage} UserName={e.NotificationName} NotificationMessage={e.NotificationBody} />
+                        return <NotificationsCard onClick={() => ""} key={i} UserImages={e.NotificationOwnerImage} UserName={e.NotificationName} NotificationMessage={e.NotificationBody} />
                     })
             }
         </Wrapper>
     )
 }
+
+

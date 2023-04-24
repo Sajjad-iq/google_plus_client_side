@@ -35,7 +35,7 @@ export const PostPreviewWindow = (props: Props) => {
     return (
         props.Loading && SpecificPost.PostBody == "" ?
 
-            <Row style={{ display: props.Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+            <Row style={{ display: props.Loading ? "flex" : "none", background: "none" }} width='100%' padding='20px' align='center' >
                 <LoadingAnimation />
             </Row>
 

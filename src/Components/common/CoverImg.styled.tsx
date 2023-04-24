@@ -3,14 +3,12 @@ import { device } from "../../assets/breackPoints";
 
 export const CoverImg = styled.img`
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit:cover;
 
    @media ${device.mobileL} {
      height: 375px;
  }
 
- @media ${device.laptop} {
-     height: 250px
-  }
+
 `

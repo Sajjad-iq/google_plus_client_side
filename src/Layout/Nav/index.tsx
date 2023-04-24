@@ -24,7 +24,6 @@ export const Nav = React.memo((props: Props) => {
 
             <NavigationButtons SearchButtonOnClick={Toggle} SearchButtonDisplay={isActive ? "none" : "flex"} />
 
-            <SearchFiled setIsActive={setISActive} isActive={isActive} />
         </NavWrapper>
     )
 })

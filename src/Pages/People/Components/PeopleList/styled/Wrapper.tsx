@@ -8,6 +8,7 @@ export const Wrapper = styled.section`
  position: relative;
  flex-direction: column;
  padding:10px;
+ background:white;
 
 
 `

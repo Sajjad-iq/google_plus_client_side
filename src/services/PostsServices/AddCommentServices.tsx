@@ -10,13 +10,11 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
     const [TextFieldValue, setTextFieldValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const { SpecificPost, SpecificPostComments } = useContext(GlobalContext)
-    const { ReplayTo, setReplayTo, ReplayToId } = useContext(CommentsContext)
+    const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
     const CommentSubmitHandler = async () => {
-
-
 
         try {
             setIsLoading(true)
@@ -26,23 +24,23 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddComment",
                     headers: {},
                     data: {
-                        PostId: SpecificPost._id,
-                        CommentBody: TextFieldValue,
-                        CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
-                        CommentOwnerId: User._id,
-                        CommentOwnerImage: User.ProfilePicture,
-                        PostOwnerId: SpecificPost.PostOwnerId,
-                        CommentsCounter: SpecificPost.CommentsCounter + 1,
-                        CommentsRePlayTo: ReplayTo,
-                        CommentsRePlayToId: ReplayToId,
-
-                        NotificationsObj: {
-                            NotificationName: `${User.UserName} ${User.FamilyName}`,
-                            NotificationBody: SpecificPost.CommentsCounter > 1 ? `add comment to your post with ${SpecificPost.CommentsCounter} more. '${TextFieldValue}'` : `add comment to your post. '${TextFieldValue}'`,
-                            NotificationFromId: SpecificPost._id,
-                            NotificationFrom: "posts",
-                            NotificationOwnerImage: User.ProfilePicture
+                        Comment: {
+                            PostId: SpecificPost._id,
+                            CommentBody: TextFieldValue,
+                            CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
+                            CommentOwnerId: User._id,
+                            CommentOwnerImage: User.ProfilePicture,
+                            PostOwnerId: SpecificPost.PostOwnerId,
+                            CommentsCounter: SpecificPost.CommentsCounter + 1,
+                            CommentsRePlayTo: ReplayTo,
+                            CommentsRePlayToId: ReplayToId
+                        },
+                        Data: {
+                            UserName: User.UserName,
+                            FamilyName: User.FamilyName,
+                            PostBody: SpecificPost.PostBody
                         }
+
                     }
                 }
 
@@ -61,6 +59,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                     RestTextFelidValueReload()
                     setTextFieldValue("")
                     setReplayTo("")
+                    setReplayToId("")
                 })
             }
         } catch (e) {
