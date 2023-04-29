@@ -17,7 +17,6 @@ export const AsideWrapper = styled.aside`
  z-index:5;
  transition : all 0.3s ease;
  transform : translate(-100%);
-  box-shadow: rgba(0, 0, 0, 0.35) 100px 0px 15px;
 
 
   @media ${device.tablet} {

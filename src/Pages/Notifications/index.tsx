@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { LoadingAnimation } from '../../Components/shared/LoadingAnimation'
 import { NotificationsCard } from '../../Components/shared/NotificationsCard'
 import { Row } from '../../Components/shared/Row.styled'
 import { FetchNotifications } from '../../services/NotificationsService/FetchNotifications'
 import { onClickOnNotificationCard } from '../../services/NotificationsService/onClickOnNotificationCard'
 import { Wrapper } from '../People/Components/PeopleList/styled/Wrapper'
+import { GlobalContext } from '../../Context/GlobalContext'
 
 export const Notifications = () => {
 
     const { FetchHandler, Response, Loading } = FetchNotifications()
     const { ClickOnNotificationCardHandler, NotificationsLoading } = onClickOnNotificationCard()
+    const { setHasNotifications } = useContext(GlobalContext)
+
     useEffect(() => {
         FetchHandler()
-
+        setHasNotifications(false)
     }, [])
 
 

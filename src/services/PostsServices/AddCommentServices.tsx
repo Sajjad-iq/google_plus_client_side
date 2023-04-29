@@ -9,16 +9,20 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
     let User = UserData()
     const [TextFieldValue, setTextFieldValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const { SpecificPost, SpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost, SpecificPostComments, socket } = useContext(GlobalContext)
     const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
     const CommentSubmitHandler = async () => {
 
+        ReplayToId === "" ? socket.emit("send_new_notification", SpecificPost.PostOwnerId) : socket.emit("send_new_notification", ReplayToId)
+
         try {
             setIsLoading(true)
             if (TextFieldValue) {
+
+
                 await axios({
                     method: 'put',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddComment",

@@ -7,31 +7,43 @@ import { Home } from "./Pages/Home";
 import { SplitScreen } from "./SplitScreen";
 import Profile from "./Pages/Profile";
 import { Settings } from "./Pages/Settengs";
-import { useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
-import { FirstLoad } from "./services/Tests/FirstLoad";
 import { Error } from "./Pages/Error";
 import { PeopleList } from "./Pages/People/Components/PeopleList";
 import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
-import { SetUserInfoAndRedirect } from "./services/RefreshLogin/SetUserInfoAndRedirect";
+import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
+import notificationAudio from "./assets/audio/Hangouts notification sound(MP3_128K).mp3"
+import { GlobalContext } from "./Context/GlobalContext";
 
 function App() {
 
+  const { socket, setHasNotifications } = useContext(GlobalContext)
+  const alarmRef = useRef<any>()
+  const { CheckUserAccount } = CheckIsAccountValid()
 
-  const checkStorage = FirstLoad()
-  const { RefreshUserAccount } = SetUserInfoAndRedirect()
+  useEffect(() => { CheckUserAccount() }, [])
 
   useEffect(() => {
-    checkStorage("User")
-    RefreshUserAccount()
-  }, [])
+    try {
+      socket.on("new_notification", () => {
+        setHasNotifications(true)
+        alarmRef.current.play()
+      })
+    } catch (e) {
+      console.log(e)
+    }
+
+  }, [socket])
+
 
   return (
     <AppWrapper>
 
+      <audio ref={alarmRef} src={notificationAudio} preload="auto" />
       <AuthContextProvider>
         <Routes>
 
@@ -51,7 +63,6 @@ function App() {
               <Route path="/People/Profile" element={<PeopleProfile />} />
             </Route>
           </Route>
-
 
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />

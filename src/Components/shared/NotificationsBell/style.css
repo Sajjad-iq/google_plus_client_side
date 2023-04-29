@@ -1,0 +1,13 @@
+.Has-notifications {
+    position: relative;
+}
+
+.red-circle {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 1px;
+    right: 7px;
+}

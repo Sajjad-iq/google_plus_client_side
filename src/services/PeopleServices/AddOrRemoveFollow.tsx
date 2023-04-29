@@ -7,13 +7,16 @@ import { UserData } from '../LocalStorage/UserData';
 export const AddOrRemoveFollow = () => {
 
     let User = UserData()
-    let { PeopleUser, setPeopleUser, setErrMessage, } = useContext(GlobalContext)
+    let { PeopleUser, setPeopleUser, setErrMessage, socket } = useContext(GlobalContext)
     const Navigate = useNavigate()
     const [IsLoading, setIsLoading] = useState(false)
 
     const AddOrRemoveFollowHandler = async () => {
 
+        const IsIncludes = PeopleUser.Followers.includes(User._id)
+
         try {
+            !IsIncludes ? socket.emit("send_new_notification", PeopleUser._id) : null
             setIsLoading(true)
             await axios({
                 method: 'post',
@@ -22,15 +25,10 @@ export const AddOrRemoveFollow = () => {
                 data: {
                     FindUserId: PeopleUser._id,
                     OwnerId: User._id,
-                    operation: PeopleUser.Followers.includes(User._id) ? "remove" : "add",
-
-                    NotificationsObj: {
-                        NotificationName: `${User.UserName} ${User.FamilyName}`,
-                        NotificationBody: `started following you.`,
-                        NotificationFromId: User._id,
-                        NotificationFrom: "people",
-                        NotificationOwnerImage: User.ProfilePicture
-                    }
+                    operation: IsIncludes ? "remove" : "add",
+                    UserName: User.UserName,
+                    FamilyName: User.FamilyName,
+                    OwnerImage: User.ProfilePicture
                 }
             }
             ).then(res => {

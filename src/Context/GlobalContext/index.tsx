@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
+import { io } from 'socket.io-client';
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export const def = {
     _id: "",
@@ -55,8 +57,11 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     // for comments of the specific post
     const [SpecificPostComments, setSpecificPostComments] = useState([])
 
+    // for notifications bell
+    const [HasNotifications, setHasNotifications] = useState(false)
+
     return (
-        <GlobalContext.Provider value={{ SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
+        <GlobalContext.Provider value={{ HasNotifications, setHasNotifications, socket, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
             {children}
         </GlobalContext.Provider>
     )

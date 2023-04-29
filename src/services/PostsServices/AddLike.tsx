@@ -1,28 +1,35 @@
 import axios from 'axios'
-import { Dispatch, SetStateAction, useContext, useState } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalContext';
 import { UserData } from '../LocalStorage/UserData';
+
+
 
 export const AddLike = () => {
 
     let User = UserData()
-    const { setSpecificPost } = useContext(GlobalContext)
+    const { setSpecificPost, socket } = useContext(GlobalContext)
 
 
+    const AddLikeHandler = async (data: any) => {
 
-    const AddLikeHandler = async (e: any) => {
+        const IsIncludes = data.Likes.includes(User._id)
+        !IsIncludes ? socket.emit("send_new_notification", data.PostOwnerId) : null
+
 
         try {
+
+
             await axios({
                 method: 'put',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddLike",
                 headers: {},
                 data: {
                     UserId: User._id,
-                    PostId: e._id,
-                    PostOwnerId: e.PostOwnerId,
-                    Operation: e.Likes.includes(User._id) ? "delete" : "add",
-                    PostBody: e.PostBody,
+                    PostId: data._id,
+                    PostOwnerId: data.PostOwnerId,
+                    Operation: IsIncludes ? "delete" : "add",
+                    PostBody: data.PostBody,
                     UserName: User.UserName,
                     FamilyName: User.FamilyName,
                     NotificationFrom: "posts",
