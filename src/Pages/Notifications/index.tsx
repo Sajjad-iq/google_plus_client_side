@@ -18,6 +18,7 @@ export const Notifications = () => {
         setHasNotifications(false)
     }, [])
 
+    if (Response.length > 0) console.log(Response[0].NotificationName.join())
 
     return (
         <Wrapper style={{ padding: "0" }}>

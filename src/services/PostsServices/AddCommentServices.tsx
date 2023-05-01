@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext';
 import { UserData } from '../LocalStorage/UserData';
 import { CommentsContext } from '../../Context/CommentsContext';
@@ -16,7 +16,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
 
     const CommentSubmitHandler = async () => {
 
-        ReplayToId === "" ? socket.emit("send_new_notification", SpecificPost.PostOwnerId) : socket.emit("send_new_notification", ReplayToId)
+        if (SpecificPost.PostOwnerId !== User._id) ReplayToId === "" ? socket.emit("send_new_notification", SpecificPost.PostOwnerId) : socket.emit("send_new_notification", ReplayToId)
 
         try {
             setIsLoading(true)
