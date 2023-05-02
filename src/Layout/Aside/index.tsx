@@ -12,7 +12,7 @@ interface Props {
 export const Aside = React.memo((props: Props) => {
 
     const OpenMenu = () => {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 1024) {
             if (props.IsPageActive) return { transform: "translate(0)" }
             else return { transform: "", boxShadow: "unset" }
         } else return { transform: "translate(0)", boxShadow: "unset" }
@@ -20,7 +20,7 @@ export const Aside = React.memo((props: Props) => {
 
     return (
         <AsideWrapper style={OpenMenu()}>
-            {window.innerWidth > 768 ?
+            {window.innerWidth >= 1024 ?
                 <NormalAside />
                 :
                 <MobileAside setIsPageActive={props.setIsPageActive} />

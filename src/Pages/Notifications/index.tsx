@@ -8,7 +8,6 @@ import { Wrapper } from '../People/Components/PeopleList/styled/Wrapper'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 export const Notifications = () => {
-
     const { FetchHandler, Response, Loading } = FetchNotifications()
     const { ClickOnNotificationCardHandler, NotificationsLoading } = onClickOnNotificationCard()
     const { setHasNotifications } = useContext(GlobalContext)
@@ -18,7 +17,6 @@ export const Notifications = () => {
         setHasNotifications(false)
     }, [])
 
-    if (Response.length > 0) console.log(Response[0].NotificationName.join())
 
     return (
         <Wrapper style={{ padding: "0" }}>
