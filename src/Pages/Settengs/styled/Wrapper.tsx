@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../../assets/breackPoints";
+import { Colors } from "../../../assets/Colors";
 
 
 export const Wrapper = styled.section`
@@ -8,5 +9,6 @@ export const Wrapper = styled.section`
  justify-content: center;
  align-items: center;
  flex-wrap: wrap;
+ background-color: ${Colors.Primary.white};
 
 `

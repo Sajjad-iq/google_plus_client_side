@@ -1,24 +1,19 @@
 import styled from "styled-components";
+import { Colors } from "../../assets/Colors";
 
-interface Props {
-    isLastOne: boolean
-}
-export const BorderButton = styled.button<Props>`
+
+export const BorderButton = styled.button`
 background: none;
-color: gray;
+color: ${Colors.Secoundry.Cyan};
 padding:5px 10px;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 width:100px;
 border:none;
-font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 font-weight: 600;
-${p => p.isLastOne ?
-        `border:unset;`
-        :
-        `border-bottom: 1px solid gray;`
-    }
+margin:5px 0;
 
     &:active{
           opacity: 0.8;

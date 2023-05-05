@@ -2,14 +2,16 @@ import axios from 'axios'
 import React, { ChangeEvent, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../Context/GlobalContext'
+import { UserData } from '../LocalStorage/UserData'
 
 
 
 export const EditComment = (Data: any) => {
 
+    const User = UserData()
     const [Textfield, setTextFelid] = useState<string>(Data.CommentBody)
     const [isLoading, setIsLoading] = useState(false)
-    const { setErrMessage, SpecificPostComments } = useContext(GlobalContext)
+    const { setErrMessage, SpecificPostComments, SpecificPost } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
     const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
@@ -24,7 +26,11 @@ export const EditComment = (Data: any) => {
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/EditComment",
                     data: {
                         commentBody: Textfield,
-                        comment: Data
+                        comment: Data,
+                        postId: SpecificPost._id,
+                        AccessControlId: User._id,
+                        AccessControlPassword: User.Password
+
                     }
                 },
                 ).then(() => {

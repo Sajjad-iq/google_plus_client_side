@@ -5,6 +5,7 @@ import { SetFindUser } from '../PeopleServices/SetFindUser'
 import { FetchSpecificPost } from '../PostsServices/FetchSpecificPost'
 
 export const onClickOnNotificationCard = () => {
+
     const { SetFindUserHandler } = SetFindUser()
     const { FetchSpecificPostHandler } = FetchSpecificPost()
     const Navigate = useNavigate()

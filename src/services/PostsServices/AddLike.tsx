@@ -7,8 +7,8 @@ import { UserData } from '../LocalStorage/UserData';
 
 export const AddLike = () => {
 
-    let User = UserData()
-    const { setSpecificPost, socket } = useContext(GlobalContext)
+    const User = UserData()
+    const { SpecificPost, setSpecificPost, socket } = useContext(GlobalContext)
 
 
     const AddLikeHandler = async (data: any) => {
@@ -18,7 +18,6 @@ export const AddLike = () => {
 
 
         try {
-
 
             await axios({
                 method: 'put',
@@ -33,7 +32,9 @@ export const AddLike = () => {
                     UserName: User.UserName,
                     FamilyName: User.FamilyName,
                     NotificationFrom: "posts",
-                    NotificationOwnerImage: User.ProfilePicture
+                    NotificationOwnerImage: User.ProfilePicture,
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
                 }
             }
             ).then((e) => {

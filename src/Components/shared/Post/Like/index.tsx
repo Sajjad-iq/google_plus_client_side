@@ -1,9 +1,8 @@
-import { MouseEventHandler, useState } from 'react'
+import { useState } from 'react'
 import { Colors } from '../../../../assets/Colors'
 import { Count } from '../../../../Components/common/Count.styled'
 import { PostButton } from '../../../../Components/common/PostButton.styled'
 import { Row } from '../../../../Components/shared/Row.styled'
-import { ActiveToggle } from '../../../../services/PostsServices/PostsScreenToggle'
 
 interface Props {
     LikesCount: number

@@ -5,7 +5,7 @@ import { GlobalContext } from '../../Context/GlobalContext';
 
 export const DeleteComments = () => {
 
-    let User = UserData()
+    const User = UserData()
     const { SpecificPost, SpecificPostComments, setSpecificPost, setSpecificPostComments } = useContext(GlobalContext)
 
     const DeleteCommentsHandler = async (data: any) => {
@@ -19,6 +19,8 @@ export const DeleteComments = () => {
                     UserId: User._id,
                     Comment: data,
                     CommentsCounter: SpecificPost.CommentsCounter - 1,
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
                 }
             }
             ).then(async () => {

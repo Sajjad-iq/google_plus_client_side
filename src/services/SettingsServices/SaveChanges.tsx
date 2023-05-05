@@ -7,16 +7,19 @@ export const SaveChanges = (setIsLoading: any) => {
     const Navigate = useNavigate()
 
     const Save = async () => {
-        let User = UserData()
+
+        const User = UserData()
 
         try {
             setIsLoading(true)
             await axios({
                 method: 'put',
-                url: import.meta.env.VITE_BACKEND_URL + `/api/Profile/${User._id}`,
+                url: import.meta.env.VITE_BACKEND_URL + `/api/Profile/edit`,
                 headers: {},
                 data: {
-                    User
+                    User,
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
                 }
             }
             ).then((e) => {

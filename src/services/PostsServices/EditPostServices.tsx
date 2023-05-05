@@ -8,7 +8,7 @@ import { UserData } from '../LocalStorage/UserData'
 
 export const EditPostServices = (Data: any, WindowClosing: any) => {
 
-  let User = UserData()
+  const User = UserData()
   const [Url, setUrl] = useState(Data.Link)
   const [Photo, setPhoto] = useState<any>(Data.PostImage)
   const [Textfield, setTextFelid] = useState<string>(Data.PostBody)
@@ -37,14 +37,17 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
           data: {
             PostId: Data._id,
             PostBody: Textfield,
-            PostOwnerId: User._id,
-            PostOwnerName: `${User.UserName} ${User.FamilyName}`,
+            PostOwnerId: SpecificPost.PostOwnerId,
+            PostOwnerName: SpecificPost.PostOwnerName,
             PostImage: Photo,
-            PostOwnerImage: User.ProfilePicture,
-            link: Url
+            PostOwnerImage: SpecificPost.PostOwnerImage,
+            link: Url,
+            AccessControl: User._id,
+            AccessControlPassword: User.Password
+
           }
         }
-        ).then((e) => {
+        ).then(() => {
           let post = SpecificPost
           post.PostId = Data._id
           post.PostBody = Textfield

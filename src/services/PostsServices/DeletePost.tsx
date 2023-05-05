@@ -4,7 +4,7 @@ import { UserData } from '../LocalStorage/UserData';
 
 export const DeletePost = () => {
 
-    let User = UserData()
+    const User = UserData()
     const Navigate = useNavigate()
 
     const DeletePostHandler = async (e: any) => {
@@ -16,7 +16,9 @@ export const DeletePost = () => {
                 data: {
                     PostId: e._id,
                     UserId: User._id,
-                    PostOwnerId: e.PostOwnerId
+                    PostOwnerId: e.PostOwnerId,
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
                 }
             }
             ).then(() => {

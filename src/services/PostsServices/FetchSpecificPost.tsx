@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
+import { UserData } from '../LocalStorage/UserData'
 
 export const FetchSpecificPost = () => {
 
     const [Loading, setLoading] = useState(false)
     const { setSpecificPost } = useContext(GlobalContext)
+    const User = UserData()
 
     const FetchSpecificPostHandler = async (id: string) => {
         try {
@@ -15,7 +17,9 @@ export const FetchSpecificPost = () => {
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Post",
                 headers: {},
                 data: {
-                    PostId: id
+                    PostId: id,
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
                 }
             }
             ).then((e: any) => {

@@ -28,19 +28,17 @@ export const OptionsWindow = (props: Props) => {
         <ToggleColumn ref={OptionsRef} bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "flex" : "none"}  >
 
             <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => { DeletePostHandler(props.data) }}
-                isLastOne={false}>
+                onClick={() => { DeletePostHandler(props.data) }}>
                 Delete
             </BorderButton>
 
             <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => setIsEditPostWindowActive(true)}
-                isLastOne={false}>
+                onClick={() => setIsEditPostWindowActive(true)}>
                 Edit
             </BorderButton>
 
-            <BorderButton isLastOne={false}>Mute</BorderButton>
-            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }} isLastOne={true}>Report</BorderButton>
+            <BorderButton >Mute</BorderButton>
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }}>Report</BorderButton>
         </ToggleColumn>
 
     )

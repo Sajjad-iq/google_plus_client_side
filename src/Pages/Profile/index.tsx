@@ -34,7 +34,7 @@ function Profile() {
 
 
     return (
-        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.SoftGray }}>
+        <Wrapper style={window.innerWidth > 1024 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.SoftGray }}>
 
             <OptionBar />
 

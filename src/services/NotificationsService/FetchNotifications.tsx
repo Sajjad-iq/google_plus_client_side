@@ -18,8 +18,12 @@ export const FetchNotifications = () => {
         try {
             setLoading(true)
             await axios({
-                method: 'get',
-                url: import.meta.env.VITE_BACKEND_URL + `/api/Notifications/${User._id}`,
+                method: 'post',
+                url: import.meta.env.VITE_BACKEND_URL + `/api/Notifications/`,
+                data: {
+                    AccessControlId: User._id,
+                    AccessControlPassword: User.Password
+                }
             }
             ).then((e: any) => {
                 setResponse(e.data)

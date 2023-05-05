@@ -33,26 +33,26 @@ export const OptionsWindow = (props: Props) => {
 
             <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeleteCommentsHandler(props.data) }}
-                isLastOne={false}>
+            >
                 Delete
             </BorderButton>
 
             <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { props.EditWindowStateChange(e => e = !e) }}
-                isLastOne={false}>
+            >
                 Edit
             </BorderButton>
 
             <BorderButton
                 style={{ width: "75px" }}
-                isLastOne={false}
+
                 onClick={() => {
                     setReplayTo(`+ ${props.data.CommentOwnerName} `)
                     setReplayToId(props.data.CommentOwnerId)
                 }}
             >Reply
             </BorderButton>
-            <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }} isLastOne={true}>Report</BorderButton>
+            <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }}>Report</BorderButton>
         </ToggleColumn>
 
     )

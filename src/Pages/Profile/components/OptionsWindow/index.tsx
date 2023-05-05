@@ -21,7 +21,7 @@ export const OptionsWindow = (props: Props) => {
 
     return (
         <ToggleColumn bottom={"-40px"} display={props.IsActive ? "flex" : "none"}  >
-            <BorderButton isLastOne={false}>Profile URL</BorderButton>
+            <BorderButton >Profile URL</BorderButton>
         </ToggleColumn>
     )
 }

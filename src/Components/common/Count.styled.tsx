@@ -6,15 +6,12 @@ export const Count = styled.p`
  display: flex;
  justify-content: center;
  align-items: center;
- font-size:1.2rem;
- margin:5px;
+ font-size:1rem;
+ margin-left:8px;
 
  @media ${device.tablet} {
-    font-size:1.7rem;
+    font-size:1.35rem;
     margin:10px;
+  }
 
-  }
-  @media ${device.tablet} {
-    font-size:1.4rem;
-  }
 `
