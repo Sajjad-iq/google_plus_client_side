@@ -1,5 +1,5 @@
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { Posts } from "../../Components/shared/Posts"
 import { PreviewThePost } from "../../services/PostsServices/PreviewThePost"
 import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
@@ -7,11 +7,12 @@ import { Row } from "../../Components/shared/Row.styled"
 import { useObserver } from "../../services/observer/useObserver"
 import { Wrapper } from "./styled/Wrapper"
 import { RedPenButton } from "./Components/RedPenButton"
+import { GlobalContext } from "../../Context/GlobalContext"
 
 
 export const Home = () => {
 
-
+    const { User } = useContext(GlobalContext)
     const [PostsCount, setPostsCount] = useState(0)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
@@ -19,7 +20,7 @@ export const Home = () => {
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
 
     useEffect(() => {
-        FetchPosts()
+        User._id !== "" ? FetchPosts() : null
     }, [PostsCount])
 
     return (

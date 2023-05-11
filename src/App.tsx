@@ -7,7 +7,7 @@ import { Home } from "./Pages/Home";
 import { SplitScreen } from "./SplitScreen";
 import Profile from "./Pages/Profile";
 import { Settings } from "./Pages/Settengs";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
 import { Error } from "./Pages/Error";
@@ -59,6 +59,7 @@ function App() {
         </AuthContextProvider>
 
       </AppWrapper>
+
   )
 }
 
