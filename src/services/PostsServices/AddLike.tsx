@@ -8,14 +8,12 @@ import { UserData } from '../LocalStorage/UserData';
 export const AddLike = () => {
 
     const User = UserData()
-    const { SpecificPost, setSpecificPost, socket } = useContext(GlobalContext)
+    const { SpecificPost, setSpecificPost } = useContext(GlobalContext)
 
 
     const AddLikeHandler = async (data: any) => {
 
         const IsIncludes = data.Likes.includes(User._id)
-        !IsIncludes ? socket.emit("send_new_notification", data.PostOwnerId) : null
-
 
         try {
 
@@ -23,6 +21,7 @@ export const AddLike = () => {
                 method: 'put',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddLike",
                 headers: {},
+                withCredentials: true,
                 data: {
                     UserId: User._id,
                     PostId: data._id,
@@ -33,8 +32,6 @@ export const AddLike = () => {
                     FamilyName: User.FamilyName,
                     NotificationFrom: "posts",
                     NotificationOwnerImage: User.ProfilePicture,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then((e) => {

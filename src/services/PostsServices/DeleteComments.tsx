@@ -14,13 +14,12 @@ export const DeleteComments = () => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/DeleteComments",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: SpecificPost._id,
                     UserId: User._id,
                     Comment: data,
                     CommentsCounter: SpecificPost.CommentsCounter - 1,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then(async () => {

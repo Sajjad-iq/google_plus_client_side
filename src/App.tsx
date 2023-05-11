@@ -7,7 +7,7 @@ import { Home } from "./Pages/Home";
 import { SplitScreen } from "./SplitScreen";
 import Profile from "./Pages/Profile";
 import { Settings } from "./Pages/Settengs";
-import { useContext, useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
 import { Error } from "./Pages/Error";
@@ -16,34 +16,16 @@ import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
 import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
-import notificationAudio from "./assets/audio/Hangouts notification sound(MP3_128K).mp3"
-import { GlobalContext } from "./Context/GlobalContext";
 
 function App() {
 
-  const { socket, setHasNotifications } = useContext(GlobalContext)
-  const alarmRef = useRef<any>()
-  const { CheckUserAccount } = CheckIsAccountValid()
+  const { FirstLoad, Loading } = CheckIsAccountValid()
 
-  useEffect(() => { CheckUserAccount() }, [])
-
-  useEffect(() => {
-    try {
-      socket.on("new_notification", () => {
-        setHasNotifications(true)
-        alarmRef.current.play()
-      })
-    } catch (e) {
-      console.log(e)
-    }
-
-  }, [socket])
-
+  useEffect(() => { FirstLoad() }, [])
 
   return (
     <AppWrapper>
 
-      <audio ref={alarmRef} src={notificationAudio} preload="auto" />
       <AuthContextProvider>
         <Routes>
 

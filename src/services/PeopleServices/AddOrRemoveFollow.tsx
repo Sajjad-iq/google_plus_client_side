@@ -16,12 +16,13 @@ export const AddOrRemoveFollow = () => {
         const IsIncludes = PeopleUser.Followers.includes(User._id)
 
         try {
-            !IsIncludes ? socket.emit("send_new_notification", PeopleUser._id) : null
             setIsLoading(true)
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/People/AddFollow",
                 headers: {},
+                withCredentials: true,
+
                 data: {
                     FindUserId: PeopleUser._id,
                     OwnerId: User._id,

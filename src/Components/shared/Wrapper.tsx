@@ -8,5 +8,6 @@ export const Wrapper = styled.section`
  align-items: center;
  flex-wrap: wrap;
  position: relative;
+ background:white;
 
 `

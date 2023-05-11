@@ -37,6 +37,7 @@ export const AddPost = () => {
                     method: 'post',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts",
                     headers: {},
+                    withCredentials: true,
                     data: {
                         PostBody: Textfield,
                         PostOwnerId: User._id,

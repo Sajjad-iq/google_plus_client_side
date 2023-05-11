@@ -21,9 +21,11 @@ export const SetFindUser = () => {
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/People/",
+                withCredentials: true,
+
                 headers: {},
                 data: {
-                    id: Id
+                    id: Id,
                 }
             }
             ).then(async (e: any) => {

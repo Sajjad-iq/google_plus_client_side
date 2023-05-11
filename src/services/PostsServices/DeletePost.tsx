@@ -13,12 +13,11 @@ export const DeletePost = () => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Delete",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: e._id,
                     UserId: User._id,
                     PostOwnerId: e.PostOwnerId,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then(() => {

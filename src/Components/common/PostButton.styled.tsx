@@ -25,7 +25,7 @@ export const PostButton = styled.button<Props>`
     width: 45px;
   }
   @media ${device.laptop} {
-    font-size:1.6rem;
+    font-size:1.35rem;
     height: 40px;
     width: 40px;
     padding:0;

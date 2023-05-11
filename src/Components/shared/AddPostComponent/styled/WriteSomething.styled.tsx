@@ -17,6 +17,6 @@ export const WriteSomething = styled.h2`
     font-size:1rem;
   }
   @media ${device.laptop} {
- font-size:0.9rem;
+ font-size:0.85rem;
   }
 `

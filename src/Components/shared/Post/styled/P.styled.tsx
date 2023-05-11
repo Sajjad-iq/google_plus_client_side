@@ -13,4 +13,8 @@ export const P = styled.section`
   @media ${device.tablet} {
     font-size:0.9rem;
   }
+
+   @media ${device.laptop} {
+    font-size:0.8rem;
+  }
 `

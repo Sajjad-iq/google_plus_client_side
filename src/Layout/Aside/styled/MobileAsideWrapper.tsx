@@ -9,5 +9,5 @@ export const MobileAsideWrapper = styled.aside`
  align-items: center;
  flex-direction: column;
  background-color: white;
- z-index:5;
+ z-index:50;
 `

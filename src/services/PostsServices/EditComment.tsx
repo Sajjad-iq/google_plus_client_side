@@ -24,13 +24,11 @@ export const EditComment = (Data: any) => {
                 await axios({
                     method: 'post',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/EditComment",
+                    withCredentials: true,
                     data: {
                         commentBody: Textfield,
                         comment: Data,
-                        postId: SpecificPost._id,
-                        AccessControlId: User._id,
-                        AccessControlPassword: User.Password
-
+                        postId: SpecificPost._id
                     }
                 },
                 ).then(() => {

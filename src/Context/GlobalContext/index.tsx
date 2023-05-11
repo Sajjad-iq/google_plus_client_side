@@ -1,6 +1,4 @@
 import { createContext, ReactNode, useState } from 'react'
-import { io } from 'socket.io-client';
-const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export const def = {
     _id: "",
@@ -22,6 +20,7 @@ export const FindUserDef = {
     CoverPicture: "",
     Description: "",
     Email: "",
+    Password: "",
     Followers: [],
 }
 export const NotificationDef = {
@@ -34,7 +33,6 @@ export const NotificationDef = {
 
 
 
-
 type ProviderChildrenType = {
     children: ReactNode
 }
@@ -43,6 +41,8 @@ export const GlobalContext = createContext<any>([])
 
 const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
 
+    // my user 
+    const [User, setUser] = useState(FindUserDef)
     // for error page
     const [ErrMessage, setErrMessage] = useState("NetWork Error")
     //for find people from comments or posts when user click on the small image
@@ -61,7 +61,7 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     const [HasNotifications, setHasNotifications] = useState(false)
 
     return (
-        <GlobalContext.Provider value={{ HasNotifications, setHasNotifications, socket, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
+        <GlobalContext.Provider value={{ User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
             {children}
         </GlobalContext.Provider>
     )

@@ -3,7 +3,6 @@ import { Row } from '../Row.styled'
 import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
 import { CommentBody } from './styled/CommentBody.styled'
-import { P } from './styled/P.styled'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +16,7 @@ import { EditComment } from '../../../services/PostsServices/EditComment'
 import { CommentBodySection } from './styled/CommentBodySection.styled'
 import { LoadingButton } from '../LoadingButton'
 import { ReplayTag } from './styled/ReplayTag'
+import { P } from '../Post/styled/P.styled'
 
 
 interface Props {

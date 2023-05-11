@@ -6,17 +6,16 @@ import { CommentsContext } from '../../Context/CommentsContext';
 
 export const AddCommentServices = (RestTextFelidValueReload: any) => {
 
-    let User = UserData()
+    const User = UserData()
     const [TextFieldValue, setTextFieldValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const { SpecificPost, SpecificPostComments, socket } = useContext(GlobalContext)
+    const { SpecificPost, SpecificPostComments } = useContext(GlobalContext)
     const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
     const CommentSubmitHandler = async () => {
 
-        if (SpecificPost.PostOwnerId !== User._id) ReplayToId === "" ? socket.emit("send_new_notification", SpecificPost.PostOwnerId) : socket.emit("send_new_notification", ReplayToId)
 
         try {
             setIsLoading(true)
@@ -27,6 +26,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                     method: 'put',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddComment",
                     headers: {},
+                    withCredentials: true,
                     data: {
                         Comment: {
                             PostId: SpecificPost._id,
@@ -43,8 +43,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                             UserName: User.UserName,
                             FamilyName: User.FamilyName,
                             PostBody: SpecificPost.PostBody
-                        }
-
+                        },
                     }
                 }
 

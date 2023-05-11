@@ -15,8 +15,8 @@ export const NotificationsUserImage = styled.img`
 
   }
   @media ${device.laptop} {
-    width: 55px;
-    height: 55px;
+    width: 43px;
+    height: 43px;
 
   }
 `

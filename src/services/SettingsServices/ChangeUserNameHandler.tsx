@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useContext, useState } from "react"
+import { GlobalContext } from "../../Context/GlobalContext"
 
 
 export const ChangeUserNameHandler = (setIsActive: any) => {
@@ -7,6 +8,7 @@ export const ChangeUserNameHandler = (setIsActive: any) => {
     const [IsUserNameValid, setIsUserNameValid] = useState(true)
     const [FamilyNameInputValue, setFamilyNameInputValue] = useState("")
     const [IsFamilyNameValid, setIsFamilyNameValid] = useState(true)
+    const { setUser, User } = useContext(GlobalContext)
 
     const OnUserNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         const Regex = /[^a-zA-Z1-9 \s]/g
@@ -31,23 +33,21 @@ export const ChangeUserNameHandler = (setIsActive: any) => {
 
     const onSave = async () => {
 
-        let User = await JSON.parse(localStorage.getItem('User') || "");
-
         if (IsUserNameValid && IsFamilyNameValid) {
             if (UserNameInputValue !== "" && FamilyNameInputValue !== "") {
                 User.UserName = UserNameInputValue
                 User.FamilyName = FamilyNameInputValue
-                localStorage.setItem('User', JSON.stringify(User) || "");
+                setUser(User)
                 setIsActive(false)
             }
             else if (UserNameInputValue !== "") {
                 User.UserName = UserNameInputValue
-                localStorage.setItem('User', JSON.stringify(User) || "");
+                setUser(User)
                 setIsActive(false)
             }
             else if (FamilyNameInputValue !== "") {
                 User.FamilyName = FamilyNameInputValue
-                localStorage.setItem('User', JSON.stringify(User) || "");
+                setUser(User)
                 setIsActive(false)
             }
         } else {

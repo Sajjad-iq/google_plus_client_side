@@ -20,12 +20,12 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Get",
-                headers: {},
+                headers: {
+                },
+                withCredentials: true,
                 data: {
                     PostsOwner: Owner,
                     PayloadCount: PostsCount,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then(async (e: any) => {

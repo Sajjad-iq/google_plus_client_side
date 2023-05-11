@@ -14,5 +14,10 @@ export const SmallImage = styled.img`
    width: 27px;
   height: 27px;
   }
+
+  @media ${device.laptop} {
+    width: 25px;
+    height: 25px;
+  }
  
 `

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CyanButton } from '../../Components/common/CyanButton.styled'
 import { H2 } from '../../Components/common/H1.styled'
 import { Column } from '../../Components/shared/Column.styled'
@@ -14,18 +14,17 @@ import { UserData } from '../../services/LocalStorage/UserData'
 import { EditProfileImageAndCoverImage } from './Components/EditProflieImageAndCoverImage.tsx'
 import { LoadingButton } from '../../Components/shared/LoadingButton'
 import { Wrapper } from './styled/Wrapper'
+import { GlobalContext } from '../../Context/GlobalContext'
 
 
 export const Settings = () => {
     const [IsLoading, setIsLoading] = useState(false)
     const { Save } = SaveChanges(setIsLoading)
     const Navigate = useNavigate()
+    const { setUser } = useContext(GlobalContext)
 
     const LogOut = async () => {
-        const User = UserData()
-        User.Email = ""
-        User.Password = ""
-        localStorage.setItem('User', JSON.stringify(User) || "");
+        setUser({})
         Navigate("/SignIn")
     }
 
@@ -39,12 +38,6 @@ export const Settings = () => {
                     <EditProfileImageAndCoverImage />
                     <EditUserNameAndFamilyName />
                     <EditDescription />
-                </Column>
-
-                <Column width='100%' padding='20px 0' align='flex-start'>
-                    <H2>Accounts Settings</H2>
-                    <EditTheEmail />
-                    <EditThePassword />
                 </Column>
 
                 <Row width='100%' padding='10px 0' align='space-between'>

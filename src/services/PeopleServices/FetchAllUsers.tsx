@@ -8,7 +8,7 @@ export const FetchAllUsers = (PostsCount: number) => {
 
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState([FindUserDef])
-    let User = UserData()
+    const User = UserData()
 
     const [StopFetching, setStopFetching] = useState(false)
     const Navigate = useNavigate()
@@ -21,9 +21,10 @@ export const FetchAllUsers = (PostsCount: number) => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/People/Get",
                 headers: {},
+                withCredentials: true,
+
                 data: {
                     PayloadCount: PostsCount,
-                    owner: User._id
                 }
             }
             ).then(async (e: any) => {

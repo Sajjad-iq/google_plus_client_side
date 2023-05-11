@@ -21,9 +21,13 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
   const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
 
   const handleImageUpload = async (e: ChangeEvent<any>) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-    setPhoto(base64)
+    const file = e.target.files[0] || null;
+    if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg") {
+      const base64 = await convertToBase64(file);
+      setPhoto(base64)
+    } else {
+      window.alert("you can only upload images")
+    }
   }
 
   const SubmitPostHandler = async () => {
@@ -34,6 +38,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
           method: 'post',
           url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Edit",
           headers: {},
+          withCredentials: true,
           data: {
             PostId: Data._id,
             PostBody: Textfield,
@@ -41,10 +46,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
             PostOwnerName: SpecificPost.PostOwnerName,
             PostImage: Photo,
             PostOwnerImage: SpecificPost.PostOwnerImage,
-            link: Url,
-            AccessControl: User._id,
-            AccessControlPassword: User.Password
-
+            link: Url
           }
         }
         ).then(() => {

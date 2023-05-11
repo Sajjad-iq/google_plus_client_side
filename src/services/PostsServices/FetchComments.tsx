@@ -17,11 +17,10 @@ export const FetchComments = (PostsCount: number) => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/GetComments",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: SpecificPost._id,
                     PayloadCount: PostsCount,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then(async (e: any) => {

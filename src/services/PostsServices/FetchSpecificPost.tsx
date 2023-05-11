@@ -16,10 +16,9 @@ export const FetchSpecificPost = () => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Post",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: id,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
                 }
             }
             ).then((e: any) => {

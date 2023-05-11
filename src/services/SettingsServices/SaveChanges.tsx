@@ -1,14 +1,16 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { UserData } from '../LocalStorage/UserData'
+import { useContext } from 'react'
+import { GlobalContext } from '../../Context/GlobalContext'
 
 export const SaveChanges = (setIsLoading: any) => {
 
     const Navigate = useNavigate()
+    const { User } = useContext(GlobalContext)
 
     const Save = async () => {
 
-        const User = UserData()
 
         try {
             setIsLoading(true)
@@ -16,10 +18,9 @@ export const SaveChanges = (setIsLoading: any) => {
                 method: 'put',
                 url: import.meta.env.VITE_BACKEND_URL + `/api/Profile/edit`,
                 headers: {},
+                withCredentials: true,
                 data: {
-                    User,
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
+                    User
                 }
             }
             ).then((e) => {

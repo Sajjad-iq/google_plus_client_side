@@ -11,7 +11,11 @@ export const ImageWrapper = styled.section`
 @media ${device.tablet} {
     width: 55px;
     height: 55px;
+  }
 
+  @media ${device.laptop} {
+    width: 52px;
+    height: 52px;
   }
 
 `

@@ -1,5 +1,3 @@
-import { MouseEventHandler } from 'react'
-import { ProfileButton } from '../../common/ProfileButton.styled'
 import { ProfileFollowers } from '../../common/ProfileFollowers.styled'
 import { ProfileUserDescription } from '../../common/ProfileUserDecription.styled'
 import { ProfileUserName } from '../../common/ProfileUserName.styled'

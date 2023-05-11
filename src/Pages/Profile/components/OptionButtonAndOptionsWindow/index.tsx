@@ -9,12 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const OptionButtonAndOptionsWindow = () => {
     const [IsActive, setIsActive] = useState(false)
     return (
-        <Wrapper style={{ width: "fit-content" }}>
+        <Wrapper style={{ width: "fit-content", background: "none" }}>
+
             <Button onClick={() => setIsActive(!IsActive)}>
                 <FontAwesomeIcon className='post-fa-icon' style={{ color: "white" }} icon={faEllipsisVertical} />
             </Button>
 
             <OptionsWindow setIsActive={setIsActive} IsActive={IsActive} />
+
         </Wrapper>
     )
 }
