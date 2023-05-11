@@ -16,6 +16,7 @@ import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
 import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
+import { LoadingAnimation } from "./Components/shared/LoadingAnimation";
 
 function App() {
 
@@ -24,35 +25,40 @@ function App() {
   useEffect(() => { FirstLoad() }, [])
 
   return (
-    <AppWrapper>
+    Loading ?
+      <AppWrapper>
+        <LoadingAnimation />
+      </AppWrapper>
+      :
+      <AppWrapper>
 
-      <AuthContextProvider>
-        <Routes>
+        <AuthContextProvider>
+          <Routes>
 
-          <Route path="/" element={<SplitScreen />} >
-            <Route path="/" element={<Home />} />
-            <Route path="/Notifications" element={<Notifications />} />
-            <Route path="/Error" element={<Error />} />
-            <Route path="/AddPost" element={<AddPostWindow />} />
-            <Route path="/Posts" element={<PostPreview />} />
-            <Route path="/Settings" element={<Settings />} />
-            <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
-            <Route path="/Help" element={<h1>Still Work on it</h1>} />
-            <Route path="/Profile" element={<Profile />} />
+            <Route path="/" element={<SplitScreen />} >
+              <Route path="/" element={<Home />} />
+              <Route path="/Notifications" element={<Notifications />} />
+              <Route path="/Error" element={<Error />} />
+              <Route path="/AddPost" element={<AddPostWindow />} />
+              <Route path="/Posts" element={<PostPreview />} />
+              <Route path="/Settings" element={<Settings />} />
+              <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
+              <Route path="/Help" element={<h1>Still Work on it</h1>} />
+              <Route path="/Profile" element={<Profile />} />
 
-            <Route path="/People" element={<People />} >
-              <Route path="/People/" element={<PeopleList />} />
-              <Route path="/People/Profile" element={<PeopleProfile />} />
+              <Route path="/People" element={<People />} >
+                <Route path="/People/" element={<PeopleList />} />
+                <Route path="/People/Profile" element={<PeopleProfile />} />
+              </Route>
             </Route>
-          </Route>
 
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/SignIn" element={<SignIn />} />
 
-        </Routes>
-      </AuthContextProvider>
+          </Routes>
+        </AuthContextProvider>
 
-    </AppWrapper>
+      </AppWrapper>
   )
 }
 
