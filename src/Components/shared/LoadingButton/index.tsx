@@ -6,10 +6,11 @@ interface Props {
     onClick: MouseEventHandler
     ButtonName: string
     IsLoading: boolean
+    Style: {}
 }
 export const LoadingButton = (props: Props) => {
     return (
-        <CyanButton onClick={props.onClick} >
+        <CyanButton style={props.Style} onClick={props.onClick} >
             {props.IsLoading ?
                 <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 :

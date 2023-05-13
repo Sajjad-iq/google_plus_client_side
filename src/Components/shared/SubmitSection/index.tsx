@@ -15,7 +15,7 @@ export const SubmitSection = (props: Props) => {
     return (
         <Row align='space-between' padding='0' width='100%'>
             <TextLink To={props.TextLinkPath} Text={props.TextLinkName} />
-            <LoadingButton IsLoading={props.Loading} onClick={props.SubmitButtonClick} ButtonName={props.SubmitButtonName} />
+            <LoadingButton Style={{}} IsLoading={props.Loading} onClick={props.SubmitButtonClick} ButtonName={props.SubmitButtonName} />
         </Row>
     )
 }

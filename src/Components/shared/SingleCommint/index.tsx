@@ -87,7 +87,7 @@ export const SingleComment = (props: Props) => {
                             <Row width='100%' padding='0' align='space-between'>
                                 <TextField ref={ref} IsValidValue={true} onChange={TextChange} rows={1} style={{ border: "none", width: "80%", padding: "5px 2" }} />
 
-                                <LoadingButton onClick={() => {
+                                <LoadingButton Style={{}} onClick={() => {
                                     setIsEditCommentWindowActive(!IsEditCommentWindowActive)
                                     SubmitCommentHandler()
                                 }}

@@ -1,0 +1,1 @@
+export const buttonsNames = ["FEATURED", "FOLLOWING", "YOURS"]

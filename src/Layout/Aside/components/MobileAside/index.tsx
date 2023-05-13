@@ -16,13 +16,16 @@ import ProfileIcon from '../../../../assets/ICONS/user-circle-svgrepo-com.svg'
 import InstagramIcon from '../../../../assets/ICONS/instagram-svgrepo-com.svg'
 import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg'
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
-
+import { useLocation } from 'react-router-dom'
+import CollectionsSvg from "../../../../assets/ICONS/Collections.svg"
+import RedCollectionsSvg from "../../../../assets/ICONS/CollectionsRed.svg"
 
 interface Props {
     setIsPageActive: any
 }
 export const MobileAside = (props: Props) => {
     const User = UserData()
+    const Location = useLocation()
 
     useEffect(() => {
 
@@ -53,7 +56,8 @@ export const MobileAside = (props: Props) => {
             </ImageCoverWrapper>
 
             <Section border='1px solid rgb(211, 210, 210)'>
-                <MobileNavButton CLass='' Name='Profile' To='/Profile' ICON={ProfileIcon} />
+                <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={ProfileIcon} />
+                <MobileNavButton Style={{}} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? RedCollectionsSvg : CollectionsSvg} />
                 <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
                 <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
                 <NavButton CLass='' Name='Send Feedback' To='/Feedback' ICON={faTriangleExclamation} />
@@ -63,9 +67,9 @@ export const MobileAside = (props: Props) => {
             <Section border='unset' style={{ alignItems: "flex-start" }}>
 
                 <UserName IsCommentUserName={true} style={{ color: Colors.Primary.Lightgray, padding: "10px 20px" }}>Developer</UserName>
-                <MobileNavButton CLass='' Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
-                <MobileNavButton CLass='' Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
-                <MobileNavButton CLass='' Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
+                <MobileNavButton Style={{}} Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
+                <MobileNavButton Style={{}} Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
+                <MobileNavButton Style={{}} Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
 
             </Section>
 

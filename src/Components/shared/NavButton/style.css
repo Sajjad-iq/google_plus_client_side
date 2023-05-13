@@ -1,6 +1,6 @@
 .link-button {
     width: 100%;
-    color: gray;
+    color: #808080;
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -10,7 +10,7 @@
 
 .footer {
     flex-direction: column;
-    padding: 0;
+    padding: unset;
 }
 
 .link-button:hover {

@@ -6,6 +6,6 @@ export const RightSide = styled.section`
  height: 100%;
  overflow: scroll;
  position: relative;
-  top: 2px;
+  top: -1px;
   background:${Colors.Primary.SoftGray}
 `

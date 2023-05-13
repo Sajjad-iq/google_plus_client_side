@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useContext, useState } from 'react'
-import { UserData } from '../LocalStorage/UserData'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 export const ChangeProfileImageHandler = () => {
@@ -13,7 +12,7 @@ export const ChangeProfileImageHandler = () => {
             let user = User
             const base64 = await convertToBase64(file);
 
-            user.CoverPicture = base64
+            user.ProfilePicture = base64
             setPhoto(base64)
             setUser(user)
         } else {

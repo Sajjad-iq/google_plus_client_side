@@ -18,7 +18,7 @@ export const UserInfo = (props: Props) => {
             <ProfileUserName>{props.UserName}</ProfileUserName>
             <ProfileUserDescription>{props.UserDescription}</ProfileUserDescription>
             <ProfileFollowers>{`${props.UserFollowers} followers`}</ProfileFollowers>
-            <LoadingButton onClick={props.ProfileButtonClick} ButtonName={props.ProfileButtonName} IsLoading={props.IsLoading} />
+            <LoadingButton Style={{}} onClick={props.ProfileButtonClick} ButtonName={props.ProfileButtonName} IsLoading={props.IsLoading} />
         </Column>
     )
 }

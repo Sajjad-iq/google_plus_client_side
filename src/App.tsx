@@ -7,7 +7,7 @@ import { Home } from "./Pages/Home";
 import { SplitScreen } from "./SplitScreen";
 import Profile from "./Pages/Profile";
 import { Settings } from "./Pages/Settengs";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
 import { Error } from "./Pages/Error";
@@ -17,6 +17,7 @@ import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
 import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
 import { LoadingAnimation } from "./Components/shared/LoadingAnimation";
+import { Collections } from "./Pages/Collections";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 
   return (
     Loading ?
+
       <AppWrapper>
         <LoadingAnimation />
       </AppWrapper>
@@ -45,6 +47,7 @@ function App() {
               <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
               <Route path="/Help" element={<h1>Still Work on it</h1>} />
               <Route path="/Profile" element={<Profile />} />
+              <Route path="/Collections" element={<Collections />} />
 
               <Route path="/People" element={<People />} >
                 <Route path="/People/" element={<PeopleList />} />

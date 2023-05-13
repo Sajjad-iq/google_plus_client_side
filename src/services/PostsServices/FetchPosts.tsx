@@ -21,6 +21,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Get",
                 headers: {
+
                 },
                 withCredentials: true,
                 data: {
