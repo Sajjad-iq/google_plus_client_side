@@ -37,7 +37,7 @@ export const PopUpAddPostWindow = () => {
 
                 <Row padding="0" align="space-between" width="100%">
                     <ProfileImageAndPostState setSelectorsValue={setOptionsValue} />
-                    <LoadingButton onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
+                    <LoadingButton Style={{}} onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
                 </Row>
 
 

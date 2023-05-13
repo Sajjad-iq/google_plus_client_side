@@ -42,7 +42,7 @@ export const Settings = () => {
 
                 <Row width='100%' padding='10px 0' align='space-between'>
                     <CyanButton onClick={LogOut} >Log Out</CyanButton>
-                    <LoadingButton onClick={Save} ButtonName="Save" IsLoading={IsLoading} />
+                    <LoadingButton Style={{}} onClick={Save} ButtonName="Save" IsLoading={IsLoading} />
                 </Row>
             </SettingsWrapper>
         </Wrapper>

@@ -47,7 +47,7 @@ export const AddComment = (props: Props) => {
             </Row>
 
             <Row width='100%' padding='10px 0' align='flex-end' style={{ display: IsActive ? "flex" : "none" }} >
-                <LoadingButton onClick={props.onSubmit} ButtonName={"Submit"} IsLoading={props.IsLoading} />
+                <LoadingButton Style={{}} onClick={props.onSubmit} ButtonName={"Submit"} IsLoading={props.IsLoading} />
             </Row>
         </Column>
     )

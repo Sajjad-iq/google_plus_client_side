@@ -59,7 +59,7 @@ export const EditPost = (props: Props) => {
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 
-                    <LoadingButton onClick={SubmitPostHandler} ButtonName="save" IsLoading={isLoading} />
+                    <LoadingButton Style={{}} onClick={SubmitPostHandler} ButtonName="save" IsLoading={isLoading} />
                 </Row>
 
             </PostBody>

@@ -30,9 +30,9 @@ export const NormalAside = () => {
 
             <Section border='unset' style={{ alignItems: "flex-start" }}>
                 <UserName IsCommentUserName={true} style={{ color: Colors.Primary.Lightgray, padding: "10px 20px" }}>Developer</UserName>
-                <MobileNavButton CLass='' Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
-                <MobileNavButton CLass='' Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
-                <MobileNavButton CLass='' Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
+                <MobileNavButton Style={{}} Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
+                <MobileNavButton Style={{}} Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
+                <MobileNavButton Style={{}} Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
             </Section>
         </Wrapper>
     )
