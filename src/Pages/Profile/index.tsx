@@ -52,6 +52,7 @@ function Profile() {
             <AddCollection
                 UserName=""
                 IsForProfile={true}
+                CollectionsCards={[]}
             />
             <Posts
                 IsForProfile={true}
