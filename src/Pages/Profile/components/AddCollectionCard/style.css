@@ -1,0 +1,9 @@
+.fa-add-collection-icon {
+    font-size: 2.6rem;
+    color: rgb(185, 185, 185);
+    border: 3px solid rgb(185, 185, 185);
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}

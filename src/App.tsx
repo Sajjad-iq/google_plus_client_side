@@ -44,7 +44,6 @@ function App() {
               <Route path="/AddPost" element={<AddPostWindow />} />
               <Route path="/Posts" element={<PostPreview />} />
               <Route path="/Settings" element={<Settings />} />
-              <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
               <Route path="/Help" element={<h1>Still Work on it</h1>} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Collections" element={<Collections />} />

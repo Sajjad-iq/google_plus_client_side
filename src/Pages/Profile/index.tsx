@@ -14,6 +14,7 @@ import { Row } from "../../Components/shared/Row.styled"
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { RedPenButton } from "../Home/Components/RedPenButton"
 import { OptionBar } from "./components/OptionsBar"
+import { AddCollection } from "./components/AddCollection"
 
 
 function Profile() {
@@ -47,6 +48,10 @@ function Profile() {
                 UserFollowers={User.Followers.length || "0"}
                 ProfileButtonClick={() => Navigate("/Settings")}
                 ProfileButtonName={"Edit Profile"}
+            />
+            <AddCollection
+                UserName=""
+                IsForProfile={true}
             />
             <Posts
                 IsForProfile={true}

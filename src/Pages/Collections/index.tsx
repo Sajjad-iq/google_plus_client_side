@@ -5,7 +5,7 @@ import { CollectionsNav } from "./Components/CollectionsNav"
 export const Collections = () => {
 
     return (
-        <Wrapper style={{ alignItems: "flex-start", height: "100%" }}>
+        <Wrapper style={{ height: "100%", alignContent: "flex-start" }}>
             <CollectionsNav />
             <CollectionsCards />
         </Wrapper>

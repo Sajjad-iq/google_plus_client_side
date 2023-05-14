@@ -20,14 +20,14 @@ export const CollectionSingleCard = (props: Props) => {
         <CardWrapper>
             <CoverImage src={props.CollationCoverImage} alt='Collections image' />
 
-            <Wrapper style={{ background: "pink", padding: "0 10px 10px 10px", height: "60%", justifyContent: "space-between", borderRadius: "0px 0px 4px 4px" }}>
+            <Wrapper style={{ background: "pink", padding: "0 10px 0 10px", height: "55%", justifyContent: "space-between", borderRadius: "0px 0px 4px 4px" }}>
 
                 <CollectionsUserImage src={props.CollationUserImage} alt='Collections user image' />
 
                 <Wrapper style={{ background: "none", flexDirection: "column", alignItems: "start" }}>
                     <UserName style={{ margin: "5px 0", color: Colors.Primary.white }} IsCommentUserName={true}
-                    >{props.CollationName}</UserName>
-                    <CommentBody style={{ color: Colors.Primary.SoftGray }}>{props.CollationDescription}</CommentBody>
+                    >{props.CollationDescription}</UserName>
+                    <CommentBody style={{ color: Colors.Primary.SoftGray }}>{props.CollationName}</CommentBody>
                 </Wrapper>
 
                 <LoadingButton
