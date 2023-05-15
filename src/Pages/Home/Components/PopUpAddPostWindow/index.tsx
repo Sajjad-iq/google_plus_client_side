@@ -15,6 +15,7 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from "../../../Auth/styled/Button.styled"
 import { SelectWindow } from "./Components/checkBoxWindow"
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -49,7 +50,7 @@ export const PopUpAddPostWindow = () => {
 
                 <Row padding="10px 0" align="space-between" width="100%" style={{ alignSelf: "flex-start" }}>
                     <Row padding="0" align="center" width="fit-content">
-                        <AddImage onChange={handleImageUpload} />
+                        <AddImage Icon={faImage} Style={{}} onChange={handleImageUpload} />
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 

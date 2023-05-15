@@ -27,7 +27,7 @@ export const CollectionSingleCard = (props: Props) => {
                 <Wrapper style={{ background: "none", flexDirection: "column", alignItems: "start" }}>
                     <UserName style={{ margin: "5px 0", color: Colors.Primary.white }} IsCommentUserName={true}
                     >{props.CollationDescription}</UserName>
-                    <CommentBody style={{ color: Colors.Primary.SoftGray }}>{props.CollationName}</CommentBody>
+                    <CommentBody style={{ color: Colors.Primary.white }}>{props.CollationName}</CommentBody>
                 </Wrapper>
 
                 <LoadingButton

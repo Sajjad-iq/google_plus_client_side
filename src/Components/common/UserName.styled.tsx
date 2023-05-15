@@ -11,7 +11,7 @@ ${p => p.IsCommentUserName ?
            font-size:0.9rem; 
           }
             @media ${device.laptop} {
-           font-size:0.8rem; 
+           font-size:0.9rem; 
           }
         `
     :

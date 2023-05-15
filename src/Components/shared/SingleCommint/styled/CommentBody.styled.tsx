@@ -12,4 +12,8 @@ export const CommentBody = styled.article`
  @media ${device.tablet} {
       font-size:1rem; 
   }
+
+  @media ${device.laptop} {
+      font-size:0.8rem; 
+  }
 `

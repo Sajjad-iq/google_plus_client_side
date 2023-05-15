@@ -1,9 +1,8 @@
-import React from 'react'
 import { CollectionsCardWrapper } from '../../../Collections/styled/CollectionsCardWrapper.styled'
-import { Wrapper } from '../../../../Components/shared/Wrapper'
 import { ProfileUserDescription } from '../../../../Components/common/ProfileUserDecription.styled'
 import { Colors } from '../../../../assets/Colors'
 import { AddCollectionCard } from '../AddCollectionCard'
+import { Wrapper } from '../../styled/Wrapper'
 
 interface Props {
     UserName: string
@@ -12,7 +11,7 @@ interface Props {
 }
 export const AddCollection = (props: Props) => {
     return (
-        <Wrapper style={{ justifyContent: "flex-start", padding: "10px", position: "static", borderTop: `4px solid ${Colors.Primary.SoftGray}` }}>
+        <Wrapper >
 
             <ProfileUserDescription style={{ color: Colors.Secoundry.gray, width: "fit-content" }}>{props.IsForProfile ? `YOUR INTERESTS` : `${props.UserName.toLocaleUpperCase()} INTERESTS`}</ProfileUserDescription>
 

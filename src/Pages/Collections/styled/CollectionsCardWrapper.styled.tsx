@@ -11,13 +11,16 @@ padding:3px;
  overflow: scroll;
   height: calc(100% - 60px);
 
+ &::-webkit-scrollbar {
+  display: none;
+};
+
 @media ${device.tablet} {
   grid-template-columns: 1fr 1fr 1fr;
 
   }
   @media ${device.laptop} {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 8px;
-
+      gap: 6px;
   }
   `

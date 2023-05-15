@@ -18,6 +18,7 @@ import { Notifications } from "./Pages/Notifications";
 import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
 import { LoadingAnimation } from "./Components/shared/LoadingAnimation";
 import { Collections } from "./Pages/Collections";
+import { AddCollectionPage } from "./Pages/AddCollection";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
               <Route path="/Help" element={<h1>Still Work on it</h1>} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Collections" element={<Collections />} />
+              <Route path="/AddCollection" element={<AddCollectionPage />} />
 
               <Route path="/People" element={<People />} >
                 <Route path="/People/" element={<PeopleList />} />

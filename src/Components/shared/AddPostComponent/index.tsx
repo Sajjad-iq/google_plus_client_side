@@ -3,9 +3,9 @@ import UserIcon from "../../../assets/ICONS/ProfileImg.jpg"
 import { UserData } from "../../../services/LocalStorage/UserData"
 import { UserLogo } from "../../common/UserLogo.styled"
 import { Row } from "../Row.styled"
-import { ImageButton } from "./Components/ImageButton"
 import { ToggleRow } from "./styled/ToggleRow.styled"
 import { WriteSomething } from "./styled/WriteSomething.styled"
+import { ImageButton } from "./ImageButton"
 
 interface Props {
     IsActive: boolean
@@ -24,7 +24,7 @@ export const AddPostComponent = (props: Props) => {
                 <WriteSomething>What's new about you...</WriteSomething>
             </Row>
 
-            <ImageButton />
+            <ImageButton Style={{}} onClick={() => ""} />
         </ToggleRow>
 
     )
