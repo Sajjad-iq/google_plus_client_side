@@ -12,6 +12,7 @@ import { UrlLink } from '../../common/UrlLink.styled'
 import { AddUrlWindow } from '../AddUrlWindow'
 import { LoadingButton } from '../LoadingButton'
 import { Row } from '../Row.styled'
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 
 interface Props {
@@ -55,7 +56,7 @@ export const EditPost = (props: Props) => {
 
                 <Row padding="10px 0" align="space-between" width="100%">
                     <Row padding="0" align="center" width="fit-content">
-                        <AddImage onChange={handleImageUpload} />
+                        <AddImage Style={{}} Icon={faImage} onChange={handleImageUpload} />
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 
