@@ -15,6 +15,8 @@ import { FetchPostsHandler } from '../../../../services/PostsServices/FetchPosts
 import { OptionBar } from '../../../Profile/components/OptionsBar'
 import { Colors } from '../../../../assets/Colors'
 import { Wrapper } from '../../../../Components/shared/Wrapper'
+import { AddCollection } from '../../../Profile/components/AddCollection'
+import { FetchCollections } from '../../../../services/Collections/FetchCollections'
 
 
 export const PeopleProfile = () => {
@@ -27,15 +29,21 @@ export const PeopleProfile = () => {
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
     const { AddOrRemoveFollowHandler, IsLoading } = AddOrRemoveFollow()
+    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections(4, { CollectionOwnerId: PeopleUser._id })
+
 
 
     useEffect(() => {
         FetchPosts()
     }, [PostsCount])
 
+    useEffect(() => {
+        FetchCollectionsHandler()
+    }, [])
+
 
     return (
-        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.SoftGray }}>
+        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20" }}>
             <OptionBar />
             <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
             <UserInfo
@@ -45,6 +53,11 @@ export const PeopleProfile = () => {
                 UserFollowers={PeopleUser.Followers.length || "0"}
                 ProfileButtonClick={AddOrRemoveFollowHandler}
                 ProfileButtonName={PeopleUser.Followers.includes(User._id) ? "UnFollow" : "Follow"}
+            />
+            <AddCollection
+                UserName={PeopleUser.UserName}
+                IsForOthersProfiles={true}
+                CollectionsCards={CollectionsResponse}
             />
             <Posts
                 IsForProfile={true}

@@ -12,6 +12,18 @@ export const def = {
     Comments: [],
 }
 
+export const CollectionsDef = {
+    _id: "",
+    CollectionTitle: "",
+    Tagline: "",
+    CollectionsCoverPicture: "",
+    CollectionFollowing: [],
+    CollectionOwnerId: '',
+    CollectionOwnerName: '',
+    CollectionOwnerImage: "",
+    Color: "#808080"
+}
+
 export const FindUserDef = {
     _id: "",
     UserName: "",

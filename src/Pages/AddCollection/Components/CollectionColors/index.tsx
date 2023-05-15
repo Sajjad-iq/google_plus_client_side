@@ -10,7 +10,7 @@ export const CollectionColors = (props: Props) => {
     return (
         <CollectionsColorWrapper >
             {CollectionsColorsData.map((e, i) => {
-                return <ColorButton isActive={props.ColorIndex === i} onClick={() => props.setColorIndex(i)} Color={e} />
+                return <ColorButton key={e} isActive={props.ColorIndex === i} onClick={() => props.setColorIndex(i)} Color={e} />
             })}
         </CollectionsColorWrapper>
     )

@@ -15,6 +15,7 @@ import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { RedPenButton } from "../Home/Components/RedPenButton"
 import { OptionBar } from "./components/OptionsBar"
 import { AddCollection } from "./components/AddCollection"
+import { FetchCollections } from "../../services/Collections/FetchCollections"
 
 
 function Profile() {
@@ -25,12 +26,18 @@ function Profile() {
     const [PostsCount, setPostsCount] = useState(0)
     const BottomRef = useRef<any>()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: User._id })
+    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections(4, { CollectionOwnerId: User._id })
 
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
 
     useEffect(() => {
         FetchPosts()
     }, [PostsCount])
+
+    useEffect(() => {
+        FetchCollectionsHandler()
+    }, [])
+
 
 
     return (
@@ -51,8 +58,8 @@ function Profile() {
             />
             <AddCollection
                 UserName=""
-                IsForProfile={true}
-                CollectionsCards={[]}
+                IsForOthersProfiles={false}
+                CollectionsCards={CollectionsResponse}
             />
             <Posts
                 IsForProfile={true}

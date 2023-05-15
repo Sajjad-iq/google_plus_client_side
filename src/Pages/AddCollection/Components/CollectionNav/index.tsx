@@ -1,16 +1,20 @@
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { H2 } from '../../../../Components/common/H1.styled'
 import { BackButton } from '../../../../Components/shared/BackButton'
 import { LoadingButton } from '../../../../Components/shared/LoadingButton'
 import { Row } from '../../../../Components/shared/Row.styled'
-import { OptionsWindowWrapper } from '../../../Profile/styled/OptionsWindowWrapper.styled'
+import { CollectionsNavWrapper } from '../../styled/CollectionsNavWrapper'
 
-export const CollectionNav = () => {
+interface Props {
+  onSubmit: any
+  loading: boolean
+}
+export const CollectionNav = (props: Props) => {
 
   const Navigate = useNavigate()
 
   return (
-    <OptionsWindowWrapper style={{ position: "absolute", borderRadius: "3px" }}>
+    <CollectionsNavWrapper >
 
       <Row width='fit-content' padding='0' align='center' style={{ background: "transparent" }}>
         <BackButton onClick={() => Navigate("/")} color={"white"} />
@@ -18,11 +22,11 @@ export const CollectionNav = () => {
       </Row>
 
       <LoadingButton
-        IsLoading={false}
-        onClick={() => ""}
+        IsLoading={props.loading}
+        onClick={props.onSubmit}
         ButtonName='SAVE'
         Style={{ background: "none", padding: "0", fontSize: "0.8rem" }}
       />
-    </OptionsWindowWrapper>
+    </CollectionsNavWrapper>
   )
 }

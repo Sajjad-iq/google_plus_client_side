@@ -12,7 +12,6 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
     const [StopFetching, setStopFetching] = useState(false)
     const Navigate = useNavigate()
     const { setErrMessage } = useContext(GlobalContext)
-    const User = UserData()
 
     const FetchPosts = async () => {
         try {
