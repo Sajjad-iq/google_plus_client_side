@@ -18,7 +18,7 @@ import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
 import { useLocation } from 'react-router-dom'
 import CollectionsSvg from "../../../../assets/ICONS/Collections.svg"
-import RedCollectionsSvg from "../../../../assets/ICONS/CollectionsRed.svg"
+import CyanCollectionsSvg from "../../../../assets/ICONS/CollectionsCyan.svg"
 
 interface Props {
     setIsPageActive: any
@@ -57,7 +57,7 @@ export const MobileAside = (props: Props) => {
 
             <Section border='1px solid rgb(211, 210, 210)'>
                 <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={ProfileIcon} />
-                <MobileNavButton Style={{}} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? RedCollectionsSvg : CollectionsSvg} />
+                <MobileNavButton Style={{ color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
                 <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
                 <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
                 <NavButton CLass='' Name='Send Feedback' To='/Feedback' ICON={faTriangleExclamation} />

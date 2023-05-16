@@ -6,8 +6,9 @@ import { NotificationsBell } from '../../Components/shared/NotificationsBell';
 import { GlobalContext } from '../../Context/GlobalContext';
 import { MobileNavButton } from '../../Components/shared/MobileNavButoon';
 import CollectionsSvg from "../../assets/ICONS/Collections.svg"
-import RedCollectionsSvg from "../../assets/ICONS/CollectionsRed.svg"
+import CyanCollectionsSvg from "../../assets/ICONS/CollectionsCyan.svg"
 import { useLocation } from 'react-router-dom';
+import { Colors } from '../../assets/Colors';
 
 export const FooterNav = React.memo(() => {
     const { HasNotifications } = useContext(GlobalContext)
@@ -16,7 +17,7 @@ export const FooterNav = React.memo(() => {
     return (
         <FooterWrapper>
             <NavButton CLass='footer' Name='Home' To='/' ICON={faHouse} />
-            <MobileNavButton Style={{ flexDirection: "column", padding: "0" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? RedCollectionsSvg : CollectionsSvg} />
+            <MobileNavButton Style={{ flexDirection: "column", padding: "0", color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
             <NavButton CLass='footer' Name='People' To='/People' ICON={faUsers} />
             <NotificationsBell Name='Notifications' isForNav={false} CLass='footer' HasNotifications={HasNotifications} />
         </FooterWrapper>

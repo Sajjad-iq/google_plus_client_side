@@ -26,7 +26,7 @@ function Profile() {
     const [PostsCount, setPostsCount] = useState(0)
     const BottomRef = useRef<any>()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: User._id })
-    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections(4, { CollectionOwnerId: User._id })
+    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: User._id }, 2)
 
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
 
@@ -37,6 +37,7 @@ function Profile() {
     useEffect(() => {
         FetchCollectionsHandler()
     }, [])
+
 
 
 

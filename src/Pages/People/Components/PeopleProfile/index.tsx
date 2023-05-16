@@ -29,7 +29,7 @@ export const PeopleProfile = () => {
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
     const { AddOrRemoveFollowHandler, IsLoading } = AddOrRemoveFollow()
-    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections(4, { CollectionOwnerId: PeopleUser._id })
+    const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: PeopleUser._id }, 2)
 
 
 

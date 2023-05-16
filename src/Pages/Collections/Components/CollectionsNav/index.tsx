@@ -4,17 +4,20 @@ import { Colors } from '../../../../assets/Colors'
 import { UnderLineButton } from '../../styled/UnderLineButton.styled'
 import { buttonsNames } from '../names'
 
-export const CollectionsNav = () => {
+interface Props {
+    SelectedButton: number
+    setSelectedButton: any
+}
+export const CollectionsNav = (props: Props) => {
 
-    const [SelectedButton, setSelectedButton] = useState(0)
 
     return (
-        <Row width='100%' align='space-around' padding='0' style={{ background: Colors.Primary.red }}>
+        <Row width='100%' align='space-around' padding='0' style={{ background: "white" }}>
 
             {buttonsNames.map((e, i) => {
                 return <UnderLineButton
-                    IsActive={SelectedButton === i}
-                    onClick={() => setSelectedButton(i)}
+                    IsActive={props.SelectedButton === i}
+                    onClick={() => props.setSelectedButton(i)}
                     key={e}
                 >{e}</UnderLineButton>
             })}

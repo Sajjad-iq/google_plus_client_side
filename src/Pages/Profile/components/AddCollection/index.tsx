@@ -37,7 +37,7 @@ export const AddCollection = (props: Props) => {
                 }
 
                 {
-                    props.IsForOthersProfiles || props.CollectionsCards.length >= 5 ?
+                    props.IsForOthersProfiles || props.CollectionsCards.length >= 4 ?
                         null
                         :
                         <AddCollectionCard />

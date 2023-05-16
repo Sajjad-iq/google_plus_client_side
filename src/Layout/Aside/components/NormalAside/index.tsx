@@ -11,7 +11,7 @@ import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
 import { useLocation } from 'react-router-dom'
 import CollectionsSvg from "../../../../assets/ICONS/Collections.svg"
-import RedCollectionsSvg from "../../../../assets/ICONS/CollectionsRed.svg"
+import CyanCollectionsSvg from "../../../../assets/ICONS/CollectionsCyan.svg"
 import ProfileIcon from '../../../../assets/ICONS/user-circle-svgrepo-com.svg'
 import redProfileIcon from '../../../../assets/ICONS/reduser-circle-svgrepo-com.svg'
 
@@ -24,7 +24,7 @@ export const NormalAside = () => {
         <Wrapper style={{ justifyContent: "flex-start", padding: "0px" }}>
             <Section border='1px solid rgb(211, 210, 210)'>
                 <NavButton CLass='' Name='Home' To='/' ICON={faHouse} />
-                <MobileNavButton Style={{}} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? RedCollectionsSvg : CollectionsSvg} />
+                <MobileNavButton Style={{ color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
                 <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={Location.pathname === "/Profile" ? redProfileIcon : ProfileIcon} />
                 <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
             </Section>

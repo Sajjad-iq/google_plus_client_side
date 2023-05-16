@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { CollectionsDef, GlobalContext } from "../../Context/GlobalContext"
 
 
-export const FetchCollections = (CollectionsCount: number, Owner: any) => {
+export const FetchCollections = (Owner: any, SelectedButton: number) => {
 
     const [CollectionsLoading, setCollectionsLoading] = useState(false)
     const [CollectionsResponse, setResponse] = useState([CollectionsDef])
@@ -23,14 +23,19 @@ export const FetchCollections = (CollectionsCount: number, Owner: any) => {
                 },
                 withCredentials: true,
                 data: {
-                    CollectionsOwner: Owner,
-                    PayloadCount: CollectionsCount
+                    CollectionsOwner: SelectedButton >= 2 ? Owner : {},
+                    PayloadCount: 20
                 }
             }
             ).then(async (e: any) => {
-                let newCollections = CollectionsResponse.concat(e.data)
-                setResponse(newCollections)
+                if (SelectedButton < 2) {
+                    setResponse(e.data)
+                } else {
+                    setResponse([CollectionsDef])
+                    setResponse(e.data)
+                }
                 setStopFetchingCollections(false)
+
             })
         }
 
@@ -44,5 +49,5 @@ export const FetchCollections = (CollectionsCount: number, Owner: any) => {
         }
     }
 
-    return { FetchCollectionsHandler, StopFetchingCollections, CollectionsLoading, setCollectionsLoading, CollectionsResponse }
+    return { FetchCollectionsHandler, StopFetchingCollections, CollectionsLoading, setCollectionsLoading, CollectionsResponse, setResponse }
 }

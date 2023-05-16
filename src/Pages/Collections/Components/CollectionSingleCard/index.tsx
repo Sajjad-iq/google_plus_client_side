@@ -41,7 +41,7 @@ export const CollectionSingleCard = (props: Props) => {
                 </Wrapper>
 
                 {
-                    props.IsForProfile || props.OwnerId === User._id ?
+                    !props.IsForProfile || props.OwnerId === User._id ?
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
