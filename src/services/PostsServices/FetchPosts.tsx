@@ -11,7 +11,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
     const [Response, setResponse] = useState([def])
     const [StopFetching, setStopFetching] = useState(false)
     const Navigate = useNavigate()
-    const { setErrMessage } = useContext(GlobalContext)
+    const { setErrMessage, setOptionsValue } = useContext(GlobalContext)
 
     const FetchPosts = async () => {
         try {
@@ -42,6 +42,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
 
         finally {
             setLoading(false)
+            setOptionsValue("Public")
         }
     }
 

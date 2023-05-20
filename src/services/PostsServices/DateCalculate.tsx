@@ -10,9 +10,9 @@ export const DateCalculate = (createdAt: any) => {
         var Difference_In_Hours = Difference / (1000 * 3600);
         var Difference_In_Minutes = Difference / (1000 * 60);
 
-        if (Difference_In_Minutes < 60) return `${Difference_In_Minutes.toFixed()} min`
-        else if (Difference_In_Hours < 24 && Difference_In_Minutes > 60) return `${Difference_In_Hours.toFixed()} hour`
-        else return `${Difference_In_Days.toFixed()} day`
+        if (Difference_In_Minutes < 60) return `${Difference_In_Minutes.toFixed()} m`
+        else if (Difference_In_Hours < 24 && Difference_In_Minutes > 60) return `${Difference_In_Hours.toFixed()} h`
+        else return `${Difference_In_Days.toFixed()} d`
     }
 
     return DateCalculator

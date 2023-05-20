@@ -1,4 +1,3 @@
-import React from 'react'
 import { CardWrapper } from '../../styled/CardWrapper.styled'
 import { CoverImage } from '../../styled/CoverImage.styled'
 import { CollectionsUserImage } from '../../styled/CollectionsUserImage.styled'
@@ -20,13 +19,15 @@ interface Props {
     OwnerId: string
     IsForProfile: boolean
     Followers: any
+    onClick: any
 }
 
 export const CollectionSingleCard = (props: Props) => {
 
     const User = UserData()
+
     return (
-        <CardWrapper>
+        <CardWrapper onClick={props.onClick}>
             <CoverImage src={props.CollationCoverImage || CoverPicture} alt='Collections image' />
 
             <Wrapper style={{ background: props.Color, padding: "0 10px 0 10px", height: "55%", justifyContent: "space-between", borderRadius: "0px 0px 4px 4px" }}>

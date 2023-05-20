@@ -16,7 +16,7 @@ import { EditComment } from '../../../services/PostsServices/EditComment'
 import { CommentBodySection } from './styled/CommentBodySection.styled'
 import { LoadingButton } from '../LoadingButton'
 import { ReplayTag } from './styled/ReplayTag'
-import { P } from '../Post/styled/P.styled'
+import { P } from '../../common/P.styled'
 
 
 interface Props {

@@ -1,6 +1,6 @@
 import { Row } from "../Row.styled"
 import { PostWrapper } from "./styled/PostWrapper.styled"
-import { P } from "./styled/P.styled"
+import { PostState } from "./styled/PostState.styled"
 import { PostBody } from "./styled/PostBody.styled"
 import { Text } from "./styled/Text.styled"
 import { PostImg } from "./styled/PostImg.styled"
@@ -9,9 +9,13 @@ import { CommentsButton } from "./Comments"
 import { Share } from "./Share"
 import { UserName } from "../../common/UserName.styled"
 import { UserLogo } from "../../common/UserLogo.styled"
-import { MouseEventHandler } from "react"
+import { MouseEventHandler, useContext } from "react"
 import { UrlLink } from "../../common/UrlLink.styled"
 import { DateCalculate } from "../../../services/PostsServices/DateCalculate"
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Colors } from "../../../assets/Colors"
+import { GlobalContext } from "../../../Context/GlobalContext"
 
 
 interface Props {
@@ -28,11 +32,14 @@ interface Props {
     CreatedAt: string
     onClickOnLogo: MouseEventHandler
     IncludingUrl: string
+    PostState: string
+    CollectionName: string
 }
 
 export const Post = (props: Props) => {
 
     const DateCalculator = DateCalculate(props.CreatedAt)
+    const { OptionsValue } = useContext(GlobalContext)
 
 
 
@@ -42,9 +49,16 @@ export const Post = (props: Props) => {
                 <Row padding="0" align="center" width="auto">
                     <UserLogo onClick={props.onClickOnLogo} src={props.PostOwnerImage} alt="User Photo" />
                     <UserName onClick={props.onClickOnLogo} IsCommentUserName={false}>{props.PostOwnerName}</UserName>
-                    <P>Public</P>
-                </Row>
-                <P>{DateCalculator()}</P>
+
+                    <Row width="fit-content" padding="0 5px" align="center">
+                        <FontAwesomeIcon style={{ fontSize: "0.70rem" }} icon={faCaretRight} />
+
+                        <PostState style={{ color: props.PostState === "Collections" ? Colors.Secoundry.Cyan : Colors.Primary.SoftBlack }}
+                        >
+                            {props.PostState === "Collections" ? props.CollectionName : "Public"}
+                        </PostState>
+                    </Row>                </Row>
+                <PostState>{DateCalculator()}</PostState>
             </Row>
 
             <PostBody onClick={props.onClick}>

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { CollectionSingleCard } from '../CollectionSingleCard'
 import { CollectionsCardWrapper } from '../../styled/CollectionsCardWrapper.styled'
 import { FetchCollections } from '../../../../services/Collections/FetchCollections'
 import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { UserData } from '../../../../services/LocalStorage/UserData'
-import { CollectionsDef } from '../../../../Context/GlobalContext'
+import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../../../../Context/GlobalContext'
 interface Props {
     SelectedButton: number
 }
@@ -13,8 +14,9 @@ export const CollectionsCards = (props: Props) => {
 
 
     const User = UserData()
-    const { FetchCollectionsHandler, CollectionsLoading, setCollectionsLoading, CollectionsResponse } = FetchCollections({ CollectionOwnerId: User._id }, props.SelectedButton)
-
+    const { FetchCollectionsHandler, CollectionsLoading, CollectionsResponse } = FetchCollections({ CollectionOwnerId: User._id }, props.SelectedButton)
+    const { setSpecificCollection } = useContext(GlobalContext)
+    const Navigate = useNavigate()
 
     useEffect(() => {
         FetchCollectionsHandler()
@@ -32,31 +34,41 @@ export const CollectionsCards = (props: Props) => {
                     :
                     CollectionsResponse.map((e) => {
                         if (props.SelectedButton < 2) {
-                            return e._id !== "" && e.CollectionOwnerId !== User._id ? <CollectionSingleCard
-                                CollationCoverImage={e.CollectionsCoverPicture}
-                                CollationOwnerName={e.CollectionOwnerName}
-                                CollationName={e.CollectionTitle}
-                                CollationUserImage={e.CollectionOwnerImage}
-                                key={e._id}
-                                Color={e.Color}
-                                OwnerId={e.CollectionOwnerId}
-                                IsForProfile={true}
-                                Followers={e.CollectionFollowing}
-                            />
+                            return e._id !== "" && e.CollectionOwnerId !== User._id ?
+                                <CollectionSingleCard
+                                    onClick={() => {
+                                        Navigate("/CollectionPreview")
+                                        setSpecificCollection(e)
+                                    }}
+                                    CollationCoverImage={e.CollectionsCoverPicture}
+                                    CollationOwnerName={e.CollectionOwnerName}
+                                    CollationName={e.CollectionTitle}
+                                    CollationUserImage={e.CollectionOwnerImage}
+                                    key={e._id}
+                                    Color={e.Color}
+                                    OwnerId={e.CollectionOwnerId}
+                                    IsForProfile={true}
+                                    Followers={e.CollectionFollowing}
+                                />
                                 :
                                 null
                         } else {
-                            return e._id !== "" ? <CollectionSingleCard
-                                CollationCoverImage={e.CollectionsCoverPicture}
-                                CollationOwnerName={e.CollectionOwnerName}
-                                CollationName={e.CollectionTitle}
-                                CollationUserImage={e.CollectionOwnerImage}
-                                key={e._id}
-                                Color={e.Color}
-                                OwnerId={e.CollectionOwnerId}
-                                IsForProfile={true}
-                                Followers={e.CollectionFollowing}
-                            />
+                            return e._id !== "" ?
+                                <CollectionSingleCard
+                                    onClick={() => {
+                                        Navigate("/CollectionPreview")
+                                        setSpecificCollection(e)
+                                    }}
+                                    CollationCoverImage={e.CollectionsCoverPicture}
+                                    CollationOwnerName={e.CollectionOwnerName}
+                                    CollationName={e.CollectionTitle}
+                                    CollationUserImage={e.CollectionOwnerImage}
+                                    key={e._id}
+                                    Color={e.Color}
+                                    OwnerId={e.CollectionOwnerId}
+                                    IsForProfile={true}
+                                    Followers={e.CollectionFollowing}
+                                />
                                 :
                                 null
                         }

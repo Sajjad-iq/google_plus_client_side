@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { device } from "../../../../assets/breackPoints";
+import { useContext } from "react";
+import { GlobalContext } from "../../../../Context/GlobalContext";
+import { Colors } from "../../../../assets/Colors";
 
-export const P = styled.section`
+
+export const PostState = styled.p`
  color:black;
  display: flex;
  justify-content: center;

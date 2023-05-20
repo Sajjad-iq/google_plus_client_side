@@ -4,6 +4,9 @@ import { Colors } from '../../../../assets/Colors'
 import { AddCollectionCard } from '../AddCollectionCard'
 import { Wrapper } from '../../styled/Wrapper'
 import { CollectionSingleCard } from '../../../Collections/Components/CollectionSingleCard'
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { GlobalContext } from '../../../../Context/GlobalContext'
 
 interface Props {
     UserName: string
@@ -11,6 +14,9 @@ interface Props {
     CollectionsCards: any
 }
 export const AddCollection = (props: Props) => {
+
+    const { setSpecificCollection } = useContext(GlobalContext)
+    const Navigate = useNavigate()
     return (
         <Wrapper >
 
@@ -20,17 +26,22 @@ export const AddCollection = (props: Props) => {
 
                 {
                     props.CollectionsCards.map((e: any) => {
-                        return e._id !== "" ? <CollectionSingleCard
-                            CollationCoverImage={e.CollectionsCoverPicture}
-                            CollationOwnerName={e.CollectionOwnerName}
-                            CollationName={e.CollectionTitle}
-                            CollationUserImage={e.CollectionOwnerImage}
-                            key={e._id}
-                            Color={e.Color}
-                            OwnerId={e.CollectionOwnerId}
-                            IsForProfile={true}
-                            Followers={e.CollectionFollowing}
-                        />
+                        return e._id !== "" ?
+                            <CollectionSingleCard
+                                onClick={() => {
+                                    Navigate("/CollectionPreview")
+                                    setSpecificCollection(e)
+                                }}
+                                CollationCoverImage={e.CollectionsCoverPicture}
+                                CollationOwnerName={e.CollectionOwnerName}
+                                CollationName={e.CollectionTitle}
+                                CollationUserImage={e.CollectionOwnerImage}
+                                key={e._id}
+                                Color={e.Color}
+                                OwnerId={e.CollectionOwnerId}
+                                IsForProfile={true}
+                                Followers={e.CollectionFollowing}
+                            />
                             :
                             null
                     })

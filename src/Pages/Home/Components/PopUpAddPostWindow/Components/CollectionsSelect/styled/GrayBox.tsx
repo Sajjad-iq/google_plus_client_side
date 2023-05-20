@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../../../../../../assets/Colors";
 
 export const GrayBox = styled.section`
- height: 300px;
- width: 75%;
+ width: 99%;
  display: flex;
  justify-content: flex-start;
  align-items: flex-start;

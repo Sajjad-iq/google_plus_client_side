@@ -43,6 +43,8 @@ export const Posts = React.memo((props: Props) => {
                         props.Response?.map((e: any) => {
 
                             return e._id !== "" ? <Post
+                                CollectionName={e.CollectionName}
+                                PostState={e.PostFrom}
                                 onClickOnLogo={() => SetFindUserHandler(e.PostOwnerId)}
                                 CreatedAt={e.createdAt}
                                 IsForPreviewWindow={false}
@@ -59,7 +61,7 @@ export const Posts = React.memo((props: Props) => {
                                 PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
                             />
                                 :
-                                ""
+                                null
                         }
                         )
                     }

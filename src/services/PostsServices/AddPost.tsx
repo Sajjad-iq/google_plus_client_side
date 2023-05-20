@@ -11,6 +11,7 @@ export const AddPost = () => {
     const [Photo, setPhoto] = useState<any>("")
     const [Textfield, setTextFelid] = useState<string>("")
     const [isLoading, setIsLoading] = useState(false)
+    const { setOptionsValue, OptionsValue, SpecificCollection } = useContext(GlobalContext)
 
     const { setErrMessage } = useContext(GlobalContext)
     const Navigate = useNavigate()
@@ -44,7 +45,11 @@ export const AddPost = () => {
                         PostOwnerName: `${User.UserName} ${User.FamilyName}`,
                         PostImage: Photo,
                         PostOwnerImage: User.ProfilePicture,
-                        link: Url
+                        link: Url,
+                        PostFrom: OptionsValue,
+                        CollectionName: OptionsValue === "Collections" ? SpecificCollection.CollectionTitle : '',
+                        CollectionId: OptionsValue === "Collections" ? SpecificCollection._id : '',
+                        PrivateShareUsersIds: OptionsValue === "Private" ? [] : []
                     }
                 }
                 ).then(() => {
@@ -56,6 +61,7 @@ export const AddPost = () => {
                 Navigate("/Error")
             } finally {
                 setIsLoading(false)
+                setOptionsValue("Public")
             }
         } else {
             window.alert("you can't post empty posts")

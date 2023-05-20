@@ -46,7 +46,10 @@ export const PostPreviewWindow = (props: Props) => {
                     <BackButton color={"black"} onClick={props.BackHandler} />
                     <OptionButtonAndOptionsWindow Data={SpecificPost} />
                 </Row>
+
                 <Post
+                    CollectionName={SpecificPost.CollectionName}
+                    PostState={SpecificPost.PostFrom}
                     onClickOnLogo={() => SetFindUserHandler(SpecificPost.PostOwnerId)}
                     CreatedAt={SpecificPost.createdAt}
                     IsForPreviewWindow={true}

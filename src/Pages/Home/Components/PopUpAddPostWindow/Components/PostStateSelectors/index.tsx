@@ -1,13 +1,15 @@
-import React from 'react'
+import { useContext } from 'react'
 import "./styles.css"
-interface Props {
-    setSelectWindow: any
-}
-export const PostStateSelectors = (props: Props) => {
+import { GlobalContext } from '../../../../../../Context/GlobalContext'
+
+export const PostStateSelectors = () => {
+    const { setOptionsValue } = useContext(GlobalContext)
+
     return (
-        <select id="PostOption" onChange={(e) => props.setSelectWindow(e.target.value)}>
+        <select id="PostOption" onChange={(e) => setOptionsValue(e.target.value)}>
             <option value="Public">Public</option>
-            <option value="Private">private</option>
+            <option value="Private">Private</option>
+            <option value="Collections">Collections</option>
         </select>
     )
 }

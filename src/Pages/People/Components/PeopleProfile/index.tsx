@@ -32,7 +32,6 @@ export const PeopleProfile = () => {
     const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: PeopleUser._id }, 2)
 
 
-
     useEffect(() => {
         FetchPosts()
     }, [PostsCount])
@@ -47,6 +46,8 @@ export const PeopleProfile = () => {
             <OptionBar />
             <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
             <UserInfo
+                color='white'
+                forCollectionsPage={false}
                 IsLoading={IsLoading}
                 UserName={`${PeopleUser.UserName} ${PeopleUser.FamilyName}`}
                 UserDescription={PeopleUser.Description}

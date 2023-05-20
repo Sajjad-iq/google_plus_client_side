@@ -69,11 +69,17 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     // for comments of the specific post
     const [SpecificPostComments, setSpecificPostComments] = useState([])
 
+    // for find SpecificCollection for Collections page
+    const [SpecificCollection, setSpecificCollection] = useState(CollectionsDef)
+
+    // for add post options
+    const [OptionsValue, setOptionsValue] = useState("Public")
+
     // for notifications bell
     const [HasNotifications, setHasNotifications] = useState(false)
 
     return (
-        <GlobalContext.Provider value={{ User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
+        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
             {children}
         </GlobalContext.Provider>
     )

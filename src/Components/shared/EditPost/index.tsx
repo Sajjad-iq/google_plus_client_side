@@ -43,7 +43,7 @@ export const EditPost = (props: Props) => {
             <PostBody>
 
                 <Row padding="0" align="space-between" width="100%">
-                    <ProfileImageAndPostState setSelectorsValue={() => ""} />
+                    <ProfileImageAndPostState />
                     <Exit onClick={props.CloseFunction} />
                 </Row>
 

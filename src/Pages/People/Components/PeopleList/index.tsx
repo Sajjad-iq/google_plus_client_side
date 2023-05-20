@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { UserCard } from '../../../../Components/shared/UserCard'
@@ -7,6 +7,7 @@ import { FetchAllUsers } from '../../../../services/PeopleServices/FetchAllUsers
 import { SetFindUser } from '../../../../services/PeopleServices/SetFindUser'
 import { Header } from './styled/Header.styled'
 import { Wrapper } from './styled/Wrapper'
+import { CardsWrapper } from './styled/CardsWrapper'
 
 export const PeopleList = () => {
 
@@ -23,19 +24,33 @@ export const PeopleList = () => {
 
     return (
         <Wrapper >
+
             <Header>People you may know..</Header>
-            {
-                Response.map((e) => {
-                    if (e.UserName !== "") {
-                        return <UserCard
-                            IsLoading={FindUserLoading && e._id === UserId ? true : false}
-                            onClick={() => SetFindUserHandler(e._id)} key={e._id}
-                            UserName={`${e.UserName} ${e.FamilyName}`}
-                            UserImg={e.ProfilePicture}
-                            IsForSearch={false} />
-                    }
-                })
-            }
+
+            <CardsWrapper>
+
+                {
+                    Response.map((e) => {
+                        return e._id !== "" ?
+                            <UserCard
+                                IsLoading={false}
+                                onClick={() => SetFindUserHandler(e._id)}
+                                key={e._id}
+                                UserName={`${e.UserName} ${e.FamilyName}`}
+                                UserImg={e.ProfilePicture}
+                                IsForSearch={false}
+                                description={e.Description}
+                                Followers={e.Followers}
+                                ConvertToCollectionCard={false}
+                                Color={"none"}
+                                OnClickAdd={() => ""}
+                            />
+                            :
+                            null
+                    })
+                }
+
+            </CardsWrapper>
 
             <Row style={{ display: Loading ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
                 <LoadingAnimation />

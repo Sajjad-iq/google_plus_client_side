@@ -10,5 +10,9 @@ export const CoverImg = styled.img`
      height: 375px;
  }
 
+    @media ${device.laptop} {
+     height: 200px;
+ }
+
 
 `

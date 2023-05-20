@@ -50,6 +50,8 @@ function Profile() {
 
             <CoverImages CoverImg={User.CoverPicture !== "" ? User.CoverPicture : CoverIMG} UserImg={User.ProfilePicture !== "" ? User.ProfilePicture : UserIMG} />
             <UserInfo
+                color='white'
+                forCollectionsPage={false}
                 IsLoading={false}
                 UserName={`${User.UserName} ${User.FamilyName}`}
                 UserDescription={User.Description}

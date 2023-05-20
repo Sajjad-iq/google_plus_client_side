@@ -7,7 +7,7 @@ export const RightSide = styled.section`
  overflow: scroll;
  position: relative;
   top: -1px;
-  background:${Colors.Primary.SoftGray};
+  background:white;
 
    &::-webkit-scrollbar {
   display: none;
