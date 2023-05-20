@@ -16,7 +16,7 @@ export const CollectionPreview = () => {
 
   const { SpecificCollection } = useContext(GlobalContext)
   const User = UserData()
-  const { FetchPosts, Loading, Response } = FetchPostsHandler(10, {})
+  const { FetchPosts, Loading, Response } = FetchPostsHandler(1, { CollectionId: SpecificCollection._id })
   const { onClickOnPost } = PreviewThePost()
 
   useEffect(() => {
