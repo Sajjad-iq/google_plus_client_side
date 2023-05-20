@@ -47,6 +47,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
             PostImage: Photo,
             PostOwnerImage: SpecificPost.PostOwnerImage,
             link: Url
+
           }
         }
         ).then(() => {

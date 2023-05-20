@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AddImage } from '../../../Pages/Home/Components/PopUpAddPostWindow/Components/AddImage'
 import { AddUrl } from '../../../Pages/Home/Components/PopUpAddPostWindow/Components/AddUrl'
 import { Exit } from '../../../Pages/Home/Components/PopUpAddPostWindow/Components/Exit'

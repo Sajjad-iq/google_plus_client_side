@@ -28,7 +28,7 @@ export const CollectionsCards = (props: Props) => {
 
             {
                 CollectionsLoading ?
-                    <Row style={{ display: CollectionsLoading ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
+                    <Row style={{ display: CollectionsLoading ? "flex" : "none", background: "none", height: "75px" }} width='100%' padding='0' align='center' >
                         <LoadingAnimation />
                     </Row>
                     :
