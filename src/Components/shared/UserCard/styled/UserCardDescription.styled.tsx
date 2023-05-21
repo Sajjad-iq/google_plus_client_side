@@ -6,7 +6,7 @@ export const UserCardDescription = styled.h4`
 font-size: 0.80rem;
 font-weight: 400;
 color:${Colors.Primary.SoftBlack};
-width:140px;
+width:75px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;

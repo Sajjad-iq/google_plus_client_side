@@ -10,6 +10,8 @@ font-weight: 800;
 color:${Colors.Secoundry.gray};
 display:flex;
 margin:20px 10px;
+position: sticky;
+top:10px;
 
 
  @media ${device.desktop} {

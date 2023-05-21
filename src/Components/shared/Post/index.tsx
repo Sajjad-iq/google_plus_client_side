@@ -50,14 +50,15 @@ export const Post = (props: Props) => {
                     <UserLogo onClick={props.onClickOnLogo} src={props.PostOwnerImage} alt="User Photo" />
                     <UserName onClick={props.onClickOnLogo} IsCommentUserName={false}>{props.PostOwnerName}</UserName>
 
-                    <Row width="fit-content" padding="0 5px" align="center">
+                    <Row width="fit-content" padding="0 2px" align="center">
                         <FontAwesomeIcon style={{ fontSize: "0.70rem" }} icon={faCaretRight} />
 
                         <PostState style={{ color: props.PostState === "Collections" ? Colors.Secoundry.Cyan : Colors.Primary.SoftBlack }}
                         >
                             {props.PostState === "Collections" ? props.CollectionName : "Public"}
                         </PostState>
-                    </Row>                </Row>
+                    </Row>
+                </Row>
                 <PostState>{DateCalculator()}</PostState>
             </Row>
 

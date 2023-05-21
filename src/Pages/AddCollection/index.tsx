@@ -10,7 +10,7 @@ import { AddCollections } from '../../services/Collections/AddCollection'
 
 export const AddCollectionPage = () => {
 
-    const { AddCollectionHandler, ColorIndex, setColorIndex, setTitle, setTagline, Image, setImage, isLoading } = AddCollections()
+    const { Tagline, Title, AddCollectionHandler, ColorIndex, setColorIndex, setTitle, setTagline, Image, setImage, isLoading } = AddCollections()
 
     return (
         <WindowWrapper display={"flex"}>
@@ -18,7 +18,7 @@ export const AddCollectionPage = () => {
             <PostBody style={{ borderRadius: "3px", padding: "0", position: "relative" }}>
                 <CollectionNav loading={isLoading} onSubmit={AddCollectionHandler} />
                 <CollectionAddCoverImage CollectionImage={Image} setImage={setImage} />
-                <CollectionTitle setTitle={setTitle} setTagline={setTagline} ColorIndex={ColorIndex} />
+                <CollectionTitle Tagline={Tagline} Title={Title} setTitle={setTitle} setTagline={setTagline} ColorIndex={ColorIndex} />
                 <CollectionColors ColorIndex={ColorIndex} setColorIndex={setColorIndex} />
             </PostBody>
 

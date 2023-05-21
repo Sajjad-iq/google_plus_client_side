@@ -12,10 +12,11 @@ import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation
 import { Row } from '../../../../Components/shared/Row.styled'
 import { useObserver } from '../../../../services/observer/useObserver'
 import { FetchPostsHandler } from '../../../../services/PostsServices/FetchPosts'
-import { OptionBar } from '../../../Profile/components/OptionsBar'
 import { Wrapper } from '../../../../Components/shared/Wrapper'
 import { AddCollection } from '../../../Profile/components/AddCollection'
 import { FetchCollections } from '../../../../services/Collections/FetchCollections'
+import { BorderButton } from '../../../../Components/common/BorderButton.styled'
+import { DropDownOptionsBottom } from '../../../../Components/shared/DropDownOptions'
 
 
 export const PeopleProfile = () => {
@@ -41,9 +42,16 @@ export const PeopleProfile = () => {
 
 
     return (
-        <Wrapper style={window.innerWidth > 768 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20" }}>
-            <OptionBar />
-            <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
+        <Wrapper style={window.innerWidth < 768 ? { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20" } : {}}>
+
+            <DropDownOptionsBottom
+                bottom="-40px"
+                children={
+                    <Wrapper>
+                        <BorderButton >Profile URL</BorderButton>
+                    </Wrapper>
+                }
+            />            <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
             <UserInfo
                 color='white'
                 forCollectionsPage={false}

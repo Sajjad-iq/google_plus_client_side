@@ -24,7 +24,7 @@ export const FetchCollections = (Owner: any, SelectedButton: number) => {
                 withCredentials: true,
                 data: {
                     CollectionsOwner: SelectedButton >= 2 ? Owner : {},
-                    PayloadCount: 20
+                    PayloadCount: 30
                 }
             }
             ).then(async (e: any) => {

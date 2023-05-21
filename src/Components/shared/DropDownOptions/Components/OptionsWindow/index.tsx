@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import { ToggleColumn } from '../../../../Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
-import { BorderButton } from '../../../../Components/common/BorderButton.styled'
+import { ReactNode, useEffect, useRef } from 'react'
+import { ToggleColumn } from '../../../PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
 
 interface Props {
     IsActive: boolean
     setIsActive: any
+    children: ReactNode
+    bottom: string
 }
 export const OptionsWindow = (props: Props) => {
 
@@ -20,8 +21,8 @@ export const OptionsWindow = (props: Props) => {
 
 
     return (
-        <ToggleColumn bottom={"-40px"} display={props.IsActive ? "flex" : "none"}  >
-            <BorderButton >Profile URL</BorderButton>
+        <ToggleColumn ref={OptionsRef} bottom={props.bottom} display={props.IsActive ? "flex" : "none"}  >
+            {props.children}
         </ToggleColumn>
     )
 }

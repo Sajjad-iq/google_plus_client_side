@@ -1,12 +1,19 @@
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
-import "../../../../assets/GlobalStyles/style.css"
+import "../../../../../assets/GlobalStyles/style.css"
 import { OptionsWindow } from '../OptionsWindow'
-import { useState } from 'react'
-import { Button } from '../../../../Components/common/Button.styled'
-import { Wrapper } from '../../../../Components/shared/Wrapper'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ReactNode, useState } from 'react'
 
-export const OptionButtonAndOptionsWindow = () => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Wrapper } from '../../../Wrapper'
+import { Button } from '../../../../common/Button.styled'
+
+interface Props {
+    children: ReactNode
+    bottom: string
+
+}
+
+export const OptionButtonAndOptionsWindow = (props: Props) => {
     const [IsActive, setIsActive] = useState(false)
     return (
         <Wrapper style={{ width: "fit-content", background: "none" }}>
@@ -15,7 +22,11 @@ export const OptionButtonAndOptionsWindow = () => {
                 <FontAwesomeIcon className='post-fa-icon' style={{ color: "white" }} icon={faEllipsisVertical} />
             </Button>
 
-            <OptionsWindow setIsActive={setIsActive} IsActive={IsActive} />
+            <OptionsWindow
+                bottom={props.bottom}
+                children={props.children}
+                setIsActive={setIsActive}
+                IsActive={IsActive} />
 
         </Wrapper>
     )

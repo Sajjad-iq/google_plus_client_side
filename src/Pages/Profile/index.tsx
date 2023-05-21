@@ -13,9 +13,11 @@ import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
 import { Row } from "../../Components/shared/Row.styled"
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { RedPenButton } from "../Home/Components/RedPenButton"
-import { OptionBar } from "./components/OptionsBar"
 import { AddCollection } from "./components/AddCollection"
 import { FetchCollections } from "../../services/Collections/FetchCollections"
+import { Colors } from "../../assets/Colors"
+import { BorderButton } from "../../Components/common/BorderButton.styled"
+import { DropDownOptionsBottom } from "../../Components/shared/DropDownOptions"
 
 
 function Profile() {
@@ -42,10 +44,16 @@ function Profile() {
 
 
     return (
-        <Wrapper style={window.innerWidth >= 1024 ? {} : { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20" }}>
+        <Wrapper style={window.innerWidth < 768 ? { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.Lightgray } : {}}>
 
-            <OptionBar />
-
+            <DropDownOptionsBottom
+                bottom="-40px"
+                children={
+                    <Wrapper>
+                        <BorderButton >Profile URL</BorderButton>
+                    </Wrapper>
+                }
+            />
             <RedPenButton />
 
             <CoverImages CoverImg={User.CoverPicture !== "" ? User.CoverPicture : CoverIMG} UserImg={User.ProfilePicture !== "" ? User.ProfilePicture : UserIMG} />
