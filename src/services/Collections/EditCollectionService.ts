@@ -27,7 +27,7 @@ export const EditCollectionService = () => {
                 setIsLoading(true)
                 await axios({
                     method: 'post',
-                    url: import.meta.env.VITE_BACKEND_URL + "/api/Collections//EditCollection",
+                    url: import.meta.env.VITE_BACKEND_URL + "/api/Collections/EditCollection",
                     headers: {},
                     withCredentials: true,
                     data: {
