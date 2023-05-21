@@ -8,7 +8,7 @@ export const Wrapper = styled.section`
  align-items: center;
  flex-wrap: wrap;
  position: relative;
- background:none;
+ background:white;
 
   &::-webkit-scrollbar {
   display: none;

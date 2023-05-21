@@ -2,7 +2,6 @@ import axios from "axios"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, def } from "../../Context/GlobalContext"
-import { UserData } from "../LocalStorage/UserData"
 
 
 export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
@@ -12,7 +11,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
     const [StopFetching, setStopFetching] = useState(false)
     const Navigate = useNavigate()
     const { setErrMessage, setOptionsValue } = useContext(GlobalContext)
-
+    const { User } = useContext(GlobalContext)
     const FetchPosts = async () => {
         try {
             setLoading(true)
@@ -26,6 +25,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
                 data: {
                     PostsOwner: Owner,
                     PayloadCount: PostsCount,
+                    FollowingCollections: User.FollowingCollections
                 }
             }
             ).then(async (e: any) => {

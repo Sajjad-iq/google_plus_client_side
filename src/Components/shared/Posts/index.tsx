@@ -42,26 +42,29 @@ export const Posts = React.memo((props: Props) => {
                     {
                         props.Response?.map((e: any) => {
 
-                            return e._id !== "" ? <Post
-                                CollectionName={e.CollectionName}
-                                PostState={e.PostFrom}
-                                onClickOnLogo={() => SetFindUserHandler(e.PostOwnerId)}
-                                CreatedAt={e.createdAt}
-                                IsForPreviewWindow={false}
-                                key={e._id}
-                                onClick={() => props.OnClickOnPost(e)}
-                                PostBody={e.PostBody}
-                                PostImage={e.PostImage}
-                                IncludingUrl={e.Link}
-                                LikesCount={e.Likes.length}
-                                CommentsCount={e.CommentsCounter}
-                                onHitLike={() => AddLikeHandler(e)}
-                                IsUserHitLike={e.Likes.includes(User._id)}
-                                PostOwnerName={e.PostOwnerName}
-                                PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
-                            />
-                                :
-                                null
+                            if (e) {
+
+                                return e._id !== "" ? <Post
+                                    CollectionName={e.CollectionName}
+                                    PostState={e.PostFrom}
+                                    onClickOnLogo={() => SetFindUserHandler(e.PostOwnerId)}
+                                    CreatedAt={e.createdAt}
+                                    IsForPreviewWindow={false}
+                                    key={e._id}
+                                    onClick={() => props.OnClickOnPost(e)}
+                                    PostBody={e.PostBody}
+                                    PostImage={e.PostImage}
+                                    IncludingUrl={e.Link}
+                                    LikesCount={e.Likes.length}
+                                    CommentsCount={e.CommentsCounter}
+                                    onHitLike={() => AddLikeHandler(e)}
+                                    IsUserHitLike={e.Likes.includes(User._id)}
+                                    PostOwnerName={e.PostOwnerName}
+                                    PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
+                                />
+                                    :
+                                    null
+                            }
                         }
                         )
                     }

@@ -49,6 +49,7 @@ export const AddPost = () => {
                         PostFrom: OptionsValue,
                         CollectionName: OptionsValue === "Collections" ? SpecificCollection.CollectionTitle : '',
                         CollectionId: OptionsValue === "Collections" ? SpecificCollection._id : '',
+                        CollectionOwnerId: OptionsValue === "Collections" ? SpecificCollection.CollectionOwnerId : '',
                         PrivateShareUsersIds: OptionsValue === "Private" ? [] : []
                     }
                 }
