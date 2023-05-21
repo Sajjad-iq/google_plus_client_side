@@ -17,11 +17,13 @@ export const CollectionPreview = () => {
 
   const { SpecificCollection, setSpecificCollection } = useContext(GlobalContext)
   const User = UserData()
-  const { FetchPosts, Loading, Response } = FetchPostsHandler(1, { CollectionId: SpecificCollection._id })
+  const { FetchPosts, Loading, Response } = FetchPostsHandler(0, { CollectionId: SpecificCollection._id })
   const { onClickOnPost } = PreviewThePost()
   const AddFollowToCollectionHandler = FollowCollection()
   const [IsFollow, setIsFollow] = useState("")
 
+
+  console.log(Response)
   useEffect(() => {
     FetchPosts()
   }, [])
