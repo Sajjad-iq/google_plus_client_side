@@ -1,18 +1,18 @@
 import axios from 'axios'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
-import { UserData } from '../LocalStorage/UserData'
 
 export const FollowCollection = () => {
 
     const { setSpecificCollection, SpecificCollection, setUser, User } = useContext(GlobalContext)
 
+    const [CollectionsFollowLoading, setCollectionsFollowLoading] = useState(false)
 
     const AddFollowToCollectionHandler = async () => {
 
 
         try {
-
+            setCollectionsFollowLoading(true)
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Collections/AddFollowToCollection",
@@ -30,24 +30,23 @@ export const FollowCollection = () => {
                 let collection = SpecificCollection
 
                 if (e.data === 1) {
-                    user.FollowingCollections.push(SpecificCollection._id)
-                    collection.CollectionFollowing.push(User._d)
+                    User.FollowingCollections.push(SpecificCollection._id)
+                    SpecificCollection.CollectionFollowing.push(User._id)
 
-                    setUser(user)
-                    setSpecificCollection(collection)
                 } else {
                     let CollectionIndex = user.FollowingCollections.indexOf(SpecificCollection._id);
                     let UserIndex = collection.CollectionFollowing.indexOf(User._id);
-                    user.FollowingCollections.splice(CollectionIndex, 1);
-                    collection.CollectionFollowing.splice(UserIndex, 1);
-
-                    setUser(user)
-                    setSpecificCollection(collection)
+                    User.FollowingCollections.splice(CollectionIndex, 1);
+                    SpecificCollection.CollectionFollowing.splice(UserIndex, 1);
                 }
-            })
+            }
+            )
         } catch (e) {
             console.log(e)
         }
+        finally {
+            setCollectionsFollowLoading(false)
+        }
     }
-    return AddFollowToCollectionHandler
+    return { AddFollowToCollectionHandler, CollectionsFollowLoading }
 }

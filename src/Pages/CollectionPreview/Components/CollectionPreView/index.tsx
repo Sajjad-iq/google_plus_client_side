@@ -21,12 +21,10 @@ interface Props {
 }
 export const CollectionPreView = (props: Props) => {
 
-    const { SpecificCollection, setSpecificCollection } = useContext(GlobalContext)
-    const User = UserData()
+    const { SpecificCollection, User } = useContext(GlobalContext)
     const { FetchPosts, Loading, Response } = FetchPostsHandler(0, { CollectionId: SpecificCollection._id })
     const { onClickOnPost } = PreviewThePost()
-    const AddFollowToCollectionHandler = FollowCollection()
-    const [IsFollow, setIsFollow] = useState("")
+    const { AddFollowToCollectionHandler, CollectionsFollowLoading } = FollowCollection()
     const { DeleteCollectionHandler } = DeleteCollection()
 
 
@@ -34,9 +32,6 @@ export const CollectionPreView = (props: Props) => {
         FetchPosts()
     }, [])
 
-    useEffect(() => {
-        SpecificCollection.CollectionFollowing.includes(User._id) ? setIsFollow("UN FOLLOW") : setIsFollow("FOLLOW")
-    }, [SpecificCollection, AddFollowToCollectionHandler, setSpecificCollection])
 
     return (
         <Wrapper >
@@ -73,12 +68,12 @@ export const CollectionPreView = (props: Props) => {
                     <UserInfo
                         color={SpecificCollection.Color}
                         forCollectionsPage={true}
-                        IsLoading={false}
+                        IsLoading={CollectionsFollowLoading}
                         UserName={SpecificCollection.CollectionOwnerName}
                         UserDescription={SpecificCollection.CollectionTitle}
                         UserFollowers={SpecificCollection.CollectionFollowing.length}
                         ProfileButtonClick={AddFollowToCollectionHandler}
-                        ProfileButtonName={IsFollow}
+                        ProfileButtonName={SpecificCollection.CollectionFollowing.includes(User._id) ? "UN FOLLOW" : "FOLLOW"}
                     />
             }
 
