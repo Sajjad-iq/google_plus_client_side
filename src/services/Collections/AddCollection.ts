@@ -36,7 +36,7 @@ export const AddCollections = () => {
                         Tagline: Tagline,
                         CollectionsCoverPicture: Image,
                         Color: CollectionsColorsData[ColorIndex],
-                        CollectionOwnerImage: User.ProfilePicture
+                        CollectionOwnerImage: User.ProfilePicture,
                     }
                 }
                 ).then(() => {

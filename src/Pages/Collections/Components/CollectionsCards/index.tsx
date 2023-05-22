@@ -7,6 +7,7 @@ import { Row } from '../../../../Components/shared/Row.styled'
 import { UserData } from '../../../../services/LocalStorage/UserData'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../../../Context/GlobalContext'
+import { AddCollectionCard } from '../../../Profile/components/AddCollectionCard'
 interface Props {
     SelectedButton: number
 }
@@ -25,6 +26,8 @@ export const CollectionsCards = (props: Props) => {
 
 
         <CollectionsCardWrapper >
+
+            <AddCollectionCard />
 
             {
                 CollectionsLoading ?

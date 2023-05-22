@@ -3,6 +3,7 @@ import { Colors } from "../../../assets/Colors";
 
 interface Props {
   IsActive: boolean
+  color: string
 }
 export const UnderLineButton = styled.button<Props>`
 background: none;
@@ -19,7 +20,7 @@ font-weight: 500;
 font-size:0.8rem;
   
 ${p => p.IsActive ?
-    `  border-bottom: 2px solid ${Colors.Secoundry.Cyan};
+    `  border-bottom: 2px solid ${p.color};
   `
     :
     ``

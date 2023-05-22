@@ -1,1 +1,1 @@
-export const buttonsNames = ["FEATURED", "FOLLOWING", "YOURS"]
+export const CollectionsButtonsNames = ["FEATURED", "FOLLOWING", "YOURS"]

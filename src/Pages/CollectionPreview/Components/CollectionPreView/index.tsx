@@ -1,10 +1,9 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { CoverImages } from "../../../../Components/shared/CoverImages"
 import { Posts } from "../../../../Components/shared/Posts"
 import { UserInfo } from "../../../../Components/shared/UserInfo"
 import { GlobalContext } from "../../../../Context/GlobalContext"
 import { FollowCollection } from "../../../../services/Collections/FollowCollection"
-import { UserData } from "../../../../services/LocalStorage/UserData"
 import { FetchPostsHandler } from "../../../../services/PostsServices/FetchPosts"
 import { PreviewThePost } from "../../../../services/PostsServices/PreviewThePost"
 import { RedPenButton } from "../../../Home/Components/RedPenButton"
@@ -39,7 +38,10 @@ export const CollectionPreView = (props: Props) => {
             <DropDownOptionsBottom
                 bottom="-40px"
                 children={
-                    <BorderButton onClick={DeleteCollectionHandler} >Delete</BorderButton>
+                    User._id === SpecificCollection.CollectionOwnerId ?
+                        <BorderButton onClick={DeleteCollectionHandler} >Delete</BorderButton>
+                        :
+                        null
                 }
             />
 

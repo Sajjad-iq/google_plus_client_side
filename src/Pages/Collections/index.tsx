@@ -2,6 +2,8 @@ import { useState } from "react"
 import { Wrapper } from "../../Components/shared/Wrapper"
 import { CollectionsCards } from "./Components/CollectionsCards"
 import { CollectionsNav } from "./Components/CollectionsNav"
+import { CollectionsButtonsNames } from "./Components/names"
+import { Colors } from "../../assets/Colors"
 
 export const Collections = () => {
 
@@ -9,7 +11,7 @@ export const Collections = () => {
 
     return (
         <Wrapper style={{ height: "100%", alignContent: "flex-start" }}>
-            <CollectionsNav SelectedButton={SelectedButton} setSelectedButton={setSelectedButton} />
+            <CollectionsNav color={Colors.Secoundry.Cyan} buttonsNames={CollectionsButtonsNames} SelectedButton={SelectedButton} setSelectedButton={setSelectedButton} />
             <CollectionsCards SelectedButton={SelectedButton} />
         </Wrapper>
     )
