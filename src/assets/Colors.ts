@@ -11,6 +11,7 @@ export const Colors = {
     Secoundry: {
         blue: "#1B74E4",
         gray: "rgb(93, 93, 93)",
-        Cyan: "#4984cc"
+        Cyan: "#4984cc",
+        Green: "#39ad46"
     }
 }

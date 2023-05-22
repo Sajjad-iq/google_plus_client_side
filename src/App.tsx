@@ -20,6 +20,7 @@ import { LoadingAnimation } from "./Components/shared/LoadingAnimation";
 import { Collections } from "./Pages/Collections";
 import { AddCollectionPage } from "./Pages/AddCollection";
 import { CollectionPreview } from "./Pages/CollectionPreview";
+import { Communities } from "./Pages/Communities";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
               <Route path="/Help" element={<h1>Still Work on it</h1>} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Collections" element={<Collections />} />
+              <Route path="/Communities" element={<Communities />} />
               <Route path="/AddCollection" element={<AddCollectionPage />} />
               <Route path="/CollectionPreview" element={<CollectionPreview />} />
 

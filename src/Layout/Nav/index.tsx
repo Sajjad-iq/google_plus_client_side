@@ -18,7 +18,7 @@ export const Nav = React.memo((props: Props) => {
     const Toggle = () => setISActive(!isActive)
     const Location = useLocation()
     return (
-        <NavWrapper style={{ background: Location.pathname == "/Collections" ? Colors.Secoundry.Cyan : Colors.Primary.red }}>
+        <NavWrapper style={{ background: Location.pathname == "/Collections" ? Colors.Secoundry.Cyan : Location.pathname == "/Communities" ? Colors.Secoundry.Green : Colors.Primary.red }}>
 
             <Section style={{ display: isActive ? "none" : "flex" }} >
                 <MenuButton isActive={props.isMenuButtonActive} onClick={props.MenuButtonHandler} />

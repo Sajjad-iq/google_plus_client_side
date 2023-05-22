@@ -1,1 +1,1 @@
-export const CommunitiesButtonsNames = ["FEATURED", "FOLLOWING", "YOURS"]
+export const CommunitiesButtonsNames = ["RECOMMENDED", "MEMBER", "YOURS"]

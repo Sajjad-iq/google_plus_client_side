@@ -14,6 +14,8 @@ import CollectionsSvg from "../../../../assets/ICONS/Collections.svg"
 import CyanCollectionsSvg from "../../../../assets/ICONS/CollectionsCyan.svg"
 import ProfileIcon from '../../../../assets/ICONS/user-circle-svgrepo-com.svg'
 import redProfileIcon from '../../../../assets/ICONS/reduser-circle-svgrepo-com.svg'
+import CommunitiesSvg from "../../../../assets/ICONS/coomunities.svg"
+import CommunitiesGreenSvg from "../../../../assets/ICONS/coomunitiesGreen.svg"
 
 export const NormalAside = () => {
 
@@ -25,10 +27,10 @@ export const NormalAside = () => {
             <Section border='1px solid rgb(211, 210, 210)'>
                 <NavButton CLass='' Name='Home' To='/' ICON={faHouse} />
                 <MobileNavButton Style={{ color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
+                <MobileNavButton Style={{ color: Location.pathname === "/Communities" ? Colors.Secoundry.Green : "gray" }} Name='Communities' To='/Communities' ICON={Location.pathname === "/Communities" ? CommunitiesGreenSvg : CommunitiesSvg} />
                 <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={Location.pathname === "/Profile" ? redProfileIcon : ProfileIcon} />
                 <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
             </Section>
-
             <Section border='unset' style={{ alignItems: "flex-start" }}>
                 <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
                 <NavButton CLass='' Name='Help' To='/Help' ICON={faCircleQuestion} />
