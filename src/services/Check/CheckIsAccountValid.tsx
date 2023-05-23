@@ -22,6 +22,7 @@ export const CheckIsAccountValid = () => {
             ).then((e: any) => {
                 setUser(e.data)
                 Navigate("/")
+
             })
         }
 
@@ -31,6 +32,8 @@ export const CheckIsAccountValid = () => {
 
         finally {
             setLoading(false)
+
+
         }
     }
     return { FirstLoad, Loading }

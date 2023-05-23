@@ -16,7 +16,6 @@ import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
 import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
-import { LoadingAnimation } from "./Components/shared/LoadingAnimation";
 import { Collections } from "./Pages/Collections";
 import { AddCollectionPage } from "./Pages/AddCollection";
 import { CollectionPreview } from "./Pages/CollectionPreview";
@@ -31,9 +30,25 @@ function App() {
   return (
     Loading ?
 
-      <AppWrapper>
-        <LoadingAnimation />
+      <AppWrapper style={{ alignItems: "center" }}>
+        <section id="loading-page" className="Loading-page-wrapper">
+
+          <img className="loading-logo" src="./public/google-plus.png" />
+
+          <section className="loading-animation-header-wrapper">
+            <div className="gray-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <h1 className="loading-header">Google</h1>
+          </section>
+
+        </section>
       </AppWrapper>
+
+
       :
       <AppWrapper>
 
