@@ -48,8 +48,8 @@ function App() {
         </section>
       </AppWrapper>
 
-
       :
+      
       <AppWrapper>
 
         <AuthContextProvider>
