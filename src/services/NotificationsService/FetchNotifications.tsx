@@ -21,11 +21,6 @@ export const FetchNotifications = () => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + `/api/Notifications/`,
                 withCredentials: true,
-
-                data: {
-                    AccessControlId: User._id,
-                    AccessControlPassword: User.Password
-                }
             }
             ).then((e: any) => {
                 setResponse(e.data)
