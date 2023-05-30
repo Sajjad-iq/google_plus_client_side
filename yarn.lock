@@ -899,6 +899,11 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-file-upload@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-file-upload/-/react-file-upload-0.0.4.tgz#31c189455c57e19c74392826b5f01a6984bd3fd8"
+  integrity sha512-I6FljjED9e6tEHuDVlHs2kNlCyEfu0qARAU1LbtZ8OQbv0yRR3Sf0KQEYrQTlFx8DYUXDLZ2xAns0pJjiM+fsg==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"

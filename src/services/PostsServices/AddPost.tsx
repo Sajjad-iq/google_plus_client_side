@@ -22,7 +22,7 @@ export const AddPost = () => {
     const handleImageUpload = async (e: ChangeEvent<any>) => {
         const file = e.target.files[0] || null;
         if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg") {
-            const base64 = await convertToBase64(file);
+            const base64 = await convertToBase64(file)
             setPhoto(base64)
         } else {
             window.alert("you can only upload images")
@@ -32,31 +32,35 @@ export const AddPost = () => {
     const AddPostHandler = async () => {
 
         if (Textfield !== "") {
+
             try {
                 setIsLoading(true)
                 await axios({
                     method: 'post',
                     url: import.meta.env.VITE_BACKEND_URL + "/api/Posts",
-                    headers: {},
-                    withCredentials: true,
                     data: {
                         PostBody: Textfield,
                         PostOwnerId: User._id,
                         PostOwnerName: `${User.UserName} ${User.FamilyName}`,
-                        PostImage: Photo,
                         PostOwnerImage: User.ProfilePicture,
                         link: Url,
+                        PostImage: Photo,
                         PostFrom: OptionsValue,
                         CollectionName: OptionsValue === "Collections" ? SpecificCollection.CollectionTitle : '',
                         CollectionId: OptionsValue === "Collections" ? SpecificCollection._id : '',
                         CollectionOwnerId: OptionsValue === "Collections" ? SpecificCollection.CollectionOwnerId : '',
-                        PrivateShareUsersIds: OptionsValue === "Private" ? [] : []
-                    }
+                        PrivateShareUsersIds: OptionsValue === "Private" ? [] : [],
+                    },
+                    headers: {
+                    },
+                    withCredentials: true
+
                 }
                 ).then(() => {
                     Navigate("/")
                     setIsLoading(false)
                 })
+
             } catch (e: any) {
                 setErrMessage(e.message)
                 Navigate("/Error")
@@ -71,6 +75,7 @@ export const AddPost = () => {
 
     return { AddPostHandler, Photo, handleImageUpload, TextChange, Textfield, Url, setUrl, isLoading, setIsLoading }
 }
+
 
 
 function convertToBase64(file: any) {
