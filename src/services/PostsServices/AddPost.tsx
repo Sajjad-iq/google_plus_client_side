@@ -21,7 +21,7 @@ export const AddPost = () => {
 
     const handleImageUpload = async (e: ChangeEvent<any>) => {
         const file = e.target.files[0] || null;
-        if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg") {
+        if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg" || file.type == "image/webp") {
             const base64 = await convertToBase64(file)
             setPhoto(base64)
         } else {

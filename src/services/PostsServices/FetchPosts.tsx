@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { GlobalContext, def } from "../../Context/GlobalContext"
 
 
-export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
+export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollectionsPreviewWindow: boolean = false) => {
 
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState([def])
@@ -25,7 +25,8 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
                 data: {
                     PostsOwner: Owner,
                     PayloadCount: PostsCount,
-                    FollowingCollections: User.FollowingCollections
+                    FollowingCollections: User.FollowingCollections,
+                    forCollectionsPreviewWindow: forCollectionsPreviewWindow
                 }
             }
             ).then(async (e: any) => {

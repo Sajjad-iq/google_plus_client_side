@@ -21,7 +21,7 @@ interface Props {
 export const CollectionPreView = (props: Props) => {
 
     const { SpecificCollection, User } = useContext(GlobalContext)
-    const { FetchPosts, Loading, Response } = FetchPostsHandler(0, { CollectionId: SpecificCollection._id })
+    const { FetchPosts, Loading, Response } = FetchPostsHandler(0, { CollectionId: SpecificCollection._id }, true)
     const { onClickOnPost } = PreviewThePost()
     const { AddFollowToCollectionHandler, CollectionsFollowLoading } = FollowCollection()
     const { DeleteCollectionHandler } = DeleteCollection()
