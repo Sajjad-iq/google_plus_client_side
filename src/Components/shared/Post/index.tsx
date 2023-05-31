@@ -65,7 +65,7 @@ export const Post = (props: Props) => {
             <PostBody onClick={props.onClick}>
                 <Text>{props.PostBody}</Text>
                 <UrlLink style={{ padding: "0 10px" }} target={"_blank"} href={props.IncludingUrl}>{props.IncludingUrl}</UrlLink>
-                <PostImg loading={"lazy"} src={props.PostImage} />
+                <PostImg style={{ display: props.PostImage ? "block" : "none" }} src={props.PostImage} alt="post image" />
             </PostBody>
 
             <Row padding="10px" align="space-between" width="100%">

@@ -23,7 +23,7 @@ export const NormalAside = () => {
 
 
     return (
-        <Wrapper style={{ justifyContent: "flex-start", padding: "0px" }}>
+        <Wrapper style={{ justifyContent: "flex-start", padding: "0px", overflow: "scroll" }}>
             <Section border='1px solid rgb(211, 210, 210)'>
                 <NavButton CLass='' Name='Home' To='/' ICON={faHouse} />
                 <MobileNavButton Style={{ color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
