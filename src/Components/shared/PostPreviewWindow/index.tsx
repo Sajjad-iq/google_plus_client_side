@@ -1,4 +1,4 @@
-import { MouseEventHandler, useContext, useRef, useState } from 'react'
+import { MouseEventHandler, useContext, useRef, useEffect } from 'react'
 import { AddLike } from '../../../services/PostsServices/AddLike'
 import { BackButton } from '../BackButton'
 import { PostComments } from './Components/Commints'
@@ -23,14 +23,16 @@ interface Props {
 export const PostPreviewWindow = (props: Props) => {
 
     let User = UserData()
-    const { SpecificPost } = useContext(GlobalContext)
+    const { SpecificPost, setSpecificPostComments } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
     const Ref = useRef<any>(null)
     const RestTextFelidValueReload = () => Ref ? Ref.current.value = "" : ""
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading } = AddCommentServices(RestTextFelidValueReload)
 
-
+    useEffect(() => {
+        setSpecificPostComments([])
+    }, [])
 
     return (
         props.Loading && SpecificPost.PostBody == "" ?
