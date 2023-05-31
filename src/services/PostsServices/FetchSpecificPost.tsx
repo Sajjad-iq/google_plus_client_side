@@ -6,7 +6,7 @@ import { UserData } from '../LocalStorage/UserData'
 export const FetchSpecificPost = () => {
 
     const [Loading, setLoading] = useState(false)
-    const { setSpecificPost } = useContext(GlobalContext)
+    const { setSpecificPost, setSpecificPostComments } = useContext(GlobalContext)
     const User = UserData()
 
     const FetchSpecificPostHandler = async (id: string) => {
@@ -23,6 +23,7 @@ export const FetchSpecificPost = () => {
             }
             ).then((e: any) => {
                 setSpecificPost(e.data)
+                setSpecificPostComments([])
             })
         } catch (e) {
             console.log(e)
