@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wrapper } from '../../../../Components/common/Wrapper'
-import { faHouse, faUsers, faGear, faTriangleExclamation, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faUsers, faGear, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import { NavButton } from '../../../../Components/shared/NavButton'
 import { Section } from '../../styled/Section.styled'
 import { UserName } from '../../../../Components/common/UserName.styled'

@@ -12,7 +12,7 @@ import { CardsWrapper } from './styled/CardsWrapper'
 export const PeopleList = () => {
 
 
-    const [PostsCount, setPostsCount] = useState(1)
+    const [PostsCount, setPostsCount] = useState(0)
     const { FetchAllUsersHandler, StopFetching, Response, Loading } = FetchAllUsers(PostsCount)
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
