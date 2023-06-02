@@ -20,7 +20,7 @@ import { Collections } from "./Pages/Collections";
 import { AddCollectionPage } from "./Pages/AddCollection";
 import { CollectionPreview } from "./Pages/CollectionPreview";
 import { Communities } from "./Pages/Communities";
-
+import GoogleLogo from "../public/logo384.png"
 function App() {
 
   const { FirstLoad, Loading } = CheckIsAccountValid()
@@ -33,7 +33,7 @@ function App() {
       <AppWrapper style={{ alignItems: "center" }}>
         <section id="loading-page" className="Loading-page-wrapper">
 
-          <img className="loading-logo" src="../public/logo384.png" />
+          <img className="loading-logo" src={GoogleLogo} alt="google plus logo" />
 
           <section className="loading-animation-header-wrapper">
             <div className="gray-ring">
