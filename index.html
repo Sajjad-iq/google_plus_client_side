@@ -3,8 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/public/google-plus.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" href="/public/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/public/favicon.ico" />
+  <link rel="manifest" href="/public/manifest.json" />
+
   <title>Google +</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,7 +100,7 @@
 
     <section id="loading-page" class="Loading-page-wrapper">
 
-      <img class="loading-logo" src="./public/google-plus.png" />
+      <img class="loading-logo" src="./public/logo384.png" />
 
       <section class="loading-animation-header-wrapper">
         <div class="gray-ring">
@@ -112,8 +116,17 @@
   </div>
 
 
- 
+
   <script type="module" src="/src/main.tsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./serviceWorker")
+          .then(() => console.log("serviceWorker done."))
+          .catch((err) => console.log(err))
+      })
+    }
+  </script>
 </body>
 
 </html>

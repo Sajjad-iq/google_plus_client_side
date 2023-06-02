@@ -42,7 +42,7 @@ export const Communities = () => {
                     CollationOwnerName={`1,300 members`}
                     CollationName={"Apple"}
                     CollationUserImage={userImg}
-                    key={1}
+                    key={2}
                     Color={"gray"}
                     OwnerId={""}
                     IsForProfile={true}
@@ -57,7 +57,7 @@ export const Communities = () => {
                     CollationOwnerName={`1,300 members`}
                     CollationName={"Apple"}
                     CollationUserImage={userImg}
-                    key={1}
+                    key={3}
                     Color={"gray"}
                     OwnerId={""}
                     IsForProfile={true}
@@ -72,7 +72,7 @@ export const Communities = () => {
                     CollationOwnerName={`1,300 members`}
                     CollationName={"Apple"}
                     CollationUserImage={userImg}
-                    key={1}
+                    key={4}
                     Color={"gray"}
                     OwnerId={""}
                     IsForProfile={true}

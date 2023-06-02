@@ -33,7 +33,7 @@ function App() {
       <AppWrapper style={{ alignItems: "center" }}>
         <section id="loading-page" className="Loading-page-wrapper">
 
-          <img className="loading-logo" src="./public/google-plus.png" />
+          <img className="loading-logo" src="../public/logo384.png" />
 
           <section className="loading-animation-header-wrapper">
             <div className="gray-ring">
@@ -49,7 +49,7 @@ function App() {
       </AppWrapper>
 
       :
-      
+
       <AppWrapper>
 
         <AuthContextProvider>
