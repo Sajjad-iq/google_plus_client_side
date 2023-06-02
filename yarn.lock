@@ -2718,11 +2718,6 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-file-upload@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-file-upload/-/react-file-upload-0.0.4.tgz#31c189455c57e19c74392826b5f01a6984bd3fd8"
-  integrity sha512-I6FljjED9e6tEHuDVlHs2kNlCyEfu0qARAU1LbtZ8OQbv0yRR3Sf0KQEYrQTlFx8DYUXDLZ2xAns0pJjiM+fsg==
-
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -3198,7 +3193,7 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-vite-plugin-pwa@^0.16.1:
+vite-plugin-pwa@^0.16.0:
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.16.1.tgz#3853a951d8758a60253415867b351b11f6e5d845"
   integrity sha512-OdD+ck+jiCkeUQPwXCNttR62ZC2On4wasn+03Qyx0x1bLGv1IXgl59WexpWMbgKD7jZVjozWGcy3etRJJzwsvA==
