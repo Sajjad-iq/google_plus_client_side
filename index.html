@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="apple-touch-icon" href="/public/apple-touch-icon.png" />
-  <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="/public/favicon.ico" />
-  <link rel="manifest" href="/public/manifest.json" />
+  <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="public/favicon.ico" />
+  <link rel="manifest" href="public/manifest.json" />
 
   <title>Google +</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +121,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./serviceWorker")
+        navigator.serviceWorker.register("./src/serviceWorker.js")
           .then(() => console.log("serviceWorker done."))
           .catch((err) => console.log(err))
       })
