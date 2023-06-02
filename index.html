@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="/public/apple-touch-icon.png" />
   <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="/public/favicon.ico" />
-  <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials">/>
+  <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials">
 
   <title>Google +</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
   <style>
     body {
       min-height: 100vh;
@@ -121,7 +122,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/serviceWorker.js")
+        navigator.serviceWorker.register("/public/serviceWorker.js")
           .then(() => console.log("serviceWorker done."))
           .catch((err) => console.log(err))
       })
