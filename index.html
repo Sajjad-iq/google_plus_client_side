@@ -122,7 +122,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/public/serviceWorker.js")
+        navigator.serviceWorker.register("./serviceWorker.js")
           .then(() => console.log("serviceWorker done."))
           .catch((err) => console.log(err))
       })
