@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [react(), VitePWA({
     registerType: "autoUpdate",
     manifest: {
+      name: "GooglePlus",
+      short_name: "GooglePlus",
       icons: [
         {
           "src": "maskable_icon.png",
