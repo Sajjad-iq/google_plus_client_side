@@ -2,13 +2,23 @@ import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import react from "@vitejs/plugin-react";
 
-// https://vite-pwa-org.netlify.app/guide/
 export default defineConfig({
   plugins: [react(), VitePWA({
+
+    workbox: {
+      globPatterns: ["**/*"],
+    },
+    includeAssets: [
+      "**/*",
+    ],
     registerType: "autoUpdate",
+
     manifest: {
       name: "GooglePlus",
       short_name: "GooglePlus",
+      "description": "Demo of google plus app",
+      "theme_color": "#f69435",
+      "background_color": "#f69435",
       icons: [
         {
           "src": "maskable_icon.png",
