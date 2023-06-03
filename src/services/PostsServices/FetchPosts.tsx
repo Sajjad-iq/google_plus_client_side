@@ -9,9 +9,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollections
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState([def])
     const [StopFetching, setStopFetching] = useState(false)
-    const Navigate = useNavigate()
-    const { setErrMessage, setOptionsValue } = useContext(GlobalContext)
-    const { User } = useContext(GlobalContext)
+    const { User, setOptionsValue } = useContext(GlobalContext)
     const FetchPosts = async () => {
         try {
             setLoading(true)

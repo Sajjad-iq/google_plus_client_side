@@ -17,7 +17,7 @@ export const Home = () => {
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
+    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
 
     useEffect(() => {
         User._id !== "" ? FetchPosts() : null

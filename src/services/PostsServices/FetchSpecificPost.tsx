@@ -1,13 +1,11 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
-import { UserData } from '../LocalStorage/UserData'
 
 export const FetchSpecificPost = () => {
 
     const [Loading, setLoading] = useState(false)
     const { setSpecificPost, setSpecificPostComments } = useContext(GlobalContext)
-    const User = UserData()
 
     const FetchSpecificPostHandler = async (id: string) => {
         try {
