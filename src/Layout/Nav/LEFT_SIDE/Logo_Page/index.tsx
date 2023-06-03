@@ -22,6 +22,10 @@ export const LogoAndPage = () => {
                 return "Notifications"
             case "/Settings":
                 return "Settings"
+            case "/Collections":
+                return "Collections"
+            case "/Communities":
+                return "Communities"
             default:
                 return ""
         }
