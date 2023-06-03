@@ -13,10 +13,6 @@
     padding: unset;
 }
 
-.link-button:hover {
-    background-color: rgb(227, 227, 227);
-}
-
 .name {
     font-weight: 700;
     font-family: 'Raleway', sans-serif;

@@ -1,5 +1,5 @@
 import { FooterWrapper } from './styled/FooterWrapper'
-import { faHouse, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext } from 'react';
 import { NavButton } from '../../Components/shared/NavButton';
 import { NotificationsBell } from '../../Components/shared/NotificationsBell';

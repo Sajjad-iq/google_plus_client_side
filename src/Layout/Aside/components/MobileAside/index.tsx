@@ -17,10 +17,6 @@ import InstagramIcon from '../../../../assets/ICONS/instagram-svgrepo-com.svg'
 import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg'
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
 import { useLocation } from 'react-router-dom'
-import CollectionsSvg from "../../../../assets/ICONS/Collections.svg"
-import CyanCollectionsSvg from "../../../../assets/ICONS/CollectionsCyan.svg"
-import CommunitiesSvg from "../../../../assets/ICONS/coomunities.svg"
-import CommunitiesGreenSvg from "../../../../assets/ICONS/coomunitiesGreen.svg"
 
 interface Props {
     setIsPageActive: any
@@ -59,8 +55,6 @@ export const MobileAside = (props: Props) => {
 
             <Section border='1px solid rgb(211, 210, 210)'>
                 <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={ProfileIcon} />
-                <MobileNavButton Style={{ color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
-                <MobileNavButton Style={{ color: Location.pathname === "/Communities" ? Colors.Secoundry.Green : "gray" }} Name='Communities' To='/Communities' ICON={Location.pathname === "/Communities" ? CommunitiesGreenSvg : CommunitiesSvg} />
                 <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
                 <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
                 <NavButton CLass='' Name='Help' To='/Help' ICON={faCircleQuestion} />
