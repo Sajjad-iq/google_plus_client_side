@@ -27,7 +27,7 @@ export const PeopleProfile = () => {
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: PeopleUser._id })
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
+    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
     const { AddOrRemoveFollowHandler, IsLoading } = AddOrRemoveFollow()
     const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: PeopleUser._id }, 2)
 
