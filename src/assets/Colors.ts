@@ -1,6 +1,6 @@
 export const Colors = {
     Primary: {
-        red: "rgb(198, 62, 62)",
+        red: "#c63e3e",
         background: "rgb(226, 223, 223)",
         white: "#fff",
         Lightgray: "rgb(201, 201, 201)",
