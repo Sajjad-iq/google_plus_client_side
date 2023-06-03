@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../../assets/breackPoints";
 
 export const Column = styled.section`
  width: 100%;
