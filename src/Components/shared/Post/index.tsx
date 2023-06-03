@@ -39,9 +39,6 @@ interface Props {
 export const Post = (props: Props) => {
 
     const DateCalculator = DateCalculate(props.CreatedAt)
-    const { OptionsValue } = useContext(GlobalContext)
-
-
 
     return (
         <PostWrapper IsForPreview={props.IsForPreviewWindow}>
