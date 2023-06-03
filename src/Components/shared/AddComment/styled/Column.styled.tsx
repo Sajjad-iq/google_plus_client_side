@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../assets/breackPoints";
 
 export const Column = styled.section`
  width: 100%;
@@ -10,7 +11,11 @@ export const Column = styled.section`
  border: 1px solid gray;
  background-color: white;
  position: sticky;
- bottom:0;
+ bottom:60px;
+
+ @media ${device.laptop} {
+    bottom:0px;
+   }
 
 `
 

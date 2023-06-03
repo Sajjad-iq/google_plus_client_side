@@ -11,7 +11,7 @@ export const Wrapper = styled.section<Props>`
  align-items: center;
  flex-direction: column;
  padding:0;
-   position: relative;
+ position: relative;
 
 
  @media(${device.laptop}){
