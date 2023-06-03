@@ -11,10 +11,12 @@ export const Column = styled.section`
  border: 1px solid gray;
  background-color: white;
  position: sticky;
- bottom:60px;
+ bottom:0px;
 
  @media ${device.laptop} {
     bottom:0px;
+    z-index:10;
+
    }
 
 `
