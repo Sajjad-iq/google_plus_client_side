@@ -30,7 +30,7 @@ export const CollectionSingleCard = (props: Props) => {
         <CardWrapper onClick={props.onClick}>
             <CoverImage src={props.CollationCoverImage || CoverPicture} alt='Collections image' />
 
-            <Wrapper style={{ background: props.Color, padding: "0 10px 0 10px", height: "55%", justifyContent: "space-between", borderRadius: "0px 0px 4px 4px" }}>
+            <Wrapper style={{ background: props.Color, padding: "0 10px 0 10px", height: "55%", justifyContent: "space-between", borderRadius: "0px 0px 2px 2px" }}>
 
                 <CollectionsUserImage src={props.CollationUserImage || UserImage} alt='Collections user image' />
 
