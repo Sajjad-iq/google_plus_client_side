@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GlobalContext } from '../../Context/GlobalContext'
 import { SetFindUser } from '../PeopleServices/SetFindUser'
 import { FetchSpecificPost } from '../PostsServices/FetchSpecificPost'
 
@@ -10,7 +9,6 @@ export const onClickOnNotificationCard = () => {
     const { FetchSpecificPostHandler } = FetchSpecificPost()
     const Navigate = useNavigate()
     const [NotificationsLoading, setNotificationsLoading] = useState(false)
-    const { setErrMessage } = useContext(GlobalContext)
 
     const ClickOnNotificationCardHandler = async (data: any) => {
 
@@ -19,8 +17,7 @@ export const onClickOnNotificationCard = () => {
                 setNotificationsLoading(true)
                 await SetFindUserHandler(data.NotificationFromId)
             } catch (e: any) {
-                setErrMessage(e.message)
-                Navigate("/Error")
+                window.alert("something went wrong")
             }
             finally {
                 setNotificationsLoading(false)
@@ -32,8 +29,7 @@ export const onClickOnNotificationCard = () => {
                 Navigate('/Posts')
 
             } catch (e: any) {
-                setErrMessage(e.message)
-                Navigate("/Error")
+                window.alert("something went wrong")
             }
             finally {
                 setNotificationsLoading(false)

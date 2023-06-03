@@ -1,18 +1,13 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { FindUserDef, GlobalContext } from '../../Context/GlobalContext'
-import { UserData } from '../LocalStorage/UserData'
+import { useState } from 'react'
+import { FindUserDef } from '../../Context/GlobalContext'
 
 export const FetchAllUsers = (PostsCount: number) => {
 
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState([FindUserDef])
-    const User = UserData()
 
     const [StopFetching, setStopFetching] = useState(false)
-    const Navigate = useNavigate()
-    const { setErrMessage } = useContext(GlobalContext)
 
     const FetchAllUsersHandler = async () => {
         try {
@@ -35,8 +30,7 @@ export const FetchAllUsers = (PostsCount: number) => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {

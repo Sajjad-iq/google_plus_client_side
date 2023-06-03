@@ -9,7 +9,7 @@ export const SetFindUser = () => {
     const [FindUserLoading, setFindUserLoading] = useState(false)
     const [UserId, setUserId] = useState("")
     const Navigate = useNavigate()
-    let { setPeopleUser, setErrMessage } = useContext(GlobalContext)
+    let { setPeopleUser } = useContext(GlobalContext)
     const User = UserData()
 
     const SetFindUserHandler = async (Id: any) => {
@@ -39,8 +39,7 @@ export const SetFindUser = () => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {

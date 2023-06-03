@@ -30,6 +30,7 @@ export const SaveChanges = (setIsLoading: any) => {
 
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
         finally {
             setIsLoading(false)

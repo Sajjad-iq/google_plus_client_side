@@ -35,6 +35,7 @@ export const SignInSubmitHandler = () => {
                 console.log(e)
                 setSignInEmailAndPasswordValid(false)
                 setIsAllSectionsFilledText(e.response.data)
+                window.alert("something went wrong")
             }
             finally {
                 setIsLoading(false)

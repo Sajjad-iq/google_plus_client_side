@@ -8,7 +8,7 @@ import { UserData } from '../LocalStorage/UserData';
 export const AddLike = () => {
 
     const User = UserData()
-    const { SpecificPost, setSpecificPost } = useContext(GlobalContext)
+    const { setSpecificPost } = useContext(GlobalContext)
 
 
     const AddLikeHandler = async (data: any) => {
@@ -39,6 +39,7 @@ export const AddLike = () => {
             })
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
     }
 

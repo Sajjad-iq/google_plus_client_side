@@ -32,8 +32,6 @@ export const CheckIsAccountValid = () => {
 
         finally {
             setLoading(false)
-
-
         }
     }
     return { FirstLoad, Loading }

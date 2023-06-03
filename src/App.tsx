@@ -10,7 +10,6 @@ import { Settings } from "./Pages/Settengs";
 import { useEffect } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
-import { Error } from "./Pages/Error";
 import { PeopleList } from "./Pages/People/Components/PeopleList";
 import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
@@ -58,7 +57,6 @@ function App() {
             <Route path="/" element={<SplitScreen />} >
               <Route path="/" element={<Home />} />
               <Route path="/Notifications" element={<Notifications />} />
-              <Route path="/Error" element={<Error />} />
               <Route path="/AddPost" element={<AddPostWindow />} />
               <Route path="/Posts" element={<PostPreview />} />
               <Route path="/Settings" element={<Settings />} />

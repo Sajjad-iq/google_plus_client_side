@@ -37,8 +37,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollections
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {

@@ -65,8 +65,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
           setIsLoading(false)
         })
       } catch (e: any) {
-        setErrMessage(e.message)
-        Navigate("/Error")
+        window.alert("something went wrong")
       } finally {
         setIsLoading(false)
         setTextFelid("")

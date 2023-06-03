@@ -13,7 +13,6 @@ export const AddPost = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { setOptionsValue, OptionsValue, SpecificCollection } = useContext(GlobalContext)
 
-    const { setErrMessage } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
 
@@ -62,8 +61,7 @@ export const AddPost = () => {
                 })
 
             } catch (e: any) {
-                setErrMessage(e.message)
-                Navigate("/Error")
+                window.alert("something went wrong")
             } finally {
                 setIsLoading(false)
                 setOptionsValue("Public")

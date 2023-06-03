@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalContext';
 import { UserData } from '../LocalStorage/UserData';
 
@@ -8,7 +7,6 @@ export const AddOrRemoveFollow = () => {
 
     let User = UserData()
     let { PeopleUser, setPeopleUser, setErrMessage, socket } = useContext(GlobalContext)
-    const Navigate = useNavigate()
     const [IsLoading, setIsLoading] = useState(false)
 
     const AddOrRemoveFollowHandler = async () => {
@@ -46,8 +44,7 @@ export const AddOrRemoveFollow = () => {
             })
 
         } catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         } finally {
             setIsLoading(false)
         }

@@ -4,7 +4,7 @@ import { GlobalContext } from '../../Context/GlobalContext'
 
 export const FollowCollection = () => {
 
-    const { setSpecificCollection, SpecificCollection, setUser, User } = useContext(GlobalContext)
+    const { SpecificCollection, User } = useContext(GlobalContext)
 
     const [CollectionsFollowLoading, setCollectionsFollowLoading] = useState(false)
 
@@ -43,6 +43,7 @@ export const FollowCollection = () => {
             )
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
         finally {
             setCollectionsFollowLoading(false)

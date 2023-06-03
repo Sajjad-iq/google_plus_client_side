@@ -38,8 +38,7 @@ export const EditComment = (Data: any) => {
                     }
                 })
             } catch (e: any) {
-                setErrMessage(e.response.data)
-                Navigate("/Error")
+                window.alert("something went wrong")
             } finally {
                 setIsLoading(false)
             }

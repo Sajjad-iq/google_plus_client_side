@@ -14,8 +14,6 @@ export const EditCollectionService = () => {
     const [Tagline, setTagline] = useState(SpecificCollection.Tagline)
     const [Image, setImage] = useState(SpecificCollection.CollectionsCoverPicture)
     const [isLoading, setIsLoading] = useState(false)
-
-    const { setErrMessage } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
 
@@ -46,8 +44,7 @@ export const EditCollectionService = () => {
                     setIsLoading(false)
                 })
             } catch (e: any) {
-                setErrMessage(e.message)
-                Navigate("/Error")
+                window.alert("something went wrong")
             } finally {
                 setIsLoading(false)
             }

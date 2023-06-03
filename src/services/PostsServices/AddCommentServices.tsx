@@ -67,6 +67,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
             }
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         } finally {
             setIsLoading(false)
         }

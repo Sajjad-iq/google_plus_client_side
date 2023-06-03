@@ -31,6 +31,8 @@ export const FetchComments = (PostsCount: number) => {
 
         } catch (e: any) {
             console.log(e)
+            window.alert("something went wrong")
+
         }
         finally {
             setLoading(false)

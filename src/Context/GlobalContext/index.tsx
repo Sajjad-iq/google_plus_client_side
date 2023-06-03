@@ -56,8 +56,6 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
 
     // my user 
     const [User, setUser] = useState(FindUserDef)
-    // for error page
-    const [ErrMessage, setErrMessage] = useState("NetWork Error")
     //for find people from comments or posts when user click on the small image
     const [FindUser, setFindUser] = useState(FindUserDef)
     // for find people from people page
@@ -80,7 +78,7 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     const [HasNotifications, setHasNotifications] = useState(false)
 
     return (
-        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
+        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost }}>
             {children}
         </GlobalContext.Provider>
     )

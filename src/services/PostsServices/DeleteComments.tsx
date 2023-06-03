@@ -37,6 +37,7 @@ export const DeleteComments = () => {
             })
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
     }
 

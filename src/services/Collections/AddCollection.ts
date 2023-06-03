@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GlobalContext } from '../../Context/GlobalContext';
 import { UserData } from '../LocalStorage/UserData';
 import { CollectionsColorsData } from '../../Pages/AddCollection/Components/CollectionColors/CollectionsColorsData';
 
@@ -13,8 +12,6 @@ export const AddCollections = () => {
     const [Tagline, setTagline] = useState('')
     const [Image, setImage] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
-    const { setErrMessage } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
 
@@ -44,8 +41,7 @@ export const AddCollections = () => {
                     setIsLoading(false)
                 })
             } catch (e: any) {
-                setErrMessage(e.message)
-                Navigate("/Error")
+                window.alert("something went wrong")
             } finally {
                 setIsLoading(false)
             }

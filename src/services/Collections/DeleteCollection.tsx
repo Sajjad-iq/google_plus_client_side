@@ -25,6 +25,7 @@ export const DeleteCollection = () => {
             })
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
     }
 

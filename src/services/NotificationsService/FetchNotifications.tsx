@@ -1,17 +1,12 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { GlobalContext, NotificationDef } from '../../Context/GlobalContext'
-import { UserData } from '../LocalStorage/UserData'
+import { useState } from 'react'
+import { NotificationDef } from '../../Context/GlobalContext'
 
 export const FetchNotifications = () => {
 
 
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState<any>([NotificationDef])
-    const Navigate = useNavigate()
-    const { setErrMessage } = useContext(GlobalContext)
-    let User = UserData()
 
     async function FetchHandler() {
 
@@ -28,8 +23,7 @@ export const FetchNotifications = () => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {

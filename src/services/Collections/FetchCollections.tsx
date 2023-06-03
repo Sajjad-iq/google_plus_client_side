@@ -9,8 +9,6 @@ export const FetchCollections = (Owner: any, SelectedButton: number) => {
     const [CollectionsLoading, setCollectionsLoading] = useState(false)
     const [CollectionsResponse, setResponse] = useState([CollectionsDef])
     const [StopFetchingCollections, setStopFetchingCollections] = useState(false)
-    const Navigate = useNavigate()
-    const { setErrMessage } = useContext(GlobalContext)
 
     const FetchCollectionsHandler = async () => {
         try {
@@ -40,8 +38,7 @@ export const FetchCollections = (Owner: any, SelectedButton: number) => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {
