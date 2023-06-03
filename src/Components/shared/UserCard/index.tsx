@@ -60,6 +60,7 @@ export const UserCard = (props: Props) => {
 
                 <UserName
                     IsCommentUserName={true}
+                    style={{ textAlign: "center" }}
                 >{props.UserName}
                 </UserName>
 
