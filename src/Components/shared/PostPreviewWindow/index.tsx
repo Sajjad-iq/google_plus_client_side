@@ -14,6 +14,7 @@ import { UserData } from '../../../services/LocalStorage/UserData'
 import { AddComment } from '../AddComment'
 import { AddCommentServices } from '../../../services/PostsServices/AddCommentServices'
 import Image from '../../../assets/ICONS/ProfileImg.jpg'
+import { Colors } from '../../../assets/Colors'
 
 interface Props {
     BackHandler: MouseEventHandler
@@ -44,8 +45,8 @@ export const PostPreviewWindow = (props: Props) => {
             :
 
             <Wrapper>
-                <Row width='100%' align='space-between' padding='10px 25px'>
-                    <BackButton color={"black"} onClick={props.BackHandler} />
+                <Row style={{ backgroundColor: Colors.Primary.red }} width='100%' align='space-between' padding='10px 25px'>
+                    <BackButton color={"white"} onClick={props.BackHandler} />
                     <OptionButtonAndOptionsWindow Data={SpecificPost} />
                 </Row>
 
