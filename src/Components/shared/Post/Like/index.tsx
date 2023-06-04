@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Colors } from '../../../../assets/Colors'
 import { Count } from '../../../../Components/common/Count.styled'
 import { PostButton } from '../../../../Components/common/PostButton.styled'
@@ -14,16 +14,20 @@ interface Props {
 export const Like = (props: Props) => {
 
     const [IsActive, setIsActive] = useState(props.IsUserHitLike)
+    const [disabled, setDisabled] = useState(false);
 
     return (
         props.IsForPreviewWindow ?
 
             <Row padding='0' width='auto' align='center'>
                 <PostButton
+                    disabled={disabled}
                     color={props.IsUserHitLike ? Colors.Primary.white : Colors.Secoundry.gray}
                     backgroundColor={props.IsUserHitLike ? Colors.Primary.red : Colors.Primary.Lightgray}
                     onClick={() => {
                         props.onHitLike()
+                        setDisabled(true);
+                        setTimeout(() => setDisabled(false), 2000);
                     }
                     }
                 >+1</PostButton>
