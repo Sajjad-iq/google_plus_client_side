@@ -1,6 +1,5 @@
 import axios from 'axios'
-import React, { ChangeEvent, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 import { UserData } from '../LocalStorage/UserData'
 
@@ -14,8 +13,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
   const [Textfield, setTextFelid] = useState<string>(Data.PostBody)
   const [isLoading, setIsLoading] = useState(false)
 
-  const { setErrMessage, setSpecificPost, SpecificPost } = useContext(GlobalContext)
-  const Navigate = useNavigate()
+  const { setSpecificPost, SpecificPost } = useContext(GlobalContext)
 
 
   const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)

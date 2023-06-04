@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../../assets/breackPoints";
 
 export const UserLogo = styled.img`
   width: 35px;

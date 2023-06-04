@@ -1,8 +1,6 @@
 import { MouseEventHandler } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../../common/Button.styled";
 import "./style.css";
+
 interface Props {
     onClick: MouseEventHandler<HTMLButtonElement>
     isActive: boolean

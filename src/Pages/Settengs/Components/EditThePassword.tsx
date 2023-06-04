@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Column } from '../../../Components/shared/Column.styled'
 import { PasswordInputs } from '../../../Components/shared/PasswordInputs'
 import { SettingsEditSection } from '../../../Components/shared/SettingsEditSection'

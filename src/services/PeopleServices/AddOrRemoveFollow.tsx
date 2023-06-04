@@ -6,7 +6,7 @@ import { UserData } from '../LocalStorage/UserData';
 export const AddOrRemoveFollow = () => {
 
     let User = UserData()
-    let { PeopleUser, setPeopleUser, setErrMessage, socket } = useContext(GlobalContext)
+    let { PeopleUser, setPeopleUser } = useContext(GlobalContext)
     const [IsLoading, setIsLoading] = useState(false)
 
     const AddOrRemoveFollowHandler = async () => {

@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useEffect, useRef } from "react"
+import { ChangeEventHandler, useEffect } from "react"
 import { TextAreaComponent } from "./TextArea.styled"
 interface Props {
     TextValue: string

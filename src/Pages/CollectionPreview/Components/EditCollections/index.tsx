@@ -1,4 +1,3 @@
-import React from 'react'
 import { CollectionAddCoverImage } from '../../../AddCollection/Components/CollectionAddCoverImage'
 import { CollectionColors } from '../../../AddCollection/Components/CollectionColors'
 import { CollectionNav } from '../../../AddCollection/Components/CollectionNav'

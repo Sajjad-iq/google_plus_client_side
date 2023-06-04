@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../../assets/breackPoints";
 
 export const CommentBodySection = styled.section`
  width: calc(100% - 60px);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { GlobalContext } from '../../../../../../Context/GlobalContext'
 import { UserData } from '../../../../../../services/LocalStorage/UserData'
 import { DeletePost } from '../../../../../../services/PostsServices/DeletePost'

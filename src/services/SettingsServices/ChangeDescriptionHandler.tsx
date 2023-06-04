@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useContext, useState } from 'react'
-import { UserData } from '../LocalStorage/UserData'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 export const ChangeDescriptionHandler = (setIsActive: any) => {

@@ -10,12 +10,4 @@ export const CollectionsUserImage = styled.img`
   top:-10px;
   left: 10px;
 
-
-@media ${device.tablet} {
-   
-
-  }
-  @media ${device.laptop} {
-    
-  }
 `

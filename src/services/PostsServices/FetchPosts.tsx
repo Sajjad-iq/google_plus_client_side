@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { GlobalContext, def } from "../../Context/GlobalContext"
 
 
@@ -10,6 +9,7 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollections
     const [Response, setResponse] = useState([def])
     const [StopFetching, setStopFetching] = useState(false)
     const { User, setOptionsValue } = useContext(GlobalContext)
+
     const FetchPosts = async () => {
         try {
             setLoading(true)

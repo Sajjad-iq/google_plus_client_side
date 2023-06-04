@@ -1,8 +1,6 @@
-import React from 'react'
 import { ImageWrapper } from '../../styled/ImageWrapper'
 import { SmallImage } from '../../styled/SmallImage.styled'
 import profileImg from '../../../../../assets/ICONS/ProfileImg.jpg'
-import { UserLogo } from '../../../../common/UserLogo.styled'
 import { NotificationsUserImage } from '../../styled/NotificationsUserImage.styled'
 
 interface Props {

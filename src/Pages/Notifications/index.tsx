@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { LoadingAnimation } from '../../Components/shared/LoadingAnimation'
 import { NotificationsCard } from '../../Components/shared/NotificationsCard'
 import { Row } from '../../Components/shared/Row.styled'

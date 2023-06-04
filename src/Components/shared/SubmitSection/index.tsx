@@ -1,5 +1,4 @@
 import { MouseEventHandler } from 'react'
-import { Button } from '../../../Pages/Auth/styled/Button.styled'
 import { LoadingButton } from '../LoadingButton'
 import { Row } from '../Row.styled'
 import { TextLink } from '../TextLink'

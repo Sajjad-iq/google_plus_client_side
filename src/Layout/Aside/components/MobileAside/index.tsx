@@ -16,14 +16,12 @@ import ProfileIcon from '../../../../assets/ICONS/user-circle-svgrepo-com.svg'
 import InstagramIcon from '../../../../assets/ICONS/instagram-svgrepo-com.svg'
 import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg'
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
-import { useLocation } from 'react-router-dom'
 
 interface Props {
     setIsPageActive: any
 }
 export const MobileAside = (props: Props) => {
     const User = UserData()
-    const Location = useLocation()
 
     useEffect(() => {
 

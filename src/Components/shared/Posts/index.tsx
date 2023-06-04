@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from 'react'
+import React, { MouseEventHandler } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { PostToggleSection } from '../../../Pages/Home/styled/PostsToggleSection.styled'
 import { AddLike } from '../../../services/PostsServices/AddLike'

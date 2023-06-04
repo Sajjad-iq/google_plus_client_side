@@ -1,7 +1,6 @@
 import axios from "axios"
-import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { CollectionsDef, GlobalContext } from "../../Context/GlobalContext"
+import { useState } from "react"
+import { CollectionsDef } from "../../Context/GlobalContext"
 
 
 export const FetchCollections = (Owner: any, SelectedButton: number) => {

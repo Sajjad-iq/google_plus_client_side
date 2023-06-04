@@ -1,4 +1,3 @@
-import React from 'react'
 import { Wrapper } from '../../../../Components/common/Wrapper'
 import { faHouse, faUsers, faGear, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import { NavButton } from '../../../../Components/shared/NavButton'

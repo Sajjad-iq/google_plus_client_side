@@ -1,14 +1,12 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
-import { UserData } from '../LocalStorage/UserData'
 
 export const FetchComments = (PostsCount: number) => {
 
     const [Loading, setLoading] = useState(false)
     const [StopFetching, setStopFetching] = useState(false)
     const { SpecificPost, setSpecificPostComments, SpecificPostComments } = useContext(GlobalContext)
-    const User = UserData()
 
     const FetchCommentsHandler = async () => {
         try {

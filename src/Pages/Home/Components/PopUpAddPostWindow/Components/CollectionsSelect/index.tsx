@@ -1,15 +1,12 @@
 
 import { useContext, useEffect, useState } from "react"
 import { Container } from "../../../../../../Components/common/Container.styled"
-import { SmallAddUserCard } from "../../../../../../Components/shared/SmallAddUserCard"
 import { GlobalContext } from "../../../../../../Context/GlobalContext"
-import { Selectors } from "./components/selectors"
 import { GrayBox } from "./styled/GrayBox"
 import { CardsWrapper } from "../../../../../People/Components/PeopleList/styled/CardsWrapper"
 import { UserCard } from "../../../../../../Components/shared/UserCard"
 import { FetchCollections } from "../../../../../../services/Collections/FetchCollections"
 import { UserData } from "../../../../../../services/LocalStorage/UserData"
-import { Header } from "../../../../../../Components/common/Header.styled"
 import { H2 } from "../../../../../../Components/common/H1.styled"
 
 

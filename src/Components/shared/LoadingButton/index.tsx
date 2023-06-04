@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import { MouseEventHandler } from 'react'
 import { CyanButton } from '../../common/CyanButton.styled'
 import "./style.css"
 

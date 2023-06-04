@@ -1,4 +1,3 @@
-import React from 'react'
 import { RedButton } from '../../styled/RedButton.styled'
 import { SmallIcon } from '../../styled/smallIcon.styled'
 import pen from '../../../../assets/ICONS/pencil.svg'

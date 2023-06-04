@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { UserData } from '../LocalStorage/UserData'
 import { useContext } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 

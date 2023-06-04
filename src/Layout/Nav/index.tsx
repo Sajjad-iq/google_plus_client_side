@@ -1,4 +1,3 @@
-import { SearchFiled } from "./CENTER_SIDE/SearchFiled"
 import { LogoAndPage } from "./LEFT_SIDE/Logo_Page"
 import { NavigationButtons } from "./RIGHT_SIDE/NavigationButtons"
 import { Section } from "./Section.styled"

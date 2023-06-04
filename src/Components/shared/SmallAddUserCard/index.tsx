@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import { MouseEventHandler } from 'react'
 import { Row } from '../Row.styled'
 import { UserName } from './styled/UserName.styled'
 import { UserLogo } from './styled/UserLogo.styled'

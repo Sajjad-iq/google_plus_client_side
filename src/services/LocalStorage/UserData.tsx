@@ -16,7 +16,7 @@ export const UserDef = {
 
 
 export const UserData = () => {
-  const { User, setUser } = useContext(GlobalContext)
+  const { User } = useContext(GlobalContext)
 
   if (User) return User
   else return UserDef

@@ -11,7 +11,7 @@ justify-content: flex-start;
 align-items: center;
 width:100px;
 border:none;
-  font-family: 'Roboto', sans-serif;
+font-family: 'Roboto', sans-serif;
 font-weight: 600;
 margin:5px 0;
 

@@ -20,6 +20,8 @@ import { AddCollectionPage } from "./Pages/AddCollection";
 import { CollectionPreview } from "./Pages/CollectionPreview";
 import { Communities } from "./Pages/Communities";
 import GoogleLogo from "../public/logo384.png"
+
+
 function App() {
 
   const { FirstLoad, Loading } = CheckIsAccountValid()

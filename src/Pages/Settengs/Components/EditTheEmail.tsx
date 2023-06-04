@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Column } from '../../../Components/shared/Column.styled'
 import { EmailInput } from '../../../Components/shared/EmailInput'
 import { SettingsEditSection } from '../../../Components/shared/SettingsEditSection'
