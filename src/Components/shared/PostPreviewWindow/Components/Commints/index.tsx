@@ -25,7 +25,7 @@ export const PostComments = () => {
 
 
     return (
-        <Column width='100%' align='center' padding='3px 0' style={{ background: Colors.Primary.SoftGray }} >
+        <Column width='100%' align='center' padding='0' style={{ background: Colors.Primary.SoftGray }} >
 
             {
                 SpecificPostComments.map((e: any, i: number) => {

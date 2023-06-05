@@ -9,13 +9,12 @@ import { CommentsButton } from "./Comments"
 import { Share } from "./Share"
 import { UserName } from "../../common/UserName.styled"
 import { UserLogo } from "../../common/UserLogo.styled"
-import { MouseEventHandler, useContext } from "react"
+import { MouseEventHandler } from "react"
 import { UrlLink } from "../../common/UrlLink.styled"
 import { DateCalculate } from "../../../services/PostsServices/DateCalculate"
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Colors } from "../../../assets/Colors"
-import { GlobalContext } from "../../../Context/GlobalContext"
 
 
 interface Props {

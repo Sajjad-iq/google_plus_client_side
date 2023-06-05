@@ -44,7 +44,7 @@ export const PostPreviewWindow = (props: Props) => {
 
             :
 
-            <Wrapper>
+            <Wrapper style={{ background: "none" }}>
                 <Row style={{ backgroundColor: Colors.Primary.red }} width='100%' align='space-between' padding='10px 25px'>
                     <BackButton color={"white"} onClick={props.BackHandler} />
                     <OptionButtonAndOptionsWindow Data={SpecificPost} />
