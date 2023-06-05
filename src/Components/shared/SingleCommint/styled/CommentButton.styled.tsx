@@ -4,8 +4,10 @@ import { Colors } from "../../../../assets/Colors";
 export const CommentButton = styled.button`
 border: none;
 background: none;
-color: ${Colors.Secoundry.Cyan};
+color: ${Colors.Primary.Lightgray};
 font-size:0.7rem;
 font-weight: 600;
-margin-right:8px;
+margin-right:5px;
+padding:5px;
+
 `

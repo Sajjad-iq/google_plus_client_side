@@ -7,6 +7,7 @@ import { LoadingAnimation } from '../../../LoadingAnimation'
 import { Row } from '../../../Row.styled'
 import { SingleComment } from '../../../SingleCommint'
 import { Column } from '../../../Column.styled'
+import { Colors } from '../../../../../assets/Colors'
 
 
 export const PostComments = () => {
@@ -24,7 +25,7 @@ export const PostComments = () => {
 
 
     return (
-        <Column width='100%' align='center' padding='3px 0' >
+        <Column width='100%' align='center' padding='3px 0' style={{ background: Colors.Primary.SoftGray }} >
 
             {
                 SpecificPostComments.map((e: any, i: number) => {

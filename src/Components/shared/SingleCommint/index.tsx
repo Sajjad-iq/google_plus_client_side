@@ -60,7 +60,7 @@ export const SingleComment = (props: Props) => {
 
 
     return (
-        <Row width='100%' padding='10px' align='flex-start' style={{ alignItems: "flex-start" }}>
+        <Row width='100%' padding='10px' align='flex-start' style={{ alignItems: "flex-start", margin: "1px 0" }}>
 
             <CommentUserLogo onClick={props.onClickOnLogo} src={props.data.CommentOwnerImage !== "" ? props.data.CommentOwnerImage : Image} alt='comment image label' style={{ marginTop: "7px" }} />
 
@@ -106,13 +106,14 @@ export const SingleComment = (props: Props) => {
                                 style={{ color: HasLike ? Colors.Primary.red : Colors.Primary.Lightgray }}
                                 onClick={() => setHasLike(!HasLike)}
                             >+1</CommentButton>
+
                             <CommentButton
-                                style={{ fontWeight: "300" }}
+                                style={{ fontWeight: "300", color: Colors.Secoundry.Cyan }}
                                 onClick={() => setIsEditCommentWindowActive(!IsEditCommentWindowActive)}
                             >edit</CommentButton>
 
                             <CommentButton
-                                style={{ fontWeight: "300" }}
+                                style={{ fontWeight: "300", color: Colors.Secoundry.Cyan }}
                                 onClick={() => { DeleteCommentsHandler(props.data) }}
                             >delete</CommentButton>
 
@@ -128,7 +129,7 @@ export const SingleComment = (props: Props) => {
                             >+1</CommentButton>
 
                             <CommentButton
-                                style={{ fontWeight: "300" }}
+                                style={{ fontWeight: "300", color: Colors.Secoundry.Cyan }}
                                 onClick={() => {
                                     setReplayTo(`+ ${props.data.CommentOwnerName} `)
                                     setReplayToId(props.data.CommentOwnerId)
