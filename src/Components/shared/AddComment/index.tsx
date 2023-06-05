@@ -1,12 +1,12 @@
 import { ChangeEventHandler, MouseEventHandler, useContext, useEffect, useState } from 'react'
 import { TextField } from '../../common/TextField.styled'
-import { UserLogo } from '../../common/UserLogo.styled'
 import { LoadingButton } from '../LoadingButton'
 import { Row } from '../Row.styled'
 import { Column } from './styled/Column.styled'
 import { ReplayTag } from '../SingleCommint/styled/ReplayTag'
 import { CommentsContext } from '../../../Context/CommentsContext'
 import { CommentBodySection } from '../SingleCommint/styled/CommentBodySection.styled'
+import { CommentUserLogo } from './styled/CommentUserLogo.styled'
 
 interface Props {
     onChange: ChangeEventHandler
@@ -36,8 +36,8 @@ export const AddComment = (props: Props) => {
 
     return (
         <Column >
-            <Row width='100%' padding='5px 0' align='flex-start' style={{ alignItems: "flex-start" }} >
-                <UserLogo src={props.UserImage} loading={"lazy"} alt='comment image label' />
+            <Row width='100%' padding='5px 0' align='flex-start' style={{ alignItems: "center" }} >
+                <CommentUserLogo src={props.UserImage} alt='comment image label' />
 
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo}</ReplayTag>

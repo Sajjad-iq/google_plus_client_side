@@ -15,7 +15,9 @@ export const TextField = styled.textarea<Props>`
  font-weight: 600;
  resize: none;
  border:none;
- 
+ padding-top:18px;
+
+
   &:focus{
     border:none;
       outline: none;
