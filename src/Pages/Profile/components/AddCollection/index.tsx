@@ -18,7 +18,7 @@ export const AddCollection = (props: Props) => {
     const { setSpecificCollection } = useContext(GlobalContext)
     const Navigate = useNavigate()
     return (
-        <Wrapper >
+        <Wrapper style={{ padding: "0" }}>
 
             <ProfileUserDescription style={{ color: Colors.Secoundry.gray, width: "fit-content" }}>{!props.IsForOthersProfiles ? `YOUR INTERESTS` : `${props.UserName.toLocaleUpperCase()} INTERESTS`}</ProfileUserDescription>
 
