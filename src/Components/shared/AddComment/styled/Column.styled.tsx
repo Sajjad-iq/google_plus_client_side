@@ -17,7 +17,6 @@ export const Column = styled.section`
  @media ${device.laptop} {
     bottom:0px;
     z-index:10;
-
    }
 
 `

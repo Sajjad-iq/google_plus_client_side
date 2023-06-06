@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction, useContext, useEffect, useRef } from 'react'
 import { CommentsContext } from '../../../../../Context/CommentsContext'
 import { BorderButton } from '../../../../common/BorderButton.styled'
 import { ToggleColumn } from '../../../PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
+import { Colors } from '../../../../../assets/Colors'
 
 interface Props {
     IsActive: boolean
@@ -31,7 +32,7 @@ export const OptionsWindow = (props: Props) => {
     return (
         <ToggleColumn ref={OptionsRef} bottom={props.data.CommentOwnerId == User._id ? "-100px" : "-70px"} display={props.IsActive ? "flex" : "none"}  >
 
-            <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
+            <BorderButton style={{ color: Colors.Primary.red, width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeleteCommentsHandler(props.data) }}
             >
                 Delete
