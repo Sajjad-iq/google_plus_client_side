@@ -74,8 +74,21 @@ export const SingleComment = (props: Props) => {
 
                     <Row width='fit-content' padding='0px' align='center'>
                         <P>{DateCalculator()}</P>
+
+                        <Row width='fit-content' align='flex-start' padding='0 0 0 10px' style={{ position: "relative" }}>
+                            <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
+                                <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                            </Button>
+
+                            <OptionsWindow setIsActive={setIsOptionsWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
+                        </Row>
                     </Row>
                 </Row>
+
+
+
+
+
 
                 <Column width='100%' padding='0' align='space-between'>
                     {
@@ -138,15 +151,7 @@ export const SingleComment = (props: Props) => {
             </CommentBodySection>
 
 
-            <Row width='fit-content' align='flex-start' padding='0 0 0 10px' style={{ position: "relative" }}>
 
-                <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
-                    <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
-                </Button>
-
-                <OptionsWindow setIsActive={setIsOptionsWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
-
-            </Row>
         </Row>
     )
 }
