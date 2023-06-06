@@ -9,7 +9,7 @@ export const Column = styled.section`
  align-items: flex-end;
  flex-direction: column;
  padding:5px 10px;
- border: 1px solid ${Colors.Primary.SoftGray};
+ border: 1px solid ${Colors.Primary.Lightgray};
  background-color: white;
  position: sticky;
  bottom:0px;

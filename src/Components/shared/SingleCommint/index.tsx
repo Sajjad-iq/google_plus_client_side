@@ -103,17 +103,17 @@ export const SingleComment = (props: Props) => {
                         <Row width='100%' padding='0' align='flex-start'>
 
                             <CommentButton
-                                style={{ color: HasLike ? Colors.Primary.red : Colors.Primary.Lightgray }}
+                                style={{ color: HasLike ? Colors.Primary.red : Colors.Primary.SoftBlack }}
                                 onClick={() => setHasLike(!HasLike)}
                             >+1</CommentButton>
 
                             <CommentButton
-                                style={{ fontWeight: "300", color: Colors.Secoundry.Cyan }}
+                                style={{ color: Colors.Secoundry.Cyan }}
                                 onClick={() => setIsEditCommentWindowActive(!IsEditCommentWindowActive)}
                             >edit</CommentButton>
 
                             <CommentButton
-                                style={{ fontWeight: "300", color: Colors.Secoundry.Cyan }}
+                                style={{ color: Colors.Secoundry.Cyan }}
                                 onClick={() => { DeleteCommentsHandler(props.data) }}
                             >delete</CommentButton>
 
