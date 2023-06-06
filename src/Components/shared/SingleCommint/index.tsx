@@ -15,10 +15,12 @@ import { P } from '../../common/P.styled'
 import { CommentUserLogo } from '../AddComment/styled/CommentUserLogo.styled'
 import { Colors } from '../../../assets/Colors'
 import { CommentButton } from './styled/CommentButton.styled'
-import { DeleteComments } from '../../../services/PostsServices/DeleteComments'
 import { CommentsContext } from '../../../Context/CommentsContext'
 import { GlobalContext } from '../../../Context/GlobalContext'
-
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '../../common/Button.styled'
+import { OptionsWindow } from './Components/OptionsWindow'
 
 interface Props {
     CreatedAt: string
@@ -33,9 +35,9 @@ export const SingleComment = (props: Props) => {
     const DateCalculator = DateCalculate(props.CreatedAt)
     const ref = useRef<any>(null)
     const { Textfield, TextChange, SubmitCommentHandler, isLoading } = EditComment(props.data)
-    const { DeleteCommentsHandler } = DeleteComments()
     const { setReplayTo, setReplayToId } = useContext(CommentsContext)
     const { User } = useContext(GlobalContext)
+    const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(false)
 
     const resizeTextArea = () => {
         if (IsEditCommentWindowActive) {
@@ -112,11 +114,6 @@ export const SingleComment = (props: Props) => {
                                 onClick={() => setIsEditCommentWindowActive(!IsEditCommentWindowActive)}
                             >edit</CommentButton>
 
-                            <CommentButton
-                                style={{ color: Colors.Primary.red }}
-                                onClick={() => { DeleteCommentsHandler(props.data) }}
-                            >delete</CommentButton>
-
                         </Row>
 
                         :
@@ -139,6 +136,17 @@ export const SingleComment = (props: Props) => {
                 }
 
             </CommentBodySection>
+
+
+            <Row width='fit-content' align='flex-start' padding='0 0 0 10px' style={{ position: "relative" }}>
+
+                <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>
+                    <FontAwesomeIcon className='post-fa-comment-options' icon={faEllipsisVertical} />
+                </Button>
+
+                <OptionsWindow setIsActive={setIsOptionsWindowActive} EditWindowStateChange={setIsEditCommentWindowActive} data={props.data} IsActive={IsOptionsWindowActive} />
+
+            </Row>
         </Row>
     )
 }
