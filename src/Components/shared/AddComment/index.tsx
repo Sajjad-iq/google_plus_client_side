@@ -7,6 +7,9 @@ import { ReplayTag } from '../SingleCommint/styled/ReplayTag'
 import { CommentsContext } from '../../../Context/CommentsContext'
 import { CommentBodySection } from '../SingleCommint/styled/CommentBodySection.styled'
 import { CommentUserLogo } from './styled/CommentUserLogo.styled'
+import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { AddUrl } from '../../../Pages/Home/Components/PopUpAddPostWindow/Components/AddUrl'
+import { AddImage } from '../../../Pages/Home/Components/PopUpAddPostWindow/Components/AddImage'
 
 interface Props {
     onChange: ChangeEventHandler
@@ -45,8 +48,14 @@ export const AddComment = (props: Props) => {
                 </CommentBodySection>
             </Row>
 
-            <Row width='100%' padding='10px 0' align='flex-end' style={{ display: IsActive ? "flex" : "none" }} >
+            <Row width='100%' padding='10px 0' align='space-between' style={{ display: IsActive ? "flex" : "none" }} >
+                <Row padding="0" align="center" width="fit-content">
+                    <AddImage Icon={faImage} Style={{}} onChange={() => ""} />
+                    <AddUrl OpenAddUrlScreen={() => ""} />
+                </Row>
+
                 <LoadingButton Style={{}} onClick={props.onSubmit} ButtonName={"Submit"} IsLoading={props.IsLoading} />
+
             </Row>
         </Column>
     )
