@@ -14,19 +14,7 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
   const [isLoading, setIsLoading] = useState(false)
 
   const { setSpecificPost, SpecificPost } = useContext(GlobalContext)
-
-
   const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
-
-  const handleImageUpload = async (e: ChangeEvent<any>) => {
-    const file = e.target.files[0] || null;
-    if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg") {
-      const base64 = await convertToBase64(file);
-      setPhoto(base64)
-    } else {
-      window.alert("you can only upload images")
-    }
-  }
 
   const SubmitPostHandler = async () => {
     if (Textfield !== "") {
@@ -73,21 +61,8 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
     }
   }
 
-  return { setUrl, Textfield, Url, Photo, isLoading, TextChange, handleImageUpload, SubmitPostHandler }
+  return { setUrl, Textfield, Url, Photo, isLoading, TextChange, setPhoto, SubmitPostHandler }
 }
 
 
 
-function convertToBase64(file: any) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result)
-    };
-    fileReader.onerror = (error) => {
-      reject(error)
-    }
-  })
-
-}

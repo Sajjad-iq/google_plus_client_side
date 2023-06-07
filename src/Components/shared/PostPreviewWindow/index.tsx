@@ -27,9 +27,7 @@ export const PostPreviewWindow = (props: Props) => {
     const { SpecificPost, setSpecificPostComments } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
-    const Ref = useRef<any>(null)
-    const RestTextFelidValueReload = () => Ref ? Ref.current.value = "" : ""
-    const { onChange, CommentSubmitHandler, TextFieldValue, isLoading } = AddCommentServices(RestTextFelidValueReload)
+
 
     useEffect(() => {
         setSpecificPostComments([])
@@ -71,7 +69,7 @@ export const PostPreviewWindow = (props: Props) => {
 
                 <PostComments />
 
-                <AddComment IsLoading={isLoading} TextValue={TextFieldValue} Ref={Ref} UserImage={User.ProfilePicture !== "" ? User.ProfilePicture : Image} onSubmit={() => CommentSubmitHandler()} onChange={onChange} />
+                <AddComment />
             </Wrapper>
     )
 }

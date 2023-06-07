@@ -13,6 +13,7 @@ import { AddUrlWindow } from '../AddUrlWindow'
 import { LoadingButton } from '../LoadingButton'
 import { Row } from '../Row.styled'
 import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
 
 
 interface Props {
@@ -26,7 +27,7 @@ export const EditPost = (props: Props) => {
 
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
-    const { TextChange, handleImageUpload, setUrl, Textfield, Url, Photo, isLoading, SubmitPostHandler } = EditPostServices(props.data, props.CloseFunction)
+    const { TextChange, setPhoto, setUrl, Textfield, Url, Photo, isLoading, SubmitPostHandler } = EditPostServices(props.data, props.CloseFunction)
 
     useEffect(() => {
         if (TextAreaRef.current) {
@@ -56,7 +57,7 @@ export const EditPost = (props: Props) => {
 
                 <Row padding="10px 0" align="space-between" width="100%">
                     <Row padding="0" align="center" width="fit-content">
-                        <AddImage Style={{}} Icon={faImage} onChange={handleImageUpload} />
+                        <AddImage Style={{}} Icon={faImage} onChange={(e) => imagesConvertToBase64(e, setPhoto)} />
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 

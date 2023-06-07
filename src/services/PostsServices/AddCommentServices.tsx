@@ -11,6 +11,9 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
     const [isLoading, setIsLoading] = useState(false)
     const { SpecificPost, SpecificPostComments } = useContext(GlobalContext)
     const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
+    const [Url, setUrl] = useState("")
+    const [Photo, setPhoto] = useState<any>("")
+
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
@@ -73,5 +76,5 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
         }
 
     }
-    return { onChange, CommentSubmitHandler, TextFieldValue, isLoading }
+    return { onChange, CommentSubmitHandler, TextFieldValue, isLoading, Photo, setPhoto }
 }

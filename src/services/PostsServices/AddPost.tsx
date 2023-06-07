@@ -14,19 +14,7 @@ export const AddPost = () => {
     const { setOptionsValue, OptionsValue, SpecificCollection } = useContext(GlobalContext)
 
     const Navigate = useNavigate()
-
-
     const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
-
-    const handleImageUpload = async (e: ChangeEvent<any>) => {
-        const file = e.target.files[0] || null;
-        if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg" || file.type == "image/webp") {
-            const base64 = await convertToBase64(file)
-            setPhoto(base64)
-        } else {
-            window.alert("you can only upload images")
-        }
-    }
 
     const AddPostHandler = async () => {
 
@@ -71,21 +59,8 @@ export const AddPost = () => {
         }
     }
 
-    return { AddPostHandler, Photo, handleImageUpload, TextChange, Textfield, Url, setUrl, isLoading, setIsLoading }
+    return { AddPostHandler, Photo, setPhoto, TextChange, Textfield, Url, setUrl, isLoading, setIsLoading }
 }
 
 
 
-function convertToBase64(file: any) {
-    return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-        fileReader.onload = () => {
-            resolve(fileReader.result)
-        };
-        fileReader.onerror = (error) => {
-            reject(error)
-        }
-    })
-
-}

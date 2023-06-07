@@ -16,12 +16,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from "../../../Auth/styled/Button.styled"
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { CollectionsSelect } from "./Components/CollectionsSelect"
+import { imagesConvertToBase64 } from "../../../../helpers/imagesConvertToBase64"
 
 
 
 export const PopUpAddPostWindow = () => {
 
-    const { AddPostHandler, Photo, handleImageUpload, TextChange, Textfield, Url, setUrl, isLoading } = AddPost()
+    const { AddPostHandler, Photo, setPhoto, TextChange, Textfield, Url, setUrl, isLoading } = AddPost()
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -49,7 +50,7 @@ export const PopUpAddPostWindow = () => {
 
                 <Row padding="10px 0" align="space-between" width="100%" style={{ alignSelf: "flex-start" }}>
                     <Row padding="0" align="center" width="fit-content">
-                        <AddImage Icon={faImage} Style={{}} onChange={handleImageUpload} />
+                        <AddImage Icon={faImage} Style={{}} onChange={(e) => imagesConvertToBase64(e, setPhoto)} />
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 
