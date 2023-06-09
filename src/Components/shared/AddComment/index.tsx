@@ -1,4 +1,4 @@
-import { ChangeEventHandler, MouseEventHandler, useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { TextField } from '../../common/TextField.styled'
 import { LoadingButton } from '../LoadingButton'
 import { Column } from './styled/Column.styled'
@@ -13,7 +13,7 @@ import { AddImage } from '../../../Pages/Home/Components/PopUpAddPostWindow/Comp
 import { AddCommentServices } from '../../../services/PostsServices/AddCommentServices'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
-
+import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/Image.styled'
 
 export const AddComment = () => {
 
@@ -44,6 +44,8 @@ export const AddComment = () => {
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo}</ReplayTag>
                     <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder="Add Comment..." rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
+                    <Image src={Photo !== "" ? Photo : ""} alt="image uploaded" style={{ display: Photo !== "" ? "flex" : "none" }} />
+
                 </CommentBodySection>
             </Row>
 
@@ -53,7 +55,11 @@ export const AddComment = () => {
                     <AddUrl OpenAddUrlScreen={() => ""} />
                 </Row>
 
-                <LoadingButton Style={{}} onClick={CommentSubmitHandler} ButtonName={"Submit"} IsLoading={isLoading} />
+                <LoadingButton Style={{}} onClick={() => {
+                    CommentSubmitHandler()
+                    setPhoto("")
+                }}
+                    ButtonName={"Submit"} IsLoading={isLoading} />
 
             </Row>
         </Column>

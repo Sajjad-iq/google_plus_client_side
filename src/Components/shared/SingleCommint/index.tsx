@@ -21,6 +21,7 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '../../common/Button.styled'
 import { OptionsWindow } from './Components/OptionsWindow'
+import { PostImg } from '../Post/styled/PostImg.styled'
 
 interface Props {
     CreatedAt: string
@@ -108,6 +109,7 @@ export const SingleComment = (props: Props) => {
                             <Column width='100%' padding='0' align='space-between'>
                                 <CommentBody>{Textfield}</CommentBody>
                                 <ReplayTag style={{ alignSelf: "flex-end", marginTop: "15px" }}>{props.data.CommentsRePlayTo || ""}</ReplayTag>
+                                <PostImg style={{ display: props.data.CommentImage ? "block" : "none" }} src={props.data.CommentImage} alt="post image" />
                             </Column>
                     }
                 </Column>
@@ -149,8 +151,6 @@ export const SingleComment = (props: Props) => {
                 }
 
             </CommentBodySection>
-
-
 
         </Row>
     )

@@ -37,15 +37,16 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                             CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
                             CommentOwnerId: User._id,
                             CommentOwnerImage: User.ProfilePicture,
+                            CommentImage: Photo,
                             PostOwnerId: SpecificPost.PostOwnerId,
-                            CommentsCounter: SpecificPost.CommentsCounter + 1,
                             CommentsRePlayTo: ReplayTo,
                             CommentsRePlayToId: ReplayToId
                         },
                         Data: {
                             UserName: User.UserName,
                             FamilyName: User.FamilyName,
-                            PostBody: SpecificPost.PostBody
+                            PostBody: SpecificPost.PostBody,
+                            UserId: User._id
                         },
                     }
                 }
@@ -55,6 +56,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                         CommentBody: TextFieldValue,
                         CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
                         CommentOwnerId: User._id,
+                        CommentImage: Photo,
                         CommentOwnerImage: User.ProfilePicture,
                         createdAt: Date.now(),
                         CommentsRePlayTo: ReplayTo
