@@ -33,7 +33,6 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
             PostImage: Photo,
             PostOwnerImage: SpecificPost.PostOwnerImage,
             link: Url
-
           }
         }
         ).then(() => {
@@ -48,11 +47,12 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
 
           WindowClosing()
           setSpecificPost(post)
-          setIsLoading(false)
         })
-      } catch (e: any) {
+      }
+      catch (e: any) {
         window.alert("something went wrong")
-      } finally {
+      }
+      finally {
         setIsLoading(false)
         setTextFelid("")
         setPhoto("")

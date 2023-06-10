@@ -37,11 +37,11 @@ export const FindUserDef = {
     FollowingCollections: []
 }
 export const NotificationDef = {
-    NotificationName: "",
+    NotificationName: [""],
     NotificationBody: "",
-    NotificationFromId: "",
-    NotificationFrom: "",
-    NotificationOwnerImage: "",
+    NotificationUsersIncludedIds: [""],
+    NotificationUsersIncludedImages: [""],
+    Read: false
 }
 
 

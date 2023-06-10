@@ -15,17 +15,19 @@ export const onClickOnNotificationCard = () => {
         if (data.NotificationFrom === "people") {
             try {
                 setNotificationsLoading(true)
-                await SetFindUserHandler(data.NotificationFromId)
+                await SetFindUserHandler(data.NotificationOnClickTargetId, true, data)
             } catch (e: any) {
                 window.alert("something went wrong")
             }
             finally {
                 setNotificationsLoading(false)
             }
-        } else if (data.NotificationFrom === "posts") {
+        }
+
+        else if (data.NotificationFrom === "posts") {
             try {
                 setNotificationsLoading(true)
-                await FetchSpecificPostHandler(data.NotificationFromId)
+                await FetchSpecificPostHandler(data.NotificationOnClickTargetId, true, data)
                 Navigate('/Posts')
 
             } catch (e: any) {

@@ -28,7 +28,7 @@ export const Notifications = () => {
                     </Row>
                     :
                     Response.map((e: any, i: number) => {
-                        return <NotificationsCard NotificationIds={e.NotificationUsersIds} onClick={() => ClickOnNotificationCardHandler(e)} key={i} UserImages={e.NotificationOwnerImage} UserName={e.NotificationName} NotificationMessage={e.NotificationBody} />
+                        return <NotificationsCard NotificationIds={e.NotificationUsersIncludedIds} onClick={() => ClickOnNotificationCardHandler(e)} key={i} UserImages={e.NotificationUsersIncludedImages} UsersName={e.NotificationName} NotificationMessage={e.NotificationBody} IsRead={e.Read} />
                     })
             }
         </Wrapper>

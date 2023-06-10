@@ -12,17 +12,16 @@ import { Colors } from '../../../../../assets/Colors'
 
 export const PostComments = () => {
 
+    const { SpecificPostComments } = useContext(GlobalContext)
     const BottomRef = useRef<any>(null)
     const [PostsCount, setPostsCount] = useState(0)
     const { FetchCommentsHandler, StopFetching, Loading } = FetchComments(PostsCount)
     const { SetFindUserHandler } = SetFindUser()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
-    const { SpecificPostComments } = useContext(GlobalContext)
 
     useEffect(() => {
         FetchCommentsHandler()
     }, [PostsCount])
-
 
     return (
         <Column width='100%' align='center' padding='0' style={{ background: Colors.Primary.SoftGray }} >

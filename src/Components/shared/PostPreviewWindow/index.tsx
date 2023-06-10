@@ -12,8 +12,6 @@ import { Post } from '../Post'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { AddComment } from '../AddComment'
-import { AddCommentServices } from '../../../services/PostsServices/AddCommentServices'
-import Image from '../../../assets/ICONS/ProfileImg.jpg'
 import { Colors } from '../../../assets/Colors'
 
 interface Props {

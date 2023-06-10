@@ -7,7 +7,7 @@ export const FetchSpecificPost = () => {
     const [Loading, setLoading] = useState(false)
     const { setSpecificPost, setSpecificPostComments } = useContext(GlobalContext)
 
-    const FetchSpecificPostHandler = async (id: string) => {
+    const FetchSpecificPostHandler = async (id: string, FromNotificationsPage: boolean = false, NotificationsData: any = {}) => {
         try {
             setLoading(true)
             await axios({
@@ -17,6 +17,8 @@ export const FetchSpecificPost = () => {
                 withCredentials: true,
                 data: {
                     PostId: id,
+                    setNotificationAsRead: FromNotificationsPage,
+                    NotificationsData: NotificationsData
                 }
             }
             ).then((e: any) => {

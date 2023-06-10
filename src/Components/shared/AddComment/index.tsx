@@ -14,6 +14,7 @@ import { AddCommentServices } from '../../../services/PostsServices/AddCommentSe
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
 import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/Image.styled'
+import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
 
 export const AddComment = () => {
 
@@ -39,7 +40,7 @@ export const AddComment = () => {
     return (
         <Column >
             <Row width='100%' padding='5px 0' align='flex-start' style={{ alignItems: "center" }} >
-                <CommentUserLogo src={User.ProfilePicture} alt='comment image label' />
+                <CommentUserLogo src={User.ProfilePicture || UserImage} alt='comment image label' />
 
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo}</ReplayTag>

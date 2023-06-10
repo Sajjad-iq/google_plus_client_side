@@ -12,7 +12,7 @@ export const SetFindUser = () => {
     let { setPeopleUser } = useContext(GlobalContext)
     const User = UserData()
 
-    const SetFindUserHandler = async (Id: any) => {
+    const SetFindUserHandler = async (Id: any, FromNotificationsPage: boolean = false, NotificationsData: any = {}) => {
 
 
         try {
@@ -26,6 +26,8 @@ export const SetFindUser = () => {
                 headers: {},
                 data: {
                     id: Id,
+                    setNotificationAsRead: FromNotificationsPage,
+                    NotificationsData: NotificationsData
                 }
             }
             ).then(async (e: any) => {

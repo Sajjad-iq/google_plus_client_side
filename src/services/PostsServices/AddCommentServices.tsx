@@ -9,7 +9,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
     const User = UserData()
     const [TextFieldValue, setTextFieldValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const { SpecificPost, SpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost, SpecificPostComments, setSpecificPostComments, setSpecificPost } = useContext(GlobalContext)
     const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
     const [Url, setUrl] = useState("")
     const [Photo, setPhoto] = useState<any>("")
@@ -52,7 +52,8 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                 }
 
                 ).then((e) => {
-                    SpecificPostComments.push({
+                    let comments = SpecificPostComments
+                    comments.push({
                         CommentBody: TextFieldValue,
                         CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
                         CommentOwnerId: User._id,
@@ -61,8 +62,9 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                         createdAt: Date.now(),
                         CommentsRePlayTo: ReplayTo
                     })
+                    setSpecificPostComments(comments)
 
-                    SpecificPost.CommentsCounter = e.data + 1
+                    SpecificPost.CommentsCounter = SpecificPost.CommentsCounter + 1
 
                     RestTextFelidValueReload()
                     setTextFieldValue("")

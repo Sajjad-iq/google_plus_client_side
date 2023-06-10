@@ -8,7 +8,7 @@ export const EditComment = (Data: any) => {
 
     const [Textfield, setTextFelid] = useState<string>(Data.CommentBody)
     const [isLoading, setIsLoading] = useState(false)
-    const { SpecificPostComments, SpecificPost } = useContext(GlobalContext)
+    const { SpecificPostComments } = useContext(GlobalContext)
 
     const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
 
@@ -24,7 +24,6 @@ export const EditComment = (Data: any) => {
                     data: {
                         commentBody: Textfield,
                         comment: Data,
-                        postId: SpecificPost._id
                     }
                 },
                 ).then(() => {
