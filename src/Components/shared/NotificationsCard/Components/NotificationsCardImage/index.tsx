@@ -22,9 +22,9 @@ export const NotificationsCardImage = (props: Props) => {
                 :
                 props.Images.length <= 3 ?
                     <ImageWrapper >
-                        <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "12px", width: "29px", height: "29px" }} />
-                        <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", left: "0px", width: "29px", height: "29px" }} />
-                        <SmallImage src={props.Images[2] || profileImg} style={{ bottom: "0px", right: "0px", width: "29px", height: "29px" }} />
+                        <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "11px", width: "27px", height: "27px" }} />
+                        <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", left: "0px", width: "27px", height: "27px" }} />
+                        <SmallImage src={props.Images[2] || profileImg} style={{ bottom: "0px", right: "0px", width: "27px", height: "27px" }} />
                     </ImageWrapper >
                     :
                     props.Images.length <= 4 ?
