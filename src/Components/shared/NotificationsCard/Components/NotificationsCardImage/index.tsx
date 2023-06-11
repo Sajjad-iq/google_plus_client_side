@@ -16,15 +16,15 @@ export const NotificationsCardImage = (props: Props) => {
             :
             props.Images.length <= 2 ?
                 <ImageWrapper >
-                    <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "1px" }} />
-                    <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", right: "1px" }} />
+                    <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "0px", width: "30px", height: "30px" }} />
+                    <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", right: "0px", width: "30px", height: "30px" }} />
                 </ImageWrapper >
                 :
                 props.Images.length <= 3 ?
                     <ImageWrapper >
-                        <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "10px" }} />
-                        <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", left: "0px" }} />
-                        <SmallImage src={props.Images[2] || profileImg} style={{ bottom: "0px", right: "0px" }} />
+                        <SmallImage src={props.Images[0] || profileImg} style={{ top: "0px", left: "12px", width: "29px", height: "29px" }} />
+                        <SmallImage src={props.Images[1] || profileImg} style={{ bottom: "0px", left: "0px", width: "29px", height: "29px" }} />
+                        <SmallImage src={props.Images[2] || profileImg} style={{ bottom: "0px", right: "0px", width: "29px", height: "29px" }} />
                     </ImageWrapper >
                     :
                     props.Images.length <= 4 ?
