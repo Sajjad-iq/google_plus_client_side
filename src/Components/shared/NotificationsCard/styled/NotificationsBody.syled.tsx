@@ -5,8 +5,8 @@ import { Colors } from "../../../../assets/Colors";
 
 
 export const NotificationsBody = styled.article`
-font-size: 0.80rem;
-font-weight: 600;
+font-size: 0.75rem;
+font-weight: 500;
 color:${Colors.Primary.SoftBlack};
 margin-top:3px;
 width:100%;

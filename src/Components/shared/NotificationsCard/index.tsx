@@ -28,7 +28,7 @@ export const NotificationsCard = (props: Props) => {
 
 
     return (
-        <BorderWrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.85" } : {}}>
+        <BorderWrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.80" } : {}}>
             <NotificationsCardImage Images={props.UserImages} />
 
             <Column width='80%' align='flex-start' padding='0' style={{ background: "none" }}>

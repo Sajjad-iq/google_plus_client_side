@@ -10,11 +10,9 @@ import { GlobalContext } from '../../Context/GlobalContext'
 export const Notifications = () => {
     const { FetchHandler, Response, Loading } = FetchNotifications()
     const { ClickOnNotificationCardHandler, NotificationsLoading } = onClickOnNotificationCard()
-    const { setHasNotifications } = useContext(GlobalContext)
 
     useEffect(() => {
         FetchHandler()
-        setHasNotifications(false)
     }, [])
 
 
