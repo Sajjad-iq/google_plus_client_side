@@ -22,8 +22,7 @@ export const DeleteComments = () => {
             }
             ).then(async () => {
 
-                let comments = SpecificPostComments
-                let newComments = await comments.filter((e: any) => {
+                let newComments = [...SpecificPostComments].filter((e: any) => {
                     return e._id !== data._id
                 })
                 setSpecificPostComments(newComments)

@@ -16,7 +16,11 @@ import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
 import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/Image.styled'
 import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
 
-export const AddComment = () => {
+interface Props {
+    Comments: any
+    setComments: any
+}
+export const AddComment = (props: Props) => {
 
     const [IsActive, setIsActive] = useState(false)
     const { ReplayTo } = useContext(CommentsContext)
@@ -24,6 +28,7 @@ export const AddComment = () => {
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading, Photo, setPhoto } = AddCommentServices(RestTextFelidValueReload)
     const Ref = useRef<any>(null)
     let User = UserData()
+
 
     const resizeTextArea = () => {
         if (Ref.current.value == "") {
@@ -57,7 +62,7 @@ export const AddComment = () => {
                 </Row>
 
                 <LoadingButton Style={{}} onClick={() => {
-                    CommentSubmitHandler()
+                    CommentSubmitHandler(props.setComments, props.Comments)
                     setPhoto("")
                 }}
                     ButtonName={"Submit"} IsLoading={isLoading} />

@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import { MouseEventHandler } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { PostToggleSection } from '../../../Pages/Home/styled/PostsToggleSection.styled'
 import { AddLike } from '../../../services/PostsServices/AddLike'
@@ -19,7 +19,7 @@ interface Props {
     Loading: boolean
 }
 
-export const Posts = React.memo((props: Props) => {
+export const Posts = (props: Props) => {
 
     const User = UserData()
     const { AddLikeHandler } = AddLike()
@@ -73,4 +73,3 @@ export const Posts = React.memo((props: Props) => {
         </PostToggleSection>
     )
 }
-)

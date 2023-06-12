@@ -44,6 +44,15 @@ export const NotificationDef = {
     Read: false
 }
 
+export const CommentsDef = {
+    CommentBody: "",
+    CommentOwnerName: ``,
+    CommentOwnerId: "",
+    CommentImage: "",
+    CommentOwnerImage: "",
+    CommentsRePlayTo: "",
+    createdAt: ""
+}
 
 
 type ProviderChildrenType = {

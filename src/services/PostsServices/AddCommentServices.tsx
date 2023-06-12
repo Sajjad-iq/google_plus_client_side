@@ -9,7 +9,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
     const User = UserData()
     const [TextFieldValue, setTextFieldValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const { SpecificPost, SpecificPostComments, setSpecificPostComments, setSpecificPost } = useContext(GlobalContext)
+    const { SpecificPost, setSpecificPost } = useContext(GlobalContext)
     const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
     const [Url, setUrl] = useState("")
     const [Photo, setPhoto] = useState<any>("")
@@ -17,7 +17,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
-    const CommentSubmitHandler = async () => {
+    const CommentSubmitHandler = async (setComments: any, Comments: any) => {
 
 
         try {
@@ -47,12 +47,14 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                             FamilyName: User.FamilyName,
                             PostBody: SpecificPost.PostBody,
                             UserId: User._id
-                        },
+                        }
                     }
                 }
 
-                ).then((e) => {
-                    let comments = SpecificPostComments
+                ).then(() => {
+                    var comments = [...Comments]
+                    var post = SpecificPost
+
                     comments.push({
                         CommentBody: TextFieldValue,
                         CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
@@ -62,9 +64,25 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                         createdAt: Date.now(),
                         CommentsRePlayTo: ReplayTo
                     })
-                    setSpecificPostComments(comments)
 
-                    SpecificPost.CommentsCounter = SpecificPost.CommentsCounter + 1
+                    setComments(comments)
+                    post.CommentsCounter + 1
+
+                    setSpecificPost({
+                        ...post,
+                        PostBody: post.PostBody,
+                        PostOwnerId: post.PostOwnerId,
+                        PostOwnerName: post.PostOwnerName,
+                        PostOwnerImage: post.PostOwnerImage,
+                        link: post.link,
+                        PostImage: post.PostImage,
+                        PostFrom: post.PostFrom,
+                        CollectionName: post.CollectionName,
+                        CollectionId: post.CollectionId,
+                        CollectionOwnerId: post.CollectionOwnerId,
+                        PrivateShareUsersIds: post.PrivateShareUsersIds,
+                        CommentsCounter: post.CommentsCounter + 1
+                    })
 
                     RestTextFelidValueReload()
                     setTextFieldValue("")

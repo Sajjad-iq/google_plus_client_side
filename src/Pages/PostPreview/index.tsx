@@ -27,7 +27,6 @@ export const PostPreview = () => {
                             Loading={SpecificPost.PostBody !== "" ? false : true}
                             BackHandler={() => {
                                 Navigate("/")
-                                setSpecificPostComments([])
                             }}
                         />
                 }

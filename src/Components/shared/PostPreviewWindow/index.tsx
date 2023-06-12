@@ -1,4 +1,4 @@
-import { MouseEventHandler, useContext, useRef, useEffect } from 'react'
+import { MouseEventHandler, useContext, useRef, useEffect, useState } from 'react'
 import { AddLike } from '../../../services/PostsServices/AddLike'
 import { BackButton } from '../BackButton'
 import { PostComments } from './Components/Commints'
@@ -9,7 +9,7 @@ import UserProfileImage from "../../../assets/ICONS/ProfileImg.jpg"
 import { SetFindUser } from '../../../services/PeopleServices/SetFindUser'
 import { LoadingAnimation } from '../LoadingAnimation'
 import { Post } from '../Post'
-import { GlobalContext } from '../../../Context/GlobalContext'
+import { CommentsDef, GlobalContext } from '../../../Context/GlobalContext'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { AddComment } from '../AddComment'
 import { Colors } from '../../../assets/Colors'
@@ -22,14 +22,16 @@ interface Props {
 export const PostPreviewWindow = (props: Props) => {
 
     let User = UserData()
-    const { SpecificPost, setSpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost, SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
+    const [Comments, setComments] = useState([CommentsDef])
 
 
     useEffect(() => {
-        setSpecificPostComments([])
+        setComments([])
     }, [])
+
 
     return (
         props.Loading && SpecificPost.PostBody == "" ?
@@ -65,9 +67,9 @@ export const PostPreviewWindow = (props: Props) => {
                     PostOwnerImage={SpecificPost.PostOwnerImage !== "" ? SpecificPost.PostOwnerImage : UserProfileImage}
                 />
 
-                <PostComments />
+                <PostComments setCommentsData={setSpecificPostComments} CommentsData={SpecificPostComments} />
 
-                <AddComment />
+                <AddComment setComments={setSpecificPostComments} Comments={SpecificPostComments} />
             </Wrapper>
     )
 }

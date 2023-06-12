@@ -9,13 +9,16 @@ import { SingleComment } from '../../../SingleCommint'
 import { Column } from '../../../Column.styled'
 import { Colors } from '../../../../../assets/Colors'
 
+interface Props {
+    CommentsData: any
+    setCommentsData: any
+}
 
-export const PostComments = () => {
+export const PostComments = (props: Props) => {
 
-    const { SpecificPostComments } = useContext(GlobalContext)
     const BottomRef = useRef<any>(null)
     const [PostsCount, setPostsCount] = useState(0)
-    const { FetchCommentsHandler, StopFetching, Loading } = FetchComments(PostsCount)
+    const { FetchCommentsHandler, StopFetching, Loading } = FetchComments(PostsCount, props.setCommentsData, props.CommentsData)
     const { SetFindUserHandler } = SetFindUser()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
 
@@ -23,11 +26,13 @@ export const PostComments = () => {
         FetchCommentsHandler()
     }, [PostsCount])
 
+
+
     return (
         <Column width='100%' align='center' padding='0' style={{ background: Colors.Primary.SoftGray }} >
 
             {
-                SpecificPostComments.map((e: any, i: number) => {
+                props.CommentsData.map((e: any, i: number) => {
                     return <SingleComment
                         onClickOnLogo={() => SetFindUserHandler(e.CommentOwnerId)}
                         CreatedAt={e.createdAt}
