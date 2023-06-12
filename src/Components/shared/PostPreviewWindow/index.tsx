@@ -25,11 +25,10 @@ export const PostPreviewWindow = (props: Props) => {
     const { SpecificPost, SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
-    const [Comments, setComments] = useState([CommentsDef])
 
 
     useEffect(() => {
-        setComments([])
+        setSpecificPostComments([])
     }, [])
 
 
@@ -67,9 +66,9 @@ export const PostPreviewWindow = (props: Props) => {
                     PostOwnerImage={SpecificPost.PostOwnerImage !== "" ? SpecificPost.PostOwnerImage : UserProfileImage}
                 />
 
-                <PostComments setCommentsData={setSpecificPostComments} CommentsData={SpecificPostComments} />
+                <PostComments />
 
-                <AddComment setComments={setSpecificPostComments} Comments={SpecificPostComments} />
+                <AddComment />
             </Wrapper>
     )
 }

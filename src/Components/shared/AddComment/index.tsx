@@ -15,12 +15,10 @@ import { UserData } from '../../../services/LocalStorage/UserData'
 import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
 import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/Image.styled'
 import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
+import { GlobalContext } from '../../../Context/GlobalContext'
 
-interface Props {
-    Comments: any
-    setComments: any
-}
-export const AddComment = (props: Props) => {
+
+export const AddComment = () => {
 
     const [IsActive, setIsActive] = useState(false)
     const { ReplayTo } = useContext(CommentsContext)
@@ -28,6 +26,7 @@ export const AddComment = (props: Props) => {
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading, Photo, setPhoto } = AddCommentServices(RestTextFelidValueReload)
     const Ref = useRef<any>(null)
     let User = UserData()
+    const { SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
 
 
     const resizeTextArea = () => {
@@ -62,7 +61,7 @@ export const AddComment = (props: Props) => {
                 </Row>
 
                 <LoadingButton Style={{}} onClick={() => {
-                    CommentSubmitHandler(props.setComments, props.Comments)
+                    CommentSubmitHandler(setSpecificPostComments, SpecificPostComments)
                     setPhoto("")
                 }}
                     ButtonName={"Submit"} IsLoading={isLoading} />

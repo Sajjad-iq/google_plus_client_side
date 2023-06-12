@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { UserData } from '../LocalStorage/UserData';
 import { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalContext';
 
@@ -22,12 +21,13 @@ export const DeleteComments = () => {
             }
             ).then(async () => {
 
-                let newComments = [...SpecificPostComments].filter((e: any) => {
+                var oldComments = [...SpecificPostComments]
+                var newComments = oldComments.filter((e: any) => {
                     return e._id !== data._id
                 })
                 setSpecificPostComments(newComments)
 
-                let post = SpecificPost
+                var post = SpecificPost
                 post.CommentsCounter = post.CommentsCounter <= 0 ? 0 : post.CommentsCounter - 1
 
                 setSpecificPost(post)
