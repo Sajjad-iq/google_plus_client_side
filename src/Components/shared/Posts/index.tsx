@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { PostToggleSection } from '../../../Pages/Home/styled/PostsToggleSection.styled'
 import { AddLike } from '../../../services/PostsServices/AddLike'
@@ -19,7 +19,7 @@ interface Props {
     Loading: boolean
 }
 
-export const Posts = React.memo((props: Props) => {
+export const Posts = (props: Props) => {
 
     const User = UserData()
     const { AddLikeHandler } = AddLike()
@@ -35,31 +35,36 @@ export const Posts = React.memo((props: Props) => {
                 <Masonry >
                     <AddPostComponent GoToAddPostPage={() => Navigate("/AddPost")} IsActive={!props.IsForProfile} />
 
-                    <Row style={{ display: props.Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+                    <Row style={{ display: props.Loading && props.Response.length <= 1 ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
                         <LoadingAnimation />
                     </Row>
 
                     {
                         props.Response?.map((e: any) => {
 
-                            return e._id !== "" ? <Post
-                                onClickOnLogo={() => SetFindUserHandler(e.PostOwnerId)}
-                                CreatedAt={e.createdAt}
-                                IsForPreviewWindow={false}
-                                key={e._id}
-                                onClick={() => props.OnClickOnPost(e)}
-                                PostBody={e.PostBody}
-                                PostImage={e.PostImage}
-                                IncludingUrl={e.Link}
-                                LikesCount={e.Likes.length}
-                                CommentsCount={e.CommentsCounter}
-                                onHitLike={() => AddLikeHandler(e)}
-                                IsUserHitLike={e.Likes.includes(User._id)}
-                                PostOwnerName={e.PostOwnerName}
-                                PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
-                            />
-                                :
-                                ""
+                            if (e) {
+
+                                return e._id !== "" ? <Post
+                                    CollectionName={e.CollectionName}
+                                    PostState={e.PostFrom}
+                                    onClickOnLogo={() => SetFindUserHandler(e.PostOwnerId)}
+                                    CreatedAt={e.createdAt}
+                                    IsForPreviewWindow={false}
+                                    key={e._id}
+                                    onClick={() => props.OnClickOnPost(e)}
+                                    PostBody={e.PostBody}
+                                    PostImage={e.PostImage}
+                                    IncludingUrl={e.Link}
+                                    LikesCount={e.Likes.length}
+                                    CommentsCount={e.CommentsCounter}
+                                    onHitLike={() => AddLikeHandler(e)}
+                                    IsUserHitLike={e.Likes.includes(User._id)}
+                                    PostOwnerName={e.PostOwnerName}
+                                    PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
+                                />
+                                    :
+                                    null
+                            }
                         }
                         )
                     }
@@ -68,4 +73,3 @@ export const Posts = React.memo((props: Props) => {
         </PostToggleSection>
     )
 }
-)

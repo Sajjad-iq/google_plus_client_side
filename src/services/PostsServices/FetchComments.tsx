@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
-import { GlobalContext } from '../../Context/GlobalContext'
+import { Dispatch, SetStateAction, useContext, useState } from 'react'
+import { CommentsDef, GlobalContext } from '../../Context/GlobalContext'
 
-export const FetchComments = (PostsCount: number) => {
+export const FetchComments = (PostsCount: number, setComments: Dispatch<SetStateAction<any>>, Comments: Array<any>) => {
 
     const [Loading, setLoading] = useState(false)
     const [StopFetching, setStopFetching] = useState(false)
-    const { SpecificPost, setSpecificPostComments, SpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost } = useContext(GlobalContext)
 
     const FetchCommentsHandler = async () => {
         try {
@@ -15,19 +15,21 @@ export const FetchComments = (PostsCount: number) => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/GetComments",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: SpecificPost._id,
-                    PayloadCount: PostsCount
+                    PayloadCount: PostsCount,
                 }
             }
             ).then(async (e: any) => {
-                let newComments = SpecificPostComments.concat(e.data.ResponseComments)
-                setSpecificPostComments(newComments)
+                let newComments = Comments.concat(e.data.ResponseComments)
+                setComments(newComments)
                 setStopFetching(e.data.StopFetching)
             })
 
         } catch (e: any) {
             console.log(e)
+            window.alert("something went wrong")
         }
         finally {
             setLoading(false)

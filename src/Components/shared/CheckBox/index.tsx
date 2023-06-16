@@ -1,6 +1,6 @@
 import { CheckInput } from "../../common/CheckInput.styled"
 import { Label } from "../../common/Label.styled"
-import { P } from "../Post/styled/P.styled"
+import { P } from "../../common/P.styled"
 
 interface Props {
     IsChecked: boolean

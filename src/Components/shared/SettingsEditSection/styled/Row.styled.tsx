@@ -6,9 +6,7 @@ export const Row = styled.section`
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding:10px 5px;
  background-color: ${Colors.Primary.Lightgray};
- margin:5px 0;
  border-radius: 6px;
 
 `

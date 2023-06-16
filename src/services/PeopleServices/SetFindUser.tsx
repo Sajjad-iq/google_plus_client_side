@@ -9,10 +9,10 @@ export const SetFindUser = () => {
     const [FindUserLoading, setFindUserLoading] = useState(false)
     const [UserId, setUserId] = useState("")
     const Navigate = useNavigate()
-    let { setPeopleUser, setErrMessage } = useContext(GlobalContext)
+    let { setPeopleUser } = useContext(GlobalContext)
     const User = UserData()
 
-    const SetFindUserHandler = async (Id: any) => {
+    const SetFindUserHandler = async (Id: any, FromNotificationsPage: boolean = false, NotificationsData: any = {}) => {
 
 
         try {
@@ -21,9 +21,13 @@ export const SetFindUser = () => {
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/People/",
+                withCredentials: true,
+
                 headers: {},
                 data: {
-                    id: Id
+                    id: Id,
+                    setNotificationAsRead: FromNotificationsPage,
+                    NotificationsData: NotificationsData
                 }
             }
             ).then(async (e: any) => {
@@ -37,8 +41,7 @@ export const SetFindUser = () => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {

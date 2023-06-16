@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext } from 'react'
+import { ChangeEvent, useContext } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
 
 export const EmailAndPasswordStateHandlers = () => {

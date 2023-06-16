@@ -6,7 +6,7 @@ export const TextAreaComponent = styled.textarea`
  background-color: none;
  border-radius: 10px;
  margin:20px 0;
- font-size:1rem;
+ font-size:0.9rem;
  font-family: 'Raleway', sans-serif;
  font-weight:600 ;
  border:none;
@@ -17,7 +17,14 @@ export const TextAreaComponent = styled.textarea`
    outline: none;
  }
 
- @media ${device.tablet} {
- font-size:1.4rem;
-  }
+    @media ${device.tablet} {
+      font-size:1rem;
+    }
+    @media ${device.laptop} {
+      font-size:0.9rem;
+    }
+    @media ${device.laptopL} {
+      font-size:1.2rem;
+    }
+   
 `

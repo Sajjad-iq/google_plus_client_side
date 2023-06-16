@@ -10,14 +10,14 @@ interface Props {
     Data: {}
 }
 export const OptionButtonAndOptionsWindow = (props: Props) => {
-    const [IsActive, setIsActive] = useState(true)
+    const [IsActive, setIsActive] = useState(false)
 
     return (
-        <Row width='fit-content' align='flex-start' padding='10px'>
+        <Row style={{ background: "none" }} width='fit-content' align='flex-start' padding='10px 0'>
             <Button onClick={() => setIsActive(!IsActive)}>
-                <FontAwesomeIcon className='post-fa-icon' icon={faEllipsisVertical} />
+                <FontAwesomeIcon style={{ color: "white" }} className='post-fa-icon' icon={faEllipsisVertical} />
             </Button>
-            <OptionsWindow data={props.Data} IsActive={IsActive} />
+            <OptionsWindow setIsActive={setIsActive} data={props.Data} IsActive={IsActive} />
         </Row>
     )
 }

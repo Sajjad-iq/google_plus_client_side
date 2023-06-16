@@ -1,6 +1,6 @@
 .link-button {
     width: 100%;
-    color: gray;
+    color: #808080;
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -10,24 +10,20 @@
 
 .footer {
     flex-direction: column;
-    padding: 0;
-}
-
-.link-button:hover {
-    background-color: rgb(227, 227, 227);
+    padding: unset;
 }
 
 .name {
     font-weight: 700;
     font-family: 'Raleway', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .fa-icon {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     width: 30px;
     margin: 5px;
 }
@@ -45,5 +41,14 @@
     .name {
         font-size: 1.2rem;
     }
+
+}
+
+@media(min-width:1024px) {
+    .name {
+        font-size: 1rem;
+    }
+
+
 
 }

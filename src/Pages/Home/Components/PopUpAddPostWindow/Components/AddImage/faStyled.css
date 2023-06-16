@@ -1,9 +1,10 @@
 .add-post-fa-icon {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    color: rgb(186, 186, 186);
 }
 
-@media(min-width:768px) {
+@media(min-width:1024px) {
     .add-post-fa-icon {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 }

@@ -8,8 +8,8 @@ color: white;
 display: flex;
 justify-content: center;
 align-items: center;
-font-size:1.2rem;
-padding: 5px 15px;
+font-size:0.9rem;
+padding: 7px 17px;
 border-radius: 3px;
 
 `

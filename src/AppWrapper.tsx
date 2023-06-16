@@ -6,4 +6,8 @@ export const AppWrapper = styled.section`
  display: flex;
  justify-content: center;
  align-items: flex-start;
+
+  &::-webkit-scrollbar {
+  display: none;
+};
 `

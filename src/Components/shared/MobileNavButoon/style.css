@@ -1,0 +1,39 @@
+.mobile-link-button {
+    width: 100%;
+    color: gray;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.mobile-nav-button {
+    width: 30px;
+    height: 28px;
+    margin: 0px 5px
+}
+
+.mobile-link-button-name {
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(min-width:768px) {
+    .mobile-link-button-name {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media(min-width:1024px) {
+    .mobile-link-button-name {
+        font-size: 1rem;
+    }
+
+}

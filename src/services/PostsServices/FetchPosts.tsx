@@ -1,16 +1,14 @@
 import axios from "axios"
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { GlobalContext, def } from "../../Context/GlobalContext"
 
 
-export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
+export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollectionsPreviewWindow: boolean = false) => {
 
     const [Loading, setLoading] = useState(false)
     const [Response, setResponse] = useState([def])
     const [StopFetching, setStopFetching] = useState(false)
-    const Navigate = useNavigate()
-    const { setErrMessage } = useContext(GlobalContext)
+    const { User, setOptionsValue } = useContext(GlobalContext)
 
     const FetchPosts = async () => {
         try {
@@ -18,10 +16,15 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Get",
-                headers: {},
+                headers: {
+
+                },
+                withCredentials: true,
                 data: {
                     PostsOwner: Owner,
-                    PayloadCount: PostsCount
+                    PayloadCount: PostsCount,
+                    FollowingCollections: User.FollowingCollections,
+                    forCollectionsPreviewWindow: forCollectionsPreviewWindow
                 }
             }
             ).then(async (e: any) => {
@@ -32,12 +35,12 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any) => {
         }
 
         catch (e: any) {
-            setErrMessage(e.message)
-            Navigate("/Error")
+            window.alert("something went wrong")
         }
 
         finally {
             setLoading(false)
+            setOptionsValue("Public")
         }
     }
 

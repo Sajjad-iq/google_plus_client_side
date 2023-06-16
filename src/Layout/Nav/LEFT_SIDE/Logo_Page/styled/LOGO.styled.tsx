@@ -11,6 +11,6 @@ display:none;
 
 @media ${device.laptop} {
   display:flex;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   }
 `

@@ -1,35 +1,38 @@
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { Posts } from "../../Components/shared/Posts"
 import { PreviewThePost } from "../../services/PostsServices/PreviewThePost"
 import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
 import { Row } from "../../Components/shared/Row.styled"
 import { useObserver } from "../../services/observer/useObserver"
 import { Wrapper } from "./styled/Wrapper"
+import { RedPenButton } from "./Components/RedPenButton"
+import { GlobalContext } from "../../Context/GlobalContext"
 
 
 export const Home = () => {
 
-
+    const { User } = useContext(GlobalContext)
     const [PostsCount, setPostsCount] = useState(0)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
+    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
 
     useEffect(() => {
-        FetchPosts()
+        User._id !== "" ? FetchPosts() : null
     }, [PostsCount])
 
     return (
         <Wrapper>
+            <RedPenButton />
             <Posts
                 Loading={Loading}
                 IsForProfile={false}
                 Response={Response}
                 OnClickOnPost={onClickOnPost}
             />
-            <Row style={{ display: Loading ? "flex" : "none" }} width='100%' padding='50px' align='center' >
+            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='30px' align='center' >
                 <LoadingAnimation />
             </Row>
 

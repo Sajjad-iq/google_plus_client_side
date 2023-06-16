@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react'
+import { ChangeEventHandler } from 'react'
 import { TextField } from '../../common/TextField.styled'
 
 interface Props {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { EmailAndPasswordStateHandlers } from '../../../services/SignInServices/EmailAndPasswordStateHandlers'
 import { Input } from '../../common/Input.styled'
 import { CheckBox } from '../CheckBox'

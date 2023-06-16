@@ -1,20 +1,23 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { UserData } from '../LocalStorage/UserData'
+import { useContext } from 'react'
+import { GlobalContext } from '../../Context/GlobalContext'
 
 export const SaveChanges = (setIsLoading: any) => {
 
     const Navigate = useNavigate()
+    const { User } = useContext(GlobalContext)
 
     const Save = async () => {
-        let User = UserData()
+
 
         try {
             setIsLoading(true)
             await axios({
                 method: 'put',
-                url: import.meta.env.VITE_BACKEND_URL + `/api/Profile/${User._id}`,
+                url: import.meta.env.VITE_BACKEND_URL + `/api/Profile/edit`,
                 headers: {},
+                withCredentials: true,
                 data: {
                     User
                 }
@@ -26,6 +29,7 @@ export const SaveChanges = (setIsLoading: any) => {
 
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
         finally {
             setIsLoading(false)

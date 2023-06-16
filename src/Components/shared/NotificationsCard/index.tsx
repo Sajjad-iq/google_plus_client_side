@@ -1,53 +1,41 @@
-import React, { MouseEventHandler } from 'react'
-import { UserLogo } from '../UserCard/styled/UserLogo.styled'
-import UserIMG from "../../../assets/ICONS/ProfileImg.jpg"
+import { MouseEventHandler } from 'react'
 import { Column } from '../Column.styled'
-import { UserName } from '../UserCard/styled/UserName.styled'
-import { Wrapper } from './styled/Wrapper'
-import { P } from '../SingleCommint/P.styled'
 import { NotificationsBody } from './styled/NotificationsBody.syled'
-import { Row } from '../Row.styled'
+import { BorderWrapper } from '../../common/BorderWrapper'
+import { NotificationsCardImage } from './Components/NotificationsCardImage'
+import { NotificationsUserName } from './styled/NotificationsUserName.styled'
+import { Colors } from '../../../assets/Colors'
 
 interface Props {
-    UserImg: string
-    UserName: string
+    UserImages: ["", "", "", ""]
+    UsersName: []
     NotificationMessage: string
-    CreatedAt: any
+    NotificationIds: []
+    IsRead: boolean
     onClick: MouseEventHandler
 }
 
 export const NotificationsCard = (props: Props) => {
 
+    let sliceArr
+    let usersName
 
-    const DateCalculator = () => {
-        var CreatedAt = new Date(props.CreatedAt);
-        var NowDate = new Date(Date.now());
-        var Difference = NowDate.getTime() - CreatedAt.getTime();
-        var Difference_In_Days = Difference / (1000 * 3600 * 24);
-        var Difference_In_Hours = Difference / (1000 * 3600);
-        var Difference_In_Minutes = Difference / (1000 * 60);
-
-        if (Difference_In_Minutes < 60) return `${Difference_In_Minutes.toFixed()} min`
-        else if (Difference_In_Hours < 24 && Difference_In_Minutes > 60) return `${Difference_In_Hours.toFixed()} hour`
-        else return `${Difference_In_Days.toFixed()} day`
+    if (Array.isArray(props.UsersName)) {
+        usersName = props.UsersName.join(",");
+        sliceArr = props.UsersName.slice(0, 8)
+        sliceArr.join(",")
     }
 
+
     return (
-        <Wrapper onClick={props.onClick}>
-            <Row width={window.innerWidth >= 720 ? "95%" : "85%"} align='flex-start' padding='0'>
-                <UserLogo
-                    src={props.UserImg !== "" ? props.UserImg : UserIMG}
-                    IsForSearch={false} alt="user card"
-                />
+        <BorderWrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.80" } : {}}>
+            <NotificationsCardImage Images={props.UserImages} />
 
-                <Column width='75%' align='flex-start' padding='0'>
-                    <UserName IsForSearch={false}>{props.UserName}</UserName>
+            <Column width='80%' align='flex-start' padding='0' style={{ background: "none" }}>
+                <NotificationsUserName >{props.UsersName.length > 6 ? `${sliceArr} and ${props.NotificationIds.length || "0"} others` : usersName}</NotificationsUserName>
 
-                    <NotificationsBody>{props.NotificationMessage}</NotificationsBody>
-                </Column>
-            </Row>
-
-            <P>{DateCalculator()}</P>
-        </Wrapper>
+                <NotificationsBody>{props.NotificationMessage}</NotificationsBody>
+            </Column>
+        </BorderWrapper>
     )
 }

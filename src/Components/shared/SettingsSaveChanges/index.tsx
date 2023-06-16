@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import { MouseEventHandler } from 'react'
 import { Button } from '../../common/Button.styled'
 import { Row } from '../Row.styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { device } from "../../../assets/breackPoints";
 
 
 export const SettingsWrapper = styled.section`
  width: 95%;
+  height: 100%;
  display: flex;
  justify-content: center;
  align-items: center;

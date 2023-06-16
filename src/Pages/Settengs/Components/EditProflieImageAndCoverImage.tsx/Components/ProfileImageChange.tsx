@@ -1,4 +1,3 @@
-import React from 'react'
 import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { ChangeProfileImageHandler } from '../../../../../services/SettingsServices/ChangeProfileImageHandler'
 import UserIMG from "../../../../../assets/ICONS/ProfileImg.jpg"

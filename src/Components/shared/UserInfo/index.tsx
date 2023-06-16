@@ -1,5 +1,3 @@
-import { MouseEventHandler } from 'react'
-import { ProfileButton } from '../../common/ProfileButton.styled'
 import { ProfileFollowers } from '../../common/ProfileFollowers.styled'
 import { ProfileUserDescription } from '../../common/ProfileUserDecription.styled'
 import { ProfileUserName } from '../../common/ProfileUserName.styled'
@@ -13,14 +11,25 @@ interface Props {
     ProfileButtonName: any
     ProfileButtonClick: any
     IsLoading: boolean
+    forCollectionsPage: boolean
+    color: string
 }
+
 export const UserInfo = (props: Props) => {
     return (
-        <Column width='100%' padding='75px 0' align='center'>
-            <ProfileUserName>{props.UserName}</ProfileUserName>
-            <ProfileUserDescription>{props.UserDescription}</ProfileUserDescription>
-            <ProfileFollowers>{`${props.UserFollowers} followers`}</ProfileFollowers>
-            <LoadingButton onClick={props.ProfileButtonClick} ButtonName={props.ProfileButtonName} IsLoading={props.IsLoading} />
-        </Column>
+        props.forCollectionsPage ?
+            <Column width='100%' padding='60px 0' align='center' style={{ marginBottom: "4px", backgroundColor: props.color }}>
+                <ProfileUserDescription style={{ color: 'white' }}>{props.UserName}</ProfileUserDescription>
+                <ProfileUserName style={{ color: 'white', marginTop: "25px" }}>{props.UserDescription}</ProfileUserName>
+                <ProfileFollowers style={{ color: 'white', marginTop: "10px" }}>{`${props.UserFollowers} followers`}</ProfileFollowers>
+                <LoadingButton Style={{ color: 'white', background: "none", border: "1px solid white", padding: "10px 20px", marginTop: "15px" }} onClick={props.ProfileButtonClick} ButtonName={props.ProfileButtonName} IsLoading={props.IsLoading} />
+            </Column>
+            :
+            <Column width='100%' padding='75px 0' align='center' style={{ marginBottom: "4px", backgroundColor: "white" }}>
+                <ProfileUserName>{props.UserName}</ProfileUserName>
+                <ProfileUserDescription>{props.UserDescription}</ProfileUserDescription>
+                <ProfileFollowers>{`${props.UserFollowers} followers`}</ProfileFollowers>
+                <LoadingButton Style={{}} onClick={props.ProfileButtonClick} ButtonName={props.ProfileButtonName} IsLoading={props.IsLoading} />
+            </Column>
     )
 }
