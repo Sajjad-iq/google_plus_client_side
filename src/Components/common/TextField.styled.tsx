@@ -28,9 +28,7 @@ export const TextField = styled.textarea<Props>`
     @media ${device.laptop} {
       font-size:0.9rem;
     }
-    @media ${device.laptopL} {
-      font-size:1.2rem;
-    }
+  
  
  
 `
