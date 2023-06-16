@@ -16,6 +16,7 @@ import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
 import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/Image.styled'
 import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
 import { GlobalContext } from '../../../Context/GlobalContext'
+import { AddMentionServices } from '../../../services/PostsServices/MentionServices'
 
 
 export const AddComment = () => {
@@ -24,12 +25,14 @@ export const AddComment = () => {
     const { ReplayTo } = useContext(CommentsContext)
     const RestTextFelidValueReload = () => Ref ? Ref.current.value = "" : ""
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading, Photo, setPhoto } = AddCommentServices(RestTextFelidValueReload)
-    const Ref = useRef<any>(null)
+/*     const { FindMentionedUserHandler, MentionResponse } = AddMentionServices()
+ */    const Ref = useRef<any>(null)
     let User = UserData()
     const { SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
 
 
     const resizeTextArea = () => {
+
         if (Ref.current.value == "") {
             Ref.current.style.height = "50px";
 
@@ -37,9 +40,13 @@ export const AddComment = () => {
             Ref.current.style.height = "auto";
             Ref.current.style.height = Ref.current.scrollHeight + "px";
         }
+
     }
 
     useEffect(resizeTextArea, [TextFieldValue]);
+
+
+
 
     return (
         <Column >
@@ -49,7 +56,7 @@ export const AddComment = () => {
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo}</ReplayTag>
                     <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder="Add Comment..." rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
-                    <Image src={Photo !== "" ? Photo : ""} alt="image uploaded" style={{ display: Photo !== "" ? "flex" : "none" }} />
+                    <Image src={Photo !== "" ? Photo : ""} alt="image uploader" style={{ display: Photo !== "" ? "flex" : "none" }} />
 
                 </CommentBodySection>
             </Row>

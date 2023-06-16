@@ -20,8 +20,7 @@ text-align: start;
  font-size: 0.9rem;
 }
 
- @media ${device.desktop} {
-  font-size: 1.1rem;
-
-  }
+@media ${device.laptop} {
+  font-size:0.75rem;
+}
 `
