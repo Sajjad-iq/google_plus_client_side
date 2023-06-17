@@ -17,16 +17,19 @@ import { Image } from '../../../Pages/Home/Components/PopUpAddPostWindow/styled/
 import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { AddMentionServices } from '../../../services/PostsServices/MentionServices'
+import { UsersSearchList } from '../UsersSearchList'
 
 
 export const AddComment = () => {
 
     const [IsActive, setIsActive] = useState(false)
+    const [isMentionCardActive, setIsMentionCardActive] = useState(false)
+
     const { ReplayTo } = useContext(CommentsContext)
     const RestTextFelidValueReload = () => Ref ? Ref.current.value = "" : ""
     const { onChange, CommentSubmitHandler, TextFieldValue, isLoading, Photo, setPhoto } = AddCommentServices(RestTextFelidValueReload)
-/*     const { FindMentionedUserHandler, MentionResponse } = AddMentionServices()
- */    const Ref = useRef<any>(null)
+    const { FindMentionedUserHandler, MentionResponse, isMentionLoading } = AddMentionServices()
+    const Ref = useRef<any>(null)
     let User = UserData()
     const { SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
 
@@ -43,7 +46,18 @@ export const AddComment = () => {
 
     }
 
-    useEffect(resizeTextArea, [TextFieldValue]);
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+            if (TextFieldValue[0] === "+" && TextFieldValue.length < 15 && ReplayTo === "") {
+                FindMentionedUserHandler(TextFieldValue)
+                setIsMentionCardActive(true)
+            } else setIsMentionCardActive(false)
+        }, 1000);
+        resizeTextArea()
+
+        return () => clearTimeout(timer);
+    }, [TextFieldValue]);
 
 
 
@@ -55,6 +69,7 @@ export const AddComment = () => {
 
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo}</ReplayTag>
+                    < UsersSearchList Response={MentionResponse} IsLoading={isMentionLoading} isActive={isMentionCardActive} setIsActive={setIsMentionCardActive} inputRef={Ref} />
                     <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder="Add Comment..." rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
                     <Image src={Photo !== "" ? Photo : ""} alt="image uploader" style={{ display: Photo !== "" ? "flex" : "none" }} />
 

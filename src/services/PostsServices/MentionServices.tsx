@@ -1,16 +1,12 @@
 import axios from 'axios';
-import { ChangeEvent, useContext, useState } from 'react'
-import { CommentsContext } from '../../Context/CommentsContext';
+import { useState } from 'react'
 
 export const AddMentionServices = () => {
 
-    const [TextFieldValue, setTextFieldValue] = useState("")
     const [MentionResponse, setMentionResponse] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const { ReplayTo, setReplayTo, ReplayToId, setReplayToId } = useContext(CommentsContext)
+    const [isMentionLoading, setIsLoading] = useState(false)
 
 
-    const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFieldValue(e.target.value)
 
     const FindMentionedUserHandler = async (text: string) => {
 
@@ -39,5 +35,5 @@ export const AddMentionServices = () => {
         }
 
     }
-    return { onChange, FindMentionedUserHandler, TextFieldValue, isLoading, MentionResponse }
+    return { FindMentionedUserHandler, isMentionLoading, MentionResponse }
 }
