@@ -53,7 +53,7 @@ export const AddComment = () => {
                 FindMentionedUserHandler(TextFieldValue)
                 setIsMentionCardActive(true)
             } else setIsMentionCardActive(false)
-        }, 1000);
+        }, 3000);
         resizeTextArea()
 
         return () => clearTimeout(timer);

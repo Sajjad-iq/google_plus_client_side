@@ -22,14 +22,22 @@ interface Props {
 export const PostPreviewWindow = (props: Props) => {
 
     let User = UserData()
-    const { SpecificPost, SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost, setSpecificPostComments } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
+    const [post, setPost] = useState(null)
 
 
+    useEffect(() => setSpecificPostComments([]), [])
     useEffect(() => {
-        setSpecificPostComments([])
-    }, [])
+        const timer = setTimeout(async () => {
+            if (post) {
+                await AddLikeHandler(post)
+                setPost(null)
+            }
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [post]);
 
 
     return (
@@ -60,7 +68,7 @@ export const PostPreviewWindow = (props: Props) => {
                     IncludingUrl={SpecificPost.Link}
                     LikesCount={SpecificPost.Likes ? SpecificPost.Likes.length : 0}
                     CommentsCount={SpecificPost.CommentsCounter}
-                    onHitLike={() => AddLikeHandler(SpecificPost)}
+                    onHitLike={() => setPost(SpecificPost)}
                     IsUserHitLike={SpecificPost.Likes ? SpecificPost.Likes.includes(User._id) : false}
                     PostOwnerName={SpecificPost.PostOwnerName}
                     PostOwnerImage={SpecificPost.PostOwnerImage !== "" ? SpecificPost.PostOwnerImage : UserProfileImage}

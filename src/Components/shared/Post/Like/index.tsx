@@ -27,7 +27,7 @@ export const Like = (props: Props) => {
                     onClick={() => {
                         props.onHitLike()
                         setDisabled(true);
-                        setTimeout(() => setDisabled(false), 2000);
+                        setTimeout(() => setDisabled(false), 3000);
                     }
                     }
                 >+1</PostButton>

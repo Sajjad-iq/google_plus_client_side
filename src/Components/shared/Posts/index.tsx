@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, useEffect, useState } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { PostToggleSection } from '../../../Pages/Home/styled/PostsToggleSection.styled'
 import { AddLike } from '../../../services/PostsServices/AddLike'
@@ -25,6 +25,18 @@ export const Posts = (props: Props) => {
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
     const Navigate = useNavigate()
+    const [post, setPost] = useState(null)
+
+
+    useEffect(() => {
+        const timer = setTimeout(async () => {
+            if (post) {
+                await AddLikeHandler(post)
+                setPost(null)
+            }
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [post]);
 
 
     return (
@@ -57,7 +69,7 @@ export const Posts = (props: Props) => {
                                     IncludingUrl={e.Link}
                                     LikesCount={e.Likes.length}
                                     CommentsCount={e.CommentsCounter}
-                                    onHitLike={() => AddLikeHandler(e)}
+                                    onHitLike={() => setPost(e)}
                                     IsUserHitLike={e.Likes.includes(User._id)}
                                     PostOwnerName={e.PostOwnerName}
                                     PostOwnerImage={e.PostOwnerImage !== "" ? e.PostOwnerImage : UserIMG}
