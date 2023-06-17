@@ -1,4 +1,3 @@
-import React from 'react'
 import { Header } from '../../common/Header.styled'
 import { LabelWrapper } from '../../common/LabelWrapper.styled'
 import { LOGO } from '../../common/LOGO.styled'

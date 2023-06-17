@@ -1,14 +1,18 @@
 export const Colors = {
     Primary: {
-        red: "rgb(198, 62, 62)",
-        background: "rgb(226, 223, 223)",
+        red: "#c63e3e",
+        background: "rgb(226,223,223)",
         white: "#fff",
-        Lightgray: "rgb(201, 201, 201)",
+        Lightgray: "rgb(245,245,245)",
         Black: "black",
+        SoftBlack: "rgb(17,17,21)",
+        SoftGray: "rgb(237,237,237)",
+        MediumGray: "#C0C0C0",
     },
     Secoundry: {
         blue: "#1B74E4",
-        gray: "rgb(93, 93, 93)",
-        Cyan: "#4984cc"
+        gray: "(211, 211, 211)",
+        Cyan: "#4984cc",
+        Green: "#39ad46"
     }
 }

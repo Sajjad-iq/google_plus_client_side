@@ -12,7 +12,7 @@ export const PostButton = styled.button<Props>`
  display: flex;
  justify-content: center;
  align-items: center;
- font-size:1.5rem;
+ font-size:1rem;
  padding:8px;
  border:none;
  border-radius:100% ;
@@ -20,12 +20,12 @@ export const PostButton = styled.button<Props>`
  font-weight: 600;
  
  @media ${device.tablet} {
-    font-size:2rem;
-    height: 50px;
-    width: 50px;
+    font-size:1.4rem;
+    height: 45px;
+    width: 45px;
   }
   @media ${device.laptop} {
-    font-size:1.6rem;
+    font-size:1rem;
     height: 40px;
     width: 40px;
     padding:0;

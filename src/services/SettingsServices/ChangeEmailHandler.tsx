@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 export const ChangeEmailHandler = (setIsActive: any) => {
 
   const [IsEmailValid, setIsEmailValid] = useState(true)
   const [EmailInputValue, setEmailInputValue] = useState("")
+  const { setUser, User } = useContext(GlobalContext)
 
   const OnEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
 
@@ -15,12 +16,11 @@ export const ChangeEmailHandler = (setIsActive: any) => {
   }
 
   const onSave = async () => {
-    let User = await JSON.parse(localStorage.getItem('User') || "");
 
     if (IsEmailValid) {
       if (EmailInputValue !== "") {
         User.Email = EmailInputValue
-        localStorage.setItem('User', JSON.stringify(User) || "");
+        setUser(User)
         setIsActive(false)
       }
     } else {

@@ -14,6 +14,8 @@ export const ToggleColumn = styled.section<Props>`
  position:absolute;
  bottom: ${p => p.bottom};
  left:-80px;
- border: 1px solid gray;
+ z-index:20;
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 
 `

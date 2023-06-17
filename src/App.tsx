@@ -10,56 +10,80 @@ import { Settings } from "./Pages/Settengs";
 import { useEffect } from "react";
 import { PostPreview } from "./Pages/PostPreview";
 import { People } from "./Pages/People";
-import { FirstLoad } from "./services/Tests/FirstLoad";
-import { Error } from "./Pages/Error";
 import { PeopleList } from "./Pages/People/Components/PeopleList";
 import { PeopleProfile } from "./Pages/People/Components/PeopleProfile";
 import { AddPostWindow } from "./Pages/AddPostWindow";
 import { Notifications } from "./Pages/Notifications";
-import { SetUserInfoAndRedirect } from "./services/RefreshLogin/SetUserInfoAndRedirect";
+import { CheckIsAccountValid } from "./services/Check/CheckIsAccountValid";
+import { Collections } from "./Pages/Collections";
+import { AddCollectionPage } from "./Pages/AddCollection";
+import { CollectionPreview } from "./Pages/CollectionPreview";
+import { Communities } from "./Pages/Communities";
+import GoogleLogo from "../public/logo384.png"
+
 
 function App() {
 
+  const { FirstLoad, Loading } = CheckIsAccountValid()
 
-  const checkStorage = FirstLoad()
-  const { RefreshUserAccount } = SetUserInfoAndRedirect()
-
-  useEffect(() => {
-    checkStorage("User")
-    RefreshUserAccount()
-  }, [])
+  useEffect(() => { FirstLoad() }, [])
 
   return (
-    <AppWrapper>
+    Loading ?
 
-      <AuthContextProvider>
-        <Routes>
+      <AppWrapper style={{ alignItems: "center" }}>
+        <section id="loading-page" className="Loading-page-wrapper">
 
-          <Route path="/" element={<SplitScreen />} >
-            <Route path="/" element={<Home />} />
-            <Route path="/Profile" element={<Profile />} />
-            <Route path="/Notifications" element={<Notifications />} />
-            <Route path="/Error" element={<Error />} />
-            <Route path="/AddPost" element={<AddPostWindow />} />
-            <Route path="/Posts" element={<PostPreview />} />
-            <Route path="/Settings" element={<Settings />} />
-            <Route path="/Feedback" element={<h1>Still Work on it</h1>} />
-            <Route path="/Help" element={<h1>Still Work on it</h1>} />
+          <img className="loading-logo" src={GoogleLogo} alt="google plus logo" />
 
-            <Route path="/People" element={<People />} >
-              <Route path="/People/" element={<PeopleList />} />
-              <Route path="/People/Profile" element={<PeopleProfile />} />
+          <section className="loading-animation-header-wrapper">
+            <div className="gray-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <h1 className="loading-header">Google</h1>
+          </section>
+
+        </section>
+      </AppWrapper>
+
+      :
+
+      <AppWrapper>
+
+        <AuthContextProvider>
+          <Routes>
+
+            <Route path="/" element={<SplitScreen />} >
+              <Route path="/" element={<Home />} />
+              <Route path="/Notifications" element={<Notifications />} />
+              <Route path="/AddPost" element={<AddPostWindow />} />
+              <Route path="/Posts" element={<PostPreview />} />
+              <Route path="/Settings" element={<Settings />} />
+              <Route path="/Help" element={<h1>Still Work on it</h1>} />
+              <Route path="/Profile" element={<Profile />} />
+              <Route path="/Collections" element={<Collections />} />
+              <Route path="/Communities" element={<Communities />} />
+              <Route path="/AddCollection" element={<AddCollectionPage />} />
+              <Route path="/CollectionPreview" element={<CollectionPreview />} />
+
+
+              <Route path="/People" element={<People />} >
+                <Route path="/People/" element={<PeopleList />} />
+                <Route path="/People/Profile" element={<PeopleProfile />} />
+              </Route>
             </Route>
 
-          </Route>
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/SignIn" element={<SignIn />} />
 
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/SignIn" element={<SignIn />} />
+          </Routes>
+        </AuthContextProvider>
 
-        </Routes>
-      </AuthContextProvider>
+      </AppWrapper>
 
-    </AppWrapper>
   )
 }
 

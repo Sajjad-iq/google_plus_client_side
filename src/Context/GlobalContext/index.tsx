@@ -12,6 +12,18 @@ export const def = {
     Comments: [],
 }
 
+export const CollectionsDef = {
+    _id: "",
+    CollectionTitle: "",
+    Tagline: "",
+    CollectionsCoverPicture: "",
+    CollectionFollowing: [],
+    CollectionOwnerId: '',
+    CollectionOwnerName: '',
+    CollectionOwnerImage: "",
+    Color: "#808080"
+}
+
 export const FindUserDef = {
     _id: "",
     UserName: "",
@@ -20,17 +32,27 @@ export const FindUserDef = {
     CoverPicture: "",
     Description: "",
     Email: "",
+    Password: "",
     Followers: [],
+    FollowingCollections: []
 }
 export const NotificationDef = {
-    NotificationName: "",
+    NotificationName: [""],
     NotificationBody: "",
-    NotificationFromId: "",
-    NotificationFrom: "",
-    NotificationOwnerImage: "",
+    NotificationUsersIncludedIds: [""],
+    NotificationUsersIncludedImages: [""],
+    Read: false
 }
 
-
+export const CommentsDef = {
+    CommentBody: "",
+    CommentOwnerName: ``,
+    CommentOwnerId: "",
+    CommentImage: "",
+    CommentOwnerImage: "",
+    CommentsRePlayTo: "",
+    createdAt: ""
+}
 
 
 type ProviderChildrenType = {
@@ -41,8 +63,8 @@ export const GlobalContext = createContext<any>([])
 
 const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
 
-    // for error page
-    const [ErrMessage, setErrMessage] = useState("NetWork Error")
+    // my user 
+    const [User, setUser] = useState(FindUserDef)
     //for find people from comments or posts when user click on the small image
     const [FindUser, setFindUser] = useState(FindUserDef)
     // for find people from people page
@@ -55,8 +77,17 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     // for comments of the specific post
     const [SpecificPostComments, setSpecificPostComments] = useState([])
 
+    // for find SpecificCollection for Collections page
+    const [SpecificCollection, setSpecificCollection] = useState(CollectionsDef)
+
+    // for add post options
+    const [OptionsValue, setOptionsValue] = useState("Public")
+
+    // for notifications bell
+    const [HasNotifications, setHasNotifications] = useState(false)
+
     return (
-        <GlobalContext.Provider value={{ SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, ErrMessage, setErrMessage }}>
+        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost }}>
             {children}
         </GlobalContext.Provider>
     )

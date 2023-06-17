@@ -1,6 +1,5 @@
 import axios from 'axios'
-import React, { ChangeEvent, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 import { UserData } from '../LocalStorage/UserData'
 
@@ -8,23 +7,14 @@ import { UserData } from '../LocalStorage/UserData'
 
 export const EditPostServices = (Data: any, WindowClosing: any) => {
 
-  let User = UserData()
+  const User = UserData()
   const [Url, setUrl] = useState(Data.Link)
   const [Photo, setPhoto] = useState<any>(Data.PostImage)
   const [Textfield, setTextFelid] = useState<string>(Data.PostBody)
   const [isLoading, setIsLoading] = useState(false)
 
-  const { setErrMessage, setSpecificPost, SpecificPost } = useContext(GlobalContext)
-  const Navigate = useNavigate()
-
-
+  const { setSpecificPost, SpecificPost } = useContext(GlobalContext)
   const TextChange = (e: ChangeEvent<HTMLTextAreaElement>) => setTextFelid(e.target.value)
-
-  const handleImageUpload = async (e: ChangeEvent<any>) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-    setPhoto(base64)
-  }
 
   const SubmitPostHandler = async () => {
     if (Textfield !== "") {
@@ -34,17 +24,18 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
           method: 'post',
           url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Edit",
           headers: {},
+          withCredentials: true,
           data: {
             PostId: Data._id,
             PostBody: Textfield,
-            PostOwnerId: User._id,
-            PostOwnerName: `${User.UserName} ${User.FamilyName}`,
+            PostOwnerId: SpecificPost.PostOwnerId,
+            PostOwnerName: SpecificPost.PostOwnerName,
             PostImage: Photo,
-            PostOwnerImage: User.ProfilePicture,
+            PostOwnerImage: SpecificPost.PostOwnerImage,
             link: Url
           }
         }
-        ).then((e) => {
+        ).then(() => {
           let post = SpecificPost
           post.PostId = Data._id
           post.PostBody = Textfield
@@ -56,12 +47,12 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
 
           WindowClosing()
           setSpecificPost(post)
-          setIsLoading(false)
         })
-      } catch (e: any) {
-        setErrMessage(e.message)
-        Navigate("/Error")
-      } finally {
+      }
+      catch (e: any) {
+        window.alert("something went wrong")
+      }
+      finally {
         setIsLoading(false)
         setTextFelid("")
         setPhoto("")
@@ -70,21 +61,8 @@ export const EditPostServices = (Data: any, WindowClosing: any) => {
     }
   }
 
-  return { setUrl, Textfield, Url, Photo, isLoading, TextChange, handleImageUpload, SubmitPostHandler }
+  return { setUrl, Textfield, Url, Photo, isLoading, TextChange, setPhoto, SubmitPostHandler }
 }
 
 
 
-function convertToBase64(file: any) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result)
-    };
-    fileReader.onerror = (error) => {
-      reject(error)
-    }
-  })
-
-}

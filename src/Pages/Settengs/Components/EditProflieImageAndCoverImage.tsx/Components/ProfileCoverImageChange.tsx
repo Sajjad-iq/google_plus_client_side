@@ -1,4 +1,3 @@
-import React from 'react'
 import { InputLabel } from '../../../../../Components/common/InputLabel.styled'
 import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { ChangeProfileCoverImage } from '../../../../../services/SettingsServices/ChangeProfileCoverImage'

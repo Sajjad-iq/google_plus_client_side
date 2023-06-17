@@ -1,35 +1,37 @@
 import axios from 'axios'
-import { Dispatch, SetStateAction, useContext, useState } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalContext';
 import { UserData } from '../LocalStorage/UserData';
 
+
+
 export const AddLike = () => {
 
-    let User = UserData()
-    const { SpecificPost, setSpecificPost } = useContext(GlobalContext)
+    const User = UserData()
+    const { setSpecificPost } = useContext(GlobalContext)
 
 
+    const AddLikeHandler = async (data: any) => {
 
-    const AddLikeHandler = async (e: any) => {
+        const IsIncludes = data.Likes.includes(User._id)
 
         try {
+
             await axios({
                 method: 'put',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/AddLike",
                 headers: {},
+                withCredentials: true,
                 data: {
                     UserId: User._id,
-                    PostId: e._id,
-                    PostOwnerId: e.PostOwnerId,
-                    Operation: e.Likes.includes(User._id) ? "delete" : "add",
-
-                    NotificationsObj: {
-                        NotificationName: `${User.UserName} ${User.FamilyName}`,
-                        NotificationBody: e.LikesCounter > 0 ? `add like to your post with ${SpecificPost.LikesCounter} more. '${e.PostBody}'` : `add like to your post. '${e.PostBody}'`,
-                        NotificationFromId: e._id,
-                        NotificationFrom: "posts",
-                        NotificationOwnerImage: User.ProfilePicture
-                    }
+                    PostId: data._id,
+                    PostOwnerId: data.PostOwnerId,
+                    Operation: IsIncludes ? "delete" : "add",
+                    PostBody: data.PostBody,
+                    UserName: User.UserName,
+                    FamilyName: User.FamilyName,
+                    NotificationFrom: "posts",
+                    NotificationOwnerImage: User.ProfilePicture,
                 }
             }
             ).then((e) => {
@@ -37,6 +39,7 @@ export const AddLike = () => {
             })
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
     }
 

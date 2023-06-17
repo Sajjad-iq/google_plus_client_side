@@ -1,19 +1,23 @@
-import React, { ChangeEvent, useState } from 'react'
-import { UserData } from '../LocalStorage/UserData'
+import { ChangeEvent, useContext, useState } from 'react'
+import { GlobalContext } from '../../Context/GlobalContext'
 
 export const ChangeProfileImageHandler = () => {
 
-    let User = UserData()
+    const { setUser, User } = useContext(GlobalContext)
     const [Photo, setPhoto] = useState<any>(User.ProfilePicture)
 
     const handleFileUpload = async (e: ChangeEvent<any>) => {
-        let user = User
-        const file = e.target.files[0];
-        const base64 = await convertToBase64(file);
+        const file = e.target.files[0] || null;
+        if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg") {
+            let user = User
+            const base64 = await convertToBase64(file);
 
-        user.ProfilePicture = base64
-        setPhoto(base64)
-        localStorage.setItem('User', JSON.stringify(user) || "");
+            user.ProfilePicture = base64
+            setPhoto(base64)
+            setUser(user)
+        } else {
+            window.alert("you can only upload images")
+        }
 
     }
     return { handleFileUpload, Photo }

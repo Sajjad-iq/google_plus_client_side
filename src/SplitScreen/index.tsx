@@ -14,18 +14,18 @@ import { SplitWrapper } from './styled/SplitWrapper'
 
 export const SplitScreen = () => {
 
-    const { IsPageActive, Toggle } = ActiveToggle()
+    const { IsPageActive, Toggle, setIsPageActive } = ActiveToggle()
 
     return (
         <SplitWrapper >
 
             <Header>
-                <Nav MenuButtonHandler={Toggle} />
+                <Nav MenuButtonHandler={Toggle} isMenuButtonActive={IsPageActive} />
             </Header>
 
             <Row>
                 <LeftSide>
-                    <Aside IsPageActive={IsPageActive} />
+                    <Aside setIsPageActive={setIsPageActive} IsPageActive={IsPageActive} />
                 </LeftSide>
 
                 <RightSide>

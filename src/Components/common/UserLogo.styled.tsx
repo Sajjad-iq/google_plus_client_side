@@ -15,8 +15,8 @@ export const UserLogo = styled.img`
 
   }
   @media ${device.laptop} {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
 
   }
 `

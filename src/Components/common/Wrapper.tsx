@@ -10,6 +10,10 @@ export const Wrapper = styled.section`
  background-color: white;
  flex-direction: column;
 
+  &::-webkit-scrollbar {
+  display: none;
+};
+
  @media ${device.tablet} {
    padding:20px;
 }

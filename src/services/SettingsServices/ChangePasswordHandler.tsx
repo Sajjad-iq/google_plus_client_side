@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 export const ChangePasswordHandler = (setIsActive: any) => {
@@ -7,6 +7,7 @@ export const ChangePasswordHandler = (setIsActive: any) => {
     const [IsAllSectionsFilled, setIsAllSectionsFilled] = useState(true)
     const [PasswordInputValue, setPasswordInputValue] = useState("")
     const [ConformPasswordInputValue, setConformPasswordInputValue] = useState("")
+    const { setUser, User } = useContext(GlobalContext)
 
     const OnPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPasswordInputValue(e.target.value)
@@ -16,11 +17,10 @@ export const ChangePasswordHandler = (setIsActive: any) => {
     }
 
     const onSave = async () => {
-        let User = await JSON.parse(localStorage.getItem('User') || "");
 
         if (IsPasswordValid && PasswordInputValue !== "") {
             User.Password = PasswordInputValue
-            localStorage.setItem('User', JSON.stringify(User) || "");
+            setUser(User)
             setIsActive(false)
         } else {
             setIsAllSectionsFilled(false)

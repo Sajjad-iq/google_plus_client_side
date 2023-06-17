@@ -1,5 +1,3 @@
-import React from 'react'
-import { CoverImg } from '../../../../Components/common/CoverImg.styled'
 import { UserData } from '../../../../services/LocalStorage/UserData'
 import { Wrapper } from '../../../Home/styled/Wrapper'
 import { ProfileCoverImageChange } from './Components/ProfileCoverImageChange'
@@ -9,7 +7,7 @@ export const EditProfileImageAndCoverImage = () => {
     const User = UserData()
 
     return (
-        <Wrapper style={{ position: "relative", marginBottom: "60px" }}>
+        <Wrapper style={{ position: "relative", marginBottom: "60px", marginTop: "5px" }}>
             <ProfileImageChange />
             <ProfileCoverImageChange />
         </Wrapper>

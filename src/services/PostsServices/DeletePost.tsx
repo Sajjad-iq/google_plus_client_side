@@ -4,7 +4,7 @@ import { UserData } from '../LocalStorage/UserData';
 
 export const DeletePost = () => {
 
-    let User = UserData()
+    const User = UserData()
     const Navigate = useNavigate()
 
     const DeletePostHandler = async (e: any) => {
@@ -13,10 +13,11 @@ export const DeletePost = () => {
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Posts/Delete",
                 headers: {},
+                withCredentials: true,
                 data: {
                     PostId: e._id,
                     UserId: User._id,
-                    PostOwnerId: e.PostOwnerId
+                    PostOwnerId: e.PostOwnerId,
                 }
             }
             ).then(() => {
@@ -24,6 +25,7 @@ export const DeletePost = () => {
             })
         } catch (e) {
             console.log(e)
+            window.alert("something went wrong")
         }
     }
 

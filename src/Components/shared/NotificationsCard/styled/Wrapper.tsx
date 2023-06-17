@@ -6,7 +6,7 @@ export const Wrapper = styled.button`
  display: flex;
  justify-content: flex-start;
  align-items: center;
- background-color: white;
+ background-color: none;
  padding:10px 0;
  border:none;
 `

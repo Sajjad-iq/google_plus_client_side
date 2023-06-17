@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useContext } from "react"
+import { GlobalContext } from "../../Context/GlobalContext"
 
 export const UserDef = {
   _id: "",
@@ -12,8 +13,11 @@ export const UserDef = {
   Followers: [],
 }
 
+
+
 export const UserData = () => {
-  let key = localStorage.getItem("User")
-  let User = JSON.parse(key || JSON.stringify(UserDef))
-  return User
+  const { User } = useContext(GlobalContext)
+
+  if (User) return User
+  else return UserDef
 }

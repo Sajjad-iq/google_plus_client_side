@@ -1,37 +1,44 @@
-import React, { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { GlobalContext } from '../../../../../../Context/GlobalContext'
 import { UserData } from '../../../../../../services/LocalStorage/UserData'
 import { DeletePost } from '../../../../../../services/PostsServices/DeletePost'
-import { Button } from '../styled/Button.styled'
 import { ToggleColumn } from '../styled/ToggleColumn.styled'
+import { BorderButton } from '../../../../../common/BorderButton.styled'
 
 interface Props {
     IsActive: boolean
     data: any
+    setIsActive: any
 }
 export const OptionsWindow = (props: Props) => {
 
+
     let User = UserData()
+    const OptionsRef = useRef<any>()
     const { DeletePostHandler } = DeletePost()
-    const { IsEditPostWindowActive, setIsEditPostWindowActive } = useContext(GlobalContext)
+    const { setIsEditPostWindowActive } = useContext(GlobalContext)
+    const closePostMenu = (e: any) => { if (!OptionsRef.current?.contains(e.target)) props.setIsActive(false) }
+
+    useEffect(() => {
+        document.body.addEventListener("mousedown", closePostMenu, true)
+        return () => document.removeEventListener("mousedown", closePostMenu)
+    }, [props.setIsActive])
 
     return (
-        <ToggleColumn bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "none" : "flex"}  >
+        <ToggleColumn ref={OptionsRef} bottom={props.data.PostOwnerId == User._id ? "-80px" : "-50px"} display={props.IsActive ? "flex" : "none"}  >
 
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => { DeletePostHandler(props.data) }}
-                isLastOne={false}>
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
+                onClick={() => { DeletePostHandler(props.data) }}>
                 Delete
-            </Button>
+            </BorderButton>
 
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
-                onClick={() => setIsEditPostWindowActive(true)}
-                isLastOne={false}>
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "flex" : "none" }}
+                onClick={() => setIsEditPostWindowActive(true)}>
                 Edit
-            </Button>
+            </BorderButton>
 
-            <Button isLastOne={false}>Mute</Button>
-            <Button style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }} isLastOne={true}>Report</Button>
+            <BorderButton >Mute</BorderButton>
+            <BorderButton style={{ display: props.data.PostOwnerId == User._id ? "none" : "flex" }}>Report</BorderButton>
         </ToggleColumn>
 
     )

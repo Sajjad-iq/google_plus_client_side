@@ -7,10 +7,12 @@ import { PostButton } from '../../../common/PostButton.styled'
 
 interface Props {
     onClick: MouseEventHandler
+    Style: {}
 }
 export const ImageButton = (props: Props) => {
     return (
         <PostButton
+            style={props.Style}
             color={Colors.Secoundry.gray}
             backgroundColor={Colors.Primary.Lightgray}
             onClick={props.onClick}
