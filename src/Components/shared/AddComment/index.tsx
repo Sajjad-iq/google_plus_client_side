@@ -53,7 +53,7 @@ export const AddComment = () => {
                 FindMentionedUserHandler(TextFieldValue)
                 setIsMentionCardActive(true)
             } else setIsMentionCardActive(false)
-        }, 3000);
+        }, 1500);
         resizeTextArea()
 
         return () => clearTimeout(timer);
@@ -68,7 +68,7 @@ export const AddComment = () => {
                 <CommentUserLogo src={User.ProfilePicture || UserImage} alt='comment image label' />
 
                 <CommentBodySection  >
-                    <ReplayTag>{ReplayTo}</ReplayTag>
+                    <ReplayTag>{ReplayTo !== "" ? `+${ReplayTo}` : ""}</ReplayTag>
                     < UsersSearchList Response={MentionResponse} IsLoading={isMentionLoading} isActive={isMentionCardActive} setIsActive={setIsMentionCardActive} inputRef={Ref} />
                     <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder="Add Comment..." rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
                     <Image src={Photo !== "" ? Photo : ""} alt="image uploader" style={{ display: Photo !== "" ? "flex" : "none" }} />
