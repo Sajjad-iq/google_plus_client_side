@@ -5,7 +5,7 @@ import { GlobalContext } from '../../Context/GlobalContext'
 export const FetchSpecificPost = () => {
 
     const [Loading, setLoading] = useState(false)
-    const { setSpecificPost, setSpecificPostComments } = useContext(GlobalContext)
+    const { setSpecificPost, setSpecificPostComments, User } = useContext(GlobalContext)
 
     const FetchSpecificPostHandler = async (id: string, FromNotificationsPage: boolean = false, NotificationsData: any = {}) => {
         try {
@@ -18,7 +18,9 @@ export const FetchSpecificPost = () => {
                 data: {
                     PostId: id,
                     setNotificationAsRead: FromNotificationsPage,
-                    NotificationsData: NotificationsData
+                    NotificationsData: NotificationsData,
+                    BlackList: User.BlockedAccounts || [],
+                    BlockedFrom: User.BlockedFromAccounts || []
                 }
             }
             ).then((e: any) => {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { UserCard } from '../../../../Components/shared/UserCard'
@@ -8,6 +8,7 @@ import { SetFindUser } from '../../../../services/PeopleServices/SetFindUser'
 import { Header } from './styled/Header.styled'
 import { Wrapper } from './styled/Wrapper'
 import { CardsWrapper } from './styled/CardsWrapper'
+import { GlobalContext } from '../../../../Context/GlobalContext'
 
 export const PeopleList = () => {
 
@@ -16,7 +17,8 @@ export const PeopleList = () => {
     const { FetchAllUsersHandler, StopFetching, Response, Loading } = FetchAllUsers(PostsCount)
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
-    const { SetFindUserHandler, FindUserLoading, UserId } = SetFindUser()
+    const { SetFindUserHandler } = SetFindUser()
+    let { User } = useContext(GlobalContext)
 
     useEffect(() => {
         FetchAllUsersHandler()
@@ -31,7 +33,7 @@ export const PeopleList = () => {
 
                 {
                     Response.map((e) => {
-                        return e._id !== "" ?
+                        return e._id !== "" && e._id !== User._id ?
                             <UserCard
                                 IsLoading={false}
                                 onClick={() => SetFindUserHandler(e._id)}

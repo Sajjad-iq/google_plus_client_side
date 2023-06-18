@@ -6,7 +6,7 @@ export const FetchComments = (PostsCount: number, setComments: Dispatch<SetState
 
     const [Loading, setLoading] = useState(false)
     const [StopFetching, setStopFetching] = useState(false)
-    const { SpecificPost } = useContext(GlobalContext)
+    const { SpecificPost, User } = useContext(GlobalContext)
 
     const FetchCommentsHandler = async () => {
         try {
@@ -19,11 +19,13 @@ export const FetchComments = (PostsCount: number, setComments: Dispatch<SetState
                 data: {
                     PostId: SpecificPost._id,
                     PayloadCount: PostsCount,
+                    BlackList: User.BlockedAccounts || [],
+                    BlockedFrom: User.BlockedFromAccounts || []
                 }
             }
             ).then(async (e: any) => {
                 let newComments = Comments.concat(e.data.ResponseComments)
-                setComments(newComments)
+                setComments(newComments || [])
                 setStopFetching(e.data.StopFetching)
             })
 

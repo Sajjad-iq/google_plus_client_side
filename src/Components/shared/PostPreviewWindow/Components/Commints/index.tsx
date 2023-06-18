@@ -24,7 +24,6 @@ export const PostComments = () => {
     }, [PostsCount])
 
 
-
     return (
         <Column width='100%' align='center' padding='0' style={{ background: Colors.Primary.SoftGray }} >
 
