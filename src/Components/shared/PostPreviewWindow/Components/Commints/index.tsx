@@ -29,7 +29,7 @@ export const PostComments = () => {
 
             {
                 SpecificPostComments.map((e: any, i: number) => {
-                    return <SingleComment
+                    if (e._id) return <SingleComment
                         onClickOnLogo={() => SetFindUserHandler(e.CommentOwnerId)}
                         CreatedAt={e.createdAt}
                         key={i}
