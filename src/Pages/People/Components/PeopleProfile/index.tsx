@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { CoverImages } from '../../../../Components/shared/CoverImages'
 import { Posts } from '../../../../Components/shared/Posts'
 import { UserInfo } from '../../../../Components/shared/UserInfo'
@@ -7,7 +7,6 @@ import { AddOrRemoveFollow } from '../../../../services/PeopleServices/AddOrRemo
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
 import CoverIMG from "../../../../assets/ICONS/Photos/marguerite-729510__340.jpg"
 import UserIMG from "../../../../assets/ICONS/ProfileImg.jpg"
-import { UserData } from '../../../../services/LocalStorage/UserData'
 import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { useObserver } from '../../../../services/observer/useObserver'
@@ -17,12 +16,13 @@ import { AddCollection } from '../../../Profile/components/AddCollection'
 import { FetchCollections } from '../../../../services/Collections/FetchCollections'
 import { BorderButton } from '../../../../Components/common/BorderButton.styled'
 import { DropDownOptionsBottom } from '../../../../Components/shared/DropDownOptions'
+import { BlockUser } from '../../../../services/PeopleServices/BlockUser'
+import { FindUser } from '../../../../services/SearchServices/FindUser'
 
 
 export const PeopleProfile = () => {
 
-    const User = UserData()
-    let { PeopleUser } = useContext(GlobalContext)
+    let { PeopleUser, User } = useContext(GlobalContext)
     const [PostsCount, setPostsCount] = useState(0)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: PeopleUser._id })
@@ -30,7 +30,8 @@ export const PeopleProfile = () => {
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
     const { AddOrRemoveFollowHandler, IsLoading } = AddOrRemoveFollow()
     const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: PeopleUser._id }, 2)
-
+    const { BlockUserHandler } = BlockUser()
+    let blacklist = User.BlockedAccounts || []
 
     useEffect(() => {
         FetchPosts()
@@ -48,10 +49,11 @@ export const PeopleProfile = () => {
                 bottom="-40px"
                 children={
                     <Wrapper>
-                        <BorderButton >Profile URL</BorderButton>
+                        <BorderButton onClick={() => BlockUserHandler(PeopleUser._id)}>{blacklist.includes(PeopleUser._id) ? "UnBlock" : "Block"}</BorderButton>
                     </Wrapper>
                 }
-            />            <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
+            />
+            <CoverImages CoverImg={PeopleUser.CoverPicture !== "" ? PeopleUser.CoverPicture : CoverIMG} UserImg={PeopleUser.ProfilePicture !== "" ? PeopleUser.ProfilePicture : UserIMG} />
             <UserInfo
                 color='white'
                 forCollectionsPage={false}

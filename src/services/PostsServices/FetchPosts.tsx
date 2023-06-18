@@ -24,7 +24,8 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollections
                     PostsOwner: Owner,
                     PayloadCount: PostsCount,
                     FollowingCollections: User.FollowingCollections,
-                    forCollectionsPreviewWindow: forCollectionsPreviewWindow
+                    forCollectionsPreviewWindow: forCollectionsPreviewWindow,
+                    BlackList: User.BlockedAccounts
                 }
             }
             ).then(async (e: any) => {

@@ -34,7 +34,8 @@ export const FindUserDef = {
     Email: "",
     Password: "",
     Followers: [],
-    FollowingCollections: []
+    FollowingCollections: [],
+    BlockedAccounts: []
 }
 export const NotificationDef = {
     NotificationName: [""],
