@@ -6,4 +6,5 @@ export const SearchResultsWrapper = styled.section`
  justify-content: flex-start;
  align-items: center;
  flex-direction: column;
+ margin:10px;
 `

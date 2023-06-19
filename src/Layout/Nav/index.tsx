@@ -6,7 +6,6 @@ import React, { MouseEventHandler, useState } from "react"
 import { MenuButton } from "../../Components/shared/MenuButton"
 import { useLocation } from "react-router-dom"
 import { Colors } from "../../assets/Colors"
-import { SearchFiled } from "./CENTER_SIDE/SearchFiled"
 
 interface Props {
     MenuButtonHandler: MouseEventHandler
@@ -26,8 +25,7 @@ export const Nav = React.memo((props: Props) => {
                 <LogoAndPage />
             </Section>
 
-            <SearchFiled isActive={isActive} setIsActive={setISActive} />
-            <NavigationButtons SearchButtonOnClick={Toggle} SearchButtonDisplay={isActive} />
+            <NavigationButtons />
 
         </NavWrapper>
     )

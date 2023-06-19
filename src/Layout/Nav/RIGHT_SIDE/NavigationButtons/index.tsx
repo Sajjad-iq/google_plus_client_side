@@ -1,5 +1,5 @@
 import { Wrapper } from "../styled/Wrapper.styled"
-import { MouseEventHandler, useContext } from "react";
+import { useContext } from "react";
 import './style.css'
 import { NavUserImg } from "../styled/NavUserImg.styled";
 import { UserData } from "../../../../services/LocalStorage/UserData";
@@ -10,12 +10,9 @@ import { NotificationsBell } from "../../../../Components/shared/NotificationsBe
 import { GlobalContext } from "../../../../Context/GlobalContext";
 import { SearchButton } from "./Components/SearchButton";
 
-interface Props {
-    SearchButtonDisplay: boolean
-    SearchButtonOnClick: any
-}
 
-export const NavigationButtons = (props: Props) => {
+
+export const NavigationButtons = () => {
 
     const User = UserData()
     const Location = useLocation()
@@ -28,7 +25,7 @@ export const NavigationButtons = (props: Props) => {
             :
             window.innerWidth >= 1024 ?
                 <Wrapper>
-                    <SearchButton display={props.SearchButtonDisplay ? "none" : "flex"} onClick={() => props.SearchButtonOnClick(!props.SearchButtonDisplay)} />
+                    <SearchButton />
 
                     <NotificationsBell Name="" isForNav={true} CLass='footer' HasNotifications={HasNotifications} />
 
@@ -38,7 +35,7 @@ export const NavigationButtons = (props: Props) => {
 
                 </Wrapper>
                 :
-                <SearchButton display={props.SearchButtonDisplay ? "none" : "flex"} onClick={() => props.SearchButtonOnClick(!props.SearchButtonDisplay)} />
+                <SearchButton />
 
     )
 }

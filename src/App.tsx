@@ -20,6 +20,7 @@ import { AddCollectionPage } from "./Pages/AddCollection";
 import { CollectionPreview } from "./Pages/CollectionPreview";
 import { Communities } from "./Pages/Communities";
 import GoogleLogo from "../public/logo384.png"
+import { SearchPage } from "./Pages/SearchFiled";
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
               <Route path="/Communities" element={<Communities />} />
               <Route path="/AddCollection" element={<AddCollectionPage />} />
               <Route path="/CollectionPreview" element={<CollectionPreview />} />
+              <Route path="/Search" element={<SearchPage />} />
 
 
               <Route path="/People" element={<People />} >
