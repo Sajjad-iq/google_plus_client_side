@@ -7,7 +7,6 @@ export const NavWrapper = styled.nav`
  display: flex;
  justify-content: space-between;
  align-items: center;
-
  @media ${device.laptop} {
   height: 65px;
   }

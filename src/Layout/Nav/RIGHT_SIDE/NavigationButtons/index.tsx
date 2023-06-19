@@ -8,10 +8,11 @@ import { Link, useLocation } from "react-router-dom";
 import { NotificationsButtons } from "./Components/NotificationsButtons";
 import { NotificationsBell } from "../../../../Components/shared/NotificationsBell";
 import { GlobalContext } from "../../../../Context/GlobalContext";
+import { SearchButton } from "./Components/SearchButton";
 
 interface Props {
-    SearchButtonDisplay: string
-    SearchButtonOnClick: MouseEventHandler
+    SearchButtonDisplay: boolean
+    SearchButtonOnClick: any
 }
 
 export const NavigationButtons = (props: Props) => {
@@ -27,16 +28,17 @@ export const NavigationButtons = (props: Props) => {
             :
             window.innerWidth >= 1024 ?
                 <Wrapper>
+                    <SearchButton display={props.SearchButtonDisplay ? "none" : "flex"} onClick={() => props.SearchButtonOnClick(!props.SearchButtonDisplay)} />
+
                     <NotificationsBell Name="" isForNav={true} CLass='footer' HasNotifications={HasNotifications} />
 
                     <Link to={"/Profile"}>
                         <NavUserImg src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt="user icon" />
                     </Link>
+
                 </Wrapper>
                 :
-                window.innerWidth <= 1024 ? null
-                    :
+                <SearchButton display={props.SearchButtonDisplay ? "none" : "flex"} onClick={() => props.SearchButtonOnClick(!props.SearchButtonDisplay)} />
 
-                    null
     )
 }

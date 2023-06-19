@@ -19,7 +19,7 @@ export const UsersSearchList = (props: Props) => {
             {
                 props.IsLoading && !props.Response ? null :
                     props.Response.map((e: any) => {
-                        return <SmallUserCard onClick={() => {
+                        return <SmallUserCard forSearch={false} onClick={() => {
                             setReplayToId(e._id)
                             setReplayTo(`${e.UserName} ${e.FamilyName}`)
                             props.setIsActive(false)

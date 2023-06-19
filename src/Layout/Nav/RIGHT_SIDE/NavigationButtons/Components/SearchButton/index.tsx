@@ -2,7 +2,7 @@ import { SearchBtn } from '../../../styled/SearchBtn.styled'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MouseEventHandler } from 'react';
-import "../style.css"
+import "../../style.css"
 
 interface Props {
     display: string
