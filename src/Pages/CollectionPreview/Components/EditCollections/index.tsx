@@ -16,7 +16,7 @@ export const EditCollections = () => {
         <WindowWrapper display={"flex"} style={{ background: Colors.Primary.Lightgray }}>
 
             <PostBody style={{ borderRadius: "3px", padding: "0", position: "relative" }}>
-                <CollectionNav loading={isLoading} onSubmit={EditCollectionHandler} />
+                <CollectionNav Header='Edit Collection' loading={isLoading} onSubmit={EditCollectionHandler} />
                 <CollectionAddCoverImage CollectionImage={Image} setImage={setImage} />
                 <CollectionTitle Tagline={Tagline} Title={Title} setTitle={setTitle} setTagline={setTagline} ColorIndex={ColorIndex} />
                 <CollectionColors ColorIndex={ColorIndex} setColorIndex={setColorIndex} />

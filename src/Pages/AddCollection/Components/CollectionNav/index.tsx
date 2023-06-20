@@ -8,6 +8,7 @@ import { CollectionsNavWrapper } from '../../styled/CollectionsNavWrapper'
 interface Props {
   onSubmit: any
   loading: boolean
+  Header: string
 }
 export const CollectionNav = (props: Props) => {
 
@@ -18,7 +19,7 @@ export const CollectionNav = (props: Props) => {
 
       <Row width='fit-content' padding='0' align='center' style={{ background: "transparent" }}>
         <BackButton onClick={() => Navigate("/")} color={"white"} />
-        <H2 style={{ fontSize: "0.9rem", color: "white", marginLeft: "15px" }}>Edit collection</H2>
+        <H2 style={{ fontSize: "0.9rem", color: "white", marginLeft: "15px" }}>{props.Header}</H2>
       </Row>
 
       <LoadingButton

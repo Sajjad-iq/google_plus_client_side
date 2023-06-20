@@ -16,7 +16,7 @@ export const AddCollectionPage = () => {
         <WindowWrapper display={"flex"}>
 
             <PostBody style={{ borderRadius: "3px", padding: "0", position: "relative" }}>
-                <CollectionNav loading={isLoading} onSubmit={AddCollectionHandler} />
+                <CollectionNav Header='Add Collection' loading={isLoading} onSubmit={AddCollectionHandler} />
                 <CollectionAddCoverImage CollectionImage={Image} setImage={setImage} />
                 <CollectionTitle Tagline={Tagline} Title={Title} setTitle={setTitle} setTagline={setTagline} ColorIndex={ColorIndex} />
                 <CollectionColors ColorIndex={ColorIndex} setColorIndex={setColorIndex} />

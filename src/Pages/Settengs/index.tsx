@@ -37,8 +37,8 @@ export const Settings = () => {
                     <EditUserNameAndFamilyName />
                     <EditDescription />
                     <EditTheEmail />
-                    {/*                     <EditThePassword />
- */}                </Column>
+                    <EditThePassword />
+                </Column>
 
                 <Row width='100%' padding='10px 0' align='space-between' style={{ alignSelf: "flex-end" }}>
                     <CyanButton onClick={LogOut} >Log Out</CyanButton>
