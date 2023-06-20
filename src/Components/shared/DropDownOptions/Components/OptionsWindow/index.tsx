@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef } from 'react'
-import { ToggleColumn } from '../../../PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
+import { ToggleColumn } from '../../../SingleCommint/styled/ToggleColumn.styled'
 
 interface Props {
     IsActive: boolean

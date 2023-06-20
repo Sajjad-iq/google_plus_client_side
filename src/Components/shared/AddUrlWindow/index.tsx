@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Container } from '../../common/Container.styled'
+import { useState } from 'react'
 import { Column } from '../Column.styled'
 import { SettingsSaveChanges } from '../SettingsSaveChanges'
 import { Input } from './styled/input.styled'
+import { Wrapper } from '../Wrapper'
 
 interface Props {
     IsActive: boolean
@@ -19,11 +19,11 @@ export const AddUrlWindow = (props: Props) => {
     }
 
     return (
-        <Container display={props.IsActive ? "flex" : "none"}>
+        <Wrapper style={{ display: props.IsActive ? "flex" : "none", position: "absolute", top: "0", height: "100%" }} >
             <Column width='90%' padding='0' align='center'>
                 <Input onChange={(e) => setInputChange(e.target.value)} />
                 <SettingsSaveChanges OnCloseClick={() => props.setUrlScreenActive(!props.IsActive)} OnSaveClick={Save} />
             </Column>
-        </Container>
+        </Wrapper>
     )
 }

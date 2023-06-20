@@ -1,18 +1,18 @@
 import { MouseEventHandler, useContext, useRef, useEffect, useState } from 'react'
 import { AddLike } from '../../../services/PostsServices/AddLike'
-import { BackButton } from '../BackButton'
 import { PostComments } from './Components/Commints'
-import { OptionButtonAndOptionsWindow } from './Components/OptionButtonAndOptionsWindow'
-import { Row } from './Components/OptionButtonAndOptionsWindow/styled/Row.styled'
 import { Wrapper } from './styled/Wrapper.styled'
 import UserProfileImage from "../../../assets/ICONS/ProfileImg.jpg"
 import { SetFindUser } from '../../../services/PeopleServices/SetFindUser'
 import { LoadingAnimation } from '../LoadingAnimation'
 import { Post } from '../Post'
-import { CommentsDef, GlobalContext } from '../../../Context/GlobalContext'
+import { GlobalContext } from '../../../Context/GlobalContext'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { AddComment } from '../AddComment'
-import { Colors } from '../../../assets/Colors'
+import { DropDownOptionsBottom } from '../DropDownOptions'
+import { OptionsButton } from '../DropDownOptions/styled/OptionsButton.styled'
+import { DeletePost } from '../../../services/PostsServices/DeletePost'
+import { Row } from '../Row.styled'
 
 interface Props {
     BackHandler: MouseEventHandler
@@ -22,11 +22,11 @@ interface Props {
 export const PostPreviewWindow = (props: Props) => {
 
     let User = UserData()
-    const { SpecificPost, setSpecificPostComments } = useContext(GlobalContext)
+    const { SpecificPost, setSpecificPostComments, setIsEditPostWindowActive } = useContext(GlobalContext)
     const { AddLikeHandler } = AddLike()
     const { SetFindUserHandler } = SetFindUser()
     const [post, setPost] = useState(null)
-
+    const { DeletePostHandler } = DeletePost()
 
     useEffect(() => setSpecificPostComments([]), [])
     useEffect(() => {
@@ -50,10 +50,25 @@ export const PostPreviewWindow = (props: Props) => {
             :
 
             <Wrapper style={{ background: "none" }}>
-                <Row style={{ backgroundColor: Colors.Primary.red }} width='100%' align='space-between' padding='10px 25px'>
-                    <BackButton color={"white"} onClick={props.BackHandler} />
-                    <OptionButtonAndOptionsWindow Data={SpecificPost} />
-                </Row>
+
+                <DropDownOptionsBottom
+                    for="post"
+                    bottom="-50px"
+                    children={
+                        <Wrapper style={{ border: "none" }}>
+                            <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "flex" : "none" }}
+                                onClick={() => { DeletePostHandler(SpecificPost) }}>
+                                Delete
+                            </OptionsButton>
+
+                            <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "flex" : "none" }}
+                                onClick={() => setIsEditPostWindowActive(true)}>
+                                Edit
+                            </OptionsButton>
+                            <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "none" : "flex" }}>Report</OptionsButton>
+                        </Wrapper>
+                    }
+                />
 
                 <Post
                     CollectionName={SpecificPost.CollectionName}

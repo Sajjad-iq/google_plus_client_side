@@ -23,4 +23,9 @@ padding:3px;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 6px;
   }
+
+    @media ${device.desktop} {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 6px;
+  }
   `

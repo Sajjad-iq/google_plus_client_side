@@ -11,20 +11,18 @@ export const Input = styled.input<Props>`
  margin:10px 0;
  border-radius: 5px;
  font-size:1rem;
+ border:none;
+ border-bottom:2px solid ${Colors.Secoundry.Cyan};
 
+      &:focus{
+          outline: none;
+      }
  ${p => p.IsValidValue ?
     `
-    border:1px solid gray;
-      &:focus{
-      outline:2px solid ${Colors.Secoundry.Cyan};
-      border:none;
-      }
      `
     :
-    `border:1px solid ${Colors.Primary.red};
-      &:focus{
-      outline:none;
-      }
+    `
+     border-bottom:2px solid ${Colors.Primary.red};
      `
   }
 

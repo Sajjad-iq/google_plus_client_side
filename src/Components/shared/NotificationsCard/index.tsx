@@ -1,10 +1,10 @@
 import { MouseEventHandler } from 'react'
 import { Column } from '../Column.styled'
 import { NotificationsBody } from './styled/NotificationsBody.syled'
-import { BorderWrapper } from '../../common/BorderWrapper'
 import { NotificationsCardImage } from './Components/NotificationsCardImage'
 import { NotificationsUserName } from './styled/NotificationsUserName.styled'
 import { Colors } from '../../../assets/Colors'
+import { Wrapper } from '../Wrapper'
 
 interface Props {
     UserImages: ["", "", "", ""]
@@ -28,7 +28,7 @@ export const NotificationsCard = (props: Props) => {
 
 
     return (
-        <BorderWrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.80" } : {}}>
+        <Wrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.80", padding: "10px", justifyContent: "flex-start" } : { padding: "10px", justifyContent: "flex-start" }}>
             <NotificationsCardImage Images={props.UserImages} />
 
             <Column width='80%' align='flex-start' padding='0' style={{ background: "none" }}>
@@ -36,6 +36,6 @@ export const NotificationsCard = (props: Props) => {
 
                 <NotificationsBody>{props.NotificationMessage}</NotificationsBody>
             </Column>
-        </BorderWrapper>
+        </Wrapper>
     )
 }

@@ -2,9 +2,9 @@ import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { DeleteComments } from '../../../../../services/PostsServices/DeleteComments'
 import { Dispatch, SetStateAction, useContext, useEffect, useRef } from 'react'
 import { CommentsContext } from '../../../../../Context/CommentsContext'
-import { BorderButton } from '../../../../common/BorderButton.styled'
-import { ToggleColumn } from '../../../PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/ToggleColumn.styled'
 import { Colors } from '../../../../../assets/Colors'
+import { ToggleColumn } from '../../styled/ToggleColumn.styled'
+import { OptionsButton } from '../../../DropDownOptions/styled/OptionsButton.styled'
 
 interface Props {
     IsActive: boolean
@@ -32,28 +32,27 @@ export const OptionsWindow = (props: Props) => {
     return (
         <ToggleColumn ref={OptionsRef} bottom={props.data.CommentOwnerId == User._id ? "-100px" : "-70px"} display={props.IsActive ? "flex" : "none"}  >
 
-            <BorderButton style={{ color: Colors.Primary.red, width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
+            <OptionsButton style={{ color: Colors.Primary.red, width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeleteCommentsHandler(props.data) }}
             >
                 Delete
-            </BorderButton>
+            </OptionsButton>
 
-            <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
+            <OptionsButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { props.EditWindowStateChange(e => e = !e) }}
             >
                 Edit
-            </BorderButton>
+            </OptionsButton>
 
-            <BorderButton
+            <OptionsButton
                 style={{ width: "75px" }}
-
                 onClick={() => {
                     setReplayTo(`+ ${props.data.CommentOwnerName} `)
                     setReplayToId(props.data.CommentOwnerId)
                 }}
             >Reply
-            </BorderButton>
-            <BorderButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }}>Report</BorderButton>
+            </OptionsButton>
+            <OptionsButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }}>Report</OptionsButton>
         </ToggleColumn>
 
     )

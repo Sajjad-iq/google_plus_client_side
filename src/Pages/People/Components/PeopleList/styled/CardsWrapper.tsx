@@ -7,7 +7,7 @@ display: grid;
 grid-template-columns: repeat(4,1fr);
 gap: 1px;
 overflow: scroll;
-background:white;
+background:none;
 
  &::-webkit-scrollbar {
   display: none;

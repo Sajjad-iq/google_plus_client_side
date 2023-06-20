@@ -7,6 +7,8 @@ import { GlobalContext } from '../../../Context/GlobalContext'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { ChangeEmailHandler } from '../../../services/SettingsServices/ChangeEmailHandler'
 import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
+import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
+import { Colors } from '../../../assets/Colors'
 
 export const EditTheEmail = () => {
 
@@ -18,7 +20,14 @@ export const EditTheEmail = () => {
 
         <SingleSectionWrapper>
 
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)} SettingName={`Email:  ${User.Email}`} />
+            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
+                SettingName={
+                    <Article>
+                        <Article >Email:</Article>
+                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{User.Email}</Article>
+                    </Article>
+                }
+            />
 
             <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
                 <EmailInput

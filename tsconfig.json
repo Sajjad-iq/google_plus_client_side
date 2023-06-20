@@ -24,9 +24,7 @@
     ]
   },
   "include": [
-    "src",
-    "src/Components/shared/NotificationsCard/styled/.styled.tsx",
-    "src/Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/BorderButton.styled.tsx"
+    "src"
   ],
   "references": [
     {

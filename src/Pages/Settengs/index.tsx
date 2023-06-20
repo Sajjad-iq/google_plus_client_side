@@ -12,6 +12,8 @@ import { EditProfileImageAndCoverImage } from './Components/EditProflieImageAndC
 import { LoadingButton } from '../../Components/shared/LoadingButton'
 import { Wrapper } from './styled/Wrapper'
 import { GlobalContext } from '../../Context/GlobalContext'
+import { EditTheEmail } from './Components/EditTheEmail'
+import { EditThePassword } from './Components/EditThePassword'
 
 
 export const Settings = () => {
@@ -31,13 +33,14 @@ export const Settings = () => {
 
             <SettingsWrapper>
                 <Column width='100%' padding='20px 0' align='flex-start'>
-                    <H2>Profile Settings</H2>
                     <EditProfileImageAndCoverImage />
                     <EditUserNameAndFamilyName />
                     <EditDescription />
-                </Column>
+                    <EditTheEmail />
+                    {/*                     <EditThePassword />
+ */}                </Column>
 
-                <Row width='100%' padding='10px 0' align='space-between'>
+                <Row width='100%' padding='10px 0' align='space-between' style={{ alignSelf: "flex-end" }}>
                     <CyanButton onClick={LogOut} >Log Out</CyanButton>
                     <LoadingButton Style={{}} onClick={Save} ButtonName="Save" IsLoading={IsLoading} />
                 </Row>

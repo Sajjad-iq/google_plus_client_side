@@ -40,7 +40,7 @@ export const Posts = (props: Props) => {
 
 
     return (
-        <PostToggleSection style={{ minHeight: "120vh" }} display={"block"}>
+        <PostToggleSection style={{ minHeight: "80vh" }} display={"block"}>
             < ResponsiveMasonry
                 columnsCountBreakPoints={{ 768: 1, 1023: 2, 1919: 3 }}
             >

@@ -14,10 +14,9 @@ import { FetchPostsHandler } from '../../../../services/PostsServices/FetchPosts
 import { Wrapper } from '../../../../Components/shared/Wrapper'
 import { AddCollection } from '../../../Profile/components/AddCollection'
 import { FetchCollections } from '../../../../services/Collections/FetchCollections'
-import { BorderButton } from '../../../../Components/common/BorderButton.styled'
 import { DropDownOptionsBottom } from '../../../../Components/shared/DropDownOptions'
 import { BlockUser } from '../../../../services/PeopleServices/BlockUser'
-import { FindUser } from '../../../../services/SearchServices/FindUser'
+import { OptionsButton } from '../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled'
 
 
 export const PeopleProfile = () => {
@@ -46,10 +45,11 @@ export const PeopleProfile = () => {
         <Wrapper style={window.innerWidth < 768 ? { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20" } : {}}>
 
             <DropDownOptionsBottom
+                for={"profile"}
                 bottom="-40px"
                 children={
                     <Wrapper>
-                        <BorderButton onClick={() => BlockUserHandler(PeopleUser._id)}>{blacklist.includes(PeopleUser._id) ? "UnBlock" : "Block"}</BorderButton>
+                        <OptionsButton onClick={() => BlockUserHandler(PeopleUser._id)}>{blacklist.includes(PeopleUser._id) ? "UnBlock" : "Block"}</OptionsButton>
                     </Wrapper>
                 }
             />

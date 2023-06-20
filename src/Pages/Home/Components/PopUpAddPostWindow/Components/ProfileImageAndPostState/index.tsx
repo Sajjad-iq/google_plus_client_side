@@ -3,7 +3,6 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { PostStateSelectors } from '../PostStateSelectors'
 import { UserLogo } from '../../../../../../Components/common/UserLogo.styled'
 import { UserName } from '../../../../../../Components/common/UserName.styled'
-import { Row } from "../../../../../../Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/Row.styled"
 import { UserData } from "../../../../../../services/LocalStorage/UserData"
 import { Column } from "../../../../../../Components/shared/Column.styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +11,7 @@ import { PostStateChecker } from "../../../../../../services/PostsServices/PostS
 import { useContext } from "react";
 import { GlobalContext } from "../../../../../../Context/GlobalContext";
 import { Colors } from "../../../../../../assets/Colors";
+import { Row } from "../../../../../../Components/shared/Row.styled";
 
 
 export const ProfileImageAndPostState = () => {

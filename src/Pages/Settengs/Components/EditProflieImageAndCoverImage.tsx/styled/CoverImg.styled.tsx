@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../../assets/breackPoints";
 
 export const CoverImg = styled.img`
   width: 100%;
@@ -10,4 +11,7 @@ export const CoverImg = styled.img`
     opacity: 0.8;
 
  }
+  @media ${device.desktop} {
+
+  }
 `

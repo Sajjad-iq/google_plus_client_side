@@ -6,6 +6,8 @@ import { SettingsSaveChanges } from '../../../Components/shared/SettingsSaveChan
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { ChangeDescriptionHandler } from '../../../services/SettingsServices/ChangeDescriptionHandler'
 import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
+import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
+import { Colors } from '../../../assets/Colors'
 
 export const EditDescription = () => {
     let User = UserData()
@@ -14,7 +16,14 @@ export const EditDescription = () => {
 
     return (
         <SingleSectionWrapper>
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)} SettingName={User.Description === "" ? "Description:" : User.Description} />
+            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
+                SettingName={
+                    <Article>
+                        <Article >Description:</Article>
+                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{User.Description === "" ? "..." : User.Description}</Article>
+                    </Article>
+                }
+            />
 
             <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
                 <DescriptionTextField

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../../../../../../assets/Colors";
+import { device } from "../../../../../../../assets/breackPoints";
 
 export const GrayBox = styled.section`
  width: 99%;
@@ -11,5 +12,13 @@ export const GrayBox = styled.section`
  padding:10px;
  border-radius:4px;
  overflow: scroll;
+
+ &::-webkit-scrollbar {
+  display: none;
+};
+
+ @media ${device.laptop} {
+ width: 50%;
+  }
 
 `

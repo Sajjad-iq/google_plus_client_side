@@ -10,9 +10,9 @@ import { RedPenButton } from "../../../Home/Components/RedPenButton"
 import { Wrapper } from "../../../Home/styled/Wrapper"
 import UserIMG from '../../../../assets/ICONS/ProfileImg.jpg'
 import CoverIMG from '../../../../assets/ICONS/Photos/marguerite-729510__340.jpg'
-import { BorderButton } from "../../../../Components/common/BorderButton.styled"
 import { DropDownOptionsBottom } from "../../../../Components/shared/DropDownOptions"
 import { DeleteCollection } from "../../../../services/Collections/DeleteCollection"
+import { OptionsButton } from "../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled"
 
 
 interface Props {
@@ -36,10 +36,11 @@ export const CollectionPreView = (props: Props) => {
         <Wrapper >
 
             <DropDownOptionsBottom
+                for={"profile"}
                 bottom="-40px"
                 children={
                     User._id === SpecificCollection.CollectionOwnerId ?
-                        <BorderButton onClick={DeleteCollectionHandler} >Delete</BorderButton>
+                        <OptionsButton onClick={DeleteCollectionHandler} >Delete</OptionsButton>
                         :
                         null
                 }

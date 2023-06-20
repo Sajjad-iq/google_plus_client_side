@@ -16,8 +16,8 @@ import { RedPenButton } from "../Home/Components/RedPenButton"
 import { AddCollection } from "./components/AddCollection"
 import { FetchCollections } from "../../services/Collections/FetchCollections"
 import { Colors } from "../../assets/Colors"
-import { BorderButton } from "../../Components/common/BorderButton.styled"
 import { DropDownOptionsBottom } from "../../Components/shared/DropDownOptions"
+import { OptionsButton } from "../../Components/shared/DropDownOptions/styled/OptionsButton.styled"
 
 
 function Profile() {
@@ -47,10 +47,11 @@ function Profile() {
         <Wrapper style={window.innerWidth < 768 ? { position: "fixed", top: "0", bottom: '0', overflow: "scroll", zIndex: "20", background: Colors.Primary.Lightgray } : {}}>
 
             <DropDownOptionsBottom
+                for={"profile"}
                 bottom="-40px"
                 children={
                     <Wrapper>
-                        <BorderButton >Profile URL</BorderButton>
+                        <OptionsButton >Profile URL</OptionsButton>
                     </Wrapper>
                 }
             />

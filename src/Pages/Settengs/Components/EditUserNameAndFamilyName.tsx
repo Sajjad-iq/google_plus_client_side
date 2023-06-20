@@ -6,6 +6,8 @@ import { UserNameInput } from '../../../Components/shared/UserNameInputs'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { ChangeUserNameHandler } from '../../../services/SettingsServices/ChangeUserNameHandler'
 import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
+import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
+import { Colors } from '../../../assets/Colors'
 
 export const EditUserNameAndFamilyName = () => {
 
@@ -15,7 +17,14 @@ export const EditUserNameAndFamilyName = () => {
 
     return (
         <SingleSectionWrapper>
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)} SettingName={`User Name:  ${User.UserName} ${User.FamilyName}`} />
+            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
+                SettingName={
+                    <Article>
+                        <Article >UserName:</Article>
+                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{` ${User.UserName} ${User.FamilyName}`}</Article>
+                    </Article>
+                }
+            />
 
             <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
                 <UserNameInput

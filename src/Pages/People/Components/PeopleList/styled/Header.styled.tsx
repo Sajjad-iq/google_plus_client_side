@@ -15,6 +15,6 @@ top:10px;
 
 
  @media ${device.desktop} {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   }
 `

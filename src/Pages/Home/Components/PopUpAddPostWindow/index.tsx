@@ -3,7 +3,6 @@ import { WindowWrapper } from "./styled/WindowWrapper"
 import { ProfileImageAndPostState } from "./Components/ProfileImageAndPostState"
 import { TextArea } from "./Components/TextArea"
 import { AddPost } from "../../../../services/PostsServices/AddPost"
-import { Row } from "../../../../Components/shared/PostPreviewWindow/Components/OptionButtonAndOptionsWindow/styled/Row.styled"
 import { AddImage } from "./Components/AddImage"
 import { Image } from "./styled/Image.styled"
 import { useEffect, useRef, useState } from "react"
@@ -17,6 +16,7 @@ import { Button } from "../../../Auth/styled/Button.styled"
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { CollectionsSelect } from "./Components/CollectionsSelect"
 import { imagesConvertToBase64 } from "../../../../helpers/imagesConvertToBase64"
+import { Row } from "../../../../Components/shared/Row.styled"
 
 
 

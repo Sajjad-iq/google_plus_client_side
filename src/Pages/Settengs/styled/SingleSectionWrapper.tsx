@@ -9,10 +9,10 @@ export const SingleSectionWrapper = styled.section`
  justify-content: center;
  align-items: center;
  padding:5px;
- background-color: ${Colors.Primary.Lightgray};
+ background:white;
  margin:5px 0;
  border-radius: 6px;
-flex-direction: column;
+ flex-direction: column;
 
 
 `

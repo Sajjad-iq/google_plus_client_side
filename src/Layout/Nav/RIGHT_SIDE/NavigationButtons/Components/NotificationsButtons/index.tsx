@@ -2,7 +2,7 @@ import { Row } from '../../../../../../Components/shared/Row.styled'
 import { Button } from '../../../../../../Components/common/Button.styled'
 import checkMark from '../../../../../../assets/ICONS/checkmark-double-svgrepo-com.svg'
 import { OptionButtonAndOptionsWindow } from '../../../../../../Components/shared/DropDownOptions/Components/OptionButtonAndOptionsWindow'
-import { BorderButton } from '../../../../../../Components/common/BorderButton.styled'
+import { OptionsButton } from '../../../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled'
 export const NotificationsButtons = () => {
     return (
         <Row width='fit-content' padding='0 15px' align='center' style={{ background: "transparent" }}>
@@ -11,7 +11,7 @@ export const NotificationsButtons = () => {
 
             <OptionButtonAndOptionsWindow
                 children={
-                    <BorderButton>Clear All</BorderButton>
+                    <OptionsButton>Clear All</OptionsButton>
                 }
                 bottom='-40px'
             />

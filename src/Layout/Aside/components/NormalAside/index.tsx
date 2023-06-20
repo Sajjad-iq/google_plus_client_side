@@ -36,7 +36,7 @@ export const NormalAside = () => {
             </Section>
 
             <Section border='unset' style={{ alignItems: "flex-start" }}>
-                <UserName IsCommentUserName={true} style={{ color: Colors.Primary.Lightgray, padding: "10px 20px" }}>Developer</UserName>
+                <UserName IsCommentUserName={true} style={{ color: Colors.Primary.SoftBlack, padding: "10px 20px" }}>Developer</UserName>
                 <MobileNavButton Style={{}} Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
                 <MobileNavButton Style={{}} Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
                 <MobileNavButton Style={{}} Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />

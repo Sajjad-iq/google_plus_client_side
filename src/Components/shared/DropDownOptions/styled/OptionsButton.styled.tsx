@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Colors } from "../../assets/Colors";
+import { Colors } from "../../../../assets/Colors";
 
 
-export const BorderButton = styled.button`
+export const OptionsButton = styled.button`
 background: none;
 color: ${Colors.Secoundry.Cyan};
 padding:5px 10px;

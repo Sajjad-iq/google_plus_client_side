@@ -16,10 +16,10 @@ export const TextField = styled.textarea<Props>`
  resize: none;
  border:none;
  padding-top:18px;
+  border-bottom:2px solid ${Colors.Secoundry.Cyan};
 
 
   &:focus{
-    border:none;
       outline: none;
   }
  @media ${device.tablet} {
