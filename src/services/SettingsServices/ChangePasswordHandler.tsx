@@ -36,7 +36,6 @@ export const ChangePasswordHandler = () => {
                     }
                 }
                 ).then((e) => {
-                    setUser(e.data)
                     Navigate("/")
                 }
                 )

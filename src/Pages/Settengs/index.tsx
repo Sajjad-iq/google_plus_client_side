@@ -12,7 +12,6 @@ import { LoadingButton } from '../../Components/shared/LoadingButton'
 import { Wrapper } from './styled/Wrapper'
 import { GlobalContext } from '../../Context/GlobalContext'
 import { EditTheEmail } from './Components/EditTheEmail'
-import { EditThePassword } from './Components/EditThePassword'
 import { TextLink } from '../../Components/shared/TextLink'
 
 
@@ -38,7 +37,6 @@ export const Settings = () => {
                     <EditUserNameAndFamilyName />
                     <EditDescription />
                     <EditTheEmail />
-                    <EditThePassword />
                     <TextLink To={"/ChangePassword"} Text={"Change the password?"} />
                 </Column>
 
