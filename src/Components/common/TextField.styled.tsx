@@ -6,18 +6,21 @@ interface Props {
   IsValidValue: boolean
 }
 export const TextField = styled.textarea<Props>`
- width: 90%;
- padding:10px;
- margin:10px 0;
+ width: 100%;
+ padding:10px 0;
+ margin:10px 5px;
  border-radius: 5px;
  font-size:0.9rem;
- font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
  font-weight: 600;
  resize: none;
  border:none;
  padding-top:18px;
   border-bottom:2px solid ${Colors.Secoundry.Cyan};
 
+    &::-webkit-scrollbar {
+  display: none;
+};
 
   &:focus{
       outline: none;

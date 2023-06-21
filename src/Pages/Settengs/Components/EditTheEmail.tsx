@@ -1,45 +1,28 @@
-import { useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Column } from '../../../Components/shared/Column.styled'
-import { EmailInput } from '../../../Components/shared/EmailInput'
-import { SettingsEditSection } from '../../../Components/shared/SettingsEditSection'
-import { SettingsSaveChanges } from '../../../Components/shared/SettingsSaveChanges'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { ChangeEmailHandler } from '../../../services/SettingsServices/ChangeEmailHandler'
-import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
-import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
-import { Colors } from '../../../assets/Colors'
+import { FlexSection } from '../../../Components/common/FlexSection.styled'
+import { RedFlag } from '../../../Components/shared/RedFlag'
+import { Input } from '../../../Components/common/Input.styled'
 
 export const EditTheEmail = () => {
 
-    let User = UserData()
-    const [isActive, setIsActive] = useState(false)
-    const { OnEmailChange, IsEmailValid, onSave } = ChangeEmailHandler(setIsActive)
+    const { OnEmailChange, IsEmailValid } = ChangeEmailHandler()
+    const { User } = useContext(GlobalContext)
+    const EmailRef = useRef<any>()
 
+    useEffect(() => {
+        if (EmailRef.current) {
+            EmailRef.current.value = User.Email
+        }
+    }, [])
     return (
+        <Column width='100%' padding='0' align='center'>
+            <Input ref={EmailRef} name="email" IsValidValue={IsEmailValid} onChange={OnEmailChange} placeholder="email" required />
+            <RedFlag RedFlagMessage="Make sure adding a valid email" display={IsEmailValid ? "none" : "flex"} />
+        </Column>
 
-        <SingleSectionWrapper>
-
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
-                SettingName={
-                    <Article>
-                        <Article >Email:</Article>
-                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{User.Email}</Article>
-                    </Article>
-                }
-            />
-
-            <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
-                <EmailInput
-                    OnEmailChange={OnEmailChange}
-                    IsEmailValid={IsEmailValid}
-                />
-                <SettingsSaveChanges
-                    OnCloseClick={() => setIsActive(false)}
-                    OnSaveClick={onSave}
-                />
-            </Column>
-
-        </SingleSectionWrapper>
     )
 }

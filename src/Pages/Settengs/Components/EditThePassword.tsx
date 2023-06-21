@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import { Column } from '../../../Components/shared/Column.styled'
 import { PasswordInputs } from '../../../Components/shared/PasswordInputs'
-import { SettingsEditSection } from '../../../Components/shared/SettingsEditSection'
-import { SettingsSaveChanges } from '../../../Components/shared/SettingsSaveChanges'
 import { ChangePasswordHandler } from '../../../services/SettingsServices/ChangePasswordHandler'
 import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
-import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
-import { Colors } from '../../../assets/Colors'
 
 export const EditThePassword = () => {
 
@@ -15,14 +11,6 @@ export const EditThePassword = () => {
 
     return (
         <SingleSectionWrapper>
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
-                SettingName={
-                    <Article>
-                        <Article >Password:</Article>
-                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{"..."}</Article>
-                    </Article>
-                }
-            />
 
             <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
                 <PasswordInputs
@@ -34,10 +22,7 @@ export const EditThePassword = () => {
                     UserPasswordInputValue={PasswordInputValue}
                     setIsConformPasswordValid={setIsPasswordValid}
                 />
-                <SettingsSaveChanges
-                    OnCloseClick={() => setIsActive(false)}
-                    OnSaveClick={onSave}
-                />
+
             </Column>
         </SingleSectionWrapper>
     )

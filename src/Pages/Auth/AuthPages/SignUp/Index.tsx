@@ -11,9 +11,9 @@ import { SignUpSection } from '../../../../Components/common/SignUpSection.style
 import { EmailInput } from '../../../../Components/shared/EmailInput'
 import { PasswordInputs } from '../../../../Components/shared/PasswordInputs'
 import { SubmitSection } from '../../../../Components/shared/SubmitSection'
-import { UserNameInput } from '../../../../Components/shared/UserNameInputs'
 import { Label } from '../../../../Components/shared/Label'
 import { Wrapper } from '../../../../Components/common/Wrapper'
+import { UserNameInput } from '../../../../Components/shared/UserNameInputs'
 
 export const SignUp = () => {
 

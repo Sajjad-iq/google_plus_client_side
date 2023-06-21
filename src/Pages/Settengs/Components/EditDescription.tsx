@@ -1,41 +1,41 @@
-import { useState } from 'react'
+import { useRef, useEffect, useContext } from 'react'
 import { Column } from '../../../Components/shared/Column.styled'
-import { DescriptionTextField } from '../../../Components/shared/DescriptionTextField'
-import { SettingsEditSection } from '../../../Components/shared/SettingsEditSection'
-import { SettingsSaveChanges } from '../../../Components/shared/SettingsSaveChanges'
-import { UserData } from '../../../services/LocalStorage/UserData'
 import { ChangeDescriptionHandler } from '../../../services/SettingsServices/ChangeDescriptionHandler'
-import { SingleSectionWrapper } from '../styled/SingleSectionWrapper'
-import { Article } from '../../../Components/shared/SettingsEditSection/styled/Article.styled'
-import { Colors } from '../../../assets/Colors'
+import { GlobalContext } from '../../../Context/GlobalContext'
+import { TextField } from '../../../Components/common/TextField.styled'
 
 export const EditDescription = () => {
-    let User = UserData()
-    const [isActive, setIsActive] = useState(false)
-    const { onSave, OnDescriptionChange } = ChangeDescriptionHandler(setIsActive)
+    const { OnDescriptionChange, value } = ChangeDescriptionHandler()
 
+
+    const DescriptionRef = useRef<any>()
+    const { User } = useContext(GlobalContext)
+
+    useEffect(() => {
+        if (DescriptionRef.current) {
+            DescriptionRef.current.value = User.Description
+        }
+    }, [])
+
+    const resizeTextArea = () => {
+
+        if (DescriptionRef.current.value == "") {
+            DescriptionRef.current.style.height = "50px";
+
+        } else {
+            DescriptionRef.current.style.height = "auto";
+            DescriptionRef.current.style.height = DescriptionRef.current.scrollHeight + "px";
+        }
+
+    }
+
+    useEffect(resizeTextArea, [value]);
     return (
-        <SingleSectionWrapper>
-            <SettingsEditSection EditClick={() => setIsActive(!isActive)}
-                SettingName={
-                    <Article>
-                        <Article >Description:</Article>
-                        <Article style={{ color: Colors.Secoundry.Cyan, marginLeft: "5px" }}>{User.Description === "" ? "..." : User.Description}</Article>
-                    </Article>
-                }
-            />
 
-            <Column width='100%' padding='0' align='center' style={{ display: isActive ? "flex" : "none" }}>
-                <DescriptionTextField
-                    IsValidValue={true}
-                    onChange={OnDescriptionChange}
-                    Rows={3}
-                />
-                <SettingsSaveChanges
-                    OnCloseClick={() => setIsActive(false)}
-                    OnSaveClick={onSave}
-                />
-            </Column>
-        </SingleSectionWrapper>
+        <Column width='100%' padding='0' align='center'>
+            <TextField ref={DescriptionRef} IsValidValue={true} onChange={OnDescriptionChange} placeholder="Write something.."
+
+            />
+        </Column>
     )
 }

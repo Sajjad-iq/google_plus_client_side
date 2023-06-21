@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react'
 import { CyanButton } from '../../Components/common/CyanButton.styled'
-import { H2 } from '../../Components/common/H1.styled'
 import { Column } from '../../Components/shared/Column.styled'
 import { Row } from '../../Components/shared/Row.styled'
 import { EditDescription } from './Components/EditDescription'
@@ -14,9 +13,11 @@ import { Wrapper } from './styled/Wrapper'
 import { GlobalContext } from '../../Context/GlobalContext'
 import { EditTheEmail } from './Components/EditTheEmail'
 import { EditThePassword } from './Components/EditThePassword'
+import { TextLink } from '../../Components/shared/TextLink'
 
 
 export const Settings = () => {
+
     const [IsLoading, setIsLoading] = useState(false)
     const { Save } = SaveChanges(setIsLoading)
     const Navigate = useNavigate()
@@ -38,6 +39,7 @@ export const Settings = () => {
                     <EditDescription />
                     <EditTheEmail />
                     <EditThePassword />
+                    <TextLink To={"/ChangePassword"} Text={"Change the password?"} />
                 </Column>
 
                 <Row width='100%' padding='10px 0' align='space-between' style={{ alignSelf: "flex-end" }}>

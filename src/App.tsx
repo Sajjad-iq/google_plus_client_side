@@ -21,6 +21,7 @@ import { CollectionPreview } from "./Pages/CollectionPreview";
 import { Communities } from "./Pages/Communities";
 import GoogleLogo from "../public/logo384.png"
 import { SearchPage } from "./Pages/SearchFiled";
+import { ChangePassword } from "./Pages/ChangePassword";
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
               <Route path="/AddCollection" element={<AddCollectionPage />} />
               <Route path="/CollectionPreview" element={<CollectionPreview />} />
               <Route path="/Search" element={<SearchPage />} />
+              <Route path="/ChangePassword" element={<ChangePassword />} />
 
 
               <Route path="/People" element={<People />} >

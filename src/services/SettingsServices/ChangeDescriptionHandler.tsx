@@ -1,21 +1,16 @@
 import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
-export const ChangeDescriptionHandler = (setIsActive: any) => {
+export const ChangeDescriptionHandler = () => {
 
-    const [DescriptionInputValue, setDescriptionInputValue] = useState("")
     const { setUser, User } = useContext(GlobalContext)
-
+    const [value, setValue] = useState("")
     const OnDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setDescriptionInputValue(e.target.value)
-    }
-
-    const onSave = async () => {
-        User.Description = DescriptionInputValue
+        User.Description = e.target.value
+        setValue(e.target.value)
         setUser(User)
-        setIsActive(false)
     }
-    return { onSave, OnDescriptionChange }
+    return { OnDescriptionChange, value }
 }
 
 
