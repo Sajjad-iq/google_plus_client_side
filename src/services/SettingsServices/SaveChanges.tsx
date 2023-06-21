@@ -27,9 +27,9 @@ export const SaveChanges = (setIsLoading: any) => {
             }
             )
 
-        } catch (e) {
+        } catch (e: any) {
             console.log(e)
-            window.alert("something went wrong")
+            window.alert(`${e.response.data.joiMessage}`)
         }
         finally {
             setIsLoading(false)

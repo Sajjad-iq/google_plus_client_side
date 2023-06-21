@@ -40,9 +40,9 @@ export const ChangePasswordHandler = () => {
                 }
                 )
 
-            } catch (e) {
+            } catch (e: any) {
                 console.log(e)
-                window.alert("something went wrong")
+                window.alert(e.response.data)
             }
             finally {
                 setIsLoading(false)

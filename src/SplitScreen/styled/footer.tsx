@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/breackPoints";
 export const Footer = styled.footer`
  width: 100%;
  height: 64px;
@@ -7,6 +8,9 @@ export const Footer = styled.footer`
  display: flex;
  justify-content: center;
  align-items: center;
-
+ 
+ @media ${device.laptop} {
+    z-index:-1;
+    }
  
 `

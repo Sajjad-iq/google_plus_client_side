@@ -14,7 +14,6 @@ export const SignUpHandler = () => {
         IsFamilyNameValid,
         IsEmailValid,
         IsConformPasswordValid,
-        setIsEmailValid,
         setIsAllSectionsFilled,
         setIsAllSectionsFilledText
     } = useContext(AuthContext)
@@ -46,7 +45,6 @@ export const SignUpHandler = () => {
                     console.log(e)
                     setIsAllSectionsFilled(false)
                     setIsAllSectionsFilledText(e.response.data || "please make sure add a valid data")
-                    window.alert("something went wrong")
                 }
                 finally {
                     setIsLoading(false)

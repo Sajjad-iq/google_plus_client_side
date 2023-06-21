@@ -33,11 +33,7 @@ export const Input = styled.input<Props>`
       margin:10px 10px 10px 0px;
       font-size:1rem;
     }
-    @media ${device.laptopL} {
-      font-size:1.3rem;
-    }
-     @media ${device.desktop} {
-      font-size: 1.5rem;
-    }
+   
+    
  
 `
