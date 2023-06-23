@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { MobileAsideWrapper } from '../../styled/MobileAsideWrapper'
 import { Column } from '../../../../Components/shared/Column.styled'
 import { UserData } from '../../../../services/LocalStorage/UserData'
-import Cover from '../../../../assets/ICONS/Photos/marguerite-729510__340.jpg'
+import Cover from '../../../../assets/ICONS/Photos/marguerite-729510__340.svg'
 import ProfileImage from '../../../../assets/ICONS/ProfileImg.jpg'
 import { ImageCoverWrapper } from '../../styled/imageCoverWrapper'
 import { UserName } from '../../../../Components/common/UserName.styled'
@@ -42,10 +42,10 @@ export const MobileAside = (props: Props) => {
                     <ProfileUserImg key={"Aside Profile image"} src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt='profile image' style={{ position: "static", width: "55px", height: "55px" }} />
 
                     <Column width='fit-content' padding='0' align='flex-start' style={{ background: "none" }}>
-                        <UserName IsCommentUserName={false} style={{ margin: "15px 0px 3px 0px", color: Colors.Primary.SoftGray }}>
+                        <UserName IsCommentUserName={false} style={{ margin: "15px 0px 3px 0px", color: Colors.Secoundry.darkGray }}>
                             {`${User.UserName} ${User.FamilyName}`}
                         </UserName>
-                        <UserName IsCommentUserName={true} style={{ color: Colors.Primary.Lightgray }}>{User.Email}</UserName>
+                        <UserName IsCommentUserName={true} style={{ color: Colors.Secoundry.darkGray }}>{User.Email}</UserName>
                     </Column>
                 </Column>
 

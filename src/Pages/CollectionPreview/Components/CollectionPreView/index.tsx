@@ -9,7 +9,7 @@ import { PreviewThePost } from "../../../../services/PostsServices/PreviewThePos
 import { RedPenButton } from "../../../Home/Components/RedPenButton"
 import { Wrapper } from "../../../Home/styled/Wrapper"
 import UserIMG from '../../../../assets/ICONS/ProfileImg.jpg'
-import CoverIMG from '../../../../assets/ICONS/Photos/marguerite-729510__340.jpg'
+import CoverIMG from '../../../../assets/ICONS/Photos/marguerite-729510__340.svg'
 import { DropDownOptionsBottom } from "../../../../Components/shared/DropDownOptions"
 import { DeleteCollection } from "../../../../services/Collections/DeleteCollection"
 import { OptionsButton } from "../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled"

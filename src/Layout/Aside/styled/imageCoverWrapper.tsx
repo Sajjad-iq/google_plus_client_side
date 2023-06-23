@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../../assets/Colors";
 
 
 export const ImageCoverWrapper = styled.section`
@@ -9,5 +10,6 @@ export const ImageCoverWrapper = styled.section`
  object-fit: cover;
  height:145px ;
  padding:10px 15px;
+ border:1px solid ${Colors.Primary.SoftGray};
   
 `

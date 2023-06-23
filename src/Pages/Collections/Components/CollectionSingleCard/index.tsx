@@ -6,7 +6,7 @@ import { CommentBody } from '../../../../Components/shared/SingleCommint/styled/
 import { Wrapper } from '../../../../Components/shared/Wrapper'
 import { LoadingButton } from '../../../../Components/shared/LoadingButton'
 import { Colors } from '../../../../assets/Colors'
-import CoverPicture from '../../../../assets/ICONS/Photos/marguerite-729510__340.jpg'
+import CoverPicture from '../../../../assets/ICONS/Photos/marguerite-729510__340.svg'
 import UserImage from '../../../../assets/ICONS/ProfileImg.jpg'
 import { UserData } from '../../../../services/LocalStorage/UserData'
 
