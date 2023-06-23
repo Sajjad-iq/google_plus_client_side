@@ -16,3 +16,5 @@ export const Collections = () => {
         </Wrapper>
     )
 }
+
+export default Collections

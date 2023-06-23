@@ -35,3 +35,5 @@ export const PostPreview = () => {
 
     )
 }
+
+export default PostPreview

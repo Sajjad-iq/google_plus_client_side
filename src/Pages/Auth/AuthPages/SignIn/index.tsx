@@ -25,3 +25,5 @@ export const SignIn = () => {
         </SignInWrapper>
     )
 }
+
+export default SignIn

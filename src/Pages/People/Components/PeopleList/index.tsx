@@ -63,3 +63,6 @@ export const PeopleList = () => {
         </Wrapper>
     )
 }
+
+
+export default PeopleList

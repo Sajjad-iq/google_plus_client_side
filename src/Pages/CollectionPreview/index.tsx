@@ -18,3 +18,5 @@ export const CollectionPreview = () => {
     </Wrapper>
   )
 }
+
+export default CollectionPreview

@@ -67,3 +67,5 @@ export const SignUp = () => {
     </Wrapper>
   )
 }
+
+export default SignUp

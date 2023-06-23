@@ -5,3 +5,5 @@ export const AddPostWindow = () => {
         <PopUpAddPostWindow />
     )
 }
+
+export default AddPostWindow

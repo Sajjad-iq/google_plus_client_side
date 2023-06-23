@@ -56,3 +56,6 @@ export const ChangePassword = () => {
             </SignInWrapper >
     )
 }
+
+
+export default ChangePassword

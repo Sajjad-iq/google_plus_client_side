@@ -26,3 +26,5 @@ export const AddCollectionPage = () => {
 
     )
 }
+
+export default AddCollectionPage

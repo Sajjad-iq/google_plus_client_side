@@ -33,3 +33,6 @@ export const SearchPage = () => {
         </SearchWrapper>
     )
 }
+
+
+export default SearchPage

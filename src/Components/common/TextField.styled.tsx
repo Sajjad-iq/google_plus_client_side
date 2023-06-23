@@ -7,7 +7,7 @@ interface Props {
 }
 export const TextField = styled.textarea<Props>`
  width: 100%;
- padding:10px 0;
+ padding:10px;
  margin:10px 5px;
  border-radius: 5px;
  font-size:0.9rem;

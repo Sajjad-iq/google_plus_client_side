@@ -17,5 +17,11 @@ export const PostBody = styled.section`
      padding:15px;
 
   }
+
+   @media(${device.desktop}){
+    width: 45%;
+     padding:15px;
+
+  }
  
  `

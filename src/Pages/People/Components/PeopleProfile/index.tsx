@@ -84,3 +84,6 @@ export const PeopleProfile = () => {
         </Wrapper>
     )
 }
+
+
+export default PeopleProfile

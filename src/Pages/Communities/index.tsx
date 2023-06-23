@@ -87,3 +87,7 @@ export const Communities = () => {
 
     )
 }
+
+
+
+export default Communities

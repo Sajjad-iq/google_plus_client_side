@@ -13,3 +13,5 @@ export const People = () => {
         </Wrapper>
     )
 }
+
+export default People
