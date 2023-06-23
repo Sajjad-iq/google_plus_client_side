@@ -19,7 +19,7 @@ export default defineConfig({
       "description": "Demo of google plus app",
       "theme_color": "#c63e3e",
       "background_color": "#c63e3e",
-      start_url: "/",
+      "start_url": "/",
       icons: [
         {
           "src": "maskable_icon.png",
