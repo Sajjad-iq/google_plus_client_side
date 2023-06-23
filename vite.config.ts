@@ -16,10 +16,10 @@ export default defineConfig({
     manifest: {
       name: "GooglePlus",
       short_name: "GooglePlus",
-      "description": "Demo of google plus app",
-      "theme_color": "#c63e3e",
-      "background_color": "#c63e3e",
-      "start_url": "/",
+      description: "Demo of google plus app",
+      start_url: "/",
+      theme_color: "#c63e3e",
+      background_color: "#c63e3e",
       icons: [
         {
           "src": "maskable_icon.png",
