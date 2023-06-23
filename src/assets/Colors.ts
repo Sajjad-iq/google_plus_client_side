@@ -13,6 +13,7 @@ export const Colors = {
         blue: "#1B74E4",
         gray: "(211, 211, 211)",
         Cyan: "#4984cc",
-        Green: "#39ad46"
+        Green: "#39ad46",
+        darkGray: '#525252'
     }
 }

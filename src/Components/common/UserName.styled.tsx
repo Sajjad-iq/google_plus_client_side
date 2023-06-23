@@ -4,7 +4,7 @@ import { device } from "../../assets/breackPoints";
 interface Props {
   IsCommentUserName: boolean
 }
-export const UserName = styled.h3<Props>`
+export const UserName = styled.h2<Props>`
 ${p => p.IsCommentUserName ?
     `font-size:0.85rem;
          @media ${device.tablet} {

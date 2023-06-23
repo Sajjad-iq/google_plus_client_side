@@ -16,6 +16,7 @@ export const ImageButton = (props: Props) => {
             color={Colors.Secoundry.gray}
             backgroundColor={Colors.Primary.Lightgray}
             onClick={props.onClick}
+            aria-label='add post icon'
         >
             <FontAwesomeIcon className='fa-Post-icon' icon={faCamera} />
         </PostButton>)

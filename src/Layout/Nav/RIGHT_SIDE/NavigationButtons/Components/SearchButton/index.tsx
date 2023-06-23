@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const SearchButton = () => {
     return (
-        <Link to={"/Search"}>
+        <Link aria-label="open search page" to={"/Search"}>
             <FontAwesomeIcon className='search-btn' icon={faMagnifyingGlass} />
         </Link>
     )
