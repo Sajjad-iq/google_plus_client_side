@@ -13,11 +13,13 @@ import { GlobalContext } from "../../Context/GlobalContext"
 export const Home = () => {
 
     const { User } = useContext(GlobalContext)
-    const [PostsCount, setPostsCount] = useState(0)
+    const [PostsCount, setPostsCount] = useState(1)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
+    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount((e: any) => e = e + 5) : null, Loading)
+
+
 
     useEffect(() => {
         User._id !== "" ? FetchPosts() : null

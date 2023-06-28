@@ -19,13 +19,14 @@ export const FetchComments = (PostsCount: number, setComments: Dispatch<SetState
                 data: {
                     PostId: SpecificPost._id,
                     PayloadCount: PostsCount,
-                    BlackList: User.BlockedAccounts || [],
-                    BlockedFrom: User.BlockedFromAccounts || []
+                    BlackList: User.BlockedAccounts,
+                    BlockedFrom: User.BlockedFromAccounts
                 }
             }
             ).then(async (e: any) => {
-                let newComments = Comments.concat(e.data.ResponseComments)
-                setComments(newComments || [])
+                var oldData = [...Comments]
+                let newComments = oldData.concat(e.data.ResponseComments)
+                setComments(newComments)
                 setStopFetching(e.data.StopFetching)
             })
 

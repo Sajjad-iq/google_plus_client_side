@@ -56,6 +56,7 @@ export const AddCommentServices = (RestTextFelidValueReload: any) => {
                     var post = SpecificPost
 
                     comments.push({
+                        _id: User._id,
                         CommentBody: TextFieldValue,
                         CommentOwnerName: `${User.UserName} ${User.FamilyName}`,
                         CommentOwnerId: User._id,

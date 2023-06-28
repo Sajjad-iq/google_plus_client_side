@@ -25,12 +25,13 @@ export const FetchPostsHandler = (PostsCount: number, Owner: any, forCollections
                     PayloadCount: PostsCount,
                     FollowingCollections: User.FollowingCollections,
                     forCollectionsPreviewWindow: forCollectionsPreviewWindow,
-                    BlackList: User.BlockedAccounts || [],
-                    BlockedFrom: User.BlockedFromAccounts || []
+                    BlackList: User.BlockedAccounts,
+                    BlockedFrom: User.BlockedFromAccounts
                 }
             }
             ).then(async (e: any) => {
-                let newPosts = Response.concat(e.data.ResponsePosts)
+                var oldData = [...Response]
+                let newPosts = oldData.concat(e.data.ResponsePosts)
                 setResponse(newPosts)
                 setStopFetching(e.data.StopFetching)
             })
