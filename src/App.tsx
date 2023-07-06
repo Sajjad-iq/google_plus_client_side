@@ -49,6 +49,7 @@ function App() {
               <div></div>
             </div>
             <h1 className="loading-header">Google</h1>
+            <p className="red-hint">initial load may take a minute because of the server's sleep mode.</p>
           </section>
 
         </section>

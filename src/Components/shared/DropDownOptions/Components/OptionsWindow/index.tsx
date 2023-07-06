@@ -10,9 +10,7 @@ interface Props {
 export const OptionsWindow = (props: Props) => {
 
     const OptionsRef = useRef<any>()
-
     const closeProfileMenu = (e: any) => { if (!OptionsRef.current?.contains(e.target)) props.setIsActive(false) }
-
 
     useEffect(() => {
         document.body.addEventListener("mousedown", closeProfileMenu, true)
