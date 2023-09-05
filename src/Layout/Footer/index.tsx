@@ -7,7 +7,7 @@ import { GlobalContext } from '../../Context/GlobalContext';
 import { MobileNavButton } from '../../Components/shared/MobileNavButoon';
 import CollectionsSvg from "../../assets/ICONS/Collections.svg"
 import CyanCollectionsSvg from "../../assets/ICONS/CollectionsCyan.svg"
-import CommunitiesSvg from "../../assets/ICONS/coomunities.svg"
+import CommunitiesSvg from "../../assets/ICONS/coomunitiesBlackBg.svg"
 import CommunitiesGreenSvg from "../../assets/ICONS/coomunitiesGreen.svg"
 
 import { useLocation } from 'react-router-dom';

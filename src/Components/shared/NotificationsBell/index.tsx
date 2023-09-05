@@ -17,6 +17,7 @@ export const NotificationsBell = (props: Props) => {
         <NavLink
             to={"/Notifications"}
             className={`link-button ${props.CLass}`}
+            style={props.CLass === "footer" ? { color: Location.pathname === "/Notifications" ? 'white' : "gray" } : {}}
         >
             {
                 props.HasNotifications ?
@@ -25,7 +26,7 @@ export const NotificationsBell = (props: Props) => {
                         <FontAwesomeIcon color={props.isForNav ? "white" : Location.pathname === "/Notifications" ? "rgb(198, 62, 62)" : "gray"} className='fa-icon' icon={faBell} />
                     </div>
                     :
-                    <FontAwesomeIcon color={props.isForNav ? "white" : Location.pathname === "/Notifications" ? "rgb(198, 62, 62)" : "gray"} className='fa-icon' icon={faBell} />
+                    <FontAwesomeIcon className='fa-icon' icon={faBell} />
             }
             <p className={`name ${props.CLass}`}>{props.Name}</p>
 
