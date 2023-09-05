@@ -6,9 +6,9 @@ import { NotificationsBell } from '../../Components/shared/NotificationsBell';
 import { GlobalContext } from '../../Context/GlobalContext';
 import { MobileNavButton } from '../../Components/shared/MobileNavButoon';
 import CollectionsSvg from "../../assets/ICONS/Collections.svg"
-import CyanCollectionsSvg from "../../assets/ICONS/CollectionsCyan.svg"
+import ActiveCollectionsSvg from "../../assets/ICONS/CollectionsWhiteActive.svg"
 import CommunitiesSvg from "../../assets/ICONS/coomunitiesBlackBg.svg"
-import CommunitiesGreenSvg from "../../assets/ICONS/coomunitiesGreen.svg"
+import CommunitiesActiveSvg from "../../assets/ICONS/coomunitiesBlackBgActive.svg"
 
 import { useLocation } from 'react-router-dom';
 import { Colors } from '../../assets/Colors';
@@ -20,8 +20,8 @@ export const FooterNav = React.memo(() => {
     return (
         <FooterWrapper>
             <NavButton CLass='footer' Name='Home' To='/' ICON={faHouse} />
-            <MobileNavButton Style={{ flexDirection: "column", padding: "0", color: Location.pathname === "/Collections" ? Colors.Secoundry.Cyan : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? CyanCollectionsSvg : CollectionsSvg} />
-            <MobileNavButton Style={{ flexDirection: "column", padding: "0", color: Location.pathname === "/Communities" ? Colors.Secoundry.Green : "gray" }} Name='Communities' To='/Communities' ICON={Location.pathname === "/Communities" ? CommunitiesGreenSvg : CommunitiesSvg} />
+            <MobileNavButton Style={{ flexDirection: "column", padding: "0", color: Location.pathname === "/Collections" ? "white" : "gray" }} Name='Collections' To='/Collections' ICON={Location.pathname === "/Collections" ? ActiveCollectionsSvg : CollectionsSvg} />
+            <MobileNavButton Style={{ flexDirection: "column", padding: "0", color: Location.pathname === "/Communities" ? "white" : "gray" }} Name='Communities' To='/Communities' ICON={Location.pathname === "/Communities" ? CommunitiesActiveSvg : CommunitiesSvg} />
             <NotificationsBell Name='Notifications' isForNav={false} CLass='footer' HasNotifications={HasNotifications} />
         </FooterWrapper>
     )
