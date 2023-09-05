@@ -6,9 +6,8 @@ export const FooterWrapper = styled.footer`
  display: flex;
  justify-content: space-around;
  align-items: center;
- background-color:white ;
- padding:5px;
- border-top:1px solid gray;
+ background-color:black ;
+ padding:8px 5px;
  
    @media ${device.tablet} {
     width: 90%;
