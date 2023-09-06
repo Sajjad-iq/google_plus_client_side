@@ -43,8 +43,6 @@ export const PeopleList = () => {
                                 IsForSearch={false}
                                 description={e.Description}
                                 Followers={e.Followers}
-                                ConvertToCollectionCard={false}
-                                Color={"none"}
                                 OnClickAdd={() => ""}
                             />
                             :

@@ -11,6 +11,7 @@ import { CollectionsNav } from "../../Pages/Collections/Components/CollectionsNa
 import { CollectionsButtonsNames } from "../../Pages/Collections/Components/names"
 import { GlobalContext } from "../../Context/GlobalContext"
 import { CommunitiesButtonsNames } from "../../Pages/Communities/Components/CommunitiesButtonsNames"
+import { PeopleButtonsNames } from "../../Pages/People/Components/PeopleButtonsNames"
 
 interface Props {
     MenuButtonHandler: MouseEventHandler
@@ -38,6 +39,7 @@ export const Nav = React.memo((props: Props) => {
 
             <CollectionsNav for="/Collections" color={'white'} buttonsNames={CollectionsButtonsNames} SelectedButton={SelectedButton} setSelectedButton={setSelectedButton} />
             <CollectionsNav for="/Communities" color={'white'} buttonsNames={CommunitiesButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
+            <CollectionsNav for="/People" color={'white'} buttonsNames={PeopleButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
 
         </NavWrapper>
 

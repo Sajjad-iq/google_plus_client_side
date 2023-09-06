@@ -13,9 +13,19 @@ interface Props {
 export const CollectionsNav = (props: Props) => {
 
     const Location = useLocation()
+    function colorSelector() {
+        switch (props.for) {
+            case "/Collections":
+                return Colors.Secoundry.Cyan;
+            case "/Communities":
+                return Colors.Secoundry.Green;
+            default:
+                return Colors.Primary.red
+        }
+    }
 
     return (
-        <Row width='100%' align='space-around' padding='0' style={{ background: props.for === '/Collections' ? Colors.Secoundry.Cyan : Colors.Secoundry.Green, display: Location.pathname === props.for ? "flex" : "none" }}>
+        <Row width='100%' align='space-around' padding='0' style={{ background: colorSelector(), display: Location.pathname === props.for ? "flex" : "none" }}>
 
             {props.buttonsNames.map((e, i) => {
                 return <UnderLineButton

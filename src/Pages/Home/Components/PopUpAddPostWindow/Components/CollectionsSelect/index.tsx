@@ -8,6 +8,7 @@ import { UserCard } from "../../../../../../Components/shared/UserCard"
 import { FetchCollections } from "../../../../../../services/Collections/FetchCollections"
 import { UserData } from "../../../../../../services/LocalStorage/UserData"
 import { H2 } from "../../../../../../Components/common/H1.styled"
+import { CollectionFindCard } from "../../../../../../Components/shared/CollectionFindCard"
 
 
 export const CollectionsSelect = () => {
@@ -33,16 +34,14 @@ export const CollectionsSelect = () => {
                     {
                         CollectionsResponse.map((e) => {
                             return e._id !== "" ?
-                                <UserCard
+                                <CollectionFindCard
                                     IsLoading={false}
                                     onClick={() => ""}
                                     key={e._id}
                                     UserName={e.CollectionTitle}
                                     UserImg={e.CollectionsCoverPicture}
-                                    IsForSearch={false}
                                     description={e.Tagline}
                                     Followers={[]}
-                                    ConvertToCollectionCard={true}
                                     Color={e.Color}
                                     OnClickAdd={() => {
                                         setIsActive(false)
