@@ -8,7 +8,7 @@ import { ImageCoverWrapper } from '../../styled/imageCoverWrapper'
 import { UserName } from '../../../../Components/common/UserName.styled'
 import { Colors } from '../../../../assets/Colors'
 import { ProfileUserImg } from '../../../../Components/common/ProfileUserImg.styled'
-import { faUsers, faGear, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faGear, faCircleQuestion, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { NavButton } from '../../../../Components/shared/NavButton'
 import { Section } from '../../styled/Section.styled'
 import { MobileNavButton } from '../../../../Components/shared/MobileNavButoon'
@@ -16,6 +16,8 @@ import ProfileIcon from '../../../../assets/ICONS/user-circle-svgrepo-com.svg'
 import InstagramIcon from '../../../../assets/ICONS/instagram-svgrepo-com.svg'
 import LinkedInIcon from '../../../../assets/ICONS/linkedin-fill-svgrepo-com.svg'
 import GitIcon from '../../../../assets/ICONS/github-svgrepo-com.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Row } from '../../../../Components/shared/Row.styled'
 
 interface Props {
     setIsPageActive: any
@@ -41,11 +43,16 @@ export const MobileAside = (props: Props) => {
                 <Column width='100%' padding='0' align='flex-start' >
                     <ProfileUserImg key={"Aside Profile image"} src={User.ProfilePicture !== "" ? User.ProfilePicture : ProfileImage} alt='profile image' style={{ position: "static", width: "55px", height: "55px" }} />
 
-                    <Column width='fit-content' padding='0' align='flex-start' style={{ background: "none" }}>
-                        <UserName IsCommentUserName={false} style={{ margin: "15px 0px 3px 0px", color: Colors.Secoundry.darkGray }}>
-                            {`${User.UserName} ${User.FamilyName}`}
-                        </UserName>
-                        <UserName IsCommentUserName={true} style={{ color: Colors.Secoundry.darkGray }}>{User.Email}</UserName>
+                    <Column width='100%' padding='0' align='flex-start' style={{ background: "none", marginTop: "15px", justifyContent: "space-between" }}>
+
+                        <Row width='100%' padding='0' align='center' style={{ background: "none", justifyContent: "space-between" }}>
+                            <UserName IsCommentUserName={false} style={{ color: Colors.Secoundry.darkGray, margin: "5px 0", fontSize: "1rem" }}>
+                                {`${User.UserName} ${User.FamilyName}`}
+                            </UserName>
+                            <FontAwesomeIcon style={{ color: Colors.Primary.SoftBlack, margin: "3px", fontSize: "0.9rem" }} icon={faCaretDown} />
+                        </Row>
+
+                        <UserName IsCommentUserName={true} style={{ color: Colors.Primary.SoftBlack }}>{User.Email}</UserName>
                     </Column>
                 </Column>
 

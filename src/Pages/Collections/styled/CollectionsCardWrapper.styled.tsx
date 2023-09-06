@@ -8,8 +8,7 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 5px;
 padding:3px;
- overflow: scroll;
-  height: calc(100% - 60px);
+overflow: scroll;
 
  &::-webkit-scrollbar {
   display: none;
