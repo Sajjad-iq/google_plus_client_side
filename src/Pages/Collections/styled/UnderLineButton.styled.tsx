@@ -7,7 +7,7 @@ interface Props {
 }
 export const UnderLineButton = styled.button<Props>`
 background: none;
-color: ${Colors.Primary.white};
+color: ${Colors.Primary.MediumGray};
 padding: 15px 0px ;
 margin-top:3px;
 display: flex;
@@ -21,6 +21,8 @@ font-size:0.8rem;
   
 ${p => p.IsActive ?
     `  border-bottom: 4px solid ${p.color};
+      color: ${p.color};
+
   `
     :
     ``
