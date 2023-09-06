@@ -6,7 +6,7 @@ import { CommentBody } from '../../../../Components/shared/SingleCommint/styled/
 import { Wrapper } from '../../../../Components/shared/Wrapper'
 import { LoadingButton } from '../../../../Components/shared/LoadingButton'
 import { Colors } from '../../../../assets/Colors'
-import CoverPicture from '../../../../assets/ICONS/Photos/marguerite-729510__340.svg'
+import CoverPicture from '../../../../assets/ICONS/Photos/marguerite-729510__340.webp'
 import UserImage from '../../../../assets/ICONS/ProfileImg.jpg'
 import { UserData } from '../../../../services/LocalStorage/UserData'
 
@@ -32,13 +32,13 @@ export const CollectionSingleCard = (props: Props) => {
 
             <Wrapper style={{ background: props.Color, padding: "0 10px 0 10px", height: "55%", justifyContent: "space-between", borderRadius: "0px 0px 2px 2px" }}>
 
-                <CollectionsUserImage src={props.CollationUserImage || UserImage} alt='Collections user image' />
+                <CollectionsUserImage style={{ border: "1px solid white" }} src={props.CollationUserImage || UserImage} alt='Collections user image' />
 
                 <Wrapper style={{ background: "none", flexDirection: "column", alignItems: "start" }}>
-                    <UserName style={{ margin: "5px 0", color: Colors.Primary.white }} IsCommentUserName={true}
+                    <UserName style={{ margin: "5px 0", color: Colors.Primary.white }} IsCommentUserName={false}
                     >{props.CollationName}
                     </UserName>
-                    <CommentBody style={{ color: Colors.Primary.white }}>{props.CollationOwnerName}</CommentBody>
+                    <CommentBody style={{ color: Colors.Primary.MediumGray, opacity: 0.8 }}>{props.CollationOwnerName}</CommentBody>
                 </Wrapper>
 
                 {

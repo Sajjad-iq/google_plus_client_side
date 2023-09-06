@@ -1,7 +1,7 @@
 import { InputLabel } from '../../../../../Components/common/InputLabel.styled'
 import { UserData } from '../../../../../services/LocalStorage/UserData'
 import { ChangeProfileCoverImage } from '../../../../../services/SettingsServices/ChangeProfileCoverImage'
-import CoverIMG from "../../../../../assets/ICONS/Photos/marguerite-729510__340.svg"
+import CoverIMG from "../../../../../assets/ICONS/Photos/marguerite-729510__340.webp"
 import { CoverImg } from '../styled/CoverImg.styled'
 
 export const ProfileCoverImageChange = () => {

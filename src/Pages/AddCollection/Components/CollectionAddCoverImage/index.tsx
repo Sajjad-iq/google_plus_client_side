@@ -1,6 +1,6 @@
 import { CollectionCoverImage } from '../../styled/CollectionCoverImage.styled'
 import { Wrapper } from '../../../../Components/shared/Wrapper'
-import CoverImage from '../../../../assets/ICONS/Photos/marguerite-729510__340.svg'
+import CoverImage from '../../../../assets/ICONS/Photos/marguerite-729510__340.webp'
 import { AddImage } from '../../../Home/Components/PopUpAddPostWindow/Components/AddImage'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
 import { imagesConvertToBase64 } from '../../../../helpers/imagesConvertToBase64'

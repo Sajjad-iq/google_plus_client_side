@@ -1,6 +1,6 @@
 import { Wrapper } from "../../Components/shared/Wrapper"
 import { CoverImages } from "../../Components/shared/CoverImages"
-import CoverIMG from "../../assets/ICONS/Photos/marguerite-729510__340.svg"
+import CoverIMG from "../../assets/ICONS/Photos/marguerite-729510__340.webp"
 import UserIMG from "../../assets/ICONS/ProfileImg.jpg"
 import { UserInfo } from "../../Components/shared/UserInfo"
 import { Posts } from "../../Components/shared/Posts"

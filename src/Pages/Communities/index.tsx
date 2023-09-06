@@ -5,7 +5,7 @@ import { CommunitiesButtonsNames } from './Components/CommunitiesButtonsNames'
 import { Colors } from '../../assets/Colors'
 import { Wrapper } from '../../Components/shared/Wrapper'
 import userImg from '../../assets/ICONS/ProfileImg.jpg'
-import Cover from '../../assets/ICONS/Photos/marguerite-729510__340.svg'
+import Cover from '../../assets/ICONS/Photos/marguerite-729510__340.webp'
 import { CommunitiesSingleCard } from './Components/CommunitiesSingleCard'
 
 
