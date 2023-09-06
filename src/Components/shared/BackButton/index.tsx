@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import "../../../assets/GlobalStyles/style.css"
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import "./style.css"
 import { MouseEventHandler } from 'react';
 import { Button } from '../../common/Button.styled';
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 export const BackButton = (props: Props) => {
     return (
         <Button onClick={props.onClick}>
-            <FontAwesomeIcon className='post-fa-icon' style={{ color: props.color }} icon={faChevronLeft} />
+            <FontAwesomeIcon className='back-arrow' style={{ color: props.color }} icon={faArrowLeft} />
         </Button>
     )
 }

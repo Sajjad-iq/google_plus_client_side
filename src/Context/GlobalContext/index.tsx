@@ -87,8 +87,11 @@ const GlobalContextProvider = ({ children }: ProviderChildrenType) => {
     // for notifications bell
     const [HasNotifications, setHasNotifications] = useState(false)
 
+    // for collections page
+    const [SelectedButton, setSelectedButton] = useState(0)
+
     return (
-        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost }}>
+        <GlobalContext.Provider value={{ OptionsValue, setOptionsValue, SpecificCollection, setSpecificCollection, User, setUser, HasNotifications, setHasNotifications, SpecificPostComments, setSpecificPostComments, IsEditPostWindowActive, setIsEditPostWindowActive, PeopleUser, setPeopleUser, FindUser, setFindUser, SpecificPost, setSpecificPost, SelectedButton, setSelectedButton }}>
             {children}
         </GlobalContext.Provider>
     )

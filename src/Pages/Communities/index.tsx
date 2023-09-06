@@ -10,12 +10,9 @@ import { CommunitiesSingleCard } from './Components/CommunitiesSingleCard'
 
 
 export const Communities = () => {
-    const [SelectedButton, setSelectedButton] = useState(0)
 
     return (
         <Wrapper style={{ height: "100%", alignContent: "flex-start" }}>
-
-            <CollectionsNav color={Colors.Secoundry.Green} buttonsNames={CommunitiesButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
 
             <CollectionsCardWrapper >
 
