@@ -16,6 +16,7 @@ export const SplitScreen = () => {
     const { IsPageActive, Toggle, setIsPageActive } = ActiveToggle()
     const Location = useLocation()
 
+
     return (
         <SplitWrapper >
 
