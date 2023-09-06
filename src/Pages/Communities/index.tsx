@@ -1,7 +1,4 @@
-import { useState } from 'react'
-import { CollectionsNav } from '../Collections/Components/CollectionsNav'
 import { CollectionsCardWrapper } from '../Collections/styled/CollectionsCardWrapper.styled'
-import { CommunitiesButtonsNames } from './Components/CommunitiesButtonsNames'
 import { Colors } from '../../assets/Colors'
 import { Wrapper } from '../../Components/shared/Wrapper'
 import userImg from '../../assets/ICONS/ProfileImg.jpg'
