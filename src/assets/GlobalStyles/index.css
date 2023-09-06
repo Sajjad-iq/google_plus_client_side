@@ -18,3 +18,7 @@ body,
 .active {
   color: rgb(198, 62, 62);
 }
+
+.margin-x {
+  margin: 0 25px;
+}

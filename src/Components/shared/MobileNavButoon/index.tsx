@@ -6,7 +6,8 @@ interface Props {
     To: string
     ICON: string
     Name: string
-    Style: {}
+    Style?: {}
+    textStyle?: {}
 }
 
 export const MobileNavButton = (props: Props) => {
@@ -17,7 +18,7 @@ export const MobileNavButton = (props: Props) => {
             style={props.Style}
         >
             <img className="mobile-nav-button" src={props.ICON} alt="nav" />
-            <p className={`mobile-link-button-name`} style={props.Style}>{props.Name}</p>
+            <p className={`mobile-link-button-name`} style={props.Style || props.textStyle}>{props.Name}</p>
 
         </NavLink>
     )

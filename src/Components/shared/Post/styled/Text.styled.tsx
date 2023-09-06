@@ -7,7 +7,7 @@ export const Text = styled.article`
  font-size:1rem;
  width: 100%;
  text-align: start;
- padding:10px 15px;
+ padding:5px 15px;
   word-wrap: break-word; 
 
  

@@ -31,7 +31,7 @@ export const NotificationsCard = (props: Props) => {
         <Wrapper onClick={props.onClick} style={props.IsRead ? { background: Colors.Primary.SoftGray, opacity: "0.80", padding: "10px", justifyContent: "flex-start" } : { padding: "10px", justifyContent: "flex-start" }}>
             <NotificationsCardImage Images={props.UserImages} />
 
-            <Column width='80%' align='flex-start' padding='0' style={{ background: "none" }}>
+            <Column width='77%' align='flex-start' padding='0' style={{ background: "none", margin: "0 10px" }}>
                 <NotificationsUserName >{props.UsersName.length > 6 ? `${sliceArr} and ${props.NotificationIds.length || "0"} others` : usersName}</NotificationsUserName>
 
                 <NotificationsBody>{props.NotificationMessage}</NotificationsBody>

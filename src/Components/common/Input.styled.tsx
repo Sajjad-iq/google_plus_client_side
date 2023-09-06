@@ -7,9 +7,8 @@ interface Props {
 }
 export const Input = styled.input<Props>`
  width: 100%;
- padding:10px;
+ padding:5px;
  margin:10px 0;
- border-radius: 5px;
  font-size:1rem;
  border:none;
  border-bottom:2px solid ${Colors.Secoundry.Cyan};

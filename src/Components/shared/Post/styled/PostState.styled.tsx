@@ -11,7 +11,7 @@ export const PostState = styled.p`
  justify-content: center;
  align-items: center;
  font-size:0.8rem;
- margin-right:15px;
+ margin-right:5px;
  margin-left:5px;
 
   @media ${device.tablet} {

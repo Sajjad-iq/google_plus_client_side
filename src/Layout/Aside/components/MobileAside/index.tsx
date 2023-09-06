@@ -59,17 +59,17 @@ export const MobileAside = (props: Props) => {
             </ImageCoverWrapper>
 
             <Section border='1px solid rgb(211, 210, 210)'>
-                <MobileNavButton Style={{}} Name='Profile' To='/Profile' ICON={ProfileIcon} />
-                <NavButton CLass='' Name='People' To='/People' ICON={faUsers} />
-                <NavButton CLass='' Name='Settings' To='/Settings' ICON={faGear} />
-                <NavButton CLass='' Name='Help' To='/Help' ICON={faCircleQuestion} />
+                <MobileNavButton textStyle={{ margin: "0 25px" }} Name='Profile' To='/Profile' ICON={ProfileIcon} />
+                <NavButton CLass='margin-x' Name='People' To='/People' ICON={faUsers} />
+                <NavButton CLass='margin-x' Name='Settings' To='/Settings' ICON={faGear} />
+                <NavButton CLass='margin-x' Name='Help' To='/Help' ICON={faCircleQuestion} />
             </Section>
 
             <Section border='unset' style={{ alignItems: "flex-start" }}>
                 <UserName IsCommentUserName={true} style={{ color: Colors.Primary.SoftBlack, padding: "10px 20px" }}>Developer</UserName>
-                <MobileNavButton Style={{}} Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
-                <MobileNavButton Style={{}} Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
-                <MobileNavButton Style={{}} Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
+                <MobileNavButton textStyle={{ margin: "0 25px" }} Name='linkedin' To='https://www.linkedin.com/in/sajjad-kademm-a68294209/' ICON={LinkedInIcon} />
+                <MobileNavButton textStyle={{ margin: "0 25px" }} Name='github' To='https://github.com/Sajjad-iq' ICON={GitIcon} />
+                <MobileNavButton textStyle={{ margin: "0 25px" }} Name='instagram' To='https://www.instagram.com/sajja3kademm' ICON={InstagramIcon} />
             </Section>
 
         </MobileAsideWrapper>
