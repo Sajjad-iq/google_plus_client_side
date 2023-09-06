@@ -5,7 +5,7 @@ import { UserInfo } from '../../../../Components/shared/UserInfo'
 import { GlobalContext } from '../../../../Context/GlobalContext'
 import { AddOrRemoveFollow } from '../../../../services/PeopleServices/AddOrRemoveFollow'
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
-import CoverIMG from "../../../../assets/ICONS/Photos/marguerite-729510__340.svg"
+import CoverIMG from "../../../../assets/ICONS/Photos/marguerite-729510__340.webp"
 import UserIMG from "../../../../assets/ICONS/ProfileImg.jpg"
 import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
 import { Row } from '../../../../Components/shared/Row.styled'
