@@ -6,7 +6,7 @@ import { UserName } from "../../common/UserName.styled"
 import { LoadingButton } from "../LoadingButton"
 import { UserCardDescription } from "../UserCard/styled/UserCardDescription.styled"
 import { UserCardWrapper } from "../UserCard/styled/UserCardWrapper.styled"
-import UserIMG from "../../assets/ICONS/ProfileImg.jpg"
+import UserIMG from "../../../assets/ICONS/ProfileImg.jpg"
 
 interface Props {
     UserName: string
