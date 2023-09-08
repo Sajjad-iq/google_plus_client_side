@@ -4,9 +4,13 @@ import { UserLogo } from '../../common/UserLogo.styled'
 import { UserName } from '../../common/UserName.styled'
 import { UserCardWrapper } from './styled/UserCardWrapper.styled'
 import { UserCardDescription } from './styled/UserCardDescription.styled'
-import { LoadingButton } from '../LoadingButton'
 import { UserData } from '../../../services/LocalStorage/UserData'
 import { Colors } from '../../../assets/Colors'
+import { Column } from '../Column.styled'
+import { Row } from '../Row.styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import './style.css'
 
 interface Props {
     IsForSearch?: boolean
@@ -29,22 +33,22 @@ export const UserCard = (props: Props) => {
                 src={props.UserImg !== "" ? props.UserImg : UserIMG}
             />
 
-            <UserCardDescription >
-                {props.description}
-            </UserCardDescription>
+            <Row width='100%' padding='0' align='center' style={{ borderBottom: `1px solid ${Colors.Primary.Lightgray}` }}>
+                <Column width='100%' padding='0 5px' align='flex-start'>
+                    <UserName
+                        IsCommentUserName={false}
+                        style={{ textAlign: "center" }}
+                    >{props.UserName}
+                    </UserName>
 
-            <UserName
-                IsCommentUserName={true}
-                style={{ textAlign: "center" }}
-            >{props.UserName}
-            </UserName>
+                    <UserCardDescription >
+                        {props.description}
+                    </UserCardDescription>
+                </Column>
+                <FontAwesomeIcon className='UserAddIcon' style={{ color: "blue" }} icon={props.Followers.includes(User._id) ? faCheck : faUserPlus} />
 
-            <LoadingButton
-                IsLoading={false}
-                onClick={() => ""}
-                ButtonName={props.Followers.includes(User._id) ? "UN FOLLOW" : "FOLLOW"}
-                Style={{ background: "none", padding: "0", fontSize: "0.75rem", color: Colors.Secoundry.Cyan, margin: "8px" }}
-            />
+            </Row>
+
         </UserCardWrapper>
     )
 }

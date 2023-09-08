@@ -5,13 +5,12 @@ import { Colors } from "../../../../assets/Colors";
 export const UserCardDescription = styled.h4`
 font-size: 0.80rem;
 font-weight: 400;
-color:${Colors.Primary.SoftBlack};
-width:75px;
+color:${Colors.Primary.MediumGray};
+width:200px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
-text-align: center;
-margin:5px;
+margin-top:10px;
 
 
 @media ${device.tablet} {

@@ -6,8 +6,5 @@ export const UserCardWrapper = styled.section`
  justify-content: flex-start;
  align-items: center;
  background-color: white;
- flex-direction: column;
- border-radius:8px;
- padding-top:10px;
-
+ margin:10px 0;
 `
