@@ -24,7 +24,7 @@ export const SplitScreen = () => {
                 <Nav MenuButtonHandler={Toggle} isMenuButtonActive={IsPageActive} />
             </Header>
 
-            <Row style={{ height: Location.pathname === "/Collections" || Location.pathname === "/Communities" ? "calc(100% - 114px)" : "calc(100% - 66px)" }}>
+            <Row style={{ height: Location.pathname === "/Collections" || Location.pathname === "/Communities" || Location.pathname === "/People" ? "calc(100% - 114px)" : "calc(100% - 66px)" }}>
                 <LeftSide>
                     <Aside setIsPageActive={setIsPageActive} IsPageActive={IsPageActive} />
                 </LeftSide>

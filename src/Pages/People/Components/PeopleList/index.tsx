@@ -8,26 +8,26 @@ import { SetFindUser } from '../../../../services/PeopleServices/SetFindUser'
 import { Header } from './styled/Header.styled'
 import { Wrapper } from './styled/Wrapper'
 import { CardsWrapper } from './styled/CardsWrapper'
-import { GlobalContext } from '../../../../Context/GlobalContext'
+import { FindUserDef, GlobalContext } from '../../../../Context/GlobalContext'
 
 export const PeopleList = () => {
 
-
+    const [Response, setResponse] = useState([FindUserDef])
     const [PostsCount, setPostsCount] = useState(0)
-    const { FetchAllUsersHandler, StopFetching, Response, Loading } = FetchAllUsers(PostsCount)
+    const { SelectedButton, User } = useContext(GlobalContext)
+    const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(PostsCount, setResponse, Response)
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
     const { SetFindUserHandler } = SetFindUser()
-    let { User } = useContext(GlobalContext)
 
     useEffect(() => {
         FetchAllUsersHandler()
-    }, [PostsCount])
+    }, [PostsCount, SelectedButton])
 
     return (
         <Wrapper >
 
-            <Header>People you may know..</Header>
+            <Header>Suggestions for you</Header>
 
             <CardsWrapper>
 

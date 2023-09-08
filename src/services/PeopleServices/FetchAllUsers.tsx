@@ -1,12 +1,11 @@
 import axios from 'axios'
-import { useState } from 'react'
-import { FindUserDef } from '../../Context/GlobalContext'
+import { useContext, useState } from 'react'
+import { GlobalContext } from '../../Context/GlobalContext'
 
-export const FetchAllUsers = (PostsCount: number) => {
+export const FetchAllUsers = (PostsCount: number, setResponse: any, Response: any) => {
 
     const [Loading, setLoading] = useState(false)
-    const [Response, setResponse] = useState([FindUserDef])
-
+    const { SelectedButton, User } = useContext(GlobalContext)
     const [StopFetching, setStopFetching] = useState(false)
 
     const FetchAllUsersHandler = async () => {
@@ -20,11 +19,20 @@ export const FetchAllUsers = (PostsCount: number) => {
 
                 data: {
                     PayloadCount: PostsCount,
+                    SelectedButton: SelectedButton,
+                    UserFollowing: User.Following
                 }
             }
             ).then(async (e: any) => {
-                let newUsers = Response.concat(e.data.ResponseUsers)
-                setResponse(newUsers)
+
+                if (SelectedButton === 0) {
+                    var users = [...Response]
+                    var newUsers = users.concat(e.data.ResponseUsers)
+                    setResponse(newUsers)
+                } else if (SelectedButton === 1) {
+                    setResponse(e.data.ResponseUsers)
+                    console.log(e.data.ResponseUsers)
+                }
                 setStopFetching(e.data.StopFetching)
             })
         }

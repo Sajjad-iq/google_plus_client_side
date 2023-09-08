@@ -5,14 +5,11 @@ import { Colors } from "../../../../../assets/Colors";
 
 
 export const Header = styled.h2`
-font-size: 1rem;
+font-size: 0.9rem;
 font-weight: 800;
-color:${Colors.Secoundry.gray};
+color:${Colors.Primary.MediumGray};
 display:flex;
-margin:20px 10px;
-position: sticky;
-top:10px;
-
+margin: 10px 0 20px 5px;
 
  @media ${device.desktop} {
   font-size: 1.2rem;
