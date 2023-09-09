@@ -13,7 +13,7 @@ export const PostWrapper = styled.section<Props>`
  flex-direction: column;
  transform: 3s;
  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
- margin:2px 0;
+ margin:6px 0;
  ${p => p.IsForPreview ?
     `@media ${device.laptop} {
    width: 100%;

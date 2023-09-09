@@ -2,7 +2,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import './style.css';
-import { Colors } from "../../../assets/Colors";
 
 
 interface Props {

@@ -6,7 +6,7 @@ export const Count = styled.p`
  display: flex;
  justify-content: center;
  align-items: center;
- font-size:1rem;
+ font-size:0.9rem;
  margin-left:8px;
 
  @media ${device.tablet} {

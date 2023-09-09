@@ -73,6 +73,19 @@ export const Post = (props: Props) => {
                     <Share />
                 </Row>
             </Row>
+
+            {
+                props.IsForPreviewWindow ?
+                    <Row padding="10px" align="flex-start" width="100%">
+                        <PostState style={{
+                            color: Colors.Secoundry.Cyan,
+                            fontWeight: 500
+                        }}>Shared publicly . View activity </PostState>
+                    </Row>
+                    :
+                    null
+            }
+
         </PostWrapper>
     )
 }

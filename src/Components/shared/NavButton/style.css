@@ -16,7 +16,7 @@
 .name {
     font-weight: 700;
     font-family: 'Raleway', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@
 
 @media(min-width:768px) {
     .name {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
 }
@@ -48,7 +48,4 @@
     .name {
         font-size: 1rem;
     }
-
-
-
 }
