@@ -1,3 +1,4 @@
+
 import { Row } from '../Row.styled'
 import { UserName } from '../../common/UserName.styled'
 import { Column } from '../Column.styled'
@@ -74,7 +75,7 @@ export const SingleComment = (props: Props) => {
                     <UserName onClick={props.onClickOnLogo} IsCommentUserName={true} >{props.data.CommentOwnerName}</UserName>
 
                     <Row width='fit-content' padding='0px' align='center'>
-                        <P>{DateCalculator()}</P>
+                        <P>{DateCalculator()}</P>-
 
                         <Row width='fit-content' align='flex-start' padding='0 0 0 10px' style={{ position: "relative" }}>
                             <Button onClick={() => setIsOptionsWindowActive(!IsOptionsWindowActive)}>

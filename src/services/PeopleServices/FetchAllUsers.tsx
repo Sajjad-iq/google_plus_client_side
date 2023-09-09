@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useContext, useState } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
-export const FetchAllUsers = (PostsCount: number, setResponse: any, Response: any) => {
+export const FetchAllUsers = (UsersCount: number, setResponse: any, Response: any, FindMoreFollowing: boolean) => {
 
     const [Loading, setLoading] = useState(false)
     const { SelectedButton, User } = useContext(GlobalContext)
@@ -18,21 +18,31 @@ export const FetchAllUsers = (PostsCount: number, setResponse: any, Response: an
                 withCredentials: true,
 
                 data: {
-                    PayloadCount: PostsCount,
+                    PayloadCount: UsersCount,
                     SelectedButton: SelectedButton,
-                    UserFollowing: User.Following
+                    UserFollowing: User.Following,
+                    UserFollowers: User.Followers,
+                    FindMoreFollowing: FindMoreFollowing
                 }
             }
             ).then(async (e: any) => {
 
-                if (SelectedButton === 0) {
+                if (SelectedButton === 0 || SelectedButton === 2) {
+
+                    if (UsersCount === 0) {
+                        setResponse(e.data.ResponseUsers)
+                    } else {
+                        var users = [...Response]
+                        var newUsers = users.concat(e.data.ResponseUsers)
+                        setResponse(newUsers)
+                    }
+                } else if (SelectedButton === 1 && !FindMoreFollowing) setResponse(e.data.ResponseUsers)
+                else if (SelectedButton === 1 && FindMoreFollowing) {
                     var users = [...Response]
                     var newUsers = users.concat(e.data.ResponseUsers)
-                    setResponse(newUsers)
-                } else if (SelectedButton === 1) {
-                    setResponse(e.data.ResponseUsers)
-                    console.log(e.data.ResponseUsers)
+                    if (e.data.ResponseUsers.length !== 0 ) setResponse(newUsers)
                 }
+
                 setStopFetching(e.data.StopFetching)
             })
         }

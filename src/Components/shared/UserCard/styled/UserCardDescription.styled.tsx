@@ -10,7 +10,7 @@ width:200px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
-margin-top:10px;
+margin-top:5px;
 
 
 @media ${device.tablet} {

@@ -4,10 +4,12 @@ import { Colors } from "../../../../../assets/Colors";
 
 
 
-export const Header = styled.h2`
-font-size: 0.8rem;
+export const More = styled.button`
+font-size: 0.9rem;
 font-weight: 500;
-color:${Colors.Primary.MediumGray};
+color:${Colors.Secoundry.Cyan};
+background: none;
+border: none;
 
  @media ${device.desktop} {
   font-size: 1.2rem;

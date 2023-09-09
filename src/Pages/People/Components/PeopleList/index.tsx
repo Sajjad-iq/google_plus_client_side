@@ -9,32 +9,41 @@ import { Header } from './styled/Header.styled'
 import { Wrapper } from './styled/Wrapper'
 import { CardsWrapper } from './styled/CardsWrapper'
 import { FindUserDef, GlobalContext } from '../../../../Context/GlobalContext'
+import { More } from './styled/More.styled'
+import { Observing, seeMore } from '../../utils'
 
 export const PeopleList = () => {
 
     const [Response, setResponse] = useState([FindUserDef])
     const [UsersCount, setUsersCount] = useState(0)
+    const [FindMoreFollowing, setFindMoreFollowing] = useState(false)
+    const [FirstClick, setFirstClick] = useState(false)
     const { SelectedButton, User } = useContext(GlobalContext)
-    const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(UsersCount, setResponse, Response)
+    const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(UsersCount, setResponse, Response, FindMoreFollowing)
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching && SelectedButton !== 1 ? setUsersCount(UsersCount + 10) : null, Loading)
     const { SetFindUserHandler } = SetFindUser()
 
+    useObserver(BottomRef, () => Observing(Loading, StopFetching, FindMoreFollowing, setUsersCount, UsersCount, SelectedButton), Loading)
 
 
     useEffect(() => {
-        if (SelectedButton === 1) setUsersCount(0)
         FetchAllUsersHandler()
-    }, [UsersCount, SelectedButton])
+    }, [UsersCount, SelectedButton, FindMoreFollowing])
 
-
-
+    useEffect(() => {
+        if (SelectedButton !== 1) setFindMoreFollowing(false)
+        setUsersCount(0)
+    }, [SelectedButton])
 
 
     return (
         <Wrapper >
 
-            <Header>Suggestions for you</Header>
+            <Row width='100%' padding='0' align='space-between' style={{ margin: SelectedButton === 2 ? "0" : "10px 0 20px 0" }}>
+                <Header >{SelectedButton === 0 ? 'Suggestions for you' : SelectedButton === 1 ? `Following  ${User.Following.length}` : ''}</Header>
+                <More style={{ display: !FindMoreFollowing && SelectedButton === 1 ? "flex" : "none" }} onClick={() => seeMore(setFindMoreFollowing, setResponse)}>More</More>
+            </Row>
+
 
             <CardsWrapper >
 

@@ -33,7 +33,7 @@ export const UserCard = (props: Props) => {
                 src={props.UserImg !== "" ? props.UserImg : UserIMG}
             />
 
-            <Row width='100%' padding='0' align='center' style={{ borderBottom: `1px solid ${Colors.Primary.Lightgray}` }}>
+            <Row width='100%' padding='5px' align='center' style={{ borderBottom: `1px solid ${Colors.Primary.Lightgray}` }}>
                 <Column width='100%' padding='0 5px' align='flex-start'>
                     <UserName
                         IsCommentUserName={false}
