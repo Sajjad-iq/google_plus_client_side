@@ -13,23 +13,30 @@ import { FindUserDef, GlobalContext } from '../../../../Context/GlobalContext'
 export const PeopleList = () => {
 
     const [Response, setResponse] = useState([FindUserDef])
-    const [PostsCount, setPostsCount] = useState(0)
+    const [UsersCount, setUsersCount] = useState(0)
     const { SelectedButton, User } = useContext(GlobalContext)
-    const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(PostsCount, setResponse, Response)
+    const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(UsersCount, setResponse, Response)
     const BottomRef = useRef<any>()
-    const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 10) : null, Loading)
+    const observer = useObserver(BottomRef, () => !Loading && !StopFetching && SelectedButton !== 1 ? setUsersCount(UsersCount + 10) : null, Loading)
     const { SetFindUserHandler } = SetFindUser()
 
+
+
     useEffect(() => {
+        if (SelectedButton === 1) setUsersCount(0)
         FetchAllUsersHandler()
-    }, [PostsCount, SelectedButton])
+    }, [UsersCount, SelectedButton])
+
+
+
+
 
     return (
         <Wrapper >
 
             <Header>Suggestions for you</Header>
 
-            <CardsWrapper>
+            <CardsWrapper >
 
                 {
                     Response.map((e) => {
