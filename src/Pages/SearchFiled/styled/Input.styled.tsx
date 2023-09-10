@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Colors } from "../../../assets/Colors";
-import { device } from "../../../assets/breackPoints";
 
 interface Props {
   IsValidValue: boolean
@@ -10,10 +9,10 @@ export const Input = styled.input<Props>`
   padding: 10px 5px;
   font-size: 1.2rem;
   border:none;
-  border-bottom:2px solid ${Colors.Secoundry.Cyan};
-  background:White;
+  background:none;
   font-family: 'Roboto', sans-serif;
   outline:none;
+  margin:0 10px;
 
   &:focus{
       outline:none};

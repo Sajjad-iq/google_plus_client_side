@@ -17,7 +17,6 @@ export const PeopleList = () => {
     const [Response, setResponse] = useState([FindUserDef])
     const [UsersCount, setUsersCount] = useState(0)
     const [FindMoreFollowing, setFindMoreFollowing] = useState(false)
-    const [FirstClick, setFirstClick] = useState(false)
     const { SelectedButton, User } = useContext(GlobalContext)
     const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(UsersCount, setResponse, Response, FindMoreFollowing)
     const BottomRef = useRef<any>()
