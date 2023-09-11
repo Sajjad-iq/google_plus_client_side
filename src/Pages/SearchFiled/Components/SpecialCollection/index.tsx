@@ -27,7 +27,7 @@ export const SpecialCollection = (props: Props) => {
         <Column width='100%' padding='0' align='center'>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >SpecialCollection</Header>
+                <Header >SpecialCollections</Header>
                 <More>More</More>
             </Row>
 

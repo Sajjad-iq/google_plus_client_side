@@ -6,7 +6,7 @@ import { Colors } from "../../../../../assets/Colors";
 
 export const More = styled.button`
 font-size: 0.9rem;
-font-weight: 500;
+font-weight: 600;
 color:${Colors.Secoundry.Cyan};
 background: none;
 border: none;

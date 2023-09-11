@@ -5,6 +5,7 @@ import { SearchNavigation } from "./Components/SearchNavigation"
 import { SpecialCollection } from "./Components/SpecialCollection"
 import { FetchCollections } from "../../services/Collections/FetchCollections"
 import { UserData } from "../../services/LocalStorage/UserData"
+import { SpecialCommunities } from "./Components/SpecialCommunities"
 
 
 
@@ -30,6 +31,7 @@ export const SearchPage = () => {
         <SearchWrapper >
             <SearchNavigation IsValid={IsValid} setSearchWord={setSearchWord} />
             <SpecialCollection FetchCollectionsHandler={FetchCollectionsHandler} CollectionsResponse={CollectionsResponse} />
+            <SpecialCommunities />
         </SearchWrapper>
     )
 }
