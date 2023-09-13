@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 interface Props {
     IsValid: boolean
-    setSearchWord: any
+    onChange: any
 }
 export const SearchNavigation = (props: Props) => {
 
@@ -14,7 +14,7 @@ export const SearchNavigation = (props: Props) => {
     return (
         <SearchNav >
             <BackButton style={{ margin: '0 15px' }} onClick={() => Navigate("/")} color='gray' />
-            <Input IsValidValue={props.IsValid} onChange={(e) => props.setSearchWord(e.target.value)} placeholder="Search" />
+            <Input IsValidValue={props.IsValid} onChange={props.onChange} placeholder="Search" />
         </SearchNav>
     )
 }

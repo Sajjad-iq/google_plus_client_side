@@ -1,11 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { SearchWrapper } from "./styled/SearchWrapper.styled"
-import { AddMentionServices } from "../../services/PostsServices/MentionServices"
 import { SearchNavigation } from "./Components/SearchNavigation"
 import { SpecialCollection } from "./Components/SpecialCollection"
-import { FetchCollections } from "../../services/Collections/FetchCollections"
 import { UserData } from "../../services/LocalStorage/UserData"
 import { SpecialCommunities } from "./Components/SpecialCommunities"
+import { SpecialUsers } from "./Components/SpecialUsers"
+import { SpecialPosts } from "./Components/SpecialPosts"
+import { Suggestions } from "../../services/SearchServices/Suggestions"
+import { SearchDef } from "./Components/SpecialPosts/types"
+import { Searching } from "../../services/SearchServices/Searching"
 
 
 
@@ -14,27 +17,34 @@ export const SearchPage = () => {
     const [SearchWord, setSearchWord] = useState("")
     const User = UserData()
     const [IsValid, setIsValid] = useState(true)
-    const { FetchCollectionsHandler, CollectionsLoading, CollectionsResponse } = FetchCollections({ CollectionOwnerId: User._id }, 1)
+    const [Response, setResponse] = useState<any>(SearchDef)
+    const { FetchSuggestions } = Suggestions(setResponse)
+    const { onChange, FindUserHandler } = Searching(SearchWord, setSearchWord, setIsValid, setResponse)
 
-    const { FindMentionedUserHandler, MentionResponse, isMentionLoading } = AddMentionServices()
-
-    /*     useEffect(() => {
+    useEffect(() => {
+        if (SearchWord !== "") {
             const timer = setTimeout(() => {
-                FindMentionedUserHandler(SearchWord)
-            }, 1000);
+                FindUserHandler()
+            }, 800);
             return () => clearTimeout(timer);
-        }, [SearchWord]); */
+        }
+    }, [SearchWord]);
 
+
+    useEffect(() => {
+        FetchSuggestions()
+    }, []);
 
     // use cancel token
     return (
         <SearchWrapper >
-            <SearchNavigation IsValid={IsValid} setSearchWord={setSearchWord} />
-            <SpecialCollection FetchCollectionsHandler={FetchCollectionsHandler} CollectionsResponse={CollectionsResponse} />
+            <SearchNavigation IsValid={IsValid} onChange={onChange} />
+            <SpecialUsers UsersResponse={Response.Accounts} />
+            <SpecialPosts Response={Response.Posts} />
+            <SpecialCollection CollectionsResponse={Response.Collections} />
             <SpecialCommunities />
         </SearchWrapper>
     )
 }
-
 
 export default SearchPage

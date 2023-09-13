@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { More } from '../../../People/Components/PeopleList/styled/More.styled'
 import { Header } from '../../../People/Components/PeopleList/styled/Header.styled'
@@ -10,7 +10,6 @@ import { GlobalContext } from '../../../../Context/GlobalContext'
 
 
 interface Props {
-    FetchCollectionsHandler: any
     CollectionsResponse: any
 }
 export const SpecialCollection = (props: Props) => {
@@ -18,16 +17,11 @@ export const SpecialCollection = (props: Props) => {
     const { setSpecificCollection } = useContext(GlobalContext)
     const Navigate = useNavigate()
 
-    useEffect(() => {
-        props.FetchCollectionsHandler()
-    }, [])
-
-
     return (
         <Column width='100%' padding='0' align='center'>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >SpecialCollections</Header>
+                <Header >Special Collections</Header>
                 <More>More</More>
             </Row>
 

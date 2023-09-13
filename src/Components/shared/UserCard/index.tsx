@@ -21,6 +21,7 @@ interface Props {
     IsLoading: boolean
     Followers: any
     OnClickAdd: MouseEventHandler
+    style?: {}
 }
 export const UserCard = (props: Props) => {
 
@@ -28,7 +29,7 @@ export const UserCard = (props: Props) => {
 
     return (
 
-        <UserCardWrapper onClick={props.onClick}>
+        <UserCardWrapper onClick={props.onClick} style={props.style}>
             <UserLogo
                 src={props.UserImg !== "" ? props.UserImg : UserIMG}
             />

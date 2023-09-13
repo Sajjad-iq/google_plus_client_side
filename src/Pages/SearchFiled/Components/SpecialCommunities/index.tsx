@@ -14,7 +14,7 @@ export const SpecialCommunities = () => {
         <Column width='100%' padding='0' align='center'>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >SpecialCommunities</Header>
+                <Header >Recommended Communities</Header>
                 <More>More</More>
             </Row>
 
