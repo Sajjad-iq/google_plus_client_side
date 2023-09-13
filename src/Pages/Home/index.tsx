@@ -13,7 +13,7 @@ import { GlobalContext } from "../../Context/GlobalContext"
 export const Home = () => {
 
     const { User } = useContext(GlobalContext)
-    const [PostsCount, setPostsCount] = useState(1)
+    const [PostsCount, setPostsCount] = useState(0)
     const { onClickOnPost } = PreviewThePost()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
     const BottomRef = useRef<any>()

@@ -38,7 +38,6 @@ export const Posts = (props: Props) => {
         return () => clearTimeout(timer);
     }, [post]);
 
-
     return (
         <PostToggleSection style={{ minHeight: "auto" }} display={"block"}>
             < ResponsiveMasonry
