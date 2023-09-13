@@ -46,7 +46,7 @@ export const SearchPage = () => {
             <SearchNavigation IsValid={IsValid} onChange={onChange} />
 
             {IsLoading ?
-                <Row width='100%' padding='10px' align='center' >
+                <Row style={{ background: "none" }} width='100%' padding='10px' align='center' >
                     <LoadingAnimation />
                 </Row>
                 :
