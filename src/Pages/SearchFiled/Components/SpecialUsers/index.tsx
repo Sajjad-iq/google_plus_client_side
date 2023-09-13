@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { Row } from "../../../../Components/shared/Row.styled"
 import { UserCard } from "../../../../Components/shared/UserCard"
 import { Wrapper } from "../../../../Components/shared/Wrapper"
@@ -14,6 +15,7 @@ interface Props {
 export const SpecialUsers = (props: Props) => {
 
     const { SetFindUserHandler } = SetFindUser()
+    const Navigate = useNavigate()
 
 
     return (
@@ -21,7 +23,7 @@ export const SpecialUsers = (props: Props) => {
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Suggested People & Pages</Header>
-                <More>More</More>
+                <More onClick={() => Navigate("/People/")}>More</More>
             </Row>
 
             <CardsWrapper >

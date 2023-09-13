@@ -22,7 +22,7 @@ export const SpecialCollection = (props: Props) => {
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Special Collections</Header>
-                <More>More</More>
+                <More onClick={() => Navigate("/Collections")}>More</More>
             </Row>
 
             <CollectionsCardWrapper >

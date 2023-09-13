@@ -4,6 +4,7 @@ import { Wrapper } from '../../../Home/styled/Wrapper'
 import { More } from '../../../People/Components/PeopleList/styled/More.styled'
 import { Header } from '../../../People/Components/PeopleList/styled/Header.styled'
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
+import { useNavigate } from 'react-router-dom'
 
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 export const SpecialPosts = (props: Props) => {
 
     const { onClickOnPost } = PreviewThePost()
+    const Navigate = useNavigate()
 
 
     return (
@@ -19,7 +21,7 @@ export const SpecialPosts = (props: Props) => {
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Recommended for you</Header>
-                <More>More</More>
+                <More onClick={() => Navigate("/")}>More</More>
             </Row>
 
             <Posts

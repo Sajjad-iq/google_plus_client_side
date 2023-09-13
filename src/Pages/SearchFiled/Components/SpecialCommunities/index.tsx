@@ -7,15 +7,19 @@ import { Column } from "../../../../Components/shared/Column.styled"
 import { Row } from "../../../../Components/shared/Row.styled"
 import { More } from "../../../People/Components/PeopleList/styled/More.styled"
 import { Header } from "../../../People/Components/PeopleList/styled/Header.styled"
+import { useNavigate } from "react-router-dom"
 
 
 export const SpecialCommunities = () => {
+
+    const Navigate = useNavigate()
+
     return (
         <Column width='100%' padding='0' align='center'>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Recommended Communities</Header>
-                <More>More</More>
+                <More onClick={() => Navigate("/Communities")}>More</More>
             </Row>
 
             <CollectionsCardWrapper >
