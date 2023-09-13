@@ -17,7 +17,7 @@ export const SpecialUsers = (props: Props) => {
 
 
     return (
-        <Wrapper style={{ background: "none" }}>
+        <Wrapper style={{ display: props.UsersResponse.length !== 0 ? "flex" : "none", background: "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Suggested People & Pages</Header>

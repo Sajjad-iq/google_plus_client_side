@@ -15,7 +15,7 @@ export const SpecialPosts = (props: Props) => {
 
 
     return (
-        <Wrapper style={{ background: "none" }}>
+        <Wrapper style={{ display: props.Response.length !== 0 ? "flex" : "none", background: "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Recommended for you</Header>

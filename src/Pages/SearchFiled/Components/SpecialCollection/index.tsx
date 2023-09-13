@@ -18,7 +18,7 @@ export const SpecialCollection = (props: Props) => {
     const Navigate = useNavigate()
 
     return (
-        <Column width='100%' padding='0' align='center'>
+        <Column width='100%' padding='0' align='center' style={{ display: props.CollectionsResponse.length !== 0 ? "flex" : "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
                 <Header >Special Collections</Header>

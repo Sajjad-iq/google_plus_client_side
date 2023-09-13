@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 
 
-export const Searching = (SearchWord: any, setSearchWord: any, setIsValid: any, setResponse: any) => {
+export const Searching = (SearchWord: any, setSearchWord: any, setIsValid: any, setResponse: any, setIsLoading: any) => {
+
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const Regex = /[^a-zA-Z1-9 \s]/g
@@ -18,6 +19,7 @@ export const Searching = (SearchWord: any, setSearchWord: any, setIsValid: any, 
 
     const FindUserHandler = async () => {
         try {
+            setIsLoading(true)
             await axios({
                 method: 'post',
                 url: import.meta.env.VITE_BACKEND_URL + "/api/Search/Searching",
@@ -32,6 +34,9 @@ export const Searching = (SearchWord: any, setSearchWord: any, setIsValid: any, 
             })
         } catch (e) {
             console.log(e)
+        }
+        finally {
+            setIsLoading(false)
         }
     }
     return { onChange, FindUserHandler }
