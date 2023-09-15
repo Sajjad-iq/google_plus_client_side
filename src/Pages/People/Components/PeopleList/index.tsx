@@ -32,6 +32,7 @@ export const PeopleList = () => {
     useEffect(() => {
         if (SelectedButton !== 1) setFindMoreFollowing(false)
         setUsersCount(0)
+        setResponse([FindUserDef])
     }, [SelectedButton])
 
 
@@ -47,7 +48,7 @@ export const PeopleList = () => {
             <CardsWrapper >
 
                 {
-                    Loading ?
+                    Loading && Response.length === 1 ?
                         <Row style={{ background: "none" }} width='100%' padding='10px' align='center' >
                             <LoadingAnimation />
                         </Row>
@@ -72,6 +73,9 @@ export const PeopleList = () => {
 
             </CardsWrapper>
 
+            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
+                <LoadingAnimation />
+            </Row>
 
             <div key={"PeoplePageBottom"} style={{ width: "100%", height: "1px", display: Loading ? "none" : "flex" }} ref={BottomRef}></div>
 

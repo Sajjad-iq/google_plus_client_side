@@ -9,8 +9,6 @@ import { PreviewThePost } from "../../services/PostsServices/PreviewThePost"
 import { useEffect, useRef, useState } from "react"
 import { UserData } from "../../services/LocalStorage/UserData"
 import { useObserver } from "../../services/observer/useObserver"
-import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
-import { Row } from "../../Components/shared/Row.styled"
 import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { RedPenButton } from "../Home/Components/RedPenButton"
 import { AddCollection } from "./components/AddCollection"
@@ -79,10 +77,6 @@ function Profile() {
                 Response={Response}
                 OnClickOnPost={onClickOnPost}
             />
-
-            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='50px' align='center' >
-                <LoadingAnimation />
-            </Row>
 
             <div key={"ProfileBottom"} style={{ width: "100%", height: "1px", display: Response.length >= 1 ? "flex" : "none" }} ref={BottomRef}></div>
         </Wrapper>

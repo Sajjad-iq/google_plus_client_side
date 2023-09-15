@@ -7,8 +7,6 @@ import { AddOrRemoveFollow } from '../../../../services/PeopleServices/AddOrRemo
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
 import CoverIMG from "../../../../assets/ICONS/Photos/marguerite-729510__340.webp"
 import UserIMG from "../../../../assets/ICONS/ProfileImg.jpg"
-import { LoadingAnimation } from '../../../../Components/shared/LoadingAnimation'
-import { Row } from '../../../../Components/shared/Row.styled'
 import { useObserver } from '../../../../services/observer/useObserver'
 import { FetchPostsHandler } from '../../../../services/PostsServices/FetchPosts'
 import { Wrapper } from '../../../../Components/shared/Wrapper'
@@ -75,10 +73,6 @@ export const PeopleProfile = () => {
                 Response={Response}
                 OnClickOnPost={onClickOnPost}
             />
-
-            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='30px' align='center' >
-                <LoadingAnimation />
-            </Row>
 
             <div key={"PeoplePageBottom"} style={{ width: "100%", height: "1px", display: Loading ? "none" : "flex" }} ref={BottomRef}></div>
         </Wrapper>

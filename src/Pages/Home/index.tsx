@@ -2,8 +2,6 @@ import { FetchPostsHandler } from "../../services/PostsServices/FetchPosts"
 import { useContext, useEffect, useRef, useState } from "react"
 import { Posts } from "../../Components/shared/Posts"
 import { PreviewThePost } from "../../services/PostsServices/PreviewThePost"
-import { LoadingAnimation } from "../../Components/shared/LoadingAnimation"
-import { Row } from "../../Components/shared/Row.styled"
 import { useObserver } from "../../services/observer/useObserver"
 import { Wrapper } from "./styled/Wrapper"
 import { RedPenButton } from "./Components/RedPenButton"
@@ -34,9 +32,6 @@ export const Home = () => {
                 Response={Response}
                 OnClickOnPost={onClickOnPost}
             />
-            <Row style={{ display: Loading && Response.length > 1 ? "flex" : "none", background: "none" }} width='100%' padding='30px' align='center' >
-                <LoadingAnimation />
-            </Row>
 
             <div key={"bottom"} style={{ width: "100%", height: "1px" }} ref={BottomRef}></div>
         </Wrapper>

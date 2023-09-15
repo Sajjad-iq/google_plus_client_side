@@ -46,9 +46,7 @@ export const Posts = (props: Props) => {
                 <Masonry >
                     <AddPostComponent GoToAddPostPage={() => Navigate("/AddPost")} IsActive={!props.IsForProfile} />
 
-                    <Row style={{ display: props.Loading && props.Response.length <= 1 ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
-                        <LoadingAnimation />
-                    </Row>
+
 
                     {
                         props.Response?.map((e: any) => {
@@ -81,6 +79,11 @@ export const Posts = (props: Props) => {
                     }
                 </Masonry>
             </ResponsiveMasonry >
+
+            <Row style={{ display: props.Loading ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
+                <LoadingAnimation />
+            </Row>
+
         </PostToggleSection>
     )
 }
