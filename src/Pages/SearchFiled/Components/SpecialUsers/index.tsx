@@ -26,7 +26,7 @@ export const SpecialUsers = (props: Props) => {
                 <More onClick={() => Navigate("/People/")}>More</More>
             </Row>
 
-            <CardsWrapper >
+            <CardsWrapper style={{ minHeight: "auto" }}>
 
                 {
                     props.UsersResponse.map((e: any) => {
