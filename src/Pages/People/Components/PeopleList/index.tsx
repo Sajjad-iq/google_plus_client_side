@@ -47,29 +47,31 @@ export const PeopleList = () => {
             <CardsWrapper >
 
                 {
-                    Response.map((e) => {
-                        return e._id !== "" && e._id !== User._id ?
-                            <UserCard
-                                IsLoading={false}
-                                onClick={() => SetFindUserHandler(e._id)}
-                                key={e._id}
-                                UserName={`${e.UserName} ${e.FamilyName}`}
-                                UserImg={e.ProfilePicture}
-                                IsForSearch={false}
-                                description={e.Description}
-                                Followers={e.Followers}
-                                OnClickAdd={() => ""}
-                            />
-                            :
-                            null
-                    })
+                    Loading ?
+                        <Row style={{ background: "none" }} width='100%' padding='10px' align='center' >
+                            <LoadingAnimation />
+                        </Row>
+                        :
+                        Response.map((e) => {
+                            return e._id !== "" && e._id !== User._id ?
+                                <UserCard
+                                    IsLoading={false}
+                                    onClick={() => SetFindUserHandler(e._id)}
+                                    key={e._id}
+                                    UserName={`${e.UserName} ${e.FamilyName}`}
+                                    UserImg={e.ProfilePicture}
+                                    IsForSearch={false}
+                                    description={e.Description}
+                                    Followers={e.Followers}
+                                    OnClickAdd={() => ""}
+                                />
+                                :
+                                null
+                        })
                 }
 
             </CardsWrapper>
 
-            <Row style={{ display: Loading ? "flex" : "none", background: "none" }} width='100%' padding='10px' align='center' >
-                <LoadingAnimation />
-            </Row>
 
             <div key={"PeoplePageBottom"} style={{ width: "100%", height: "1px", display: Loading ? "none" : "flex" }} ref={BottomRef}></div>
 
