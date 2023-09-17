@@ -1,6 +1,4 @@
 import { AsideWrapper } from './styled/AsideWrapper'
-import { Section } from './styled/Section.styled'
-import { faHouse, faUser, faUsers, faGear, faTriangleExclamation, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
 import { NormalAside } from './components/NormalAside';
 import { MobileAside } from './components/MobileAside';

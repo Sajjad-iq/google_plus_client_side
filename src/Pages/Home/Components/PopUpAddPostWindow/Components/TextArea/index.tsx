@@ -1,11 +1,14 @@
 import { ChangeEventHandler, useEffect } from "react"
 import { TextAreaComponent } from "./TextArea.styled"
+import { useTranslation } from "react-i18next"
 interface Props {
     TextValue: string
     onChange: ChangeEventHandler
     Ref: any
 }
 export const TextArea = (props: Props) => {
+
+    const { t } = useTranslation()
 
     const resizeTextArea = () => {
         if (props.Ref.current.value == "") {
@@ -22,6 +25,6 @@ export const TextArea = (props: Props) => {
 
 
     return (
-        <TextAreaComponent ref={props.Ref} onChange={props.onChange} placeholder="Write something.." required />
+        <TextAreaComponent ref={props.Ref} onChange={props.onChange} placeholder={t("post_writeSomething")} required />
     )
 }

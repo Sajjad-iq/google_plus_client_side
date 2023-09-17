@@ -6,6 +6,7 @@ import { useObserver } from "../../services/observer/useObserver"
 import { Wrapper } from "./styled/Wrapper"
 import { RedPenButton } from "./Components/RedPenButton"
 import { GlobalContext } from "../../Context/GlobalContext"
+import { useTranslation } from "react-i18next"
 
 
 export const Home = () => {
@@ -16,6 +17,7 @@ export const Home = () => {
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, {})
     const BottomRef = useRef<any>()
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount((e: any) => e = e + 5) : null, Loading)
+    const { t } = useTranslation()
 
 
 

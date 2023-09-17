@@ -17,6 +17,7 @@ import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { CollectionsSelect } from "./Components/CollectionsSelect"
 import { imagesConvertToBase64 } from "../../../../helpers/imagesConvertToBase64"
 import { Row } from "../../../../Components/shared/Row.styled"
+import { useTranslation } from "react-i18next"
 
 
 
@@ -25,6 +26,7 @@ export const PopUpAddPostWindow = () => {
     const { AddPostHandler, Photo, setPhoto, TextChange, Textfield, Url, setUrl, isLoading } = AddPost()
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
+    const { t } = useTranslation()
 
     useEffect(() => { if (TextAreaRef.current) TextAreaRef.current?.focus() }, [])
 
@@ -38,7 +40,7 @@ export const PopUpAddPostWindow = () => {
 
                 <Row padding="0" align="space-between" width="100%">
                     <ProfileImageAndPostState />
-                    <LoadingButton Style={{}} onClick={AddPostHandler} ButtonName="Post" IsLoading={isLoading} />
+                    <LoadingButton Style={{}} onClick={AddPostHandler} ButtonName={t("post_postButton")} IsLoading={isLoading} />
                 </Row>
 
 
