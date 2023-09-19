@@ -9,6 +9,7 @@ import { Colors } from '../../../../assets/Colors'
 import CoverPicture from '../../../../assets/ICONS/Photos/marguerite-729510__340.webp'
 import UserImage from '../../../../assets/ICONS/ProfileImg.jpg'
 import { UserData } from '../../../../services/LocalStorage/UserData'
+import Cookies from 'js-cookie'
 
 interface Props {
     CollationName: string
@@ -25,6 +26,7 @@ interface Props {
 export const CollectionSingleCard = (props: Props) => {
 
     const User = UserData()
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
 
     return (
         <CardWrapper onClick={props.onClick}>
@@ -46,14 +48,14 @@ export const CollectionSingleCard = (props: Props) => {
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
-                            ButtonName='Edit'
+                            ButtonName={currentLanguageCode === "ar" ? "تعديل" : 'Edit'}
                             Style={{ background: "none", padding: "0", fontSize: "0.8rem" }}
                         />
                         :
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
-                            ButtonName={props.Followers.includes(User._id) ? "UN FOLLOW" : "FOLLOW"}
+                            ButtonName={props.Followers.includes(User._id) ? currentLanguageCode === "ar" ? "ألغي المتابعة" : "UN FOLLOW" : currentLanguageCode === "ar" ? "تابع" : "FOLLOW"}
                             Style={{ background: "none", padding: "0", fontSize: "0.8rem" }}
                         />
                 }

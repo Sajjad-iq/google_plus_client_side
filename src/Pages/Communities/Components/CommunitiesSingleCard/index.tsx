@@ -10,6 +10,7 @@ import { UserData } from '../../../../services/LocalStorage/UserData'
 import { CardWrapper } from '../../../Collections/styled/CardWrapper.styled'
 import { CollectionsUserImage } from '../../../Collections/styled/CollectionsUserImage.styled'
 import { CoverImage } from '../../../Collections/styled/CoverImage.styled'
+import Cookies from 'js-cookie'
 
 interface Props {
     CollationName: string
@@ -26,6 +27,7 @@ interface Props {
 export const CommunitiesSingleCard = (props: Props) => {
 
     const User = UserData()
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
 
     return (
         <CardWrapper onClick={props.onClick}>
@@ -47,14 +49,14 @@ export const CommunitiesSingleCard = (props: Props) => {
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
-                            ButtonName='Edit'
+                            ButtonName={currentLanguageCode === "ar" ? 'تعديل' : 'Edit'}
                             Style={{ background: "none", padding: "0", fontSize: "0.9rem", color: "green" }}
                         />
                         :
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
-                            ButtonName={props.Followers.includes(User._id) ? "UN JOIN" : "JOIN"}
+                            ButtonName={props.Followers.includes(User._id) ? currentLanguageCode === "ar" ? "الغ الإنضمام" : "UN JOIN" : currentLanguageCode === "ar" ? "انضم" : "JOIN"}
                             Style={{ background: "none", padding: "0", fontSize: "0.9rem", color: "green" }}
                         />
                 }
