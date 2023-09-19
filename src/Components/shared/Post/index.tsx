@@ -15,6 +15,7 @@ import { DateCalculate } from "../../../services/PostsServices/DateCalculate"
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Colors } from "../../../assets/Colors"
+import { useTranslation } from "react-i18next"
 
 
 interface Props {
@@ -38,6 +39,7 @@ interface Props {
 export const Post = (props: Props) => {
 
     const DateCalculator = DateCalculate(props.CreatedAt)
+    const { t } = useTranslation()
 
     return (
         <PostWrapper IsForPreview={props.IsForPreviewWindow}>
@@ -80,7 +82,7 @@ export const Post = (props: Props) => {
                         <PostState style={{
                             color: Colors.Secoundry.Cyan,
                             fontWeight: 500
-                        }}>Shared publicly . View activity </PostState>
+                        }}>{t("post_Shared publicly")}</PostState>
                     </Row>
                     :
                     null

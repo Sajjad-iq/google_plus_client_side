@@ -18,6 +18,7 @@ import UserImage from '../../../assets/ICONS/ProfileImg.jpg'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { AddMentionServices } from '../../../services/PostsServices/MentionServices'
 import { UsersSearchList } from '../UsersSearchList'
+import { useTranslation } from 'react-i18next'
 
 
 export const AddComment = () => {
@@ -32,6 +33,7 @@ export const AddComment = () => {
     const Ref = useRef<any>(null)
     let User = UserData()
     const { SpecificPostComments, setSpecificPostComments } = useContext(GlobalContext)
+    const { t } = useTranslation()
 
 
     const resizeTextArea = () => {
@@ -70,7 +72,7 @@ export const AddComment = () => {
                 <CommentBodySection  >
                     <ReplayTag>{ReplayTo !== "" ? `+${ReplayTo}` : ""}</ReplayTag>
                     < UsersSearchList Response={MentionResponse} IsLoading={isMentionLoading} isActive={isMentionCardActive} setIsActive={setIsMentionCardActive} inputRef={Ref} />
-                    <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder="Add Comment..." rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
+                    <TextField ref={Ref} onFocus={() => setIsActive(true)} IsValidValue={true} onChange={onChange} placeholder={t("post_AddComment")} rows={IsActive ? 2 : 1} style={{ margin: "0", border: "none", width: "100%" }} />
                     <Image src={Photo !== "" ? Photo : ""} alt="image uploader" style={{ display: Photo !== "" ? "flex" : "none" }} />
 
                 </CommentBodySection>
@@ -86,7 +88,7 @@ export const AddComment = () => {
                     CommentSubmitHandler(setSpecificPostComments, SpecificPostComments)
                     setPhoto("")
                 }}
-                    ButtonName={"Submit"} IsLoading={isLoading} />
+                    ButtonName={t("post_Comment_submit")} IsLoading={isLoading} />
 
             </Row>
         </Column>

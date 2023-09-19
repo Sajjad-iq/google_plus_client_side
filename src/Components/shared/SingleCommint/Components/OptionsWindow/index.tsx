@@ -5,6 +5,7 @@ import { CommentsContext } from '../../../../../Context/CommentsContext'
 import { Colors } from '../../../../../assets/Colors'
 import { ToggleColumn } from '../../styled/ToggleColumn.styled'
 import { OptionsButton } from '../../../DropDownOptions/styled/OptionsButton.styled'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     IsActive: boolean
@@ -19,6 +20,7 @@ export const OptionsWindow = (props: Props) => {
     const { DeleteCommentsHandler } = DeleteComments()
     const { setReplayTo, setReplayToId } = useContext(CommentsContext)
     const OptionsRef = useRef<any>()
+    const { t } = useTranslation()
 
     const closeCommentMenu = (e: any) => { if (!OptionsRef.current?.contains(e.target)) props.setIsActive(false) }
 
@@ -35,13 +37,13 @@ export const OptionsWindow = (props: Props) => {
             <OptionsButton style={{ color: Colors.Primary.red, width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { DeleteCommentsHandler(props.data) }}
             >
-                Delete
+                {t("post_delete")}
             </OptionsButton>
 
             <OptionsButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "flex" : "none" }}
                 onClick={() => { props.EditWindowStateChange(e => e = !e) }}
             >
-                Edit
+                {t("post_edit")}
             </OptionsButton>
 
             <OptionsButton
@@ -50,9 +52,9 @@ export const OptionsWindow = (props: Props) => {
                     setReplayTo(`+ ${props.data.CommentOwnerName} `)
                     setReplayToId(props.data.CommentOwnerId)
                 }}
-            >Reply
+            >  {t("post_replay")}
             </OptionsButton>
-            <OptionsButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }}>Report</OptionsButton>
+            <OptionsButton style={{ width: "75px", display: props.data.CommentOwnerId == User._id ? "none" : "flex" }}>{t("post_report")}</OptionsButton>
         </ToggleColumn>
 
     )

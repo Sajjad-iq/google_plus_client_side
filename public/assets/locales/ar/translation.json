@@ -15,6 +15,12 @@
   "post_state_public": "عام",
   "post_state_collection": "مختارات",
   "post_writeSomething": "...أكتب شيئاً",
-  "post_addWindoww": "مالجديد..",
-  "post_addWindoww": "مالجديد.."
+  "post_Shared publicly": "تمت مشاركته بشكل عام . عرض النشاط",
+  "post_delete": "حذف",
+  "post_edit": "تعديل",
+  "post_report": "تبليغ",
+  "post_replay": "رد",
+  "post_AddComment": "أضف تعليق",
+  "post_Comment_submit": "أضف",
+  "Collections_Nav_Featuredf": ""
 }

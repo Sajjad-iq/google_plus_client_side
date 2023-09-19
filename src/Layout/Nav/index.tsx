@@ -8,10 +8,11 @@ import { useLocation } from "react-router-dom"
 import { Colors } from "../../assets/Colors"
 import { Row } from "../../Components/shared/Row.styled"
 import { CollectionsNav } from "../../Pages/Collections/Components/CollectionsNav"
-import { CollectionsButtonsNames } from "../../Pages/Collections/Components/names"
+import { CollectionsArButtonsNames, CollectionsButtonsNames } from "../../Pages/Collections/Components/names"
 import { GlobalContext } from "../../Context/GlobalContext"
-import { CommunitiesButtonsNames } from "../../Pages/Communities/Components/CommunitiesButtonsNames"
-import { PeopleButtonsNames } from "../../Pages/People/Components/PeopleButtonsNames"
+import { CommunitiesArButtonsNames, CommunitiesButtonsNames } from "../../Pages/Communities/Components/CommunitiesButtonsNames"
+import { PeopleArButtonsNames, PeopleButtonsNames } from "../../Pages/People/Components/PeopleButtonsNames"
+import Cookies from 'js-cookie'
 
 interface Props {
     MenuButtonHandler: MouseEventHandler
@@ -23,6 +24,7 @@ export const Nav = React.memo((props: Props) => {
     const Toggle = () => setISActive(!isActive)
     const Location = useLocation()
     const { SelectedButton, setSelectedButton } = useContext(GlobalContext)
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
 
     return (
         <NavWrapper style={{ background: Location.pathname == "/Collections" ? Colors.Secoundry.Cyan : Location.pathname == "/Communities" ? Colors.Secoundry.Green : Colors.Primary.red }}>
@@ -37,9 +39,9 @@ export const Nav = React.memo((props: Props) => {
             </Row>
 
 
-            <CollectionsNav for="/Collections" color={'white'} buttonsNames={CollectionsButtonsNames} SelectedButton={SelectedButton} setSelectedButton={setSelectedButton} />
-            <CollectionsNav for="/Communities" color={'white'} buttonsNames={CommunitiesButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
-            <CollectionsNav for="/People" color={'white'} buttonsNames={PeopleButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
+            <CollectionsNav for="/Collections" color={'white'} buttonsNames={currentLanguageCode === "ar" ? CollectionsArButtonsNames : CollectionsButtonsNames} SelectedButton={SelectedButton} setSelectedButton={setSelectedButton} />
+            <CollectionsNav for="/Communities" color={'white'} buttonsNames={currentLanguageCode === "ar" ? CommunitiesArButtonsNames : CommunitiesButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
+            <CollectionsNav for="/People" color={'white'} buttonsNames={currentLanguageCode === "ar" ? PeopleArButtonsNames : PeopleButtonsNames} setSelectedButton={setSelectedButton} SelectedButton={SelectedButton} />
 
         </NavWrapper>
 

@@ -13,6 +13,7 @@ import { DropDownOptionsBottom } from '../DropDownOptions'
 import { OptionsButton } from '../DropDownOptions/styled/OptionsButton.styled'
 import { DeletePost } from '../../../services/PostsServices/DeletePost'
 import { Row } from '../Row.styled'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     BackHandler: MouseEventHandler
@@ -27,6 +28,7 @@ export const PostPreviewWindow = (props: Props) => {
     const { SetFindUserHandler } = SetFindUser()
     const [post, setPost] = useState(null)
     const { DeletePostHandler } = DeletePost()
+    const { t } = useTranslation()
 
     useEffect(() => setSpecificPostComments([]), [])
     useEffect(() => {
@@ -58,14 +60,14 @@ export const PostPreviewWindow = (props: Props) => {
                         <Wrapper style={{ border: "none" }}>
                             <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "flex" : "none" }}
                                 onClick={() => { DeletePostHandler(SpecificPost) }}>
-                                Delete
+                                {t("post_delete")}
                             </OptionsButton>
 
                             <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "flex" : "none" }}
                                 onClick={() => setIsEditPostWindowActive(true)}>
-                                Edit
+                                {t("post_edit")}
                             </OptionsButton>
-                            <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "none" : "flex" }}>Report</OptionsButton>
+                            <OptionsButton style={{ display: SpecificPost.PostOwnerId == User._id ? "none" : "flex" }}>{t("post_report")}</OptionsButton>
                         </Wrapper>
                     }
                 />
