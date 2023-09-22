@@ -15,6 +15,7 @@ import { FetchCollections } from '../../../../services/Collections/FetchCollecti
 import { DropDownOptionsBottom } from '../../../../Components/shared/DropDownOptions'
 import { BlockUser } from '../../../../services/PeopleServices/BlockUser'
 import { OptionsButton } from '../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled'
+import { useTranslation } from 'react-i18next'
 
 
 export const PeopleProfile = () => {
@@ -29,6 +30,7 @@ export const PeopleProfile = () => {
     const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: PeopleUser._id }, 2)
     const { BlockUserHandler } = BlockUser()
     let blacklist = User.BlockedAccounts || []
+    const { t } = useTranslation()
 
     useEffect(() => {
         FetchPosts()
@@ -47,7 +49,7 @@ export const PeopleProfile = () => {
                 bottom="-40px"
                 children={
                     <Wrapper>
-                        <OptionsButton onClick={() => BlockUserHandler(PeopleUser._id)}>{blacklist.includes(PeopleUser._id) ? "UnBlock" : "Block"}</OptionsButton>
+                        <OptionsButton onClick={() => BlockUserHandler(PeopleUser._id)}>{blacklist.includes(PeopleUser._id) ? t("UnBlock") : t("Block")}</OptionsButton>
                     </Wrapper>
                 }
             />
@@ -60,7 +62,7 @@ export const PeopleProfile = () => {
                 UserDescription={PeopleUser.Description}
                 UserFollowers={PeopleUser.Followers.length || "0"}
                 ProfileButtonClick={AddOrRemoveFollowHandler}
-                ProfileButtonName={PeopleUser.Followers.includes(User._id) ? "UnFollow" : "Follow"}
+                ProfileButtonName={PeopleUser.Followers.includes(User._id) ? t("UnFollow") : t("Follow")}
             />
             <AddCollection
                 UserName={PeopleUser.UserName}

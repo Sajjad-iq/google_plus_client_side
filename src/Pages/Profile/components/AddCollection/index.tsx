@@ -7,6 +7,8 @@ import { CollectionSingleCard } from '../../../Collections/Components/Collection
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { GlobalContext } from '../../../../Context/GlobalContext'
+import Cookies from 'js-cookie'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     UserName: string
@@ -17,10 +19,12 @@ export const AddCollection = (props: Props) => {
 
     const { setSpecificCollection } = useContext(GlobalContext)
     const Navigate = useNavigate()
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
+
     return (
         <Wrapper style={{ padding: "0" }}>
 
-            <ProfileUserDescription style={{ color: Colors.Secoundry.gray, width: "fit-content" }}>{!props.IsForOthersProfiles ? `YOUR INTERESTS` : `${props.UserName.toLocaleUpperCase()} INTERESTS`}</ProfileUserDescription>
+            <ProfileUserDescription style={{ color: Colors.Secoundry.gray, width: "fit-content" }}>{!props.IsForOthersProfiles ? currentLanguageCode === "ar" ? "اهتماماتك" : "YOUR INTERESTS" : ` ${currentLanguageCode === "ar" ? `${props.UserName.toLocaleUpperCase()} اهتمامات ` : `${props.UserName.toLocaleUpperCase()} INTERESTS`}`}</ProfileUserDescription>
 
             <CollectionsCardWrapper>
 

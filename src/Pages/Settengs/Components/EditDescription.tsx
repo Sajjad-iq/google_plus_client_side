@@ -3,6 +3,7 @@ import { Column } from '../../../Components/shared/Column.styled'
 import { ChangeDescriptionHandler } from '../../../services/SettingsServices/ChangeDescriptionHandler'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { TextField } from '../../../Components/common/TextField.styled'
+import { useTranslation } from 'react-i18next'
 
 export const EditDescription = () => {
     const { OnDescriptionChange, value } = ChangeDescriptionHandler()
@@ -10,6 +11,7 @@ export const EditDescription = () => {
 
     const DescriptionRef = useRef<any>()
     const { User } = useContext(GlobalContext)
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (DescriptionRef.current) {
@@ -33,7 +35,7 @@ export const EditDescription = () => {
     return (
 
         <Column width='100%' padding='0' align='center'>
-            <TextField ref={DescriptionRef} IsValidValue={true} onChange={OnDescriptionChange} placeholder="Write something.."
+            <TextField ref={DescriptionRef} IsValidValue={true} onChange={OnDescriptionChange} placeholder={t("post_writeSomething")}
 
             />
         </Column>

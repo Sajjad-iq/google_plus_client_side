@@ -5,6 +5,7 @@ import { Column } from '../../../Components/shared/Column.styled'
 import { RedFlag } from '../../../Components/shared/RedFlag'
 import { GlobalContext } from '../../../Context/GlobalContext'
 import { ChangeUserNameHandler } from '../../../services/SettingsServices/ChangeUserNameHandler'
+import { useTranslation } from 'react-i18next'
 
 export const EditUserNameAndFamilyName = () => {
 
@@ -13,6 +14,7 @@ export const EditUserNameAndFamilyName = () => {
     const { User } = useContext(GlobalContext)
     const UserNameRef = useRef<any>()
     const FamilyNameRef = useRef<any>()
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (UserNameRef.current && FamilyNameRef.current) {
@@ -24,8 +26,8 @@ export const EditUserNameAndFamilyName = () => {
     return (
         <Column width='100%' padding='0' align='flex-start'>
             <FlexSection >
-                <Input ref={UserNameRef} name="user-name" IsValidValue={IsUserNameValid} onChange={OnUserNameChange} placeholder="User Name" required />
-                <Input ref={FamilyNameRef} name="family-name" IsValidValue={IsFamilyNameValid} onChange={OnFamilyNameChange} placeholder="Family Name" required />
+                <Input ref={UserNameRef} name="user-name" IsValidValue={IsUserNameValid} onChange={OnUserNameChange} placeholder={t("userName")} required />
+                <Input ref={FamilyNameRef} name="family-name" IsValidValue={IsFamilyNameValid} onChange={OnFamilyNameChange} placeholder={t("familyName")} required />
             </FlexSection>
 
             <RedFlag RedFlagMessage="Make sure adding a valid name" display={IsUserNameValid && IsFamilyNameValid ? "none" : "flex"} />

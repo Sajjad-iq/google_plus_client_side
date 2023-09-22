@@ -6,6 +6,7 @@ import { SetFindUser } from "../../../../services/PeopleServices/SetFindUser"
 import { CardsWrapper } from "../../../People/Components/PeopleList/styled/CardsWrapper"
 import { Header } from "../../../People/Components/PeopleList/styled/Header.styled"
 import { More } from "../../../People/Components/PeopleList/styled/More.styled"
+import { useTranslation } from "react-i18next"
 
 
 interface Props {
@@ -16,14 +17,15 @@ export const SpecialUsers = (props: Props) => {
 
     const { SetFindUserHandler } = SetFindUser()
     const Navigate = useNavigate()
+    const { t } = useTranslation()
 
 
     return (
         <Wrapper style={{ display: props.UsersResponse.length !== 0 ? "flex" : "none", background: "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >Suggested People & Pages</Header>
-                <More onClick={() => Navigate("/People/")}>More</More>
+                <Header >{t("SuggestedPeople&Pages")}</Header>
+                <More onClick={() => Navigate("/People/")}>{t("MORE")}</More>
             </Row>
 
             <CardsWrapper style={{ minHeight: "auto" }}>

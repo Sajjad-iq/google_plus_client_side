@@ -3,29 +3,32 @@ import { PageName } from './styled/PageName.styled'
 import { BorderSection } from './styled/BorderSection.styled'
 import { Wrapper } from './styled/Wrapper'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const LogoAndPage = () => {
 
     const location = useLocation();
+    const { t } = useTranslation()
 
     const PathName = () => {
+
         switch (location.pathname) {
             case "/":
-                return "Home"
+                return t("nav_HOME")
             case "/Profile":
-                return "Profile"
+                return t("Aside_Profile")
             case "/People":
-                return "People"
+                return t("Aside_People")
             case "/People/Profile":
-                return "People"
+                return t("Aside_People")
             case "/Notifications":
-                return "Notifications"
+                return t("nav_Notifications")
             case "/Settings":
-                return "Settings"
+                return t("Aside_Settings")
             case "/Collections":
-                return "Collections"
+                return t("nav_Collections")
             case "/Communities":
-                return "Communities"
+                return t("nav_Communities")
             default:
                 return ""
         }
@@ -34,7 +37,7 @@ export const LogoAndPage = () => {
     return (
         <Wrapper>
             <BorderSection borderLeft='unset'>
-                <LOGO>Google +</LOGO>
+                <LOGO>{t("GooglePlus")}</LOGO>
             </BorderSection>
 
             <BorderSection borderLeft='1px solid white'>

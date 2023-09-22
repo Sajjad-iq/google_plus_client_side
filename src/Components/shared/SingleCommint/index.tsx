@@ -18,6 +18,7 @@ import { Colors } from '../../../assets/Colors'
 import { CommentButton } from './styled/CommentButton.styled'
 import { OptionsWindow } from './Components/OptionsWindow'
 import { PostImg } from '../Post/styled/PostImg.styled'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     CreatedAt: string
@@ -33,6 +34,7 @@ export const SingleComment = (props: Props) => {
     const ref = useRef<any>(null)
     const { Textfield, TextChange, SubmitCommentHandler, isLoading } = EditComment(props.data)
     const [IsOptionsWindowActive, setIsOptionsWindowActive] = useState(false)
+    const { t } = useTranslation()
 
     const resizeTextArea = () => {
         if (IsEditCommentWindowActive) {
@@ -86,7 +88,7 @@ export const SingleComment = (props: Props) => {
                                     setIsEditCommentWindowActive(!IsEditCommentWindowActive)
                                     SubmitCommentHandler()
                                 }}
-                                    ButtonName='Save'
+                                    ButtonName={t("save")}
                                     IsLoading={isLoading}
                                 />
                             </Row>

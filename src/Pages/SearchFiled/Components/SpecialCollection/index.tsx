@@ -7,6 +7,7 @@ import { CollectionsCardWrapper } from '../../../Collections/styled/CollectionsC
 import { useNavigate } from 'react-router-dom'
 import { CollectionSingleCard } from '../../../Collections/Components/CollectionSingleCard'
 import { GlobalContext } from '../../../../Context/GlobalContext'
+import { useTranslation } from 'react-i18next'
 
 
 interface Props {
@@ -16,13 +17,14 @@ export const SpecialCollection = (props: Props) => {
 
     const { setSpecificCollection } = useContext(GlobalContext)
     const Navigate = useNavigate()
+    const { t } = useTranslation()
 
     return (
         <Column width='100%' padding='0' align='center' style={{ display: props.CollectionsResponse.length !== 0 ? "flex" : "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >Special Collections</Header>
-                <More onClick={() => Navigate("/Collections")}>More</More>
+                <Header >{t("specialCollections")}</Header>
+                <More onClick={() => Navigate("/Collections")}>{t("MORE")}</More>
             </Row>
 
             <CollectionsCardWrapper >

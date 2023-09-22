@@ -16,6 +16,7 @@ import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Colors } from "../../../assets/Colors"
 import { useTranslation } from "react-i18next"
+import Cookies from "js-cookie"
 
 
 interface Props {
@@ -40,6 +41,7 @@ export const Post = (props: Props) => {
 
     const DateCalculator = DateCalculate(props.CreatedAt)
     const { t } = useTranslation()
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
 
     return (
         <PostWrapper IsForPreview={props.IsForPreviewWindow}>
@@ -53,7 +55,7 @@ export const Post = (props: Props) => {
 
                         <PostState style={{ color: props.PostState === "Collections" ? Colors.Secoundry.Cyan : Colors.Primary.SoftBlack }}
                         >
-                            {props.PostState === "Collections" ? props.CollectionName : "Public"}
+                            {props.PostState === "Collections" ? props.CollectionName : currentLanguageCode === "ar" ? "عام" : "Public"}
                         </PostState>
                     </Row>
                 </Row>

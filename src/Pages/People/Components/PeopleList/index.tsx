@@ -11,6 +11,7 @@ import { CardsWrapper } from './styled/CardsWrapper'
 import { FindUserDef, GlobalContext } from '../../../../Context/GlobalContext'
 import { More } from './styled/More.styled'
 import { Observing, seeMore } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 export const PeopleList = () => {
 
@@ -21,6 +22,7 @@ export const PeopleList = () => {
     const { FetchAllUsersHandler, StopFetching, Loading } = FetchAllUsers(UsersCount, setResponse, Response, FindMoreFollowing)
     const BottomRef = useRef<any>()
     const { SetFindUserHandler } = SetFindUser()
+    const { t } = useTranslation()
 
     useObserver(BottomRef, () => Observing(Loading, StopFetching, FindMoreFollowing, setUsersCount, UsersCount, SelectedButton), Loading)
 
@@ -40,8 +42,8 @@ export const PeopleList = () => {
         <Wrapper >
 
             <Row width='100%' padding='0' align='space-between' style={{ margin: SelectedButton === 2 ? "0" : "10px 0 20px 0" }}>
-                <Header >{SelectedButton === 0 ? 'Suggestions for you' : SelectedButton === 1 ? `Following  ${User.Following.length}` : ''}</Header>
-                <More style={{ display: !FindMoreFollowing && SelectedButton === 1 ? "flex" : "none" }} onClick={() => seeMore(setFindMoreFollowing, setResponse)}>More</More>
+                <Header >{SelectedButton === 0 ? t("Suggestions_for_you") : SelectedButton === 1 ? `${t("Followers")}  ${User.Following.length}` : ''}</Header>
+                <More style={{ display: !FindMoreFollowing && SelectedButton === 1 ? "flex" : "none" }} onClick={() => seeMore(setFindMoreFollowing, setResponse)}>{t("MORE")}</More>
             </Row>
 
 

@@ -5,11 +5,11 @@ import { Colors } from "../../../../assets/Colors";
 export const OptionsButton = styled.button`
 background: none;
 color: ${Colors.Secoundry.Cyan};
-padding:5px 10px;
+padding:2px 30px;
 display: flex;
-justify-content: flex-start;
+justify-content: center;
 align-items: center;
-width:100px;
+width:fit-content;
 border:none;
 font-family: 'Roboto', sans-serif;
 font-weight: 600;

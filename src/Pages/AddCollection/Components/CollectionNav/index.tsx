@@ -4,6 +4,7 @@ import { BackButton } from '../../../../Components/shared/BackButton'
 import { LoadingButton } from '../../../../Components/shared/LoadingButton'
 import { Row } from '../../../../Components/shared/Row.styled'
 import { CollectionsNavWrapper } from '../../styled/CollectionsNavWrapper'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   onSubmit: any
@@ -13,6 +14,7 @@ interface Props {
 export const CollectionNav = (props: Props) => {
 
   const Navigate = useNavigate()
+  const { t } = useTranslation()
 
   return (
     <CollectionsNavWrapper >
@@ -25,7 +27,7 @@ export const CollectionNav = (props: Props) => {
       <LoadingButton
         IsLoading={props.loading}
         onClick={props.onSubmit}
-        ButtonName='SAVE'
+        ButtonName={t("save")}
         Style={{ background: "none", padding: "0", fontSize: "0.8rem" }}
       />
     </CollectionsNavWrapper>

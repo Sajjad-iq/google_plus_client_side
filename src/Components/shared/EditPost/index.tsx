@@ -14,6 +14,7 @@ import { LoadingButton } from '../LoadingButton'
 import { Row } from '../Row.styled'
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { imagesConvertToBase64 } from '../../../helpers/imagesConvertToBase64'
+import { useTranslation } from 'react-i18next'
 
 
 interface Props {
@@ -28,6 +29,7 @@ export const EditPost = (props: Props) => {
     const [isUrlScreenActive, setUrlScreenActive] = useState(false)
     const TextAreaRef = useRef<HTMLTextAreaElement>(null)
     const { TextChange, setPhoto, setUrl, Textfield, Url, Photo, isLoading, SubmitPostHandler } = EditPostServices(props.data, props.CloseFunction)
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (TextAreaRef.current) {
@@ -61,7 +63,7 @@ export const EditPost = (props: Props) => {
                         <AddUrl OpenAddUrlScreen={() => setUrlScreenActive(!isUrlScreenActive)} />
                     </Row>
 
-                    <LoadingButton Style={{}} onClick={SubmitPostHandler} ButtonName="save" IsLoading={isLoading} />
+                    <LoadingButton Style={{}} onClick={SubmitPostHandler} ButtonName={t("save")} IsLoading={isLoading} />
                 </Row>
 
             </PostBody>

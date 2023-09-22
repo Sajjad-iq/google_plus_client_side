@@ -3,7 +3,10 @@ import { Button } from '../../../../../../Components/common/Button.styled'
 import checkMark from '../../../../../../assets/ICONS/checkmark-double-svgrepo-com.svg'
 import { OptionButtonAndOptionsWindow } from '../../../../../../Components/shared/DropDownOptions/Components/OptionButtonAndOptionsWindow'
 import { OptionsButton } from '../../../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled'
+import { useTranslation } from 'react-i18next'
 export const NotificationsButtons = () => {
+    const { t } = useTranslation()
+
     return (
         <Row width='fit-content' padding='0 15px' align='center' style={{ background: "transparent" }}>
 
@@ -11,7 +14,7 @@ export const NotificationsButtons = () => {
 
             <OptionButtonAndOptionsWindow
                 children={
-                    <OptionsButton>Clear All</OptionsButton>
+                    <OptionsButton>{t("clearAll")}</OptionsButton>
                 }
                 bottom='-40px'
             />

@@ -26,7 +26,7 @@ export const SearchPage = () => {
         if (SearchWord !== "") {
             const timer = setTimeout(() => {
                 FindUserHandler()
-            }, 800);
+            }, 1000);
             return () => clearTimeout(timer);
         }
     }, [SearchWord]);

@@ -13,6 +13,7 @@ import { Wrapper } from './styled/Wrapper'
 import { GlobalContext } from '../../Context/GlobalContext'
 import { EditTheEmail } from './Components/EditTheEmail'
 import { TextLink } from '../../Components/shared/TextLink'
+import { useTranslation } from 'react-i18next'
 
 
 export const Settings = () => {
@@ -21,6 +22,7 @@ export const Settings = () => {
     const { Save } = SaveChanges(setIsLoading)
     const Navigate = useNavigate()
     const { setUser } = useContext(GlobalContext)
+    const { t } = useTranslation()
 
     const LogOut = async () => {
         setUser({})
@@ -37,12 +39,12 @@ export const Settings = () => {
                     <EditUserNameAndFamilyName />
                     <EditDescription />
                     <EditTheEmail />
-                    <TextLink To={"/ChangePassword"} Text={"Change the password?"} />
+                    <TextLink To={"/ChangePassword"} Text={t("ChangePass")} />
                 </Column>
 
                 <Row width='100%' padding='10px 0' align='space-between' style={{ alignSelf: "flex-end" }}>
-                    <CyanButton onClick={LogOut} >Log Out</CyanButton>
-                    <LoadingButton Style={{}} onClick={Save} ButtonName="Save" IsLoading={IsLoading} />
+                    <CyanButton onClick={LogOut} >{t("LogOut")}</CyanButton>
+                    <LoadingButton Style={{}} onClick={Save} ButtonName={t("save")} IsLoading={IsLoading} />
                 </Row>
             </SettingsWrapper>
         </Wrapper>

@@ -5,6 +5,7 @@ import { CheckBox } from '../CheckBox'
 import { Column } from '../Column.styled'
 import { RedFlag } from '../RedFlag'
 import { AuthContext } from '../../../Context/AuthContext'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     OnPasswordChange: ChangeEventHandler<HTMLInputElement>
@@ -20,6 +21,7 @@ export const PasswordInputs = (props: Props) => {
 
     const [IsChecked, setIsChecked] = useState(false)
     const { IsAllSectionsFilledText } = useContext(AuthContext)
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (props.UserConformPasswordInputValue == props.UserPasswordInputValue) props.setIsConformPasswordValid(true)
@@ -35,19 +37,19 @@ export const PasswordInputs = (props: Props) => {
                     name='password'
                     IsValidValue={props.IsConformPasswordValid}
                     type={IsChecked ? "text" : "password"}
-                    placeholder="Password" required
+                    placeholder={t("Pass")} required
                 />
                 <Input
                     onChange={props.OnConformPasswordChange}
                     name='conform password'
                     IsValidValue={props.IsConformPasswordValid}
                     type={IsChecked ? "text" : "password"}
-                    placeholder="Confirm Password" required
+                    placeholder={t("RePass")} required
                 />
             </FlexSection>
 
 
-            <RedFlag display={props.IsConformPasswordValid ? "none" : "flex"} RedFlagMessage={'Make sure your add valid Password'} />
+            <RedFlag display={props.IsConformPasswordValid ? "none" : "flex"} RedFlagMessage={t("validPass")} />
             <RedFlag display={props.IsAllSectionsFilled ? "none" : "flex"} RedFlagMessage={IsAllSectionsFilledText} />
             <CheckBox IsChecked={IsChecked} setIsChecked={setIsChecked} />
         </Column>

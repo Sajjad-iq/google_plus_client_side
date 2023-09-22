@@ -13,6 +13,7 @@ import CoverIMG from '../../../../assets/ICONS/Photos/marguerite-729510__340.web
 import { DropDownOptionsBottom } from "../../../../Components/shared/DropDownOptions"
 import { DeleteCollection } from "../../../../services/Collections/DeleteCollection"
 import { OptionsButton } from "../../../../Components/shared/DropDownOptions/styled/OptionsButton.styled"
+import { useTranslation } from "react-i18next"
 
 
 interface Props {
@@ -25,6 +26,7 @@ export const CollectionPreView = (props: Props) => {
     const { onClickOnPost } = PreviewThePost()
     const { AddFollowToCollectionHandler, CollectionsFollowLoading } = FollowCollection()
     const { DeleteCollectionHandler } = DeleteCollection()
+    const { t } = useTranslation()
 
 
     useEffect(() => {
@@ -40,7 +42,7 @@ export const CollectionPreView = (props: Props) => {
                 bottom="-40px"
                 children={
                     User._id === SpecificCollection.CollectionOwnerId ?
-                        <OptionsButton onClick={DeleteCollectionHandler} >Delete</OptionsButton>
+                        <OptionsButton onClick={DeleteCollectionHandler} >{t("post_delete")}</OptionsButton>
                         :
                         null
                 }
@@ -65,7 +67,7 @@ export const CollectionPreView = (props: Props) => {
                         UserDescription={SpecificCollection.CollectionTitle}
                         UserFollowers={SpecificCollection.CollectionFollowing.length}
                         ProfileButtonClick={() => props.setIsActive(true)}
-                        ProfileButtonName={"Edit"}
+                        ProfileButtonName={t("post_edit")}
                     />
                     :
                     <UserInfo
@@ -76,7 +78,7 @@ export const CollectionPreView = (props: Props) => {
                         UserDescription={SpecificCollection.CollectionTitle}
                         UserFollowers={SpecificCollection.CollectionFollowing.length}
                         ProfileButtonClick={AddFollowToCollectionHandler}
-                        ProfileButtonName={SpecificCollection.CollectionFollowing.includes(User._id) ? "UN FOLLOW" : "FOLLOW"}
+                        ProfileButtonName={SpecificCollection.CollectionFollowing.includes(User._id) ? t("UnFollow") : t("Follow")}
                     />
             }
 

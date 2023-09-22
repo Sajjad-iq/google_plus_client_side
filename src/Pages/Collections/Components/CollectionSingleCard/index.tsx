@@ -55,7 +55,7 @@ export const CollectionSingleCard = (props: Props) => {
                         <LoadingButton
                             IsLoading={false}
                             onClick={() => ""}
-                            ButtonName={props.Followers.includes(User._id) ? currentLanguageCode === "ar" ? "ألغي المتابعة" : "UN FOLLOW" : currentLanguageCode === "ar" ? "تابع" : "FOLLOW"}
+                            ButtonName={props.Followers.includes(User._id) ? currentLanguageCode === "ar" ? "الغاء المتابعة" : "UN FOLLOW" : currentLanguageCode === "ar" ? "متابعة" : "FOLLOW"}
                             Style={{ background: "none", padding: "0", fontSize: "0.8rem" }}
                         />
                 }

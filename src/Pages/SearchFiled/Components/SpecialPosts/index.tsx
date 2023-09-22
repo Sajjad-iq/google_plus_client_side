@@ -5,6 +5,7 @@ import { More } from '../../../People/Components/PeopleList/styled/More.styled'
 import { Header } from '../../../People/Components/PeopleList/styled/Header.styled'
 import { PreviewThePost } from '../../../../services/PostsServices/PreviewThePost'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 
 interface Props {
@@ -14,14 +15,15 @@ export const SpecialPosts = (props: Props) => {
 
     const { onClickOnPost } = PreviewThePost()
     const Navigate = useNavigate()
+    const { t } = useTranslation()
 
 
     return (
         <Wrapper style={{ display: props.Response.length !== 0 ? "flex" : "none", background: "none" }}>
 
             <Row width='100%' padding='10px' align='space-between' style={{ background: 'none' }}>
-                <Header >Recommended for you</Header>
-                <More onClick={() => Navigate("/")}>More</More>
+                <Header >{t("Suggestions_for_you")}</Header>
+                <More onClick={() => Navigate("/")}>{t("MORE")}</More>
             </Row>
 
             <Posts

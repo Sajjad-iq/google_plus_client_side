@@ -16,6 +16,7 @@ import { FetchCollections } from "../../services/Collections/FetchCollections"
 import { Colors } from "../../assets/Colors"
 import { DropDownOptionsBottom } from "../../Components/shared/DropDownOptions"
 import { OptionsButton } from "../../Components/shared/DropDownOptions/styled/OptionsButton.styled"
+import { useTranslation } from "react-i18next"
 
 
 function Profile() {
@@ -27,6 +28,7 @@ function Profile() {
     const BottomRef = useRef<any>()
     const { FetchPosts, StopFetching, Loading, Response } = FetchPostsHandler(PostsCount, { PostOwnerId: User._id })
     const { FetchCollectionsHandler, CollectionsResponse } = FetchCollections({ CollectionOwnerId: User._id }, 2)
+    const { t } = useTranslation()
 
     const observer = useObserver(BottomRef, () => !Loading && !StopFetching ? setPostsCount(PostsCount + 5) : null, Loading)
 
@@ -48,9 +50,7 @@ function Profile() {
                 for={"profile"}
                 bottom="-40px"
                 children={
-                    <Wrapper>
-                        <OptionsButton >Profile URL</OptionsButton>
-                    </Wrapper>
+                    <OptionsButton >{t("ProfileUrl")}</OptionsButton>
                 }
             />
             <RedPenButton />
@@ -64,7 +64,7 @@ function Profile() {
                 UserDescription={User.Description}
                 UserFollowers={User.Followers.length || "0"}
                 ProfileButtonClick={() => Navigate("/Settings")}
-                ProfileButtonName={"Edit Profile"}
+                ProfileButtonName={t("post_edit")}
             />
             <AddCollection
                 UserName=""

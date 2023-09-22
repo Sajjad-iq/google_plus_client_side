@@ -6,6 +6,7 @@ import { BackButton } from "../BackButton"
 import { Row } from "../Row.styled"
 import { OptionButtonAndOptionsWindow } from "./Components/OptionButtonAndOptionsWindow"
 import { Colors } from "../../../assets/Colors"
+import Cookies from "js-cookie"
 
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
 export const DropDownOptionsBottom = (props: Props) => {
 
     const Navigate = useNavigate()
+    const currentLanguageCode = Cookies.get('i18next') || 'ar'
 
     return (
         props.for === "profile" ?
@@ -24,7 +26,7 @@ export const DropDownOptionsBottom = (props: Props) => {
                 <BackButton onClick={() => Navigate("/")} color={"white"} />
 
                 <Row width='fit-content' padding='0' align='center' style={{ background: "transparent", border: "none" }}>
-                    <H2 style={{ fontSize: "0.9rem", color: "white", marginRight: "30px" }}>ABOUT</H2>
+                    <H2 style={{ fontSize: "0.9rem", color: "white", marginRight: "30px" }}>{currentLanguageCode === 'ar' ? "حول" : "ABOUT"}</H2>
                     <OptionButtonAndOptionsWindow
                         bottom={props.bottom}
                         children={props.children}

@@ -7,6 +7,7 @@ import { SubmitSection } from "../../Components/shared/SubmitSection"
 import { ChangePasswordHandler } from "../../services/SettingsServices/ChangePasswordHandler"
 import { PasswordInputs } from "../../Components/shared/PasswordInputs"
 import { VerifyUsers } from "../../services/SettingsServices/VerifyUser"
+import { useTranslation } from "react-i18next"
 
 export const ChangePassword = () => {
 
@@ -14,12 +15,14 @@ export const ChangePassword = () => {
     const [verifyInputValue, setVerifyInputValue] = useState("")
     const { ConformPasswordInputValue, PasswordInputValue, setIsPasswordValid, OnPasswordChange, OnConformPasswordChange, onSubmit, IsPasswordValid, IsAllSectionsFilled, IsChangeLoading } = ChangePasswordHandler()
     const { VerifyUser, IsLoading } = VerifyUsers(setVerify)
+    const { t } = useTranslation()
+
     return (
 
         verify ?
             <SignInWrapper>
                 <SignInSection>
-                    <Label ForSignIn={true} Header='Enter new password' />
+                    <Label ForSignIn={true} Header={t("NewPass")} />
                     <PasswordInputs
                         OnPasswordChange={OnPasswordChange}
                         OnConformPasswordChange={OnConformPasswordChange}
@@ -31,9 +34,9 @@ export const ChangePassword = () => {
                     />
                     <SubmitSection
                         Loading={IsChangeLoading}
-                        SubmitButtonName='Submit'
+                        SubmitButtonName={t("submit")}
                         SubmitButtonClick={onSubmit}
-                        TextLinkName={"Get Back ?"}
+                        TextLinkName={t("getBack")}
                         TextLinkPath={'/Settings'}
                     />
                 </SignInSection >
@@ -42,13 +45,13 @@ export const ChangePassword = () => {
             :
             <SignInWrapper>
                 <SignInSection>
-                    <Label ForSignIn={true} Header='Verify your identity' />
-                    < Input name="password" type={"password"} IsValidValue={true} onChange={(e) => setVerifyInputValue(e.target.value)} placeholder="Enter your password" required />
+                    <Label ForSignIn={true} Header={t("verifyYourIde")} />
+                    < Input name="password" type={"password"} IsValidValue={true} onChange={(e) => setVerifyInputValue(e.target.value)} placeholder={t("Pass")} required />
                     <SubmitSection
                         Loading={IsLoading}
-                        SubmitButtonName='Submit'
+                        SubmitButtonName={t("submit")}
                         SubmitButtonClick={() => VerifyUser(verifyInputValue)}
-                        TextLinkName={"Get Back ?"}
+                        TextLinkName={t("getBack")}
                         TextLinkPath={'/Settings'}
                     />
                 </SignInSection >
