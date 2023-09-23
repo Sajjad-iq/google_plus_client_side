@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { SignInSection } from '../../../../Components/common/SignInSection.styled'
 import { SignInWrapper } from '../../../../Components/common/SignInWrapper.styled'
 import { Label } from '../../../../Components/shared/Label'
@@ -8,17 +9,18 @@ import { SignInSubmitHandler } from '../../../../services/SignInServices/SignInS
 export const SignIn = () => {
 
     const { SignInSubmit, isLoading } = SignInSubmitHandler()
+    const { t } = useTranslation()
 
     return (
         <SignInWrapper>
             <SignInSection>
-                <Label ForSignIn={true} Header='SignIn with your account' />
+                <Label ForSignIn={true} Header={t("SignInWithYourAccount")} />
                 <AddEmailAndPassword />
                 <SubmitSection
                     Loading={isLoading}
-                    SubmitButtonName='Submit'
+                    SubmitButtonName={t("LogIn")}
                     SubmitButtonClick={SignInSubmit}
-                    TextLinkName={"You don't have an account?"}
+                    TextLinkName={t("YouDon'tHaveAnAccount")}
                     TextLinkPath={'/SignUp'}
                 />
             </SignInSection>

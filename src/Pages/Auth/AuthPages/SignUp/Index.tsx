@@ -14,6 +14,7 @@ import { SubmitSection } from '../../../../Components/shared/SubmitSection'
 import { Label } from '../../../../Components/shared/Label'
 import { Wrapper } from '../../../../Components/common/Wrapper'
 import { UserNameInput } from '../../../../Components/shared/UserNameInputs'
+import { useTranslation } from 'react-i18next'
 
 export const SignUp = () => {
 
@@ -24,13 +25,14 @@ export const SignUp = () => {
   const { OnPasswordChange } = AddPasswordHandler()
   const { OnConformPasswordChange } = AddConformPasswordHandler()
   const { IsAllSectionsFilled, IsConformPasswordValid, UserConformPasswordInputValue, UserPasswordInputValue, setIsConformPasswordValid } = useContext(AuthContext)
+  const { t } = useTranslation()
 
 
   return (
     <Wrapper>
       <SignUpSection>
 
-        <Label ForSignIn={false} Header='Create Your Account' />
+        <Label ForSignIn={false} Header={t("CreateAnAccount")} />
 
         <UserNameInput
           OnUserNameChange={OnUserNameChange}
@@ -57,9 +59,9 @@ export const SignUp = () => {
 
         <SubmitSection
           Loading={isLoading}
-          SubmitButtonName='Submit'
+          SubmitButtonName={t("CreateAnAccount")}
           SubmitButtonClick={SignUpSubmit}
-          TextLinkName={"SignIn Instead"}
+          TextLinkName={t("LogInInstead")}
           TextLinkPath={'/SignIn'}
         />
 

@@ -48,9 +48,14 @@
   "ChangePass": "تغيير الرمز السري ؟",
   "ShowPass": "اضهار الرمز السري",
   "LogOut": "تسجيل الخروج",
+  "LogIn": "تسجيل الدخول",
+  "LogInInstead": "سجل الدخول بدلاً من ذالك",
   "GooglePlus": "جوجل بلس",
   "clearAll": "مسح الجميع",
   "search": "بحث",
   "specialCollections": "مختارات مميزة",
+  "SignInWithYourAccount": "سجل الدخول بحسابك",
+  "CreateAnAccount": "انشئ حساباً",
+  "YouDon'tHaveAnAccount": "ليس لديك حساب ؟",
   "SuggestedPeople&Pages": "اشخاص وصفحات مقترحة"
 }

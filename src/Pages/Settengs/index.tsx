@@ -14,6 +14,7 @@ import { GlobalContext } from '../../Context/GlobalContext'
 import { EditTheEmail } from './Components/EditTheEmail'
 import { TextLink } from '../../Components/shared/TextLink'
 import { useTranslation } from 'react-i18next'
+import { ChangeLang } from './Components/ChangeLang'
 
 
 export const Settings = () => {
@@ -40,6 +41,7 @@ export const Settings = () => {
                     <EditDescription />
                     <EditTheEmail />
                     <TextLink To={"/ChangePassword"} Text={t("ChangePass")} />
+                    <ChangeLang />
                 </Column>
 
                 <Row width='100%' padding='10px 0' align='space-between' style={{ alignSelf: "flex-end" }}>
