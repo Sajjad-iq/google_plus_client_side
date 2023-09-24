@@ -26,6 +26,7 @@
   "UnFollow": "الغاء المتابعة",
   "Followers": "متابع",
   "collations_edit": "تعديل المختارة",
+  "collations_add": "إضافة مختارة",
   "save": "حفظ",
   "title": "العنوان",
   "tag": "وصف",
@@ -57,5 +58,8 @@
   "SignInWithYourAccount": "سجل الدخول بحسابك",
   "CreateAnAccount": "انشئ حساباً",
   "YouDon'tHaveAnAccount": "ليس لديك حساب ؟",
+  "Language": "اللغة",
+  "arabic": "العربية",
+  "english": "الأنجليزية",
   "SuggestedPeople&Pages": "اشخاص وصفحات مقترحة"
 }
